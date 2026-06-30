@@ -3,6 +3,9 @@
 import argparse
 from pathlib import Path
 
+import matplotlib
+
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 from npy_database import DEFAULT_RECORDING_DIR, load_stream
@@ -21,7 +24,7 @@ def relative_time(values):
     return values - values[0]
 
 
-def plot_synced_measurements(data, session_dir):
+def plot_synced_measurements(data, session_dir, output_path):
     time = relative_time(data["carrier_sync_time"])
     sats = sorted(set(data["sat"]))
 
@@ -51,7 +54,8 @@ def plot_synced_measurements(data, session_dir):
     axes[2].grid(True, alpha=0.3)
 
     plt.tight_layout()
-    plt.show()
+    fig.savefig(output_path, dpi=160)
+    plt.close(fig)
 
 
 def print_summary(data, session_dir):
@@ -80,6 +84,10 @@ def parse_args():
         default=DEFAULT_RECORDING_DIR,
         help="base recordings directory used when session is omitted",
     )
+    parser.add_argument(
+        "--output",
+        help="output image path; defaults to <session>/synced_measurements.png",
+    )
     return parser.parse_args()
 
 
@@ -91,8 +99,11 @@ def main():
     if data is None or len(data) == 0:
         raise SystemExit(f"No synced_measurements data found in {session_dir}")
 
+    output_path = Path(args.output) if args.output else session_dir / "synced_measurements.png"
+
     print_summary(data, session_dir)
-    plot_synced_measurements(data, session_dir)
+    plot_synced_measurements(data, session_dir, output_path)
+    print(f"Saved plot: {output_path}")
 
 
 if __name__ == "__main__":
