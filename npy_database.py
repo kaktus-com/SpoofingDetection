@@ -10,30 +10,39 @@ import numpy as np
 DEFAULT_RECORDING_DIR = Path("recordings")
 
 
-GPS_RAWX_DTYPE = np.dtype([
-    ("host_time", "f8"),
-    ("gps_time", "f8"),
-    ("sat", "U24"),
-    ("carrier", "f8"),
-    ("locktime", "f8"),
-    ("pr_valid", "?"),
-    ("cp_valid", "?"),
-    ("trk_stat", "i4"),
-])
-
-ATTITUDE_DTYPE = np.dtype([
-    ("host_time", "f8"),
-    ("roll", "f8"),
-    ("pitch", "f8"),
-    ("yaw", "f8"),
-])
-
 DETRENDED_CARRIER_DTYPE = np.dtype([
     ("gps_time", "f8"),
     ("plot_time", "f8"),
     ("sat", "U24"),
     ("carrier", "f8"),
     ("detrended", "f8"),
+])
+
+SYNCED_MEASUREMENT_DTYPE = np.dtype([
+    ("gps_time", "f8"),
+    ("carrier_sync_time", "f8"),
+    ("imu_sync_time", "f8"),
+    ("time_offset", "f8"),
+    ("sat", "U24"),
+    ("carrier", "f8"),
+    ("detrended", "f8"),
+    ("roll", "f8"),
+    ("pitch", "f8"),
+    ("yaw", "f8"),
+    ("mavlink_time_boot_ms", "i8"),
+])
+
+DETECTION_EVENT_DTYPE = np.dtype([
+    ("event_time", "f8"),
+    ("gps_time", "f8"),
+    ("sat", "U24"),
+    ("detrended", "f8"),
+    ("abs_detrended", "f8"),
+    ("roll", "f8"),
+    ("pitch", "f8"),
+    ("yaw", "f8"),
+    ("time_offset", "f8"),
+    ("reason", "U80"),
 ])
 
 
@@ -44,40 +53,6 @@ def session_directory(base_dir=DEFAULT_RECORDING_DIR):
     return path
 
 
-def _none_to_nan(value):
-    return np.nan if value is None else value
-
-
-def _none_to_bool(value):
-    return False if value is None else bool(value)
-
-
-def _none_to_int(value):
-    return -1 if value is None else int(value)
-
-
-def gps_rawx_row(sample):
-    return (
-        sample["host_time"],
-        sample["time"],
-        sample["sat"],
-        sample["carrier"],
-        _none_to_nan(sample["locktime"]),
-        _none_to_bool(sample["pr_valid"]),
-        _none_to_bool(sample["cp_valid"]),
-        _none_to_int(sample["trk_stat"]),
-    )
-
-
-def attitude_row(sample):
-    return (
-        sample["host_time"],
-        sample["roll"],
-        sample["pitch"],
-        sample["yaw"],
-    )
-
-
 def detrended_carrier_row(sample):
     return (
         sample["time"],
@@ -85,6 +60,37 @@ def detrended_carrier_row(sample):
         sample["sat"],
         sample["carrier"],
         sample["detrended"],
+    )
+
+
+def synced_measurement_row(sample):
+    return (
+        sample["gps_time"],
+        sample["carrier_sync_time"],
+        sample["imu_sync_time"],
+        sample["time_offset"],
+        sample["sat"],
+        sample["carrier"],
+        sample["detrended"],
+        sample["roll"],
+        sample["pitch"],
+        sample["yaw"],
+        sample["mavlink_time_boot_ms"],
+    )
+
+
+def detection_event_row(event):
+    return (
+        event["event_time"],
+        event["gps_time"],
+        event["sat"],
+        event["detrended"],
+        event["abs_detrended"],
+        event["roll"],
+        event["pitch"],
+        event["yaw"],
+        event["time_offset"],
+        event["reason"],
     )
 
 

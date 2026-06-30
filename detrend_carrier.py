@@ -10,6 +10,12 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 from mavlink_read import carrier_phase_samples
+from npy_database import (
+    DETRENDED_CARRIER_DTYPE,
+    NpyChunkWriter,
+    detrended_carrier_row,
+    session_directory,
+)
 
 
 WINDOW = 20
@@ -24,12 +30,12 @@ def read_carrier_phase():
         queue.put(sample)
 
 
-def detrended_carrier_phase_samples():
+def detrend_carrier_samples(carrier_samples):
     windows = defaultdict(lambda: deque(maxlen=WINDOW))
     bias_windows = defaultdict(lambda: deque(maxlen=BIAS_WINDOW))
     last_locktime = {}
 
-    for sample in carrier_phase_samples():
+    for sample in carrier_samples:
         sat = sample["sat"]
         pr_valid = sample["pr_valid"]
         cp_valid = sample["cp_valid"]
@@ -65,10 +71,18 @@ def detrended_carrier_phase_samples():
         }
 
 
+def detrended_carrier_phase_samples():
+    yield from detrend_carrier_samples(carrier_phase_samples())
+
+
 def main():
     detrended = defaultdict(lambda: deque(maxlen=MAX_POINTS))
     times = defaultdict(lambda: deque(maxlen=MAX_POINTS))
     lines = {}
+    recording_dir = session_directory()
+    writer = NpyChunkWriter(recording_dir, "detrended_carrier", DETRENDED_CARRIER_DTYPE)
+
+    print(f"Recording detrended carrier phase in {recording_dir}")
 
     Thread(target=read_carrier_phase, daemon=True).start()
 
@@ -90,6 +104,7 @@ def main():
 
             times[sat].append(time)
             detrended[sat].append(sample["detrended"])
+            writer.append(detrended_carrier_row(sample))
 
             if sat not in lines:
                 (lines[sat],) = ax.plot([], [], label=sat)
@@ -103,7 +118,10 @@ def main():
         return list(lines.values())
 
     animation = FuncAnimation(fig, update, interval=100, blit=False)
-    plt.show()
+    try:
+        plt.show()
+    finally:
+        writer.close()
 
 
 if __name__ == "__main__":

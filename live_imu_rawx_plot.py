@@ -10,10 +10,8 @@ import pyqtgraph as pg
 from pyqtgraph.Qt import QtCore, QtWidgets
 from detrend_carrier import detrended_carrier_phase_samples
 from npy_database import (
-    ATTITUDE_DTYPE,
     DETRENDED_CARRIER_DTYPE,
     NpyChunkWriter,
-    attitude_row,
     detrended_carrier_row,
     session_directory,
 )
@@ -30,7 +28,6 @@ attitude_queue = Queue(maxsize=3000)
 carrier_queue = Queue(maxsize=3000)
 stop_event = Event()
 recording_dir = session_directory()
-attitude_writer = NpyChunkWriter(recording_dir, "attitude", ATTITUDE_DTYPE)
 carrier_writer = NpyChunkWriter(
     recording_dir,
     "detrended_carrier",
@@ -70,12 +67,6 @@ def read_drone_attitude():
             "pitch": degrees(msg.pitch),
             "yaw": degrees(msg.yaw),
         })
-        attitude_writer.append(attitude_row({
-            "host_time": monotonic(),
-            "roll": degrees(msg.roll),
-            "pitch": degrees(msg.pitch),
-            "yaw": degrees(msg.yaw),
-        }))
 
 
 def read_detrended_carrier():
@@ -202,5 +193,4 @@ window.resize(1500, 950)
 window.show()
 pg.exec()
 stop_event.set()
-attitude_writer.close()
 carrier_writer.close()
