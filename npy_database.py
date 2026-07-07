@@ -10,6 +10,8 @@ import numpy as np
 
 DEFAULT_RECORDING_DIR = Path("recordings")
 DEFAULT_RECORD_FORMAT = "npy"
+DEFAULT_CSV_LAYOUT = "wide"
+DEFAULT_WIDE_SYNCED_SATS = tuple(f"0:{sat}:7" for sat in range(1, 33))
 
 
 DETRENDED_CARRIER_FIELDS = (
@@ -37,6 +39,17 @@ SYNCED_MEASUREMENT_FIELDS = (
     "sat",
     "carrier",
     "detrended",
+    "roll",
+    "pitch",
+    "yaw",
+    "mavlink_time_boot_ms",
+)
+
+WIDE_SYNCED_MEASUREMENT_BASE_FIELDS = (
+    "gps_time",
+    "carrier_sync_time",
+    "imu_sync_time",
+    "time_offset",
     "roll",
     "pitch",
     "yaw",
@@ -214,6 +227,101 @@ class CsvStreamWriter:
         self.close()
 
 
+def csv_sat_name(prefix, sat):
+    return f"{prefix}_{sat.replace(':', '_')}"
+
+
+class WideSyncedCsvWriter:
+    def __init__(
+        self,
+        session_dir,
+        stream_name,
+        satellite_ids=DEFAULT_WIDE_SYNCED_SATS,
+        flush_rows=100,
+    ):
+        self.path = Path(session_dir) / f"{stream_name}.csv"
+        self.satellite_ids = tuple(satellite_ids)
+        self.satellite_columns = {
+            sat: index
+            for index, sat in enumerate(self.satellite_ids)
+        }
+        self.flush_rows = flush_rows
+        self.rows_since_flush = 0
+        self.total_rows = 0
+        self.current_gps_time = None
+        self.current_row = None
+        self.file = self.path.open("w", newline="", encoding="utf-8")
+        self.writer = writer(self.file)
+        self.fields = (
+            WIDE_SYNCED_MEASUREMENT_BASE_FIELDS
+            + tuple(csv_sat_name("carrier", sat) for sat in self.satellite_ids)
+            + tuple(csv_sat_name("detrended", sat) for sat in self.satellite_ids)
+        )
+        self.writer.writerow(self.fields)
+        self.file.flush()
+
+    def append(self, row):
+        sample = dict(zip(SYNCED_MEASUREMENT_FIELDS, row))
+        gps_time = sample["gps_time"]
+
+        if self.current_row is None:
+            self.start_row(sample)
+        elif gps_time != self.current_gps_time:
+            self.write_current_row()
+            self.start_row(sample)
+
+        self.set_satellite_values(sample)
+
+    def start_row(self, sample):
+        self.current_gps_time = sample["gps_time"]
+        self.current_row = [
+            sample["gps_time"],
+            sample["carrier_sync_time"],
+            sample["imu_sync_time"],
+            sample["time_offset"],
+            sample["roll"],
+            sample["pitch"],
+            sample["yaw"],
+            sample["mavlink_time_boot_ms"],
+        ] + [""] * (len(self.satellite_ids) * 2)
+
+    def set_satellite_values(self, sample):
+        column = self.satellite_columns.get(sample["sat"])
+        if column is None:
+            return
+
+        base = len(WIDE_SYNCED_MEASUREMENT_BASE_FIELDS)
+        self.current_row[base + column] = sample["carrier"]
+        self.current_row[base + len(self.satellite_ids) + column] = sample["detrended"]
+
+    def write_current_row(self):
+        if self.current_row is None:
+            return
+
+        self.writer.writerow(self.current_row)
+        self.current_row = None
+        self.current_gps_time = None
+        self.rows_since_flush += 1
+        self.total_rows += 1
+        if self.rows_since_flush >= self.flush_rows:
+            self.flush()
+
+    def flush(self):
+        self.file.flush()
+        self.rows_since_flush = 0
+
+    def close(self):
+        self.write_current_row()
+        self.flush()
+        self.file.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, _exc_type, _exc, _traceback):
+        self.close()
+
+
 class NpyChunkWriter:
     def __init__(self, session_dir, stream_name, dtype, chunk_size=1000):
         self.stream_dir = Path(session_dir) / stream_name
@@ -269,10 +377,21 @@ def stream_writer(
     fields,
     dtype,
     record_format=DEFAULT_RECORD_FORMAT,
+    csv_layout=DEFAULT_CSV_LAYOUT,
     chunk_size=1000,
     flush_rows=100,
 ):
     if record_format == "csv":
+        if stream_name == "synced_measurements" and csv_layout == "wide":
+            return WideSyncedCsvWriter(
+                session_dir,
+                stream_name,
+                flush_rows=flush_rows,
+            )
+
+        if csv_layout not in ("long", "wide"):
+            raise ValueError(f"unknown CSV layout: {csv_layout}")
+
         return CsvStreamWriter(
             session_dir,
             stream_name,

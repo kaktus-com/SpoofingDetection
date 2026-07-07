@@ -11,6 +11,7 @@ from mavlink_read import DRONE_CONNECTION
 from npy_database import (
     ATTITUDE_MESSAGE_FIELDS,
     ATTITUDE_MESSAGE_DTYPE,
+    DEFAULT_CSV_LAYOUT,
     DEFAULT_RECORD_FORMAT,
     SYNCED_MEASUREMENT_FIELDS,
     SYNCED_MEASUREMENT_DTYPE,
@@ -186,6 +187,12 @@ def parse_args():
         help="number of CSV rows to buffer before flushing",
     )
     parser.add_argument(
+        "--csv-layout",
+        choices=("wide", "long"),
+        default=DEFAULT_CSV_LAYOUT,
+        help="CSV layout for synced_measurements: one row per GPS epoch or one row per satellite",
+    )
+    parser.add_argument(
         "--max-time-offset",
         type=float,
         default=DEFAULT_MAX_TIME_OFFSET,
@@ -203,6 +210,7 @@ def main():
         SYNCED_MEASUREMENT_FIELDS,
         SYNCED_MEASUREMENT_DTYPE,
         record_format=args.record_format,
+        csv_layout=args.csv_layout,
         chunk_size=args.chunk_size,
         flush_rows=args.flush_rows,
     )
@@ -212,12 +220,15 @@ def main():
         ATTITUDE_MESSAGE_FIELDS,
         ATTITUDE_MESSAGE_DTYPE,
         record_format=args.record_format,
+        csv_layout=args.csv_layout,
         chunk_size=args.chunk_size,
         flush_rows=args.flush_rows,
     )
 
     print(f"Recording synchronized measurements in {recording_dir}")
     print(f"Recording format: {args.record_format}")
+    if args.record_format == "csv":
+        print(f"Synced measurement CSV layout: {args.csv_layout}")
     print("Recording all ATTITUDE messages in attitude_messages")
     print(f"Maximum GPS/IMU time offset: {args.max_time_offset:.3f} s")
 

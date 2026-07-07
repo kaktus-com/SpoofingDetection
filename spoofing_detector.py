@@ -14,6 +14,7 @@ from mavlink_read import (
 from npy_database import (
     ATTITUDE_MESSAGE_FIELDS,
     ATTITUDE_MESSAGE_DTYPE,
+    DEFAULT_CSV_LAYOUT,
     DEFAULT_RECORD_FORMAT,
     DETECTION_EVENT_FIELDS,
     DETECTION_EVENT_DTYPE,
@@ -91,6 +92,12 @@ def parse_args():
     )
     parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE)
     parser.add_argument("--flush-rows", type=int, default=DEFAULT_FLUSH_ROWS)
+    parser.add_argument(
+        "--csv-layout",
+        choices=("wide", "long"),
+        default=DEFAULT_CSV_LAYOUT,
+        help="CSV layout for synced_measurements: one row per GPS epoch or one row per satellite",
+    )
     parser.add_argument("--max-time-offset", type=float, default=DEFAULT_MAX_TIME_OFFSET)
     parser.add_argument("--gps-port", default=GPS_PORT)
     parser.add_argument("--gps-baud", type=int, default=GPS_BAUD)
@@ -133,6 +140,7 @@ def main():
         SYNCED_MEASUREMENT_FIELDS,
         SYNCED_MEASUREMENT_DTYPE,
         record_format=args.record_format,
+        csv_layout=args.csv_layout,
         chunk_size=args.chunk_size,
         flush_rows=args.flush_rows,
     )
@@ -142,6 +150,7 @@ def main():
         DETECTION_EVENT_FIELDS,
         DETECTION_EVENT_DTYPE,
         record_format=args.record_format,
+        csv_layout=args.csv_layout,
         chunk_size=args.chunk_size,
         flush_rows=args.flush_rows,
     )
@@ -151,12 +160,15 @@ def main():
         ATTITUDE_MESSAGE_FIELDS,
         ATTITUDE_MESSAGE_DTYPE,
         record_format=args.record_format,
+        csv_layout=args.csv_layout,
         chunk_size=args.chunk_size,
         flush_rows=args.flush_rows,
     )
 
     print(f"Running spoofing detector. Recording in {recording_dir}")
     print(f"Recording format: {args.record_format}")
+    if args.record_format == "csv":
+        print(f"Synced measurement CSV layout: {args.csv_layout}")
     print("Recording all ATTITUDE messages in attitude_messages")
     print(
         f"GPS input: {args.gps_port} at {args.gps_baud} baud "
