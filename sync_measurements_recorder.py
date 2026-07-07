@@ -9,11 +9,14 @@ from time import monotonic, sleep
 from detrend_carrier import detrended_carrier_phase_samples
 from mavlink_read import DRONE_CONNECTION
 from npy_database import (
+    ATTITUDE_MESSAGE_FIELDS,
     ATTITUDE_MESSAGE_DTYPE,
-    NpyChunkWriter,
+    DEFAULT_RECORD_FORMAT,
+    SYNCED_MEASUREMENT_FIELDS,
     SYNCED_MEASUREMENT_DTYPE,
     attitude_message_row,
     session_directory,
+    stream_writer,
     synced_measurement_row,
 )
 from pymavlink import mavutil
@@ -21,6 +24,8 @@ from pymavlink import mavutil
 
 ATTITUDE_BUFFER_SIZE = 500
 DEFAULT_MAX_TIME_OFFSET = 0.25
+DEFAULT_CHUNK_SIZE = 1000
+DEFAULT_FLUSH_ROWS = 100
 
 
 class AttitudeSynchronizer:
@@ -163,10 +168,22 @@ def parse_args():
         help="directory where timestamped recording sessions are saved",
     )
     parser.add_argument(
+        "--record-format",
+        choices=("npy", "csv"),
+        default=DEFAULT_RECORD_FORMAT,
+        help="record streams as chunked .npy directories or CSV files",
+    )
+    parser.add_argument(
         "--chunk-size",
         type=int,
-        default=1000,
+        default=DEFAULT_CHUNK_SIZE,
         help="number of synchronized rows per .npy chunk",
+    )
+    parser.add_argument(
+        "--flush-rows",
+        type=int,
+        default=DEFAULT_FLUSH_ROWS,
+        help="number of CSV rows to buffer before flushing",
     )
     parser.add_argument(
         "--max-time-offset",
@@ -180,20 +197,27 @@ def parse_args():
 def main():
     args = parse_args()
     recording_dir = session_directory(args.record_dir)
-    writer = NpyChunkWriter(
+    writer = stream_writer(
         recording_dir,
         "synced_measurements",
+        SYNCED_MEASUREMENT_FIELDS,
         SYNCED_MEASUREMENT_DTYPE,
+        record_format=args.record_format,
         chunk_size=args.chunk_size,
+        flush_rows=args.flush_rows,
     )
-    attitude_writer = NpyChunkWriter(
+    attitude_writer = stream_writer(
         recording_dir,
         "attitude_messages",
+        ATTITUDE_MESSAGE_FIELDS,
         ATTITUDE_MESSAGE_DTYPE,
+        record_format=args.record_format,
         chunk_size=args.chunk_size,
+        flush_rows=args.flush_rows,
     )
 
     print(f"Recording synchronized measurements in {recording_dir}")
+    print(f"Recording format: {args.record_format}")
     print("Recording all ATTITUDE messages in attitude_messages")
     print(f"Maximum GPS/IMU time offset: {args.max_time_offset:.3f} s")
 

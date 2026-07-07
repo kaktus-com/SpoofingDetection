@@ -12,12 +12,16 @@ from mavlink_read import (
     carrier_phase_samples,
 )
 from npy_database import (
+    ATTITUDE_MESSAGE_FIELDS,
     ATTITUDE_MESSAGE_DTYPE,
+    DEFAULT_RECORD_FORMAT,
+    DETECTION_EVENT_FIELDS,
     DETECTION_EVENT_DTYPE,
+    SYNCED_MEASUREMENT_FIELDS,
     SYNCED_MEASUREMENT_DTYPE,
-    NpyChunkWriter,
     detection_event_row,
     session_directory,
+    stream_writer,
     synced_measurement_row,
 )
 from pymavlink import mavutil
@@ -32,6 +36,7 @@ ALERT_MESSAGE = b"GNSS SPOOFING DETECTED"
 DEFAULT_DETRENDED_THRESHOLD = 5.0
 DEFAULT_CONSECUTIVE_SAMPLES = 3
 DEFAULT_CHUNK_SIZE = 1000
+DEFAULT_FLUSH_ROWS = 100
 DEFAULT_RECORD_DIR = "recordings"
 
 
@@ -78,7 +83,14 @@ def parse_args():
         description="Run GPS detrending, GPS/IMU sync, recording, and spoofing alerts."
     )
     parser.add_argument("--record-dir", default=DEFAULT_RECORD_DIR)
+    parser.add_argument(
+        "--record-format",
+        choices=("npy", "csv"),
+        default=DEFAULT_RECORD_FORMAT,
+        help="record streams as chunked .npy directories or CSV files",
+    )
     parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE)
+    parser.add_argument("--flush-rows", type=int, default=DEFAULT_FLUSH_ROWS)
     parser.add_argument("--max-time-offset", type=float, default=DEFAULT_MAX_TIME_OFFSET)
     parser.add_argument("--gps-port", default=GPS_PORT)
     parser.add_argument("--gps-baud", type=int, default=GPS_BAUD)
@@ -115,26 +127,36 @@ def main():
     recording_dir = session_directory(args.record_dir)
     counts_by_sat = {}
 
-    synced_writer = NpyChunkWriter(
+    synced_writer = stream_writer(
         recording_dir,
         "synced_measurements",
+        SYNCED_MEASUREMENT_FIELDS,
         SYNCED_MEASUREMENT_DTYPE,
+        record_format=args.record_format,
         chunk_size=args.chunk_size,
+        flush_rows=args.flush_rows,
     )
-    event_writer = NpyChunkWriter(
+    event_writer = stream_writer(
         recording_dir,
         "detection_events",
+        DETECTION_EVENT_FIELDS,
         DETECTION_EVENT_DTYPE,
+        record_format=args.record_format,
         chunk_size=args.chunk_size,
+        flush_rows=args.flush_rows,
     )
-    attitude_writer = NpyChunkWriter(
+    attitude_writer = stream_writer(
         recording_dir,
         "attitude_messages",
+        ATTITUDE_MESSAGE_FIELDS,
         ATTITUDE_MESSAGE_DTYPE,
+        record_format=args.record_format,
         chunk_size=args.chunk_size,
+        flush_rows=args.flush_rows,
     )
 
     print(f"Running spoofing detector. Recording in {recording_dir}")
+    print(f"Recording format: {args.record_format}")
     print("Recording all ATTITUDE messages in attitude_messages")
     print(
         f"GPS input: {args.gps_port} at {args.gps_baud} baud "

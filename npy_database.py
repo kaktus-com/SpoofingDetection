@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from csv import writer
 from datetime import datetime
 from pathlib import Path
 import json
@@ -8,6 +9,16 @@ import numpy as np
 
 
 DEFAULT_RECORDING_DIR = Path("recordings")
+DEFAULT_RECORD_FORMAT = "npy"
+
+
+DETRENDED_CARRIER_FIELDS = (
+    "gps_time",
+    "plot_time",
+    "sat",
+    "carrier",
+    "detrended",
+)
 
 
 DETRENDED_CARRIER_DTYPE = np.dtype([
@@ -17,6 +28,20 @@ DETRENDED_CARRIER_DTYPE = np.dtype([
     ("carrier", "f8"),
     ("detrended", "f8"),
 ])
+
+SYNCED_MEASUREMENT_FIELDS = (
+    "gps_time",
+    "carrier_sync_time",
+    "imu_sync_time",
+    "time_offset",
+    "sat",
+    "carrier",
+    "detrended",
+    "roll",
+    "pitch",
+    "yaw",
+    "mavlink_time_boot_ms",
+)
 
 SYNCED_MEASUREMENT_DTYPE = np.dtype([
     ("gps_time", "f8"),
@@ -32,6 +57,14 @@ SYNCED_MEASUREMENT_DTYPE = np.dtype([
     ("mavlink_time_boot_ms", "i8"),
 ])
 
+ATTITUDE_MESSAGE_FIELDS = (
+    "sync_time",
+    "mavlink_time_boot_ms",
+    "roll",
+    "pitch",
+    "yaw",
+)
+
 ATTITUDE_MESSAGE_DTYPE = np.dtype([
     ("sync_time", "f8"),
     ("mavlink_time_boot_ms", "i8"),
@@ -39,6 +72,19 @@ ATTITUDE_MESSAGE_DTYPE = np.dtype([
     ("pitch", "f8"),
     ("yaw", "f8"),
 ])
+
+DETECTION_EVENT_FIELDS = (
+    "event_time",
+    "gps_time",
+    "sat",
+    "detrended",
+    "abs_detrended",
+    "roll",
+    "pitch",
+    "yaw",
+    "time_offset",
+    "reason",
+)
 
 DETECTION_EVENT_DTYPE = np.dtype([
     ("event_time", "f8"),
@@ -113,6 +159,17 @@ def detection_event_row(event):
 
 
 def load_stream(session_dir, stream_name):
+    csv_path = Path(session_dir) / f"{stream_name}.csv"
+    if csv_path.exists():
+        data = np.genfromtxt(
+            csv_path,
+            delimiter=",",
+            names=True,
+            dtype=None,
+            encoding="utf-8",
+        )
+        return np.atleast_1d(data)
+
     stream_dir = Path(session_dir) / stream_name
     chunks = sorted(stream_dir.glob("chunk_*.npy"))
 
@@ -121,6 +178,40 @@ def load_stream(session_dir, stream_name):
 
     arrays = [np.load(path) for path in chunks]
     return np.concatenate(arrays)
+
+
+class CsvStreamWriter:
+    def __init__(self, session_dir, stream_name, fields, flush_rows=100):
+        self.path = Path(session_dir) / f"{stream_name}.csv"
+        self.fields = fields
+        self.flush_rows = flush_rows
+        self.rows_since_flush = 0
+        self.total_rows = 0
+        self.file = self.path.open("w", newline="", encoding="utf-8")
+        self.writer = writer(self.file)
+        self.writer.writerow(self.fields)
+        self.file.flush()
+
+    def append(self, row):
+        self.writer.writerow(row)
+        self.rows_since_flush += 1
+        self.total_rows += 1
+        if self.rows_since_flush >= self.flush_rows:
+            self.flush()
+
+    def flush(self):
+        self.file.flush()
+        self.rows_since_flush = 0
+
+    def close(self):
+        self.flush()
+        self.file.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, _exc_type, _exc, _traceback):
+        self.close()
 
 
 class NpyChunkWriter:
@@ -170,3 +261,31 @@ class NpyChunkWriter:
 
     def __exit__(self, _exc_type, _exc, _traceback):
         self.close()
+
+
+def stream_writer(
+    session_dir,
+    stream_name,
+    fields,
+    dtype,
+    record_format=DEFAULT_RECORD_FORMAT,
+    chunk_size=1000,
+    flush_rows=100,
+):
+    if record_format == "csv":
+        return CsvStreamWriter(
+            session_dir,
+            stream_name,
+            fields,
+            flush_rows=flush_rows,
+        )
+
+    if record_format == "npy":
+        return NpyChunkWriter(
+            session_dir,
+            stream_name,
+            dtype,
+            chunk_size=chunk_size,
+        )
+
+    raise ValueError(f"unknown record format: {record_format}")

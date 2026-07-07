@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 from collections import defaultdict, deque
 from queue import Empty, Queue
 from statistics import fmean
@@ -11,16 +12,20 @@ from matplotlib.animation import FuncAnimation
 
 from mavlink_read import carrier_phase_samples
 from npy_database import (
+    DEFAULT_RECORD_FORMAT,
+    DETRENDED_CARRIER_FIELDS,
     DETRENDED_CARRIER_DTYPE,
-    NpyChunkWriter,
     detrended_carrier_row,
     session_directory,
+    stream_writer,
 )
 
 
 WINDOW = 20
 BIAS_WINDOW = 100
 MAX_POINTS = 1000
+DEFAULT_CHUNK_SIZE = 1000
+DEFAULT_FLUSH_ROWS = 100
 
 queue = Queue()
 
@@ -89,14 +94,40 @@ def detrended_carrier_phase_samples():
     yield from detrend_carrier_samples(carrier_phase_samples())
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Plot and record detrended carrier phase from RXM-RAWX."
+    )
+    parser.add_argument("--record-dir", default="recordings")
+    parser.add_argument(
+        "--record-format",
+        choices=("npy", "csv"),
+        default=DEFAULT_RECORD_FORMAT,
+        help="record streams as chunked .npy directories or CSV files",
+    )
+    parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE)
+    parser.add_argument("--flush-rows", type=int, default=DEFAULT_FLUSH_ROWS)
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
     detrended = defaultdict(lambda: deque(maxlen=MAX_POINTS))
     times = defaultdict(lambda: deque(maxlen=MAX_POINTS))
     lines = {}
-    recording_dir = session_directory()
-    writer = NpyChunkWriter(recording_dir, "detrended_carrier", DETRENDED_CARRIER_DTYPE)
+    recording_dir = session_directory(args.record_dir)
+    writer = stream_writer(
+        recording_dir,
+        "detrended_carrier",
+        DETRENDED_CARRIER_FIELDS,
+        DETRENDED_CARRIER_DTYPE,
+        record_format=args.record_format,
+        chunk_size=args.chunk_size,
+        flush_rows=args.flush_rows,
+    )
 
     print(f"Recording detrended carrier phase in {recording_dir}")
+    print(f"Recording format: {args.record_format}")
 
     Thread(target=read_carrier_phase, daemon=True).start()
 
