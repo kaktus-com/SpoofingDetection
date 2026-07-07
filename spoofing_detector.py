@@ -3,9 +3,16 @@
 import argparse
 from time import monotonic, sleep
 
-from detrend_carrier import detrend_carrier_samples
-from mavlink_read import carrier_phase_samples
+from detrend_carrier import detrend_carrier_samples, raw_carrier_samples
+from mavlink_read import (
+    GPS_BAUD,
+    GPS_PORT,
+    GPS_QUEUE_CHUNKS,
+    GPS_READ_SIZE,
+    carrier_phase_samples,
+)
 from npy_database import (
+    ATTITUDE_MESSAGE_DTYPE,
     DETECTION_EVENT_DTYPE,
     SYNCED_MEASUREMENT_DTYPE,
     NpyChunkWriter,
@@ -73,6 +80,22 @@ def parse_args():
     parser.add_argument("--record-dir", default=DEFAULT_RECORD_DIR)
     parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE)
     parser.add_argument("--max-time-offset", type=float, default=DEFAULT_MAX_TIME_OFFSET)
+    parser.add_argument("--gps-port", default=GPS_PORT)
+    parser.add_argument("--gps-baud", type=int, default=GPS_BAUD)
+    parser.add_argument("--gps-read-size", type=int, default=GPS_READ_SIZE)
+    parser.add_argument("--gps-queue-chunks", type=int, default=GPS_QUEUE_CHUNKS)
+    parser.add_argument(
+        "--direct-serial",
+        action="store_true",
+        help="parse directly from pyserial instead of using the threaded UART reader",
+    )
+    parser.add_argument(
+        "--no-detrended",
+        "--no-detrededed",
+        dest="no_detrended",
+        action="store_true",
+        help="record raw carrier phase in the detrended field and disable detection",
+    )
     parser.add_argument(
         "--detrended-threshold",
         type=float,
@@ -104,24 +127,56 @@ def main():
         DETECTION_EVENT_DTYPE,
         chunk_size=args.chunk_size,
     )
-
-    print(f"Running spoofing detector. Recording in {recording_dir}")
-    print(f"Maximum GPS/IMU time offset: {args.max_time_offset:.3f} s")
-    print(
-        f"Detection rule: abs(detrended) >= {args.detrended_threshold} cycles "
-        f"for {args.consecutive_samples} consecutive samples"
+    attitude_writer = NpyChunkWriter(
+        recording_dir,
+        "attitude_messages",
+        ATTITUDE_MESSAGE_DTYPE,
+        chunk_size=args.chunk_size,
     )
 
-    raw_gps_samples = carrier_phase_samples()
-    detrended_gps_samples = detrend_carrier_samples(raw_gps_samples)
+    print(f"Running spoofing detector. Recording in {recording_dir}")
+    print("Recording all ATTITUDE messages in attitude_messages")
+    print(
+        f"GPS input: {args.gps_port} at {args.gps_baud} baud "
+        f"({'direct' if args.direct_serial else 'threaded'} serial)"
+    )
+    if not args.direct_serial:
+        print(
+            f"UART reader: {args.gps_read_size} byte reads, "
+            f"{args.gps_queue_chunks} queued chunks"
+        )
+    print(f"Maximum GPS/IMU time offset: {args.max_time_offset:.3f} s")
+    if args.no_detrended:
+        print("Carrier mode: raw carrier phase; detection disabled")
+    else:
+        print(
+            f"Detection rule: abs(detrended) >= {args.detrended_threshold} cycles "
+            f"for {args.consecutive_samples} consecutive samples"
+        )
+
+    raw_gps_samples = carrier_phase_samples(
+        port=args.gps_port,
+        baud=args.gps_baud,
+        threaded=not args.direct_serial,
+        read_size=args.gps_read_size,
+        queue_chunks=args.gps_queue_chunks,
+    )
+    if args.no_detrended:
+        detrended_gps_samples = raw_carrier_samples(raw_gps_samples)
+    else:
+        detrended_gps_samples = detrend_carrier_samples(raw_gps_samples)
     synced_samples = sync_with_attitude(
         detrended_gps_samples,
         max_time_offset=args.max_time_offset,
+        attitude_writer=attitude_writer,
     )
 
     try:
         for sample in synced_samples:
             synced_writer.append(synced_measurement_row(sample))
+
+            if args.no_detrended:
+                continue
 
             sat = sample["sat"]
             if abs(sample["detrended"]) < args.detrended_threshold:
@@ -153,6 +208,7 @@ def main():
     finally:
         synced_writer.close()
         event_writer.close()
+        attitude_writer.close()
 
 
 if __name__ == "__main__":

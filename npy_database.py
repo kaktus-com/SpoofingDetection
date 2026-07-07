@@ -32,6 +32,14 @@ SYNCED_MEASUREMENT_DTYPE = np.dtype([
     ("mavlink_time_boot_ms", "i8"),
 ])
 
+ATTITUDE_MESSAGE_DTYPE = np.dtype([
+    ("sync_time", "f8"),
+    ("mavlink_time_boot_ms", "i8"),
+    ("roll", "f8"),
+    ("pitch", "f8"),
+    ("yaw", "f8"),
+])
+
 DETECTION_EVENT_DTYPE = np.dtype([
     ("event_time", "f8"),
     ("gps_time", "f8"),
@@ -76,6 +84,16 @@ def synced_measurement_row(sample):
         sample["pitch"],
         sample["yaw"],
         sample["mavlink_time_boot_ms"],
+    )
+
+
+def attitude_message_row(sample):
+    return (
+        sample["sync_time"],
+        sample["mavlink_time_boot_ms"],
+        sample["roll"],
+        sample["pitch"],
+        sample["yaw"],
     )
 
 

@@ -9,8 +9,10 @@ from time import monotonic, sleep
 from detrend_carrier import detrended_carrier_phase_samples
 from mavlink_read import DRONE_CONNECTION
 from npy_database import (
+    ATTITUDE_MESSAGE_DTYPE,
     NpyChunkWriter,
     SYNCED_MEASUREMENT_DTYPE,
+    attitude_message_row,
     session_directory,
     synced_measurement_row,
 )
@@ -22,8 +24,14 @@ DEFAULT_MAX_TIME_OFFSET = 0.25
 
 
 class AttitudeSynchronizer:
-    def __init__(self, connection=DRONE_CONNECTION, buffer_size=ATTITUDE_BUFFER_SIZE):
+    def __init__(
+        self,
+        connection=DRONE_CONNECTION,
+        buffer_size=ATTITUDE_BUFFER_SIZE,
+        attitude_writer=None,
+    ):
         self.connection = connection
+        self.attitude_writer = attitude_writer
         self.attitude_buffer = deque(maxlen=buffer_size)
         self.buffer_lock = Lock()
         self.stop_event = Event()
@@ -34,6 +42,7 @@ class AttitudeSynchronizer:
 
     def stop(self):
         self.stop_event.set()
+        self.thread.join(timeout=2)
 
     def read_attitude(self):
         print(f"Listening for drone attitude on {self.connection}...")
@@ -58,6 +67,9 @@ class AttitudeSynchronizer:
 
             with self.buffer_lock:
                 self.attitude_buffer.append(sample)
+
+            if self.attitude_writer is not None:
+                self.attitude_writer.append(attitude_message_row(sample))
 
     def has_samples(self):
         with self.buffer_lock:
@@ -96,11 +108,13 @@ def synced_measurement_sample(carrier_sample, attitude_sample):
 def synced_measurement_samples(
     max_time_offset=DEFAULT_MAX_TIME_OFFSET,
     attitude_buffer_size=ATTITUDE_BUFFER_SIZE,
+    attitude_writer=None,
 ):
     yield from sync_with_attitude(
         detrended_carrier_phase_samples(),
         max_time_offset=max_time_offset,
         attitude_buffer_size=attitude_buffer_size,
+        attitude_writer=attitude_writer,
     )
 
 
@@ -108,8 +122,12 @@ def sync_with_attitude(
     detrended_carrier_samples,
     max_time_offset=DEFAULT_MAX_TIME_OFFSET,
     attitude_buffer_size=ATTITUDE_BUFFER_SIZE,
+    attitude_writer=None,
 ):
-    synchronizer = AttitudeSynchronizer(buffer_size=attitude_buffer_size)
+    synchronizer = AttitudeSynchronizer(
+        buffer_size=attitude_buffer_size,
+        attitude_writer=attitude_writer,
+    )
     synchronizer.start()
 
     try:
@@ -168,17 +186,28 @@ def main():
         SYNCED_MEASUREMENT_DTYPE,
         chunk_size=args.chunk_size,
     )
+    attitude_writer = NpyChunkWriter(
+        recording_dir,
+        "attitude_messages",
+        ATTITUDE_MESSAGE_DTYPE,
+        chunk_size=args.chunk_size,
+    )
 
     print(f"Recording synchronized measurements in {recording_dir}")
+    print("Recording all ATTITUDE messages in attitude_messages")
     print(f"Maximum GPS/IMU time offset: {args.max_time_offset:.3f} s")
 
     try:
-        for sample in synced_measurement_samples(args.max_time_offset):
+        for sample in synced_measurement_samples(
+            args.max_time_offset,
+            attitude_writer=attitude_writer,
+        ):
             writer.append(synced_measurement_row(sample))
     except KeyboardInterrupt:
         print("\nStopped.")
     finally:
         writer.close()
+        attitude_writer.close()
 
 
 if __name__ == "__main__":

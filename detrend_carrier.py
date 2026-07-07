@@ -71,6 +71,20 @@ def detrend_carrier_samples(carrier_samples):
         }
 
 
+def raw_carrier_samples(carrier_samples):
+    for sample in carrier_samples:
+        if not sample["pr_valid"] or not sample["cp_valid"]:
+            continue
+
+        yield {
+            "time": sample["time"],
+            "plot_time": monotonic(),
+            "sat": sample["sat"],
+            "carrier": sample["carrier"],
+            "detrended": sample["carrier"],
+        }
+
+
 def detrended_carrier_phase_samples():
     yield from detrend_carrier_samples(carrier_phase_samples())
 
