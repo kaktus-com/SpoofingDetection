@@ -8,9 +8,9 @@ from time import monotonic, sleep
 
 from detrend_carrier import detrended_carrier_phase_samples
 from mavlink_read import DRONE_CONNECTION
-from npy_database import (
-    NpyChunkWriter,
-    SYNCED_MEASUREMENT_DTYPE,
+from recording_database import (
+    CsvStreamWriter,
+    SYNCED_MEASUREMENT_FIELDS,
     session_directory,
     synced_measurement_row,
 )
@@ -145,10 +145,16 @@ def parse_args():
         help="directory where timestamped recording sessions are saved",
     )
     parser.add_argument(
-        "--chunk-size",
+        "--flush-rows",
         type=int,
         default=1000,
-        help="number of synchronized rows per .npy chunk",
+        help="number of synchronized rows to buffer before flushing CSV",
+    )
+    parser.add_argument(
+        "--chunk-size",
+        type=int,
+        dest="flush_rows",
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--max-time-offset",
@@ -162,11 +168,11 @@ def parse_args():
 def main():
     args = parse_args()
     recording_dir = session_directory(args.record_dir)
-    writer = NpyChunkWriter(
+    writer = CsvStreamWriter(
         recording_dir,
         "synced_measurements",
-        SYNCED_MEASUREMENT_DTYPE,
-        chunk_size=args.chunk_size,
+        SYNCED_MEASUREMENT_FIELDS,
+        flush_rows=args.flush_rows,
     )
 
     print(f"Recording synchronized measurements in {recording_dir}")

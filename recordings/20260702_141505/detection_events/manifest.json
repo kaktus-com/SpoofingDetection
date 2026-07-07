@@ -1,0 +1,48 @@
+{
+  "stream": "detection_events",
+  "dtype": [
+    [
+      "event_time",
+      "<f8"
+    ],
+    [
+      "gps_time",
+      "<f8"
+    ],
+    [
+      "sat",
+      "<U24"
+    ],
+    [
+      "detrended",
+      "<f8"
+    ],
+    [
+      "abs_detrended",
+      "<f8"
+    ],
+    [
+      "roll",
+      "<f8"
+    ],
+    [
+      "pitch",
+      "<f8"
+    ],
+    [
+      "yaw",
+      "<f8"
+    ],
+    [
+      "time_offset",
+      "<f8"
+    ],
+    [
+      "reason",
+      "<U80"
+    ]
+  ],
+  "chunks": 4,
+  "rows": 3106,
+  "chunk_size": 1000
+}

@@ -10,9 +10,9 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 from mavlink_read import carrier_phase_samples
-from npy_database import (
-    DETRENDED_CARRIER_DTYPE,
-    NpyChunkWriter,
+from recording_database import (
+    CsvStreamWriter,
+    DETRENDED_CARRIER_FIELDS,
     detrended_carrier_row,
     session_directory,
 )
@@ -80,7 +80,11 @@ def main():
     times = defaultdict(lambda: deque(maxlen=MAX_POINTS))
     lines = {}
     recording_dir = session_directory()
-    writer = NpyChunkWriter(recording_dir, "detrended_carrier", DETRENDED_CARRIER_DTYPE)
+    writer = CsvStreamWriter(
+        recording_dir,
+        "detrended_carrier",
+        DETRENDED_CARRIER_FIELDS,
+    )
 
     print(f"Recording detrended carrier phase in {recording_dir}")
 

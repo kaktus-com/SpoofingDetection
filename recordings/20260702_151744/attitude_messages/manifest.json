@@ -1,0 +1,28 @@
+{
+  "stream": "attitude_messages",
+  "dtype": [
+    [
+      "sync_time",
+      "<f8"
+    ],
+    [
+      "mavlink_time_boot_ms",
+      "<i8"
+    ],
+    [
+      "roll",
+      "<f8"
+    ],
+    [
+      "pitch",
+      "<f8"
+    ],
+    [
+      "yaw",
+      "<f8"
+    ]
+  ],
+  "chunks": 1,
+  "rows": 380,
+  "chunk_size": 16000
+}

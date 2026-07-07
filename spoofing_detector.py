@@ -5,10 +5,10 @@ from time import monotonic, sleep
 
 from detrend_carrier import detrend_carrier_samples
 from mavlink_read import carrier_phase_samples
-from npy_database import (
-    DETECTION_EVENT_DTYPE,
-    SYNCED_MEASUREMENT_DTYPE,
-    NpyChunkWriter,
+from recording_database import (
+    CsvStreamWriter,
+    DETECTION_EVENT_FIELDS,
+    SYNCED_MEASUREMENT_FIELDS,
     detection_event_row,
     session_directory,
     synced_measurement_row,
@@ -24,7 +24,7 @@ ALERT_CONNECTION = "udpout:127.0.0.1:14550"
 ALERT_MESSAGE = b"GNSS SPOOFING DETECTED"
 DEFAULT_DETRENDED_THRESHOLD = 5.0
 DEFAULT_CONSECUTIVE_SAMPLES = 3
-DEFAULT_CHUNK_SIZE = 1000
+DEFAULT_FLUSH_ROWS = 1000
 DEFAULT_RECORD_DIR = "recordings"
 
 
@@ -71,7 +71,18 @@ def parse_args():
         description="Run GPS detrending, GPS/IMU sync, recording, and spoofing alerts."
     )
     parser.add_argument("--record-dir", default=DEFAULT_RECORD_DIR)
-    parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE)
+    parser.add_argument(
+        "--flush-rows",
+        type=int,
+        default=DEFAULT_FLUSH_ROWS,
+        help="number of rows to buffer before flushing CSV files",
+    )
+    parser.add_argument(
+        "--chunk-size",
+        type=int,
+        dest="flush_rows",
+        help=argparse.SUPPRESS,
+    )
     parser.add_argument("--max-time-offset", type=float, default=DEFAULT_MAX_TIME_OFFSET)
     parser.add_argument(
         "--detrended-threshold",
@@ -92,17 +103,17 @@ def main():
     recording_dir = session_directory(args.record_dir)
     counts_by_sat = {}
 
-    synced_writer = NpyChunkWriter(
+    synced_writer = CsvStreamWriter(
         recording_dir,
         "synced_measurements",
-        SYNCED_MEASUREMENT_DTYPE,
-        chunk_size=args.chunk_size,
+        SYNCED_MEASUREMENT_FIELDS,
+        flush_rows=args.flush_rows,
     )
-    event_writer = NpyChunkWriter(
+    event_writer = CsvStreamWriter(
         recording_dir,
         "detection_events",
-        DETECTION_EVENT_DTYPE,
-        chunk_size=args.chunk_size,
+        DETECTION_EVENT_FIELDS,
+        flush_rows=args.flush_rows,
     )
 
     print(f"Running spoofing detector. Recording in {recording_dir}")

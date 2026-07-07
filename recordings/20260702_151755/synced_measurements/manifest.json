@@ -1,0 +1,52 @@
+{
+  "stream": "synced_measurements",
+  "dtype": [
+    [
+      "gps_time",
+      "<f8"
+    ],
+    [
+      "carrier_sync_time",
+      "<f8"
+    ],
+    [
+      "imu_sync_time",
+      "<f8"
+    ],
+    [
+      "time_offset",
+      "<f8"
+    ],
+    [
+      "sat",
+      "<U24"
+    ],
+    [
+      "carrier",
+      "<f8"
+    ],
+    [
+      "detrended",
+      "<f8"
+    ],
+    [
+      "roll",
+      "<f8"
+    ],
+    [
+      "pitch",
+      "<f8"
+    ],
+    [
+      "yaw",
+      "<f8"
+    ],
+    [
+      "mavlink_time_boot_ms",
+      "<i8"
+    ]
+  ],
+  "chunks": 1,
+  "rows": 5145,
+  "chunk_size": 16000
+}
