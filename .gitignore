@@ -36,4 +36,4 @@ htmlcov/
 .env.*
 
 # Project-generated recordings
-# recordings/
+recordings/
