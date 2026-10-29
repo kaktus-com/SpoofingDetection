@@ -22,6 +22,8 @@ class ExportStats:
     attitude_samples: int
     position_samples: int
     rows_written: int
+    prefix_rows: int
+    suffix_rows: int
     invalid_attitude_samples: int
     unavailable_position_samples: int
 
@@ -160,10 +162,14 @@ def export_ulog_state(
     max_position_gap_s: float = 1.0,
     attitude_instance: int = 0,
     position_instance: int = 0,
+    prefix_pad_s: float = 0.0,
+    suffix_pad_s: float = 0.0,
 ) -> ExportStats:
     """Convert a PX4 ULog to one synchronized state CSV."""
     if max_position_gap_s <= 0:
         raise ValueError("Maximum position gap must be greater than zero.")
+    if prefix_pad_s < 0 or suffix_pad_s < 0:
+        raise ValueError("Prefix and suffix padding must not be negative.")
 
     ulog = ULog(str(input_path), ["vehicle_attitude", "vehicle_global_position"])
     attitude_data = get_dataset(ulog, "vehicle_attitude", attitude_instance).data
@@ -185,7 +191,59 @@ def export_ulog_state(
     written_indices = np.flatnonzero(write_row)
     if len(written_indices) == 0:
         raise ValueError("No attitude samples have a safely interpolated global position.")
-    first_timestamp_us = attitude_us[written_indices[0]]
+
+    base_timestamp_us = attitude_us[written_indices]
+    if (prefix_pad_s > 0 or suffix_pad_s > 0) and len(base_timestamp_us) < 2:
+        raise ValueError("At least two exported samples are required to infer the padding rate.")
+
+    median_period_us = (
+        int(round(float(np.median(np.diff(base_timestamp_us)))))
+        if len(base_timestamp_us) > 1
+        else 1
+    )
+
+    def padding_timestamps(duration_s: float, before: bool) -> np.ndarray:
+        duration_us = int(round(duration_s * 1_000_000.0))
+        if duration_us == 0:
+            return np.empty(0, dtype=np.int64)
+
+        sample_count = max(1, int(round(duration_us / median_period_us)))
+        offsets = np.rint(
+            np.arange(sample_count + 1, dtype=np.float64) * duration_us / sample_count
+        ).astype(np.int64)
+        if before:
+            return base_timestamp_us[0] - duration_us + offsets[:-1]
+        return base_timestamp_us[-1] + offsets[1:]
+
+    prefix_timestamp_us = padding_timestamps(prefix_pad_s, before=True)
+    suffix_timestamp_us = padding_timestamps(suffix_pad_s, before=False)
+    if len(prefix_timestamp_us) and prefix_timestamp_us[0] < 0:
+        raise ValueError(
+            "Prefix padding would produce a negative boot-relative timestamp; "
+            "use a shorter --prefix-pad."
+        )
+
+    export_timestamp_us = np.concatenate(
+        (prefix_timestamp_us, base_timestamp_us, suffix_timestamp_us)
+    )
+
+    def pad_values(values: np.ndarray) -> np.ndarray:
+        base = values[written_indices]
+        return np.concatenate(
+            (
+                np.full(len(prefix_timestamp_us), base[0], dtype=np.float64),
+                base,
+                np.full(len(suffix_timestamp_us), base[-1], dtype=np.float64),
+            )
+        )
+
+    export_roll = pad_values(roll)
+    export_pitch = pad_values(pitch)
+    export_yaw = pad_values(yaw)
+    export_latitude = pad_values(latitude)
+    export_longitude = pad_values(longitude)
+    export_altitude = pad_values(altitude)
+    first_timestamp_us = export_timestamp_us[0]
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w", newline="", encoding="utf-8") as csv_file:
@@ -203,25 +261,27 @@ def export_ulog_state(
                 "altitude_msl_m",
             ]
         )
-        for index in written_indices:
+        for index, timestamp_us in enumerate(export_timestamp_us):
             writer.writerow(
                 [
-                    int(attitude_us[index]),
-                    f"{attitude_us[index] * 1e-6:.6f}",
-                    f"{(attitude_us[index] - first_timestamp_us) * 1e-6:.6f}",
-                    f"{roll[index]:.9f}",
-                    f"{pitch[index]:.9f}",
-                    f"{yaw[index]:.9f}",
-                    f"{latitude[index]:.10f}",
-                    f"{longitude[index]:.10f}",
-                    f"{altitude[index]:.4f}",
+                    int(timestamp_us),
+                    f"{timestamp_us * 1e-6:.6f}",
+                    f"{(timestamp_us - first_timestamp_us) * 1e-6:.6f}",
+                    f"{export_roll[index]:.9f}",
+                    f"{export_pitch[index]:.9f}",
+                    f"{export_yaw[index]:.9f}",
+                    f"{export_latitude[index]:.10f}",
+                    f"{export_longitude[index]:.10f}",
+                    f"{export_altitude[index]:.4f}",
                 ]
             )
 
     return ExportStats(
         attitude_samples=len(attitude_us),
         position_samples=len(sample_timestamps(position_data)),
-        rows_written=int(np.count_nonzero(write_row)),
+        rows_written=len(export_timestamp_us),
+        prefix_rows=len(prefix_timestamp_us),
+        suffix_rows=len(suffix_timestamp_us),
         invalid_attitude_samples=int(np.count_nonzero(~attitude_valid)),
         unavailable_position_samples=int(np.count_nonzero(attitude_valid & ~position_available)),
     )
@@ -250,6 +310,20 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--attitude-instance", type=int, default=0)
     parser.add_argument("--position-instance", type=int, default=0)
+    parser.add_argument(
+        "--prefix-pad",
+        type=float,
+        default=0.0,
+        metavar="SECONDS",
+        help="Prepend this many seconds by repeating the first state (default: 0)",
+    )
+    parser.add_argument(
+        "--suffix-pad",
+        type=float,
+        default=0.0,
+        metavar="SECONDS",
+        help="Append this many seconds by repeating the last state (default: 0)",
+    )
     return parser.parse_args(argv)
 
 
@@ -272,6 +346,8 @@ def main(argv: list[str] | None = None) -> int:
             max_position_gap_s=args.max_position_gap,
             attitude_instance=args.attitude_instance,
             position_instance=args.position_instance,
+            prefix_pad_s=args.prefix_pad,
+            suffix_pad_s=args.suffix_pad,
         )
     except (KeyError, OSError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
@@ -282,6 +358,11 @@ def main(argv: list[str] | None = None) -> int:
         f"Read {stats.attitude_samples} attitude samples and "
         f"{stats.position_samples} global-position samples."
     )
+    if stats.prefix_rows or stats.suffix_rows:
+        print(
+            f"Added {stats.prefix_rows} prefix rows and "
+            f"{stats.suffix_rows} suffix rows."
+        )
     if stats.invalid_attitude_samples:
         print(f"Skipped {stats.invalid_attitude_samples} invalid attitude samples.")
     if stats.unavailable_position_samples:
