@@ -1,0 +1,51 @@
+{
+  "motion": {
+    "scenario": "three_axis",
+    "duration_s": 6.0,
+    "rate_hz": 200.0,
+    "lever_arm_body_m": [
+      0.1,
+      0.05,
+      -0.2
+    ],
+    "amplitude_scale": 1.0,
+    "frequency_scale": 1.0,
+    "cone_tilt_deg": 45.0
+  },
+  "analytic_parameters": {
+    "amplitude_enu_m": [
+      0.04,
+      0.03,
+      0.02
+    ],
+    "frequency_hz": [
+      1.25,
+      1.75,
+      2.5
+    ],
+    "phase_rad": [
+      0.0,
+      0.7853981633974483,
+      1.0471975511965976
+    ]
+  },
+  "origin": {
+    "latitude_deg": 59.3526,
+    "longitude_deg": 18.0728,
+    "height_m": 30.0
+  },
+  "provenance": "analytic synthetic truth",
+  "model": "fixed tangent frame; uniform gravity; no Earth-rate terms",
+  "phase_convention": "range contribution / wavelength, not accumulated beat-phase sign",
+  "wavelength_m": 0.19029367279836487,
+  "metrics": {
+    "samples": 1201,
+    "actual_duration_s": 6.0,
+    "max_antenna_speed_m_s": 0.5320477899440935,
+    "max_antenna_acceleration_m_s2": 6.559942339359118,
+    "max_enu_ecef_roundtrip_m": 5.174061423893906e-10,
+    "max_geodetic_ecef_roundtrip_m": 2.9657360172963227e-09,
+    "max_quaternion_norm_error": 0.0,
+    "max_range_linearization_error_m": 1.3585479746378026e-10
+  }
+}

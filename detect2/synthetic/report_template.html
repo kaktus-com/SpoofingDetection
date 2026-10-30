@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>detect2 · Motion and geometry</title>
+<style>
+:root{color-scheme:light;font:16px/1.55 system-ui,sans-serif;color:#243247;background:#f3f5f8}
+body{max-width:1180px;margin:auto;padding:30px 22px}h1{font-size:2rem;letter-spacing:-.04em;margin-bottom:8px}
+h2{margin-top:32px}p{max-width:92ch}a{color:#255fa0}header p{color:#52627a}.card{background:white;border:1px solid #dce2ea;border-radius:14px;padding:20px;margin:22px 0}
+.controls{display:flex;flex-wrap:wrap;gap:16px;align-items:center}label{font-size:.88rem}select,button{font:inherit;padding:6px 12px;border:1px solid #c6d0df;border-radius:6px;background:white;color:#243247}
+button{cursor:pointer}input[type=range]{vertical-align:middle}#time{width:min(60vw,500px)}canvas{width:100%;height:470px;background:#fafbfd;border-radius:8px;touch-action:none}
+.legend{font-size:.85rem;color:#52627a}.body{color:#475569}.antenna{color:#8b3bb0}.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:4px 22px;font:12px/1.8 ui-monospace,monospace;margin-top:14px}
+.readout div{overflow-wrap:anywhere}img{width:100%;height:auto;background:white;margin:10px 0}.scenario{display:none}.scenario.active{display:block}.note{border-left:3px solid #d56824;padding:2px 15px;color:#52627a}
+details{margin:12px 0}summary{cursor:pointer;font-weight:600}.tag{font-size:.8rem;letter-spacing:.08em;color:#52627a;text-transform:uppercase}noscript{color:#a33}
+</style></head><body>
+<header><div class="tag">detect2 / foundation 01</div><h1>Motion, frames and antenna geometry</h1>
+<p>Analytic movement with explicit coordinate conversions. Inspect the body and antenna separately, rotate the view and scrub through time. This report contains geometric truth, not a spoofing detector or measured receiver signals.</p>
+<p>Site: __SITE__. <strong>Height is above the WGS-84 ellipsoid, not mean sea level.</strong></p></header>
+<div class="card"><div class="controls"><label>Motion <select id="scenario">__OPTIONS__</select></label>
+<button id="play" type="button">Play</button><label>Time <input id="time" type="range" min="0" step="1" value="0"><span id="clock"></span></label></div>
+<p><label>Display <select id="viewMode"><option value="motion">Motion and antenna pointing</option><option value="cone">Pointing directions from one origin (cone)</option></select></label></p>
+<p id="description"></p><canvas id="view" aria-label="Interactive three-dimensional antenna and body movement"></canvas>
+<div class="controls"><label>View azimuth <input id="azimuth" type="range" min="0" max="360" value="135"></label>
+<label>View elevation <input id="elevation" type="range" min="-15" max="85" value="25"></label>
+<label><input id="axes" type="checkbox" checked> Show body axes</label></div>
+<p class="legend"><span class="body">Dashed: IMU/body path</span> · <span class="antenna">Purple: antenna path</span> · rod: rigid antenna offset.<br>
+World axes: E/N/U. Body axes: F/R/D. Paths use equal distance scales; view is orthographic. Drag to rotate.</p>
+<p class="legend">Antenna pointing is its upward axis (−body Down), rigidly attached to the body. In the cone view, purple is this unit direction and orange is Body Forward; vector origins are deliberately shared.</p>
+<div id="readout" class="readout"></div><noscript>Enable JavaScript for animation. All static figures remain available below.</noscript></div>
+<p class="note">NED roll/pitch/yaw describes the drone's FRD body. Zero yaw faces North; +90° faces East. The exported quaternion rotates body vectors to ENU, so zero Euler angles does not give the identity quaternion. Ideal accelerometer values include gravity; a level stationary FRD sensor reads approximately [0, 0, −9.80665] m/s².</p>
+<p>__PDF__<a href="illustrative_geometry.csv">Illustrative source geometry</a> · <a href="metrics.json">Numerical checks</a> · <a href="site.json">Site and frame matrix</a></p>
+<details><summary>Global coordinate frames, source directions and motion overview</summary>__GLOBAL_FIGURES__</details>
+<div>__SCENARIO_FIGURES__</div>
+<p class="note">Static plots and CSVs retain the full requested sample rate. The interactive view displays at most 601 samples per motion. All source directions are illustrative; they are not real satellite ephemerides. The phase plots show only the range-induced phase term.</p>
+<script id="motion-data" type="application/json">__DATA__</script>
+<script>
+'use strict';
+const data=JSON.parse(document.getElementById('motion-data').textContent);
+const $=id=>document.getElementById(id), canvas=$('view'), ctx=canvas.getContext('2d');
+let running=false, start=0, drag=null;
+const colors=['#2563a6','#d56824','#238563'];
+const add=(a,b)=>a.map((v,i)=>v+b[i]), sub=(a,b)=>a.map((v,i)=>v-b[i]);
+const mul=(a,k)=>a.map(v=>v*k), dot=(a,b)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
+const norm=a=>Math.hypot(...a), rad=d=>d*Math.PI/180;
+function current(){return data[$('scenario').value]}
+function fmt(v,digits=4){return '['+v.map(x=>x.toFixed(digits)).join(', ')+']'}
+function choose(){
+ const m=current(); $('time').max=m.t.length-1; $('time').value=0;
+ $('viewMode').value=$('scenario').value==='circle_coning'?'cone':'motion';
+ $('description').textContent=m.title+' · '+m.rate+' Hz truth · antenna offset FRD '+fmt(m.lever,2)+' m';
+ document.querySelectorAll('.scenario').forEach(s=>s.classList.toggle('active',s.dataset.scenario===$('scenario').value));
+ start=performance.now(); draw();
+}
+function draw(){
+ const m=current(), k=Number($('time').value), width=canvas.clientWidth, height=canvas.clientHeight, ratio=window.devicePixelRatio||1;
+ canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);ctx.scale(ratio,ratio);ctx.clearRect(0,0,width,height);
+ const cone=$('viewMode').value==='cone';
+ const all=cone?m.boresight.concat(m.forward,[[0,0,0],[0,0,1]]):m.body.concat(m.antenna);
+ const lo=[0,1,2].map(i=>Math.min(...all.map(p=>p[i]))), hi=[0,1,2].map(i=>Math.max(...all.map(p=>p[i])));
+ const center=mul(add(lo,hi),.5), span=Math.max(.20,...sub(hi,lo)), radius=Math.max(.16,...all.map(p=>norm(sub(p,center))))+(cone?.12:.35)*span;
+ const az=rad(Number($('azimuth').value)), el=rad(Number($('elevation').value));
+ const right=[Math.cos(az),Math.sin(az),0], up=[-Math.sin(az)*Math.sin(el),Math.cos(az)*Math.sin(el),Math.cos(el)];
+ const scale=.40*Math.min(width,height)/radius;
+ const project=p=>[width/2+dot(sub(p,center),right)*scale,height/2-dot(sub(p,center),up)*scale];
+ function line(points,color,dashed=false,thickness=1.5){ctx.beginPath();points.forEach((p,i)=>{const v=project(p);i?ctx.lineTo(...v):ctx.moveTo(...v)});ctx.strokeStyle=color;ctx.lineWidth=thickness;ctx.setLineDash(dashed?[5,4]:[]);ctx.stroke();ctx.setLineDash([])}
+ function label(p,text,color){const v=project(p);ctx.fillStyle=color;ctx.font='12px system-ui';ctx.fillText(text,v[0]+5,v[1]-5)}
+ function point(p,color,size){const v=project(p);ctx.beginPath();ctx.arc(...v,size,0,2*Math.PI);ctx.fillStyle=color;ctx.fill()}
+ const length=.14*span;
+ [[1,0,0],[0,1,0],[0,0,1]].forEach((v,i)=>{const tip=mul(v,length);line([[0,0,0],tip],colors[i]);label(tip,['E','N','U'][i],colors[i])});
+ if(cone){
+  line(m.boresight,'#bda2cb');line(m.boresight.slice(0,k+1),'#8b3bb0',false,2.4);
+  const orbitEnd=m.orbitFrequencyHz?m.t.findIndex(t=>t>=1/m.orbitFrequencyHz):m.t.length-1;
+  const limit=orbitEnd<0?m.t.length-1:orbitEnd;
+  for(let j=0;j<18;j++){const i=Math.round(j*limit/18);line([[0,0,0],m.boresight[i]],'#ddd0e4',false,.8)}
+  line([[0,0,0],[0,0,1]],'#475569',true);
+  line([[0,0,0],m.boresight[k]],'#8b3bb0',false,3);label(m.boresight[k],'Antenna Up','#8b3bb0');
+  line([[0,0,0],m.forward[k]],'#d56824',false,2);label(m.forward[k],'Body Forward','#d56824');
+  point(m.boresight[k],'#8b3bb0',5);
+ }else{
+  line(m.body,'#a9b3c2',true);line(m.antenna,'#bda2cb');
+  line(m.antenna.slice(0,k+1),'#8b3bb0',false,2.4);line([m.body[k],m.antenna[k]],'#475569',false,2);
+  if($('axes').checked){[0,1,2].forEach(i=>{const direction=m.rotation[k].map(row=>row[i]);const tip=add(m.body[k],mul(direction,length));line([m.body[k],tip],colors[i],true,2);label(tip,['F','R','D'][i],colors[i])})}
+  const pointingTip=add(m.antenna[k],mul(m.boresight[k],.25*span));
+  line([m.antenna[k],pointingTip],'#8b3bb0',false,2);label(pointingTip,'Antenna Up','#8b3bb0');
+  point(m.body[k],'#475569',4);point(m.antenna[k],'#8b3bb0',5);
+ }
+ ctx.fillStyle='#52627a';ctx.font='12px system-ui';ctx.fillText(cone?'Unit direction vectors · shared origin':'Equal axis scale · '+(1/scale*100).toFixed(3)+' m per 100 px',14,24);
+ $('clock').textContent=m.t[k].toFixed(3)+' s';
+ const a=m.antenna[k];
+ const rows=[['Body ENU m',fmt(m.body[k])],['Antenna ENU m',fmt(a)],['Antenna NED m',fmt([a[1],a[0],-a[2]])],
+ ['Antenna ECEF m',fmt(m.ecef[k],5)],['Lat / lon °, ellipsoid height m',fmt(m.llh[k],8)],
+ ['Roll / pitch / yaw °',fmt(m.rpy[k],2)],['Body → ENU quaternion wxyz',fmt(m.q[k])],
+ ['Antenna pointing unit vector ENU',fmt(m.boresight[k])],['Antenna tilt from vertical °',(Math.acos(Math.max(-1,Math.min(1,m.boresight[k][2])))*180/Math.PI).toFixed(2)],
+ ['Antenna velocity ENU m/s',fmt(m.velocity[k])],['Antenna acceleration ENU m/s²',fmt(m.acceleration[k])],
+ ['Ideal specific force FRD m/s²',fmt(m.specificForce[k])]];
+ $('readout').replaceChildren(...rows.map(([name,value])=>{const item=document.createElement('div');item.textContent=name+': '+value;return item}));
+}
+$('scenario').addEventListener('change',choose);
+['time','azimuth','elevation','axes','viewMode'].forEach(id=>$(id).addEventListener('input',()=>{if(id==='time')start=performance.now()-current().t[Number($('time').value)]*1000;draw()}));
+$('play').addEventListener('click',()=>{running=!running;$('play').textContent=running?'Pause':'Play';start=performance.now()-current().t[Number($('time').value)]*1000});
+canvas.addEventListener('pointerdown',event=>{drag=[event.clientX,event.clientY,Number($('azimuth').value),Number($('elevation').value)];canvas.setPointerCapture(event.pointerId)});
+canvas.addEventListener('pointermove',event=>{if(!drag)return;$('azimuth').value=(drag[2]+(event.clientX-drag[0])*.4+360)%360;$('elevation').value=Math.max(-15,Math.min(85,drag[3]+(event.clientY-drag[1])*.3));draw()});
+canvas.addEventListener('pointerup',()=>drag=null);canvas.addEventListener('pointercancel',()=>drag=null);
+window.addEventListener('resize',draw);
+function tick(now){if(running){const m=current(), duration=m.t.at(-1);const time=((now-start)/1000)%duration;
+ let low=0,high=m.t.length-1;while(low<high){const mid=Math.floor((low+high)/2);if(m.t[mid]<time)low=mid+1;else high=mid}$('time').value=low;draw()}requestAnimationFrame(tick)}
+choose();requestAnimationFrame(tick);
+</script></body></html>

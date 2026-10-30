@@ -1,0 +1,82 @@
+{
+  "stationary": {
+    "samples": 1201,
+    "actual_duration_s": 6.0,
+    "max_antenna_speed_m_s": 0.0,
+    "max_antenna_acceleration_m_s2": 0.0,
+    "max_enu_ecef_roundtrip_m": 2.2982400077310192e-10,
+    "max_geodetic_ecef_roundtrip_m": 1.0477378964424133e-09,
+    "max_quaternion_norm_error": 0.0,
+    "max_range_linearization_error_m": 0.0
+  },
+  "constant_velocity": {
+    "samples": 1201,
+    "actual_duration_s": 6.0,
+    "max_antenna_speed_m_s": 0.25,
+    "max_antenna_acceleration_m_s2": 0.0,
+    "max_enu_ecef_roundtrip_m": 3.1787592150799644e-10,
+    "max_geodetic_ecef_roundtrip_m": 2.399963341663627e-09,
+    "max_quaternion_norm_error": 0.0,
+    "max_range_linearization_error_m": 5.4760387280250455e-08
+  },
+  "east_oscillation": {
+    "samples": 1201,
+    "actual_duration_s": 6.0,
+    "max_antenna_speed_m_s": 0.6283185307179586,
+    "max_antenna_acceleration_m_s2": 7.895683520871486,
+    "max_enu_ecef_roundtrip_m": 3.150980734909306e-10,
+    "max_geodetic_ecef_roundtrip_m": 1.337510218503426e-09,
+    "max_quaternion_norm_error": 0.0,
+    "max_range_linearization_error_m": 6.084487687990636e-11
+  },
+  "circle": {
+    "samples": 1201,
+    "actual_duration_s": 6.0,
+    "max_antenna_speed_m_s": 0.6283185307179587,
+    "max_antenna_acceleration_m_s2": 3.947841760435744,
+    "max_enu_ecef_roundtrip_m": 4.983155175989389e-10,
+    "max_geodetic_ecef_roundtrip_m": 2.3744159907068985e-09,
+    "max_quaternion_norm_error": 0.0,
+    "max_range_linearization_error_m": 9.766937397737152e-10
+  },
+  "circle_coning": {
+    "samples": 1201,
+    "actual_duration_s": 6.0,
+    "max_antenna_speed_m_s": 0.36409225768360626,
+    "max_antenna_acceleration_m_s2": 2.287659123935479,
+    "max_enu_ecef_roundtrip_m": 5.073046156604106e-10,
+    "max_geodetic_ecef_roundtrip_m": 2.3744159907068985e-09,
+    "max_quaternion_norm_error": 2.220446049250313e-16,
+    "max_range_linearization_error_m": 3.324594614905786e-10
+  },
+  "three_axis": {
+    "samples": 1201,
+    "actual_duration_s": 6.0,
+    "max_antenna_speed_m_s": 0.5320477899440935,
+    "max_antenna_acceleration_m_s2": 6.559942339359118,
+    "max_enu_ecef_roundtrip_m": 5.174061423893906e-10,
+    "max_geodetic_ecef_roundtrip_m": 2.9657360172963227e-09,
+    "max_quaternion_norm_error": 0.0,
+    "max_range_linearization_error_m": 1.3585479746378026e-10
+  },
+  "rotation_only": {
+    "samples": 1201,
+    "actual_duration_s": 6.0,
+    "max_antenna_speed_m_s": 0.6676975021490298,
+    "max_antenna_acceleration_m_s2": 5.312852108950308,
+    "max_enu_ecef_roundtrip_m": 5.155909190217426e-10,
+    "max_geodetic_ecef_roundtrip_m": 2.3744159907068985e-09,
+    "max_quaternion_norm_error": 2.220446049250313e-16,
+    "max_range_linearization_error_m": 1.7607053835744235e-10
+  },
+  "combined": {
+    "samples": 1201,
+    "actual_duration_s": 6.0,
+    "max_antenna_speed_m_s": 0.9601024476212598,
+    "max_antenna_acceleration_m_s2": 9.826615079647992,
+    "max_enu_ecef_roundtrip_m": 5.190927057154043e-10,
+    "max_geodetic_ecef_roundtrip_m": 2.954289675794896e-09,
+    "max_quaternion_norm_error": 2.220446049250313e-16,
+    "max_range_linearization_error_m": 4.2079596708141653e-10
+  }
+}

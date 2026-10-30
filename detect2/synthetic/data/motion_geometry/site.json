@@ -1,0 +1,33 @@
+{
+  "origin": {
+    "latitude_deg": 59.3526,
+    "longitude_deg": 18.0728,
+    "height_m": 30.0
+  },
+  "origin_ecef_m": [
+    3098569.169918081,
+    1011140.6390338341,
+    5464088.464993857
+  ],
+  "enu_from_ecef": [
+    [
+      -0.3102251567276329,
+      0.9506631117979258,
+      0.0
+    ],
+    [
+      -0.8178750678996201,
+      -0.2668930959600705,
+      0.5097533213594989
+    ],
+    [
+      0.48460367873294935,
+      0.15813830401118198,
+      0.8603206096351287
+    ]
+  ],
+  "source_range_from_site_m": 20200000.0,
+  "geometry_provenance": "illustrative fixed sources, not satellite ephemerides",
+  "shared_direction_azimuth_deg": 230.0,
+  "shared_direction_elevation_deg": 15.0
+}
