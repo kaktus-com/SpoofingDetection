@@ -1,0 +1,702 @@
+[
+  {
+    "window_index": 0,
+    "signal_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "diagnostics": {
+      "samples": 20,
+      "available_signals": 8,
+      "mode": "imu_displacement",
+      "used_signals": 8,
+      "excluded_signals": {},
+      "motion_rank": 3,
+      "motion_rms_m": 0.03379274558291022,
+      "min_axis_rms_m": 0.011246786267744105,
+      "motion_singular_values_m": [
+        0.12136634970404617,
+        0.07469536942203835,
+        0.05029715724617394
+      ],
+      "motion_condition": 2.4129862669977915,
+      "time_center_s": 1.475,
+      "time_scale_s": 0.95,
+      "sigma_floor_applied": false,
+      "best_fit_rms_sigma": 0.9546704525960003
+    },
+    "fits": {
+      "benign": {
+        "parameters": {
+          "rotation_nominal_to_displacement": [
+            [
+              -0.32161427120111163,
+              -0.6428414161708242,
+              -0.6952116039129862
+            ],
+            [
+              0.8711177415438172,
+              0.08688146328969504,
+              -0.48332752011885327
+            ],
+            [
+              0.37110394895147236,
+              -0.761056190430201,
+              0.5320482441287561
+            ]
+          ]
+        },
+        "reduced_cost": 3619.271301888315,
+        "total_cost": 3670.418904163015,
+        "diagnostics": {
+          "success": true,
+          "converged_starts": 25,
+          "attempted_starts": 25,
+          "agreeing_best_starts": 12,
+          "best_reduced_cost": 3619.2713018883146,
+          "best_evaluations": 70,
+          "best_optimality": 0.024850855453323106,
+          "determinant": 0.9999999999999999,
+          "qr_vs_direct_cost_error": 2.2049344572394602e-09,
+          "common_tail_cost": 51.14760226941665
+        },
+        "polynomial_coefficients_centered_scaled_time": [
+          [
+            894.6261239259852,
+            50.30739037368594,
+            -749.5977466618434,
+            -1078.1769729269179,
+            -972.4906856397039,
+            -81.71432770711692,
+            889.5691631768327,
+            256.6061726895154
+          ],
+          [
+            1789.2600976552171,
+            100.47411327439377,
+            -1499.054086829957,
+            -2156.159697789996,
+            -1944.2683686969908,
+            -163.2410697711626,
+            1779.440658206739,
+            513.1339228648225
+          ],
+          [
+            -0.42524385970325,
+            -0.1611661174360195,
+            0.39516939363975523,
+            0.6743349150817536,
+            1.4880835313750378,
+            0.4541747131176705,
+            0.348947296531294,
+            -0.24626895602433482
+          ]
+        ]
+      },
+      "spoofed": {
+        "parameters": {
+          "shared_direction_displacement_frame": [
+            -0.7360476858845617,
+            -0.6295789717556601,
+            0.2487249935713483
+          ]
+        },
+        "reduced_cost": 9.915907825055292,
+        "total_cost": 61.06351009501009,
+        "diagnostics": {
+          "success": true,
+          "hard_case": false,
+          "unit_norm": 1.0,
+          "relative_kkt_residual": 2.7384065171986977e-16,
+          "min_shifted_eigenvalue_scaled": 0.17353218818889413,
+          "multiplier": 58.078073556833594,
+          "qr_vs_direct_cost_error": 2.063673676389044e-10,
+          "common_tail_cost": 51.14760226941665
+        },
+        "polynomial_coefficients_centered_scaled_time": [
+          [
+            895.1100639731467,
+            50.36429982287354,
+            -749.328707651683,
+            -1078.1462902431144,
+            -972.2756848597413,
+            -81.74537519053025,
+            889.800414021007,
+            256.6997238552746
+          ],
+          [
+            1790.183284479805,
+            100.75748525836532,
+            -1498.6031155441506,
+            -2156.2793496255385,
+            -1944.5466248520804,
+            -163.43753910107392,
+            1779.590374097228,
+            513.3663824888204
+          ],
+          [
+            -0.11790145241223972,
+            0.11958149125988499,
+            0.13551605749614076,
+            0.10004711991781608,
+            0.03859776692726392,
+            0.12029845621184307,
+            -0.009080712781480768,
+            -0.05120542904662001
+          ]
+        ]
+      }
+    },
+    "motion_estimation": {
+      "method": "piecewise-linear acceleration integrated exactly per segment; quaternion SLERP",
+      "attitude_source": "supplied body-to-ENU quaternion, not an estimated AHRS",
+      "initial_position_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "window_start_s": 1.0,
+      "window_last_epoch_s": 1.95,
+      "integration_samples": 191,
+      "source_max_gap_s": 0.0050000000000001155,
+      "quaternion_norm_error_before_normalization": 2.220446049250313e-16,
+      "drift_policy": "zero initialization per window; no truth velocity, bias correction or high-pass filter; polynomial nuisance projection handles low-order drift"
+    }
+  },
+  {
+    "window_index": 1,
+    "signal_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "diagnostics": {
+      "samples": 20,
+      "available_signals": 8,
+      "mode": "imu_displacement",
+      "used_signals": 8,
+      "excluded_signals": {},
+      "motion_rank": 3,
+      "motion_rms_m": 0.03349143797132879,
+      "min_axis_rms_m": 0.004882947228813241,
+      "motion_singular_values_m": [
+        0.13677363845761903,
+        0.05700558479679246,
+        0.021837203868341256
+      ],
+      "motion_condition": 6.263331115203271,
+      "time_center_s": 2.475,
+      "time_scale_s": 0.9500000000000002,
+      "sigma_floor_applied": false,
+      "best_fit_rms_sigma": 1.1130703787710585
+    },
+    "fits": {
+      "benign": {
+        "parameters": {
+          "rotation_nominal_to_displacement": [
+            [
+              -0.017239200399973616,
+              -0.1725160238039446,
+              -0.9848558430046741
+            ],
+            [
+              0.7298046837673093,
+              0.6711172023583775,
+              -0.13033351161525208
+            ],
+            [
+              0.6834383172758665,
+              -0.7209992525859803,
+              0.11433347825370563
+            ]
+          ]
+        },
+        "reduced_cost": 2983.224583982313,
+        "total_cost": 3053.558408839918,
+        "diagnostics": {
+          "success": true,
+          "converged_starts": 25,
+          "attempted_starts": 25,
+          "agreeing_best_starts": 15,
+          "best_reduced_cost": 2983.224583982314,
+          "best_evaluations": 42,
+          "best_optimality": 0.020611829399619808,
+          "determinant": 1.0000000000000013,
+          "qr_vs_direct_cost_error": 2.1372859038137904e-09,
+          "common_tail_cost": 70.33382485995352
+        },
+        "polynomial_coefficients_centered_scaled_time": [
+          [
+            894.7811202102156,
+            49.31878729354364,
+            -750.2950462860723,
+            -1079.5871893244882,
+            -973.5645898145153,
+            -83.060175706271,
+            889.0181196373214,
+            255.69582942415755
+          ],
+          [
+            1790.051929780777,
+            99.04198402930884,
+            -1500.1808948254109,
+            -2159.0008259794286,
+            -1947.2591799246798,
+            -166.01402021861276,
+            1778.1361062266471,
+            511.65291380198516
+          ],
+          [
+            0.9240924959523449,
+            0.8296494464752613,
+            0.5588405563920857,
+            0.274779391725377,
+            -0.19810759539120953,
+            0.385595199600541,
+            0.439748481680922,
+            0.6011346379726559
+          ]
+        ]
+      },
+      "spoofed": {
+        "parameters": {
+          "shared_direction_displacement_frame": [
+            -0.739224900758838,
+            -0.620549253834764,
+            0.2616584981673709
+          ]
+        },
+        "reduced_cost": 12.674194902713841,
+        "total_cost": 83.00801976253568,
+        "diagnostics": {
+          "success": true,
+          "hard_case": false,
+          "unit_norm": 1.0,
+          "relative_kkt_residual": 2.2006657421267913e-17,
+          "min_shifted_eigenvalue_scaled": 0.024958944680924345,
+          "multiplier": -21.994651119327052,
+          "qr_vs_direct_cost_error": 3.702567141772306e-10,
+          "common_tail_cost": 70.33382485995352
+        },
+        "polynomial_coefficients_centered_scaled_time": [
+          [
+            893.5138908011846,
+            48.943297890619455,
+            -750.7590109263966,
+            -1079.6021045991247,
+            -973.7502201553995,
+            -83.1947648014134,
+            888.2964682281926,
+            255.15091906499293
+          ],
+          [
+            1786.9986288958976,
+            97.90092031280585,
+            -1501.4964427087389,
+            -2159.1639789919172,
+            -1947.4977672359175,
+            -166.3711234911671,
+            1776.5703555214168,
+            510.26333120769385
+          ],
+          [
+            -0.09978576574420862,
+            0.14551827047743923,
+            0.15322439585860284,
+            0.1818346640863948,
+            0.10358431168033293,
+            0.09877348259714615,
+            -0.05535862977892812,
+            -0.11497892722451936
+          ]
+        ]
+      }
+    },
+    "motion_estimation": {
+      "method": "piecewise-linear acceleration integrated exactly per segment; quaternion SLERP",
+      "attitude_source": "supplied body-to-ENU quaternion, not an estimated AHRS",
+      "initial_position_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "window_start_s": 2.0,
+      "window_last_epoch_s": 2.95,
+      "integration_samples": 191,
+      "source_max_gap_s": 0.0050000000000003375,
+      "quaternion_norm_error_before_normalization": 2.220446049250313e-16,
+      "drift_policy": "zero initialization per window; no truth velocity, bias correction or high-pass filter; polynomial nuisance projection handles low-order drift"
+    }
+  },
+  {
+    "window_index": 2,
+    "signal_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "diagnostics": {
+      "samples": 20,
+      "available_signals": 8,
+      "mode": "imu_displacement",
+      "used_signals": 8,
+      "excluded_signals": {},
+      "motion_rank": 3,
+      "motion_rms_m": 0.05465166867672351,
+      "min_axis_rms_m": 0.010840898702366819,
+      "motion_singular_values_m": [
+        0.20818766597575528,
+        0.1185052396524097,
+        0.04848197287136294
+      ],
+      "motion_condition": 4.2941252932948695,
+      "time_center_s": 3.475,
+      "time_scale_s": 0.9500000000000002,
+      "sigma_floor_applied": false,
+      "best_fit_rms_sigma": 0.9861696222686613
+    },
+    "fits": {
+      "benign": {
+        "parameters": {
+          "rotation_nominal_to_displacement": [
+            [
+              -0.6727313510216852,
+              0.06874445501089664,
+              -0.7366863167303931
+            ],
+            [
+              0.6105885784260686,
+              -0.5107486417100428,
+              -0.605241615296717
+            ],
+            [
+              -0.41786854062991013,
+              -0.8569772604314548,
+              0.30162204471030946
+            ]
+          ]
+        },
+        "reduced_cost": 9348.508034636474,
+        "total_cost": 9404.265297410839,
+        "diagnostics": {
+          "success": true,
+          "converged_starts": 25,
+          "attempted_starts": 25,
+          "agreeing_best_starts": 12,
+          "best_reduced_cost": 9348.508034636474,
+          "best_evaluations": 42,
+          "best_optimality": 0.042737720534319124,
+          "determinant": 1.0000000000000007,
+          "qr_vs_direct_cost_error": 3.5944953680200342e-09,
+          "common_tail_cost": 55.75726277051492
+        },
+        "polynomial_coefficients_centered_scaled_time": [
+          [
+            893.845479250526,
+            49.722080594123376,
+            -749.5457079238809,
+            -1078.322890385417,
+            -972.269429226729,
+            -82.30718809343546,
+            888.907524096822,
+            255.62099220988952
+          ],
+          [
+            1787.7838804607336,
+            99.7302502155923,
+            -1498.5481743723926,
+            -2156.4901702955717,
+            -1944.907576748325,
+            -164.8402974346817,
+            1777.3100807051726,
+            511.13498285537077
+          ],
+          [
+            -1.4378942792604181,
+            0.6398136299741943,
+            0.12500818082432333,
+            -0.3206481904397032,
+            -2.877918092209185,
+            -0.8343054063499468,
+            -2.540611836694565,
+            -0.728051784454685
+          ]
+        ]
+      },
+      "spoofed": {
+        "parameters": {
+          "shared_direction_displacement_frame": [
+            -0.740837774509152,
+            -0.6131494787464903,
+            0.27423914485943507
+          ]
+        },
+        "reduced_cost": 9.402282329371713,
+        "total_cost": 65.15954510032945,
+        "diagnostics": {
+          "success": true,
+          "hard_case": false,
+          "unit_norm": 1.0,
+          "relative_kkt_residual": 7.598692632884592e-17,
+          "min_shifted_eigenvalue_scaled": 0.053641655975962384,
+          "multiplier": -56.466744269230915,
+          "qr_vs_direct_cost_error": 3.07627701090496e-10,
+          "common_tail_cost": 55.75726277051492
+        },
+        "polynomial_coefficients_centered_scaled_time": [
+          [
+            894.2199523817288,
+            49.8100841572385,
+            -749.8874426543385,
+            -1078.752055705058,
+            -972.9295405120065,
+            -82.37897921962713,
+            889.0734896125093,
+            255.87970521354555
+          ],
+          [
+            1788.3934957059603,
+            99.64109337843045,
+            -1499.7698290303126,
+            -2157.467866151439,
+            -1945.8447457360148,
+            -164.71650104264984,
+            1778.1439951503087,
+            511.76065514089976
+          ],
+          [
+            -0.1464430277092068,
+            0.1486515665507888,
+            0.03340709801103998,
+            0.03963783265326214,
+            -0.014056599295002598,
+            0.13764589865337842,
+            -0.045629874723997634,
+            -0.08308652712444026
+          ]
+        ]
+      }
+    },
+    "motion_estimation": {
+      "method": "piecewise-linear acceleration integrated exactly per segment; quaternion SLERP",
+      "attitude_source": "supplied body-to-ENU quaternion, not an estimated AHRS",
+      "initial_position_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "window_start_s": 3.0,
+      "window_last_epoch_s": 3.95,
+      "integration_samples": 191,
+      "source_max_gap_s": 0.0050000000000003375,
+      "quaternion_norm_error_before_normalization": 2.220446049250313e-16,
+      "drift_policy": "zero initialization per window; no truth velocity, bias correction or high-pass filter; polynomial nuisance projection handles low-order drift"
+    }
+  },
+  {
+    "window_index": 3,
+    "signal_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "diagnostics": {
+      "samples": 20,
+      "available_signals": 8,
+      "mode": "imu_displacement",
+      "used_signals": 8,
+      "excluded_signals": {},
+      "motion_rank": 3,
+      "motion_rms_m": 0.056843885961405945,
+      "min_axis_rms_m": 0.008388621389305451,
+      "motion_singular_values_m": [
+        0.21657957257140795,
+        0.12771239874182333,
+        0.03751505532799144
+      ],
+      "motion_condition": 5.773137495809836,
+      "time_center_s": 4.475,
+      "time_scale_s": 0.9500000000000002,
+      "sigma_floor_applied": false,
+      "best_fit_rms_sigma": 0.9180079287502533
+    },
+    "fits": {
+      "benign": {
+        "parameters": {
+          "rotation_nominal_to_displacement": [
+            [
+              -0.5554128155817111,
+              -0.38672197306596096,
+              -0.7361811732417274
+            ],
+            [
+              0.8244952577244178,
+              -0.3713663658923297,
+              -0.4269597080215771
+            ],
+            [
+              -0.10827822623936104,
+              -0.8441167797360117,
+              0.5251120717433214
+            ]
+          ]
+        },
+        "reduced_cost": 11263.048710632955,
+        "total_cost": 11310.777075231676,
+        "diagnostics": {
+          "success": true,
+          "converged_starts": 25,
+          "attempted_starts": 25,
+          "agreeing_best_starts": 14,
+          "best_reduced_cost": 11263.048710632956,
+          "best_evaluations": 35,
+          "best_optimality": 0.05399278456791734,
+          "determinant": 1.0,
+          "qr_vs_direct_cost_error": 8.211344493247452e-09,
+          "common_tail_cost": 47.72836460240911
+        },
+        "polynomial_coefficients_centered_scaled_time": [
+          [
+            895.4115690871158,
+            50.76358894524428,
+            -749.7533983479879,
+            -1078.599569319098,
+            -973.1077004557252,
+            -81.5597851164276,
+            890.2165955596095,
+            257.06941481619145
+          ],
+          [
+            1790.9337831448875,
+            101.83633766572356,
+            -1498.8057817232818,
+            -2156.7819045981305,
+            -1946.0368808462297,
+            -163.1524485940923,
+            1780.1453165455514,
+            514.0989724373766
+          ],
+          [
+            0.1412764776382794,
+            -0.1770586356786811,
+            1.1444655400190586,
+            1.3431893237842674,
+            3.175931661979207,
+            0.7550521147535569,
+            1.1660932981656529,
+            -0.08718013314567619
+          ]
+        ]
+      },
+      "spoofed": {
+        "parameters": {
+          "shared_direction_displacement_frame": [
+            -0.7384493863373273,
+            -0.6176007823601022,
+            0.270669129097159
+          ]
+        },
+        "reduced_cost": 8.735118732743617,
+        "total_cost": 56.46348333563811,
+        "diagnostics": {
+          "success": true,
+          "hard_case": false,
+          "unit_norm": 1.0,
+          "relative_kkt_residual": 3.0453495028427903e-16,
+          "min_shifted_eigenvalue_scaled": 0.032393983875629945,
+          "multiplier": 247.68995173570534,
+          "qr_vs_direct_cost_error": 3.086695343768042e-10,
+          "common_tail_cost": 47.72836460240911
+        },
+        "polynomial_coefficients_centered_scaled_time": [
+          [
+            895.2199348625479,
+            50.9613116682827,
+            -748.7687400826551,
+            -1077.6184655926656,
+            -971.8290198220151,
+            -81.24285465657161,
+            890.1622500859096,
+            256.92334214309034
+          ],
+          [
+            1790.3901876302043,
+            101.94377142461035,
+            -1497.5048196501637,
+            -2155.193804562372,
+            -1943.6191612176208,
+            -162.48332851812503,
+            1780.2821086663625,
+            513.834926162594
+          ],
+          [
+            -0.22582359241483116,
+            0.12372824797074054,
+            0.20884530990196026,
+            0.16410166614090502,
+            0.07399083537165084,
+            0.023231702665315556,
+            -0.07639337577163613,
+            -0.06581660102940018
+          ]
+        ]
+      }
+    },
+    "motion_estimation": {
+      "method": "piecewise-linear acceleration integrated exactly per segment; quaternion SLERP",
+      "attitude_source": "supplied body-to-ENU quaternion, not an estimated AHRS",
+      "initial_position_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "window_start_s": 4.0,
+      "window_last_epoch_s": 4.95,
+      "integration_samples": 191,
+      "source_max_gap_s": 0.005000000000000782,
+      "quaternion_norm_error_before_normalization": 2.220446049250313e-16,
+      "drift_policy": "zero initialization per window; no truth velocity, bias correction or high-pass filter; polynomial nuisance projection handles low-order drift"
+    }
+  }
+]

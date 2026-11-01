@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>detect2 · IMU motion comparison</title><style>
+:root{color-scheme:light;font:16px/1.55 system-ui,sans-serif;color:#243247;background:#f3f5f8}body{max-width:1200px;margin:auto;padding:30px 22px}h1{font-size:2rem;letter-spacing:-.04em;margin-bottom:8px}h2{margin-top:28px}p{max-width:100ch}a{color:#255fa0}.tag{font-size:.8rem;letter-spacing:.08em;color:#52627a;text-transform:uppercase}.card{background:white;border:1px solid #dce2ea;border-radius:14px;padding:20px;margin:22px 0}.controls{display:flex;flex-wrap:wrap;gap:15px;align-items:center}label{font-size:.9rem}select{font:inherit;padding:6px 10px;border:1px solid #c6d0df;border-radius:6px;background:white;color:#243247}.panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}canvas{width:100%;height:310px;min-width:0}.note{border-left:3px solid #d56824;padding:2px 15px;color:#52627a}.scenario{display:none}.scenario.active{display:block}img{width:100%;height:auto;margin:10px 0}#details{font:13px/1.7 ui-monospace,monospace;color:#52627a}@media(max-width:720px){.panels{grid-template-columns:1fr}}
+</style></head><body>
+<header><div class="tag">detect2 / post-prediction evaluation</div><h1>IMU displacement versus held-out truth</h1>
+<p>Specific force is rotated into ENU with supplied attitude, gravity is removed, and acceleration is integrated with zero initial position and velocity in each window. The rotating antenna offset is added before sampling at GNSS epochs. Truth is accessed only after IMU predictions have been saved.</p>
+<p class="note">Unknown initial velocity gives linear drift in raw displacement. “Observable” here means after the same quadratic removal used by the detector, not a correction available to full navigation. No true initial velocity, position, bias or generated phase trend initializes the IMU estimate. Attitude is supplied, not estimated.</p>
+<p>__SUMMARY__</p><p><a href="report.html">Detector fits and decisions</a> · <a href="motion_comparison.json">Comparison summary</a> · <a href="motion_comparison.csv">Per-window motion/phase errors and gamma</a></p></header>
+<div class="card"><div class="controls"><label>Motion <select id="scenario"></select></label><label>Input case <select id="case"></select></label><label>Window <select id="window"></select></label>
+<label>Quantity <select id="mode"><option value="observable">Displacement after quadratic removal</option><option value="raw">Raw displacement</option><option value="phase">Motion phase after quadratic removal</option></select></label>
+<label>Axis <select id="axis"><option value="0">East</option><option value="1">North</option><option value="2">Up</option></select></label><label>Signal <select id="signal"></select></label></div>
+<p id="details"></p><div class="panels"><canvas id="overlay" aria-label="True and estimated motion"></canvas><canvas id="error" aria-label="Estimated minus true motion"></canvas></div>
+<p>Gray: held-out truth. Purple: IMU estimate. Right: estimated minus true. Displacement shading shows the configured white-noise component ±1 sigma; epochs are correlated. It excludes unknown initial velocity, bias, attitude, timing and numerical integration errors. Phase plots have no uncertainty band. Actual propagation directions are used only for phase evaluation when present in held-out truth.</p></div>
+<div>__SECTIONS__</div><p class="note">__INPUT_NOTE__ The likelihood fits and zero gamma threshold are unchanged. IMU motion-noise checks are recorded in window diagnostics.</p>
+<script id="motion-comparison-data" type="application/json">__DATA__</script><script>
+'use strict';
+const data=JSON.parse(document.getElementById('motion-comparison-data').textContent),$=id=>document.getElementById(id);
+const names=Object.keys(data);
+function fill(id,items){const select=$(id);select.replaceChildren(...items.map((item,i)=>{const option=document.createElement('option');option.value=String(i);option.textContent=item;return option}));select.value='0'}
+fill('scenario',names);if(names.includes('three_axis'))$('scenario').value=String(names.indexOf('three_axis'));
+function scenario(){return names[Number($('scenario').value)]}function cases(){return Object.keys(data[scenario()])}function windows(){return data[scenario()][cases()[Number($('case').value)]]}function record(){return windows()[Number($('window').value)]}
+function chooseScenario(){fill('case',cases());chooseCase()}function chooseCase(){fill('window',windows().map(w=>w.index+': ['+w.start.toFixed(2)+', '+w.end.toFixed(2)+') s'));chooseWindow()}function chooseWindow(){fill('signal',record().signals);draw()}
+function draw(){const w=record(),mode=$('mode').value,phase=mode==='phase',index=Number($(phase?'signal':'axis').value);
+ document.querySelectorAll('.scenario').forEach(section=>section.classList.toggle('active',section.dataset.scenario===scenario()));
+ const pair=phase?['oracle_observable_phase_cycles','estimated_observable_phase_cycles']:mode==='raw'?['oracle_displacement_m','estimated_displacement_m']:['oracle_observable_displacement_m','estimated_observable_displacement_m'];
+ const truth=w[pair[0]].map(row=>row[index]),estimate=w[pair[1]].map(row=>row[index]),error=estimate.map((value,i)=>value-truth[i]),m=w.metrics;
+ const sigma=phase?w.time.map(()=>0):(mode==='raw'?w.raw_white_noise_sigma_m:w.observable_white_noise_sigma_m)||w.time.map(()=>0),check=w.motion_noise_check;
+ const number=value=>value===null?'unavailable':value.toPrecision(6);
+ $('details').textContent='Raw displacement RMSE: '+(m.raw_displacement_vector_rmse_m*1000).toFixed(3)+' mm · observable RMSE: '+(m.observable_displacement_vector_rmse_m*1e6).toFixed(3)+' µm · observable phase RMSE: '+(m.observable_phase_rmse_cycles*1000).toFixed(4)+' millicycles · phase reference: '+m.phase_reference+' · IMU/oracle decisions: '+m.imu_decision+'/'+m.oracle_decision+' · gamma: '+number(m.imu_gamma)+' / '+number(m.oracle_gamma);
+ if(check&&check.noise_bound_rms_m!==undefined)$('details').textContent+=' · motion-noise check: '+check.status+(check.applied?(check.passed?' passed':' rejected'):'')+' · noise bound RMS: '+(check.noise_bound_rms_m*1000).toFixed(4)+' mm';
+ ['overlay','error'].forEach(id=>{const canvas=$(id),ctx=canvas.getContext('2d'),width=canvas.clientWidth,height=canvas.clientHeight,ratio=window.devicePixelRatio||1;
+  canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);ctx.scale(ratio,ratio);ctx.clearRect(0,0,width,height);
+  const values=id==='overlay'?truth.concat(estimate,estimate.map((v,i)=>v-sigma[i]),estimate.map((v,i)=>v+sigma[i])):error.concat(sigma,sigma.map(v=>-v));let low=Math.min(...values),high=Math.max(...values);const padding=Math.max((high-low)*.1,phase?1e-7:1e-9);low-=padding;high+=padding;
+  const left=70,right=15,top=38,bottom=42,ww=width-left-right,hh=height-top-bottom,first=w.time[0],duration=w.time.at(-1)-first;
+  const x=t=>left+(t-first)/duration*ww,y=v=>top+(high-v)/(high-low)*hh;
+  ctx.fillStyle='#243247';ctx.font='600 13px system-ui';ctx.fillText(id==='overlay'?'True (gray) / estimated (purple)':'Estimated − true',left,20);ctx.font='11px system-ui';ctx.fillText(phase?'cycles':'metres',3,20);ctx.textAlign='right';
+  for(let i=0;i<=4;i++){const yy=top+hh*i/4;ctx.strokeStyle='#e5e9ef';ctx.beginPath();ctx.moveTo(left,yy);ctx.lineTo(width-right,yy);ctx.stroke();ctx.fillText((high-(high-low)*i/4).toPrecision(3),left-5,yy+4)}
+  ctx.textAlign='center';for(let i=0;i<=4;i++){const t=first+duration*i/4;ctx.fillText(t.toFixed(2),x(t),height-24)}ctx.fillText('Measurement time (s)',left+ww/2,height-5);ctx.textAlign='left';
+  function line(array,color,dashed){ctx.beginPath();array.forEach((value,i)=>{i?ctx.lineTo(x(w.time[i]),y(value)):ctx.moveTo(x(w.time[i]),y(value))});ctx.strokeStyle=color;ctx.lineWidth=1.6;ctx.setLineDash(dashed?[5,3]:[]);ctx.stroke();ctx.setLineDash([])}
+  if(!phase&&sigma.some(v=>v>0)){const center=id==='overlay'?estimate:estimate.map(()=>0);ctx.beginPath();center.forEach((v,i)=>{i?ctx.lineTo(x(w.time[i]),y(v+sigma[i])):ctx.moveTo(x(w.time[i]),y(v+sigma[i]))});for(let i=center.length-1;i>=0;i--)ctx.lineTo(x(w.time[i]),y(center[i]-sigma[i]));ctx.closePath();ctx.fillStyle='rgba(139,59,176,.13)';ctx.fill()}
+  if(id==='overlay'){line(truth,'#475569',false);line(estimate,'#8b3bb0',true)}else line(error,'#c13c3c',false);
+ });
+}
+$('scenario').addEventListener('change',chooseScenario);$('case').addEventListener('change',chooseCase);$('window').addEventListener('change',chooseWindow);['mode','axis','signal'].forEach(id=>$(id).addEventListener('change',draw));window.addEventListener('resize',draw);chooseScenario();
+</script></body></html>

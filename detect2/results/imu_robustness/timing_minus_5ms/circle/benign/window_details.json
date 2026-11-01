@@ -1,0 +1,222 @@
+[
+  {
+    "window_index": 0,
+    "signal_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "diagnostics": {
+      "samples": 20,
+      "available_signals": 8,
+      "mode": "imu_displacement",
+      "used_signals": 8,
+      "excluded_signals": {},
+      "motion_rank": 2,
+      "motion_rms_m": 0.04783159125716842,
+      "min_axis_rms_m": 3.488536088416811e-31,
+      "motion_singular_values_m": [
+        0.19632842343928458,
+        0.08492568865603364,
+        1.5601207671322413e-30
+      ],
+      "motion_condition": null,
+      "time_center_s": 1.475,
+      "time_scale_s": 0.95
+    },
+    "fits": {
+      "benign": null,
+      "spoofed": null
+    },
+    "motion_estimation": {
+      "method": "piecewise-linear acceleration integrated exactly per segment; quaternion SLERP",
+      "attitude_source": "supplied body-to-ENU quaternion, not an estimated AHRS",
+      "initial_position_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "window_start_s": 1.0,
+      "window_last_epoch_s": 1.95,
+      "integration_samples": 191,
+      "source_max_gap_s": 0.0050000000000002265,
+      "quaternion_norm_error_before_normalization": 0.0,
+      "drift_policy": "zero initialization per window; no truth velocity, bias correction or high-pass filter; polynomial nuisance projection handles low-order drift"
+    }
+  },
+  {
+    "window_index": 1,
+    "signal_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "diagnostics": {
+      "samples": 20,
+      "available_signals": 8,
+      "mode": "imu_displacement",
+      "used_signals": 8,
+      "excluded_signals": {},
+      "motion_rank": 2,
+      "motion_rms_m": 0.04783159125716846,
+      "min_axis_rms_m": 2.130800862989159e-31,
+      "motion_singular_values_m": [
+        0.19632842343928475,
+        0.0849256886560337,
+        9.529231152317952e-31
+      ],
+      "motion_condition": null,
+      "time_center_s": 2.475,
+      "time_scale_s": 0.9500000000000002
+    },
+    "fits": {
+      "benign": null,
+      "spoofed": null
+    },
+    "motion_estimation": {
+      "method": "piecewise-linear acceleration integrated exactly per segment; quaternion SLERP",
+      "attitude_source": "supplied body-to-ENU quaternion, not an estimated AHRS",
+      "initial_position_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "window_start_s": 2.0,
+      "window_last_epoch_s": 2.95,
+      "integration_samples": 191,
+      "source_max_gap_s": 0.0050000000000003375,
+      "quaternion_norm_error_before_normalization": 0.0,
+      "drift_policy": "zero initialization per window; no truth velocity, bias correction or high-pass filter; polynomial nuisance projection handles low-order drift"
+    }
+  },
+  {
+    "window_index": 2,
+    "signal_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "diagnostics": {
+      "samples": 20,
+      "available_signals": 8,
+      "mode": "imu_displacement",
+      "used_signals": 8,
+      "excluded_signals": {},
+      "motion_rank": 2,
+      "motion_rms_m": 0.047831591257168446,
+      "min_axis_rms_m": 2.130800862989159e-31,
+      "motion_singular_values_m": [
+        0.19632842343928472,
+        0.08492568865603371,
+        9.529231152317952e-31
+      ],
+      "motion_condition": null,
+      "time_center_s": 3.475,
+      "time_scale_s": 0.9500000000000002
+    },
+    "fits": {
+      "benign": null,
+      "spoofed": null
+    },
+    "motion_estimation": {
+      "method": "piecewise-linear acceleration integrated exactly per segment; quaternion SLERP",
+      "attitude_source": "supplied body-to-ENU quaternion, not an estimated AHRS",
+      "initial_position_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "window_start_s": 3.0,
+      "window_last_epoch_s": 3.95,
+      "integration_samples": 191,
+      "source_max_gap_s": 0.0050000000000003375,
+      "quaternion_norm_error_before_normalization": 0.0,
+      "drift_policy": "zero initialization per window; no truth velocity, bias correction or high-pass filter; polynomial nuisance projection handles low-order drift"
+    }
+  },
+  {
+    "window_index": 3,
+    "signal_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "diagnostics": {
+      "samples": 20,
+      "available_signals": 8,
+      "mode": "imu_displacement",
+      "used_signals": 8,
+      "excluded_signals": {},
+      "motion_rank": 2,
+      "motion_rms_m": 0.047831591257168474,
+      "min_axis_rms_m": 3.83008722145839e-31,
+      "motion_singular_values_m": [
+        0.19632842343928486,
+        0.0849256886560337,
+        1.7128670773868504e-30
+      ],
+      "motion_condition": null,
+      "time_center_s": 4.475,
+      "time_scale_s": 0.9500000000000002
+    },
+    "fits": {
+      "benign": null,
+      "spoofed": null
+    },
+    "motion_estimation": {
+      "method": "piecewise-linear acceleration integrated exactly per segment; quaternion SLERP",
+      "attitude_source": "supplied body-to-ENU quaternion, not an estimated AHRS",
+      "initial_position_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_velocity_m_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "window_start_s": 4.0,
+      "window_last_epoch_s": 4.95,
+      "integration_samples": 191,
+      "source_max_gap_s": 0.005000000000000782,
+      "quaternion_norm_error_before_normalization": 0.0,
+      "drift_policy": "zero initialization per window; no truth velocity, bias correction or high-pass filter; polynomial nuisance projection handles low-order drift"
+    }
+  }
+]

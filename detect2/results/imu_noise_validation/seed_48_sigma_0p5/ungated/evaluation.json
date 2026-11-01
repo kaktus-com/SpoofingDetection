@@ -1,0 +1,532 @@
+{
+  "status": "evaluated_after_prediction",
+  "summary": {
+    "total_windows": 64,
+    "labeled_windows": 64,
+    "conclusive_labeled_windows": 58,
+    "inconclusive_labeled_windows": 6,
+    "correct_conclusive": 53,
+    "false_alarms": 3,
+    "missed_detections": 2,
+    "conclusive_coverage": 0.90625,
+    "accuracy_on_conclusive": 0.9137931034482759,
+    "displacement_modes": [
+      "imu"
+    ],
+    "interpretation": "synthetic detector validation only; displacement source is recorded separately; inconclusive coverage is reported separately"
+  },
+  "windows": [
+    {
+      "scenario": "stationary",
+      "case": "benign",
+      "window_index": 0,
+      "truth": "benign",
+      "decision": "inconclusive",
+      "correct": null
+    },
+    {
+      "scenario": "stationary",
+      "case": "benign",
+      "window_index": 1,
+      "truth": "benign",
+      "decision": "inconclusive",
+      "correct": null
+    },
+    {
+      "scenario": "stationary",
+      "case": "benign",
+      "window_index": 2,
+      "truth": "benign",
+      "decision": "spoofed",
+      "correct": false
+    },
+    {
+      "scenario": "stationary",
+      "case": "benign",
+      "window_index": 3,
+      "truth": "benign",
+      "decision": "spoofed",
+      "correct": false
+    },
+    {
+      "scenario": "stationary",
+      "case": "spoofed",
+      "window_index": 0,
+      "truth": "spoofed",
+      "decision": "inconclusive",
+      "correct": null
+    },
+    {
+      "scenario": "stationary",
+      "case": "spoofed",
+      "window_index": 1,
+      "truth": "spoofed",
+      "decision": "inconclusive",
+      "correct": null
+    },
+    {
+      "scenario": "stationary",
+      "case": "spoofed",
+      "window_index": 2,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "stationary",
+      "case": "spoofed",
+      "window_index": 3,
+      "truth": "spoofed",
+      "decision": "benign",
+      "correct": false
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "benign",
+      "window_index": 0,
+      "truth": "benign",
+      "decision": "inconclusive",
+      "correct": null
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "benign",
+      "window_index": 1,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "benign",
+      "window_index": 2,
+      "truth": "benign",
+      "decision": "spoofed",
+      "correct": false
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "benign",
+      "window_index": 3,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "spoofed",
+      "window_index": 0,
+      "truth": "spoofed",
+      "decision": "inconclusive",
+      "correct": null
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "spoofed",
+      "window_index": 1,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "spoofed",
+      "window_index": 2,
+      "truth": "spoofed",
+      "decision": "benign",
+      "correct": false
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "spoofed",
+      "window_index": 3,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "benign",
+      "window_index": 0,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "benign",
+      "window_index": 1,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "benign",
+      "window_index": 2,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "benign",
+      "window_index": 3,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "spoofed",
+      "window_index": 0,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "spoofed",
+      "window_index": 1,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "spoofed",
+      "window_index": 2,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "spoofed",
+      "window_index": 3,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "circle",
+      "case": "benign",
+      "window_index": 0,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "circle",
+      "case": "benign",
+      "window_index": 1,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "circle",
+      "case": "benign",
+      "window_index": 2,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "circle",
+      "case": "benign",
+      "window_index": 3,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "circle",
+      "case": "spoofed",
+      "window_index": 0,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "circle",
+      "case": "spoofed",
+      "window_index": 1,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "circle",
+      "case": "spoofed",
+      "window_index": 2,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "circle",
+      "case": "spoofed",
+      "window_index": 3,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "benign",
+      "window_index": 0,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "benign",
+      "window_index": 1,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "benign",
+      "window_index": 2,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "benign",
+      "window_index": 3,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "spoofed",
+      "window_index": 0,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "spoofed",
+      "window_index": 1,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "spoofed",
+      "window_index": 2,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "spoofed",
+      "window_index": 3,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "three_axis",
+      "case": "benign",
+      "window_index": 0,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "three_axis",
+      "case": "benign",
+      "window_index": 1,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "three_axis",
+      "case": "benign",
+      "window_index": 2,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "three_axis",
+      "case": "benign",
+      "window_index": 3,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "three_axis",
+      "case": "spoofed",
+      "window_index": 0,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "three_axis",
+      "case": "spoofed",
+      "window_index": 1,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "three_axis",
+      "case": "spoofed",
+      "window_index": 2,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "three_axis",
+      "case": "spoofed",
+      "window_index": 3,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "benign",
+      "window_index": 0,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "benign",
+      "window_index": 1,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "benign",
+      "window_index": 2,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "benign",
+      "window_index": 3,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "spoofed",
+      "window_index": 0,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "spoofed",
+      "window_index": 1,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "spoofed",
+      "window_index": 2,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "spoofed",
+      "window_index": 3,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "combined",
+      "case": "benign",
+      "window_index": 0,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "combined",
+      "case": "benign",
+      "window_index": 1,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "combined",
+      "case": "benign",
+      "window_index": 2,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "combined",
+      "case": "benign",
+      "window_index": 3,
+      "truth": "benign",
+      "decision": "benign",
+      "correct": true
+    },
+    {
+      "scenario": "combined",
+      "case": "spoofed",
+      "window_index": 0,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "combined",
+      "case": "spoofed",
+      "window_index": 1,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "combined",
+      "case": "spoofed",
+      "window_index": 2,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    },
+    {
+      "scenario": "combined",
+      "case": "spoofed",
+      "window_index": 3,
+      "truth": "spoofed",
+      "decision": "spoofed",
+      "correct": true
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "mode": "imu_displacement",
+  "data_dir": "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase",
+  "window_s": 1.0,
+  "step_s": 1.0,
+  "edge_trim_s": 1.0,
+  "imu_input_errors": {
+    "settings": {
+      "accel_noise_sigma_m_s2": 0.05,
+      "accel_bias_body_m_s2": [
+        0.05,
+        0.0,
+        0.0
+      ],
+      "attitude_error_body_rotvec_deg": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "time_offset_s": 0.02
+    },
+    "seed": 42,
+    "noise_definition": "independent Gaussian standard deviation per axis per IMU sample; not a spectral noise density",
+    "attitude_definition": "R_input @ Exp(body rotation vector); supplied attitude, not gyro integration",
+    "timing_definition": "tag original IMU sample at t as t+offset; carrier timestamps unchanged",
+    "pairing": "same IMU realization for both carrier cases; common unit noise across sigma levels",
+    "scope": "engineering sensitivity experiment, not calibrated hardware or field performance"
+  },
+  "imu_accel_noise_sigma_override_m_s2": null,
+  "hypotheses": "proper common SO(3) rotation vs common unit LOS; zero gamma threshold",
+  "quality_policy": "full-rank 3D, continuity, movement, fit and optimization checks",
+  "runs": [
+    {
+      "scenario": "stationary",
+      "case": "benign",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/benign/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/stationary/imu.csv"
+    },
+    {
+      "scenario": "stationary",
+      "case": "spoofed",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/spoofed/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/stationary/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/stationary/imu.csv"
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "benign",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/benign/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/constant_velocity/imu.csv"
+    },
+    {
+      "scenario": "constant_velocity",
+      "case": "spoofed",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/spoofed/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/constant_velocity/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/constant_velocity/imu.csv"
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "benign",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/benign/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/east_oscillation/imu.csv"
+    },
+    {
+      "scenario": "east_oscillation",
+      "case": "spoofed",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/spoofed/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/east_oscillation/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/east_oscillation/imu.csv"
+    },
+    {
+      "scenario": "circle",
+      "case": "benign",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/benign/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/circle/imu.csv"
+    },
+    {
+      "scenario": "circle",
+      "case": "spoofed",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/spoofed/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/circle/imu.csv"
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "benign",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/benign/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/circle_coning/imu.csv"
+    },
+    {
+      "scenario": "circle_coning",
+      "case": "spoofed",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/spoofed/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/circle_coning/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/circle_coning/imu.csv"
+    },
+    {
+      "scenario": "three_axis",
+      "case": "benign",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/benign/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/three_axis/imu.csv"
+    },
+    {
+      "scenario": "three_axis",
+      "case": "spoofed",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/spoofed/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/three_axis/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/three_axis/imu.csv"
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "benign",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/benign/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/rotation_only/imu.csv"
+    },
+    {
+      "scenario": "rotation_only",
+      "case": "spoofed",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/spoofed/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/rotation_only/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/rotation_only/imu.csv"
+    },
+    {
+      "scenario": "combined",
+      "case": "benign",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/benign/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/combined/imu.csv"
+    },
+    {
+      "scenario": "combined",
+      "case": "spoofed",
+      "config": {
+        "min_samples": 10,
+        "min_signals": 4,
+        "sigma_floor_cycles": 0.001,
+        "noise_rho": 0.0,
+        "max_gap_s": 0.07500000000000001,
+        "min_motion_rms_m": 0.001,
+        "min_axis_rms_m": 0.0001,
+        "rank_absolute_tolerance_m": 1e-08,
+        "rank_relative_tolerance": 1e-06,
+        "max_motion_condition": 1000.0,
+        "max_geometry_condition": 1000.0,
+        "max_fit_rms_sigma": 3.0,
+        "max_optimizer_evaluations": 250,
+        "tie_absolute": 1e-08,
+        "tie_relative": 1e-08,
+        "imu_noise_gate_enabled": true,
+        "imu_noise_tail_probability": 0.001
+      },
+      "prediction_inputs": [
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/manifest.json",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/spoofed/carrier.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/inputs/satellite_geometry.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/inputs/imu.csv",
+        "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase/combined/inputs/frame.json"
+      ],
+      "effective_accel_white_noise_sigma_m_s2": 0.05,
+      "perturbed_imu": "/home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness_gated/combined_errors/inputs/combined/imu.csv"
+    }
+  ]
+}

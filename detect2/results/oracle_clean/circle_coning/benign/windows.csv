@@ -1,0 +1,7 @@
+window_index,start_s,end_s,displacement_mode,decision,reason,gamma,samples,used_signals,motion_rank,motion_rms_m,min_axis_rms_m,motion_condition,best_fit_rms_sigma,sigma_floor_applied,benign_reduced_cost,benign_total_cost,spoofed_reduced_cost,spoofed_total_cost
+0,0.0,1.0,oracle,inconclusive,rank_deficient_motion,,20,8,2,0.027719291379473075,0.0,,,False,,,,
+1,1.0,2.0,oracle,inconclusive,rank_deficient_motion,,20,8,2,0.027719291379473068,0.0,,,False,,,,
+2,2.0,3.0,oracle,inconclusive,rank_deficient_motion,,20,8,2,0.027719291379473064,0.0,,,False,,,,
+3,3.0,4.0,oracle,inconclusive,rank_deficient_motion,,20,8,2,0.027719291379473054,0.0,,,False,,,,
+4,4.0,5.0,oracle,inconclusive,rank_deficient_motion,,20,8,2,0.027719291379473078,0.0,,,False,,,,
+5,5.0,6.0,oracle,inconclusive,rank_deficient_motion,,20,8,2,0.027719291379472998,0.0,,,False,,,,

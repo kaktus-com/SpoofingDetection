@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>detect2 · __MODE_TITLE__</title><style>
+:root{color-scheme:light;font:16px/1.55 system-ui,sans-serif;color:#243247;background:#f3f5f8}body{max-width:1200px;margin:auto;padding:30px 22px}h1{font-size:2rem;letter-spacing:-.04em;margin-bottom:8px}h2{margin-top:28px}p{max-width:100ch}a{color:#255fa0}.tag{font-size:.8rem;letter-spacing:.08em;color:#52627a;text-transform:uppercase}.card{background:white;border:1px solid #dce2ea;border-radius:14px;padding:20px;margin:22px 0}.controls{display:flex;flex-wrap:wrap;gap:15px;align-items:center}label{font-size:.9rem}select{font:inherit;padding:6px 10px;border:1px solid #c6d0df;border-radius:6px;background:white;color:#243247}.panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}canvas{width:100%;height:310px;min-width:0}.note{border-left:3px solid #d56824;padding:2px 15px;color:#52627a}.scenario{display:none}.scenario.active{display:block}img{width:100%;height:auto;margin:10px 0}#details{font:13px/1.7 ui-monospace,monospace;color:#52627a}@media(max-width:720px){.panels{grid-template-columns:1fr}}
+</style></head><body>
+<header><div class="tag">detect2 / __MODE_TITLE__</div><h1>Windowed likelihood comparison</h1>
+<p>Raw carrier phase is fitted with per-signal quadratic nuisance terms and a motion model. The benign hypothesis fits one common proper frame rotation; the spoofed hypothesis fits one shared unit transmitter direction. Gamma = J_spoofed − J_benign. Positive favors benign, negative favors spoofing, subject to quality checks.</p>
+<p class="note">__MODE_NOTE__ Full-rank 3D motion is required by this first implementation; stationary, polynomial-only and planar/coning controls can be inconclusive. This is a conservative implementation policy, not a claim that all planar motion is inherently undetectable.</p>
+<p>__SUMMARY__</p><p>__LINKS__</p></header>
+<div class="card"><div class="controls">
+<label>Motion <select id="scenario"></select></label><label>Input case <select id="case"></select></label>
+<label>Window <select id="window"></select></label><label>Signal <select id="signal"></select></label>
+<label>Plot <select id="mode"><option value="motion">Observation − fitted trend / fitted motion</option><option value="phase">Observed phase / fitted phase (relative)</option><option value="residual">Phase residual</option><option value="whitened">Whitened residual</option></select></label>
+<label><input id="sharedScale" type="checkbox" checked> Same vertical scale</label></div>
+<p id="details"></p><div class="panels"><canvas id="benign" aria-label="Benign hypothesis fit"></canvas><canvas id="spoofed" aria-label="Spoofed hypothesis fit"></canvas></div>
+<p>Gray: observation (with the candidate's fitted trend removed in the motion view). Blue/orange: candidate fit or residual. Every trend is estimated from the raw measurements; no generated trend coefficients or phase components are read.</p></div>
+<div>__SECTIONS__</div>
+<p class="note">Predictions were saved before labels were loaded. Inconclusive coverage is reported separately from accuracy on conclusive windows. The rotation fit uses deterministic multistart local optimization with agreement checks; its global optimality is not certified. The unit-direction fit checks a global quadratic optimality certificate. These are synthetic validation results.</p>
+<script id="detector-data" type="application/json">__DATA__</script><script>
+'use strict';
+const data=JSON.parse(document.getElementById('detector-data').textContent), $=id=>document.getElementById(id);
+function fill(id,items){const select=$(id);select.replaceChildren(...items.map((item,i)=>{const option=document.createElement('option');option.value=String(i);option.textContent=item;return option}));select.value='0'}
+const names=Object.keys(data);fill('scenario',names);if(names.includes('three_axis'))$('scenario').value=String(names.indexOf('three_axis'));
+function scenario(){return names[Number($('scenario').value)]}
+function caseNames(){return Object.keys(data[scenario()])}
+function windows(){return data[scenario()][caseNames()[Number($('case').value)]]}
+function record(){return windows()[Number($('window').value)]}
+function chooseScenario(){fill('case',caseNames());chooseCase()}
+function chooseCase(){fill('window',windows().map(w=>w.index+': ['+w.start.toFixed(2)+', '+w.end.toFixed(2)+') s'));chooseWindow()}
+function chooseWindow(){fill('signal',record().signals);draw()}
+function series(w,hypothesis,signal){if(!w.hasFits)return null;const f=w[hypothesis],mode=$('mode').value;
+ if(mode==='phase')return {observed:w.observed.map(row=>row[signal]),fitted:f.phase.map(row=>row[signal])};
+ if(mode==='motion')return {observed:f.motionObserved.map(row=>row[signal]),fitted:f.motion.map(row=>row[signal])};
+ return {observed:null,fitted:f[mode].map(row=>row[signal])}}
+function draw(){const w=record(),signal=Number($('signal').value),mode=$('mode').value;
+ document.querySelectorAll('.scenario').forEach(section=>section.classList.toggle('active',section.dataset.scenario===scenario()));
+ const cost=name=>w.hasFits?w[name].reducedCost.toPrecision(6):'unavailable';
+ $('details').textContent='Decision: '+w.decision+' · '+w.reason+' · held-out label: '+w.truth+'\nGamma: '+(w.gamma===null?'unavailable':w.gamma.toPrecision(7))+' · J_benign: '+cost('benign')+' · J_spoofed: '+cost('spoofed')+' · motion rank: '+(w.diagnostics.motion_rank??'unavailable');
+ const values=['benign','spoofed'].map(name=>series(w,name,signal));
+ const range=entry=>{if(!entry)return [-1,1];const all=entry.fitted.concat(entry.observed||[]);return [Math.min(...all),Math.max(...all)]};
+ const ranges=values.map(range),common=[Math.min(...ranges.map(r=>r[0])),Math.max(...ranges.map(r=>r[1]))];
+ ['benign','spoofed'].forEach((name,index)=>{const canvas=$(name),ctx=canvas.getContext('2d'),width=canvas.clientWidth,height=canvas.clientHeight,ratio=window.devicePixelRatio||1;
+  canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);ctx.scale(ratio,ratio);ctx.clearRect(0,0,width,height);ctx.font='600 14px system-ui';ctx.fillStyle='#243247';ctx.fillText(name+' hypothesis',65,20);
+  if(!w.hasFits){ctx.font='13px system-ui';ctx.fillText('No reliable 3D fit: '+w.reason,20,height/2);return}
+  let [low,high]=$('sharedScale').checked?common:ranges[index];const padding=Math.max((high-low)*.1,1e-6);low-=padding;high+=padding;
+  const left=67,right=16,top=38,bottom=42,ww=width-left-right,hh=height-top-bottom;
+  const first=w.time[0],duration=w.time.at(-1)-first,x=t=>left+(t-first)/duration*ww,y=v=>top+(high-v)/(high-low)*hh;
+  ctx.font='11px system-ui';ctx.textAlign='right';for(let i=0;i<=4;i++){const yy=top+hh*i/4;ctx.strokeStyle='#e5e9ef';ctx.beginPath();ctx.moveTo(left,yy);ctx.lineTo(width-right,yy);ctx.stroke();ctx.fillText((high-(high-low)*i/4).toPrecision(3),left-6,yy+4)}
+  ctx.textAlign='center';for(let i=0;i<=4;i++){const t=first+duration*i/4;ctx.fillText(t.toFixed(2),x(t),height-24)}ctx.fillText('Measurement time (s)',left+ww/2,height-5);ctx.textAlign='left';ctx.fillText(mode==='whitened'?'whitened':'cycles',3,20);
+  function line(array,color,dashed){if(!array)return;ctx.beginPath();array.forEach((v,i)=>{i?ctx.lineTo(x(w.time[i]),y(v)):ctx.moveTo(x(w.time[i]),y(v))});ctx.strokeStyle=color;ctx.lineWidth=1.7;ctx.setLineDash(dashed?[5,3]:[]);ctx.stroke();ctx.setLineDash([])}
+  line(values[index].observed,'#64748b',false);line(values[index].fitted,name==='benign'?'#2563a6':'#d56824',!!values[index].observed);
+ })
+}
+$('scenario').addEventListener('change',chooseScenario);$('case').addEventListener('change',chooseCase);$('window').addEventListener('change',chooseWindow);
+['signal','mode','sharedScale'].forEach(id=>$(id).addEventListener('change',draw));window.addEventListener('resize',draw);chooseScenario();
+</script></body></html>

@@ -1,0 +1,14 @@
+{
+  "accel_noise_sigma_m_s2": 0.0,
+  "accel_bias_body_m_s2": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "attitude_error_body_rotvec_deg": [
+    0.0,
+    0.1,
+    0.0
+  ],
+  "time_offset_s": 0.0
+}

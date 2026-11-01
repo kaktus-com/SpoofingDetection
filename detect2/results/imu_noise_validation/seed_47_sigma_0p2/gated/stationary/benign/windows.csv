@@ -1,0 +1,5 @@
+window_index,start_s,end_s,displacement_mode,decision,reason,gamma,samples,used_signals,motion_rank,motion_rms_m,min_axis_rms_m,motion_condition,best_fit_rms_sigma,sigma_floor_applied,imu_noise_gate_applied,imu_noise_gate_passed,noise_bound_rms_m,expected_noise_vector_rms_m,min_axis_rms_lower_bound_m,benign_reduced_cost,benign_total_cost,spoofed_reduced_cost,spoofed_total_cost
+0,1.0,2.0,imu,inconclusive,imu_motion_below_noise_floor,,20,0,3,0.0003948133495671182,0.00011637723986560221,2.9446712295966626,,False,True,False,0.0012030267356441559,0.0004835274805062913,0.0,,,,
+1,2.0,3.0,imu,inconclusive,imu_motion_below_noise_floor,,20,0,3,0.0005839751808055187,0.0001321906996791576,3.95809364993778,,False,True,False,0.0012030267356441568,0.0004835274805062915,0.0,,,,
+2,3.0,4.0,imu,inconclusive,imu_motion_below_noise_floor,,20,0,3,0.0003414906678550694,6.906814309005814e-05,4.352166859432306,,False,True,False,0.0012030267356441568,0.0004835274805062915,0.0,,,,
+3,4.0,5.0,imu,inconclusive,imu_motion_below_noise_floor,,20,0,3,0.00046130955535749407,5.879197861909821e-05,7.476261970204416,,False,True,False,0.0012030267356441576,0.00048352748050629175,0.0,,,,

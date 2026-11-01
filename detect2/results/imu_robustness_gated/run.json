@@ -1,0 +1,423 @@
+{
+  "mode": "own_short_window_imu_integration_sensitivity",
+  "data_dir": "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase",
+  "seed": 42,
+  "edge_trim_s": 1.0,
+  "scenarios": [
+    "stationary",
+    "constant_velocity",
+    "east_oscillation",
+    "circle",
+    "circle_coning",
+    "three_axis",
+    "rotation_only",
+    "combined"
+  ],
+  "conditions": [
+    {
+      "name": "ideal",
+      "family": "ideal",
+      "value": 0.0,
+      "unit": "",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "accel_noise_0p01",
+      "family": "accel_noise",
+      "value": 0.01,
+      "unit": "m/s\u00b2 per sample",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.01,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "body_bias_0p01",
+      "family": "body_bias",
+      "value": 0.01,
+      "unit": "m/s\u00b2 forward",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.01,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "accel_noise_0p05",
+      "family": "accel_noise",
+      "value": 0.05,
+      "unit": "m/s\u00b2 per sample",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.05,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "body_bias_0p05",
+      "family": "body_bias",
+      "value": 0.05,
+      "unit": "m/s\u00b2 forward",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.05,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "accel_noise_0p2",
+      "family": "accel_noise",
+      "value": 0.2,
+      "unit": "m/s\u00b2 per sample",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.2,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "body_bias_0p2",
+      "family": "body_bias",
+      "value": 0.2,
+      "unit": "m/s\u00b2 forward",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.2,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "accel_noise_0p5",
+      "family": "accel_noise",
+      "value": 0.5,
+      "unit": "m/s\u00b2 per sample",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.5,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "body_bias_0p5",
+      "family": "body_bias",
+      "value": 0.5,
+      "unit": "m/s\u00b2 forward",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.5,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "attitude_0p1deg",
+      "family": "attitude",
+      "value": 0.1,
+      "unit": "degrees about body Right",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.1,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "attitude_0p5deg",
+      "family": "attitude",
+      "value": 0.5,
+      "unit": "degrees about body Right",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.5,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "attitude_1deg",
+      "family": "attitude",
+      "value": 1.0,
+      "unit": "degrees about body Right",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "attitude_3deg",
+      "family": "attitude",
+      "value": 3.0,
+      "unit": "degrees about body Right",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          3.0,
+          0.0
+        ],
+        "time_offset_s": 0.0
+      }
+    },
+    {
+      "name": "timing_minus_50ms",
+      "family": "timing",
+      "value": -50,
+      "unit": "ms",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": -0.05
+      }
+    },
+    {
+      "name": "timing_minus_20ms",
+      "family": "timing",
+      "value": -20,
+      "unit": "ms",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": -0.02
+      }
+    },
+    {
+      "name": "timing_minus_5ms",
+      "family": "timing",
+      "value": -5,
+      "unit": "ms",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": -0.005
+      }
+    },
+    {
+      "name": "timing_plus_5ms",
+      "family": "timing",
+      "value": 5,
+      "unit": "ms",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.005
+      }
+    },
+    {
+      "name": "timing_plus_20ms",
+      "family": "timing",
+      "value": 20,
+      "unit": "ms",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.02
+      }
+    },
+    {
+      "name": "timing_plus_50ms",
+      "family": "timing",
+      "value": 50,
+      "unit": "ms",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.0,
+        "accel_bias_body_m_s2": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "time_offset_s": 0.05
+      }
+    },
+    {
+      "name": "combined_errors",
+      "family": "combined",
+      "value": 1.0,
+      "unit": "",
+      "errors": {
+        "accel_noise_sigma_m_s2": 0.05,
+        "accel_bias_body_m_s2": [
+          0.05,
+          0.0,
+          0.0
+        ],
+        "attitude_error_body_rotvec_deg": [
+          0.0,
+          0.5,
+          0.0
+        ],
+        "time_offset_s": 0.02
+      }
+    }
+  ],
+  "imu_noise_gate_enabled": true,
+  "imu_noise_tail_probability": 0.001,
+  "prediction_boundary": "all conditions exported before any truth evaluation; no truth velocity or displacement initializes integration",
+  "pairing": "unchanged carrier observations and detector thresholds; same IMU for paired cases; common unit noise across sigma levels",
+  "limitations": "one engineering seed, supplied attitude, selected synthetic motions; no hardware accuracy, detection probability or gyro-attitude-estimator claim"
+}

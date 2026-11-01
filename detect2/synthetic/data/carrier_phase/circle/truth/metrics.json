@@ -1,0 +1,21 @@
+{
+  "gnss_epochs": 121,
+  "imu_samples": 1201,
+  "signals": 8,
+  "carrier_rows_per_case": 968,
+  "displacement_rank": 2,
+  "gnss_rate_hz": 20.0,
+  "imu_rate_hz": 200.0,
+  "benign": {
+    "realized_noise_rms_cycles": 0.01002864013188729,
+    "realized_noise_lag1_correlation": 0.011165626703027997,
+    "geometric_cross_signal_spread_rms_cycles": 0.3398606062799955,
+    "phase_reconstruction_error_cycles": 1.4609471125914819e-08
+  },
+  "spoofed": {
+    "realized_noise_rms_cycles": 0.01031253379431987,
+    "realized_noise_lag1_correlation": -0.0392862076017251,
+    "geometric_cross_signal_spread_rms_cycles": 0.0,
+    "phase_reconstruction_error_cycles": 1.4599760051739116e-08
+  }
+}

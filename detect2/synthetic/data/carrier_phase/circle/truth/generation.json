@@ -1,0 +1,39 @@
+{
+  "model_version": "carrier-pair-v1",
+  "numpy_version": "1.26.4",
+  "motion": {
+    "scenario": "circle",
+    "duration_s": 6.0,
+    "rate_hz": 200.0,
+    "lever_arm_body_m": [
+      0.1,
+      0.05,
+      -0.2
+    ],
+    "amplitude_scale": 1.0,
+    "frequency_scale": 1.0,
+    "cone_tilt_deg": 45.0
+  },
+  "analytic_motion_parameters": {
+    "radius_m": 0.1,
+    "frequency_hz": 1.0
+  },
+  "carrier": {
+    "gnss_rate_hz": 20.0,
+    "noise_sigma_cycles": 0.01,
+    "noise_rho": 0.0,
+    "seed": 42,
+    "add_trend": true,
+    "trend_rate_span_cycles_s": 2500.0,
+    "trend_acceleration_span_cycles_s2": 0.2,
+    "spoofer_azimuth_deg": 230.0,
+    "spoofer_elevation_deg": 15.0
+  },
+  "rng": "PCG64 with SHA-256-named SeedSequence streams; independent per case",
+  "phase_model": "beta0 + beta1*t + 0.5*beta2*t^2 - dot(actual_los, antenna_displacement)/wavelength + noise",
+  "geometry_model": "fixed far-field receiver-to-source ENU directions; illustrative, not real ephemerides",
+  "noise_model": "stationary Gaussian AR(1); rho=0 is white; sigma is marginal cycles stddev",
+  "imu_model": "ideal specific force, angular rate and exact attitude; no IMU sensor noise or integration",
+  "phase_continuity": "all samples valid; no gaps or cycle slips; one continuous arc per signal",
+  "endpoint_policy": "samples at exact 1/rate intervals <= requested duration, including t=0"
+}

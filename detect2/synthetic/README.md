@@ -1,8 +1,21 @@
-# Synthetic motion foundation
+# Synthetic motion and carrier observations
 
 This folder implements analytic motion, coordinate conversions and visual checks
-for the [detect2 plan](../README.md). The first pass generates **truth and geometric
-contributions**, not noisy receiver measurements or a completed detector.
+for the [detect2 plan](../README.md). The geometry command generates analytic
+truth and geometric contributions. A separate carrier command now generates
+paired benign/spoofed phase observations with noise and slow trends. The parent
+directory provides both an oracle-displacement detector and a supplied-attitude
+IMU estimator. Run `python3 -m SpoofingDetection.detect2.replay --imu` to use
+specific force and attitude, or replace `--imu` with `--oracle` for the known
+displacement reference. See [IMU_ESTIMATION.md](../IMU_ESTIMATION.md).
+
+```bash
+python3 -m SpoofingDetection.detect2.synthetic.generate_carrier
+```
+
+Open the [carrier report](data/carrier_phase/report.html). Read
+[CARRIER_DATA.md](CARRIER_DATA.md) for the measured-input/truth layout, model,
+reproducibility and parameters. The motion-only report remains separate below.
 
 ## Run and inspect
 
@@ -71,60 +84,25 @@ This is a prescribed geometry test, not a force-balanced flight-controller
 trajectory. Antenna gain, polarization and phase-center orientation effects
 remain outside this foundation.
 
-## Planned measured datasets
+## Observation generation and remaining work
 
-Each scenario should store configuration/provenance (including a random seed),
-measured inputs and separate ground truth:
+`generate_carrier` uses the same analytic motion at two independently evaluated
+time grids: 20 Hz GNSS and 200 Hz ideal IMU by default. It adds matched per-signal
+quadratic trends, independent repeatable phase noise, and two sets of true source
+directions. Both cases retain the same advertised satellite geometry.
 
-| File | Contents |
-| --- | --- |
-| `config.json` | Rates, duration, frames, calibration, motion parameters, noise parameters and seed |
-| `imu.csv` | IMU sample times, body-frame specific force, angular rate, optional measured/estimated attitude |
-| `carrier.csv` | GNSS epochs, signal identities, phase in cycles, wavelength, uncertainty and validity/lock information |
-| `geometry.csv` | Time-tagged satellite LOS unit vectors in the declared reference frame |
-| `truth.csv` | Body/antenna pose, velocity, acceleration/displacement and expected scenario labels |
+Every motion, including stationary and planar controls, has both cases. Truth
+labels describe the transmitter condition, not whether a future detector has
+enough motion to distinguish it. White and stationary AR(1) phase noise are
+implemented; use zero sigma and `--no-trend` for clean geometric checks.
 
-The table above describes future measured-input exports; these files are not
-produced yet except for the foundation's separate truth/configuration outputs.
-Final measured-input field names and units are established in stage 1. The
-detector must not read scenario truth during normal evaluation. Stage 2's oracle
-mode deliberately uses known displacement and must be labeled separately.
-
-## Generation
-
-Start with analytic body position and orientation trajectories. Derive velocity,
-acceleration, angular rate and antenna position with its configured body offset.
-Use the same physical motion to generate specific force (including gravity in
-the declared convention) and carrier-phase changes.
-
-For benign measurements, project antenna motion along the different satellite
-directions. For the all-spoofed case, use one common physical transmitter direction
-while retaining per-signal wavelength and slow phase terms. A fake navigation
-trajectory alone is not a physical single-transmitter phase model.
-
-Begin with noise-free, full-rank multi-axis motion. Then introduce controlled
-measurement noise/bias, attitude errors, colored phase noise, clock offset/jitter,
-gaps and phase discontinuities. Keep truth labels independent of whether a window
-has enough usable information to classify it.
-
-Include benign, all-spoofed, stationary, weak/one-axis motion and transition
-scenarios. Mixed legitimate/spoofed signals are an additional stress case with
-documented limits of the initial two-hypothesis detector.
-
-For the future measured-input stage, initial configurable defaults are 20 Hz
-GNSS, 200 Hz IMU, approximately one-second windows and smooth 1–5 Hz motion.
-Current truth and geometric projections are both exported at the motion rate
-(200 Hz by default); they do not claim to be 20 Hz receiver measurements. These
-are development settings, not a claim that every paper experiment used those
-exact rates. Verify actual frequency, metric amplitude and transition smoothness.
-
-## Verification
-
-Check analytic derivatives against numerical checks, geometry/unit transformations,
-phase sign and wavelength scaling independently of the fitting routines. Compare
-known-displacement and estimated-displacement runs. Report both model costs,
-gamma, classifications, inconclusive reasons and performance against labels.
-
-Ideal model-generated data verifies the mathematics under ideal assumptions.
-Multiple seeds, model mismatch and later real recordings are needed to assess
-robustness; these results must not be presented as reproduced field accuracy.
+The parent directory implements the windowed detector with IMU-estimated or
+explicit oracle displacement; see [DETECTOR.md](../DETECTOR.md). The IMU baseline
+uses ideal measurements and exact supplied attitude. Separate
+[integration sensitivity tests](../IMU_ROBUSTNESS.md) perturb measured force,
+supplied attitude and timestamps without modifying these generated datasets.
+Attitude estimation, measured sensor models, timing jitter, slips,
+mixed/transition attacks and physical model mismatch are later work. The
+generators themselves do not classify data;
+detector outputs and held-out label evaluation are saved separately under
+`detect2/results/`.

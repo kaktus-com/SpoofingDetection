@@ -129,6 +129,12 @@ a_IMU  = R_ENU_from_body f_body + g_ENU
 
 Thus a level stationary FRD sensor reads `[0, 0, -9.80665] m/s²`. The plotted
 specific force is ideal and unfiltered, not an inertial displacement estimate.
+
+The separate [IMU estimator](IMU_ESTIMATION.md) consumes these body-frame inputs
+and supplied attitude, adds gravity in ENU, integrates with zero initial velocity
+per detector window and adds the rotating antenna offset. It applies no extra
+high-pass filter; unknown low-order drift is handled by the detector's nuisance
+polynomial projection. Truth is used only for post-prediction comparisons.
 Earth rotation, Coriolis, gravity variation, sensor bias and sensor noise are
 not included at this stage. All kinematic derivatives are analytic.
 
@@ -161,6 +167,15 @@ ambiguities, satellite dynamics, propagation effects and receiver noise. They do
 not yet implement the paper's complete carrier model. A receiver's accumulated
 beat-phase convention must be checked independently before adapting real data;
 the sign here is explicitly the range-observable sign.
+
+The separate `generate_carrier` command adds per-signal quadratic nuisance terms
+and configurable white/AR(1) noise to this geometric contribution. Its current
+model uses fixed far-field directions rather than the finite-source distance
+check in the geometry report. Both paired cases share nominal satellite geometry
+and ideal inertial inputs; only their true propagation directions and noise
+realizations differ. See [the observation schema](synthetic/CARRIER_DATA.md) for
+the measured-input versus evaluation-truth boundary. This adds observation
+generation, not the paper's likelihood test.
 
 Finite-source range changes are also computed using the stable expression
 `(-2 s·d + d·d) / (|s-d| + |s|)`, where `s` is the source vector at the reference

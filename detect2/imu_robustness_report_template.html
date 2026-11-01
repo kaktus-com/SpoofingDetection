@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>detect2 · IMU integration sensitivity</title><style>
+:root{font:16px/1.55 system-ui,sans-serif;color:#243247;background:#f3f5f8;color-scheme:light}body{max-width:1400px;margin:auto;padding:30px 22px}h1{font-size:2rem;letter-spacing:-.04em;margin-bottom:8px}a{color:#255fa0}p{max-width:105ch}.card{background:white;border:1px solid #dce2ea;border-radius:14px;padding:20px;margin:22px 0}.note{border-left:3px solid #d56824;padding:2px 15px;color:#52627a}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{padding:9px 12px;border-bottom:1px solid #e5e9ef;text-align:right}th:first-child,td:first-child{text-align:left}select{font:inherit;padding:6px 10px;border:1px solid #c6d0df;border-radius:6px;background:white;color:#243247}label{display:inline-block;margin:0 20px 15px 0}img{width:100%;height:auto}.figure[hidden]{display:none}
+</style></head><body>
+<h1>Own IMU integration: controlled-error tests</h1>
+<p>Specific force is rotated with supplied attitude, gravity is removed, and acceleration is integrated in short windows with zero initial velocity. The rotating antenna offset is included. PX4 displacement is deferred.</p>
+<p>The same carrier data, epochs and detector thresholds are used for every error level. Both carrier cases share one IMU realization. White accelerometer noise, constant body-frame bias, a body-fixed supplied-attitude error and a signed IMU clock offset are varied separately, followed by one combined-error case. Inputs and seed are saved beside each run.</p>
+<p class="note">These levels are engineering stress settings, not a calibrated sensor model. One noise seed and these synthetic motions cannot establish detection probabilities or real-flight accuracy. Attitude remains supplied; gyro-based attitude estimation has not been added.</p>
+<p>__STATUS__</p><p>__LINKS__</p>
+<p class="note">__FINDINGS__</p>
+<p class="note">__GATE_NOTE__</p>
+<div class="card scroll"><h2>Window decisions and motion error</h2><p>Click a condition to inspect its per-window detector fits and interactive motion/phase comparison. “Changed” includes changes to or from inconclusive. Errors are maxima of per-window displacement RMSE after quadratic removal.</p>
+<table><thead><tr><th>Condition</th><th>Conclusive</th><th>Correct</th><th>Inconclusive</th><th>False alarms</th><th>Missed</th><th>Changed</th><th>Motion error (µm)</th></tr></thead><tbody>__ROWS__</tbody></table></div>
+<div class="card"><h2>Displacement, phase, decisions and gamma</h2><p>Polynomial-removed motion is evaluated separately from raw integration drift. Gamma differences use the same carrier windows rerun with held-out oracle displacement; no oracle result initializes or corrects the IMU estimates.</p>
+__SELECTORS__<div>__FIGURES__</div></div>
+<p class="note">Default replay excludes one second at both recording edges, retaining the same four interior one-second windows per carrier case. This isolates timing distortion from boundary coverage loss. Missing coverage and IMU gaps are still rejected by the normal estimator.</p>
+<script>
+'use strict';
+function filter(){const scenario=document.getElementById('scenario').value,family=document.getElementById('family').value;document.querySelectorAll('.figure').forEach(section=>{section.hidden=section.dataset.scenario!=='all'&&((scenario!=='all'&&section.dataset.scenario!==scenario)||(family!=='all'&&section.dataset.family!==family))})}
+document.getElementById('scenario').addEventListener('change',filter);document.getElementById('family').addEventListener('change',filter);filter();
+</script></body></html>

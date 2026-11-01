@@ -1,0 +1,1 @@
+window_index,time_s,signal_id,observed_phase_cycles,benign_fitted_phase_cycles,spoofed_fitted_phase_cycles,benign_residual_cycles,spoofed_residual_cycles,benign_whitened_residual,spoofed_whitened_residual

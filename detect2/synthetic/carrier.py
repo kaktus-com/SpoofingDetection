@@ -12,7 +12,7 @@ import numpy as np
 
 from ..geometry import GPS_L1_WAVELENGTH_M, LocalFrame, az_el_to_enu
 from .generate import source_geometry
-from .motions import MotionConfig, generate_motion
+from .motions import Motion, generate_motion
 
 MODEL_VERSION = "carrier-pair-v1"
 CASES = ("benign", "spoofed")
@@ -60,8 +60,8 @@ class CarrierCase:
 @dataclass
 class CarrierPair:
     config: CarrierConfig
-    imu_motion: object
-    gnss_motion: object
+    imu_motion: Motion
+    gnss_motion: Motion
     geometry: dict
     trend_coefficients: np.ndarray
     cases: dict

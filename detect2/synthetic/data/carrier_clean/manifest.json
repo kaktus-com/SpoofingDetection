@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "model_version": "carrier-pair-v1",
+  "description": "paired synthetic carrier observations; no detector decisions computed",
+  "scenarios": {
+    "stationary": "stationary/manifest.json",
+    "constant_velocity": "constant_velocity/manifest.json",
+    "east_oscillation": "east_oscillation/manifest.json",
+    "circle": "circle/manifest.json",
+    "circle_coning": "circle_coning/manifest.json",
+    "three_axis": "three_axis/manifest.json",
+    "rotation_only": "rotation_only/manifest.json",
+    "combined": "combined/manifest.json"
+  },
+  "gnss_rate_hz": 20.0,
+  "evaluation_boundary": "labels, components, latent directions, coefficients and generation settings are under each scenario's truth/ directory"
+}

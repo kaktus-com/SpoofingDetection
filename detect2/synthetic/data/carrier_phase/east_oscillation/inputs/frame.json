@@ -1,0 +1,55 @@
+{
+  "origin_wgs84": {
+    "latitude_deg": 59.3526,
+    "longitude_deg": 18.0728,
+    "height_m": 30.0
+  },
+  "enu_from_ecef": [
+    [
+      -0.3102251567276329,
+      0.9506631117979258,
+      0.0
+    ],
+    [
+      -0.8178750678996201,
+      -0.2668930959600705,
+      0.5097533213594989
+    ],
+    [
+      0.48460367873294935,
+      0.15813830401118198,
+      0.8603206096351287
+    ]
+  ],
+  "body_axes": "Forward, Right, Down",
+  "local_axes": "East, North, Up",
+  "quaternion": "Hamilton wxyz, active FRD body to ENU",
+  "lever_arm_body_m": [
+    0.1,
+    0.05,
+    -0.2
+  ],
+  "sensor_to_body_rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "gravity_enu_m_s2": [
+    0.0,
+    0.0,
+    -9.80665
+  ],
+  "timebase": "common relative measurement seconds; no latency, jitter or clock offsets"
+}

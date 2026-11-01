@@ -1,0 +1,220 @@
+{
+  "mode": "paired_imu_noise_gate_validation",
+  "data_dir": "/home/borna/thesis/SpoofingDetection/detect2/synthetic/data/carrier_phase",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "sigmas_m_s2": [
+    0.05,
+    0.2,
+    0.5
+  ],
+  "conditions": [
+    {
+      "name": "ideal",
+      "seed": 42,
+      "sigma_m_s2": 0.0
+    },
+    {
+      "name": "seed_42_sigma_0p05",
+      "seed": 42,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_43_sigma_0p05",
+      "seed": 43,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_44_sigma_0p05",
+      "seed": 44,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_45_sigma_0p05",
+      "seed": 45,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_46_sigma_0p05",
+      "seed": 46,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_47_sigma_0p05",
+      "seed": 47,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_48_sigma_0p05",
+      "seed": 48,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_49_sigma_0p05",
+      "seed": 49,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_50_sigma_0p05",
+      "seed": 50,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_51_sigma_0p05",
+      "seed": 51,
+      "sigma_m_s2": 0.05
+    },
+    {
+      "name": "seed_42_sigma_0p2",
+      "seed": 42,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_43_sigma_0p2",
+      "seed": 43,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_44_sigma_0p2",
+      "seed": 44,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_45_sigma_0p2",
+      "seed": 45,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_46_sigma_0p2",
+      "seed": 46,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_47_sigma_0p2",
+      "seed": 47,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_48_sigma_0p2",
+      "seed": 48,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_49_sigma_0p2",
+      "seed": 49,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_50_sigma_0p2",
+      "seed": 50,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_51_sigma_0p2",
+      "seed": 51,
+      "sigma_m_s2": 0.2
+    },
+    {
+      "name": "seed_42_sigma_0p5",
+      "seed": 42,
+      "sigma_m_s2": 0.5
+    },
+    {
+      "name": "seed_43_sigma_0p5",
+      "seed": 43,
+      "sigma_m_s2": 0.5
+    },
+    {
+      "name": "seed_44_sigma_0p5",
+      "seed": 44,
+      "sigma_m_s2": 0.5
+    },
+    {
+      "name": "seed_45_sigma_0p5",
+      "seed": 45,
+      "sigma_m_s2": 0.5
+    },
+    {
+      "name": "seed_46_sigma_0p5",
+      "seed": 46,
+      "sigma_m_s2": 0.5
+    },
+    {
+      "name": "seed_47_sigma_0p5",
+      "seed": 47,
+      "sigma_m_s2": 0.5
+    },
+    {
+      "name": "seed_48_sigma_0p5",
+      "seed": 48,
+      "sigma_m_s2": 0.5
+    },
+    {
+      "name": "seed_49_sigma_0p5",
+      "seed": 49,
+      "sigma_m_s2": 0.5
+    },
+    {
+      "name": "seed_50_sigma_0p5",
+      "seed": 50,
+      "sigma_m_s2": 0.5
+    },
+    {
+      "name": "seed_51_sigma_0p5",
+      "seed": 51,
+      "sigma_m_s2": 0.5
+    }
+  ],
+  "edge_trim_s": 1.0,
+  "gated_config": {
+    "min_samples": 10,
+    "min_signals": 4,
+    "sigma_floor_cycles": 0.001,
+    "noise_rho": 0.0,
+    "max_gap_s": 0.075,
+    "min_motion_rms_m": 0.001,
+    "min_axis_rms_m": 0.0001,
+    "rank_absolute_tolerance_m": 1e-08,
+    "rank_relative_tolerance": 1e-06,
+    "max_motion_condition": 1000.0,
+    "max_geometry_condition": 1000.0,
+    "max_fit_rms_sigma": 3.0,
+    "max_optimizer_evaluations": 250,
+    "tie_absolute": 1e-08,
+    "tie_relative": 1e-08,
+    "imu_noise_gate_enabled": true,
+    "imu_noise_tail_probability": 0.001
+  },
+  "ungated_config": {
+    "min_samples": 10,
+    "min_signals": 4,
+    "sigma_floor_cycles": 0.001,
+    "noise_rho": 0.0,
+    "max_gap_s": 0.075,
+    "min_motion_rms_m": 0.001,
+    "min_axis_rms_m": 0.0001,
+    "rank_absolute_tolerance_m": 1e-08,
+    "rank_relative_tolerance": 1e-06,
+    "max_motion_condition": 1000.0,
+    "max_geometry_condition": 1000.0,
+    "max_fit_rms_sigma": 3.0,
+    "max_optimizer_evaluations": 250,
+    "tie_absolute": 1e-08,
+    "tie_relative": 1e-08,
+    "imu_noise_gate_enabled": false,
+    "imu_noise_tail_probability": 0.001
+  },
+  "prediction_boundary": "all paired predictions exported before any truth access; source measurements and old results are preserved",
+  "pairing": "same displacement and carrier observations in both modes; same IMU for both carrier cases; ideal sigma=0 evaluated once",
+  "limitations": "only IMU white-noise seed varies; carrier data and motions fixed; supplied attitude; alpha is a per-window model bound, not a detection error rate"
+}

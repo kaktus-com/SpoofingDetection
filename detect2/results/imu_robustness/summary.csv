@@ -1,0 +1,181 @@
+condition,family,value,unit,scenario,total_windows,labeled_windows,conclusive_windows,correct_conclusive,inconclusive_windows,false_alarms,missed_detections,conclusive_coverage_percent,accuracy_on_conclusive_percent,decision_changes_from_ideal,lost_conclusive_from_ideal,gained_conclusive_from_ideal,max_observable_displacement_rmse_um,max_observable_phase_rmse_millicycles,max_absolute_gamma_difference,max_relative_gamma_difference_percent,inconclusive_reasons
+ideal,ideal,0.0,,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,10.735195873777196,0.04174297225691252,2.317629200416377,0.05189829371720826,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+ideal,ideal,0.0,,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,3.8105700564247147e-25,1.3243464031006008e-27,,,"{""insufficient_nonpolynomial_motion"": 8}"
+ideal,ideal,0.0,,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.090091156344401e-11,2.2578917136289961e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+ideal,ideal,0.0,,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,10.735195873777196,0.04174297225691252,,,"{""rank_deficient_motion"": 8}"
+ideal,ideal,0.0,,circle,8,8,0,0,8,0,0,0.0,,0,0,0,3.934120106726955,0.014778095909384614,,,"{""rank_deficient_motion"": 8}"
+ideal,ideal,0.0,,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,3.934120106736645,0.01477809590923909,,,"{""rank_deficient_motion"": 8}"
+ideal,ideal,0.0,,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,9.021883794962829,0.030827442705248186,2.317629200416377,0.05189829371720826,{}
+ideal,ideal,0.0,,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,6.062790300807765e-11,2.19747994253394e-13,4.559751687338576e-09,1.429913175336016e-10,{}
+ideal,ideal,0.0,,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,9.021883794951925,0.030827442705231797,1.9311705550626357,0.04214044050880569,{}
+accel_noise_0p01,accel_noise,0.01,m/s² per sample,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,39.52246364526782,0.14308524285727425,5.266600725792159,0.14495965673518282,"{""insufficient_nonpolynomial_motion"": 16, ""weak_or_ill_conditioned_motion"": 24}"
+accel_noise_0p01,accel_noise,0.01,m/s² per sample,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,23.994812633402116,0.08696340454716625,,,"{""insufficient_nonpolynomial_motion"": 8}"
+accel_noise_0p01,accel_noise,0.01,m/s² per sample,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,31.971808116413335,0.09149900674237871,,,"{""insufficient_nonpolynomial_motion"": 8}"
+accel_noise_0p01,accel_noise,0.01,m/s² per sample,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,22.425122452060194,0.09407306005707895,,,"{""weak_or_ill_conditioned_motion"": 8}"
+accel_noise_0p01,accel_noise,0.01,m/s² per sample,circle,8,8,0,0,8,0,0,0.0,,0,0,0,26.720962519857935,0.0905148904943049,,,"{""weak_or_ill_conditioned_motion"": 8}"
+accel_noise_0p01,accel_noise,0.01,m/s² per sample,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,38.763875251152285,0.14308524285727425,,,"{""weak_or_ill_conditioned_motion"": 8}"
+accel_noise_0p01,accel_noise,0.01,m/s² per sample,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,28.287225491766584,0.09980501301573666,2.3323208603565035,0.07999354081080498,{}
+accel_noise_0p01,accel_noise,0.01,m/s² per sample,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,39.52246364526782,0.11208055603484651,4.443878291729106,0.14495965673518282,{}
+accel_noise_0p01,accel_noise,0.01,m/s² per sample,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,26.06293680586583,0.07442696970614728,5.266600725792159,0.05642480698737891,{}
+body_bias_0p01,body_bias,0.01,m/s² forward,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,89.60635467257711,0.3365965622537425,2.570746446883277,0.05895397935311204,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+body_bias_0p01,body_bias,0.01,m/s² forward,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,9.265933408608755e-13,3.3634358166797906e-15,,,"{""insufficient_nonpolynomial_motion"": 8}"
+body_bias_0p01,body_bias,0.01,m/s² forward,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.090564884743716e-11,2.2389944976965602e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+body_bias_0p01,body_bias,0.01,m/s² forward,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,10.735195873777196,0.04174297225695241,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p01,body_bias,0.01,m/s² forward,circle,8,8,0,0,8,0,0,0.0,,0,0,0,3.9341201067237814,0.014778095909207863,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p01,body_bias,0.01,m/s² forward,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,89.60635467257711,0.3365965622537425,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p01,body_bias,0.01,m/s² forward,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,9.021883794971714,0.03082744270522058,2.3176291985564603,0.05189829367555946,{}
+body_bias_0p01,body_bias,0.01,m/s² forward,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,20.14467611675165,0.07524789963895774,1.8799428627371526,0.05895397935311204,{}
+body_bias_0p01,body_bias,0.01,m/s² forward,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,23.217958523557687,0.0852534286171985,2.570746446883277,0.027542219285488213,{}
+accel_noise_0p05,accel_noise,0.05,m/s² per sample,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,197.61231822634414,0.7030984371912116,24.86922257158949,0.7267720307097328,"{""insufficient_nonpolynomial_motion"": 16, ""weak_or_ill_conditioned_motion"": 24}"
+accel_noise_0p05,accel_noise,0.05,m/s² per sample,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,119.97406316700919,0.43481702273583145,,,"{""insufficient_nonpolynomial_motion"": 8}"
+accel_noise_0p05,accel_noise,0.05,m/s² per sample,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,159.85904058209204,0.4574950337119353,,,"{""insufficient_nonpolynomial_motion"": 8}"
+accel_noise_0p05,accel_noise,0.05,m/s² per sample,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,113.16515710121556,0.5019854199282732,,,"{""weak_or_ill_conditioned_motion"": 8}"
+accel_noise_0p05,accel_noise,0.05,m/s² per sample,circle,8,8,0,0,8,0,0,0.0,,0,0,0,130.82497525569877,0.4014625418772799,,,"{""weak_or_ill_conditioned_motion"": 8}"
+accel_noise_0p05,accel_noise,0.05,m/s² per sample,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,188.8296585060142,0.7030984371912116,,,"{""weak_or_ill_conditioned_motion"": 8}"
+accel_noise_0p05,accel_noise,0.05,m/s² per sample,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,139.53927012378495,0.47574749413817946,8.674541769573807,0.2753784554027614,{}
+accel_noise_0p05,accel_noise,0.05,m/s² per sample,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,197.61231822634414,0.5604027801742453,22.279898580381996,0.7267720307097328,{}
+accel_noise_0p05,accel_noise,0.05,m/s² per sample,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,135.80881795439672,0.3616483813581476,24.86922257158949,0.26644151637620866,{}
+body_bias_0p05,body_bias,0.05,m/s² forward,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,432.2952929359197,1.6238704276319513,14.295708890653259,0.2955227243047742,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+body_bias_0p05,body_bias,0.05,m/s² forward,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,5.7367256746670286e-12,1.952876558319495e-14,,,"{""insufficient_nonpolynomial_motion"": 8}"
+body_bias_0p05,body_bias,0.05,m/s² forward,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.117050801427768e-11,2.1439209308249337e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+body_bias_0p05,body_bias,0.05,m/s² forward,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,10.735195873777196,0.041742972256946335,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p05,body_bias,0.05,m/s² forward,circle,8,8,0,0,8,0,0,0.0,,0,0,0,3.9341201066976264,0.014778095909132245,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p05,body_bias,0.05,m/s² forward,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,432.2952929359197,1.6238704276319513,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p05,body_bias,0.05,m/s² forward,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,9.021883794975775,0.030827442705211087,2.317629198555551,0.05189829367553909,{}
+body_bias_0p05,body_bias,0.05,m/s² forward,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,100.72338058377031,0.3762394981948229,9.423720712825343,0.2955227243047742,{}
+body_bias_0p05,body_bias,0.05,m/s² forward,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,102.50187999351057,0.3817027617474435,14.295708890653259,0.23027727348298468,{}
+accel_noise_0p2,accel_noise,0.2,m/s² per sample,all,64,64,34,34,30,0,0,53.125,100.0,10,0,10,790.4492729053854,2.8041667681722195,103.39224490903325,2.9366398869995747,"{""insufficient_nonpolynomial_motion"": 16, ""weak_or_ill_conditioned_motion"": 14}"
+accel_noise_0p2,accel_noise,0.2,m/s² per sample,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,479.8962526680359,1.7392680909433267,,,"{""insufficient_nonpolynomial_motion"": 8}"
+accel_noise_0p2,accel_noise,0.2,m/s² per sample,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,639.4361623283875,1.829980134847769,,,"{""insufficient_nonpolynomial_motion"": 8}"
+accel_noise_0p2,accel_noise,0.2,m/s² per sample,east_oscillation,8,8,6,6,2,0,0,75.0,100.0,6,0,6,460.86122330158054,2.0628530087238097,,,"{""weak_or_ill_conditioned_motion"": 2}"
+accel_noise_0p2,accel_noise,0.2,m/s² per sample,circle,8,8,2,2,6,0,0,25.0,100.0,2,0,2,522.0342681960885,1.5685180023686716,,,"{""weak_or_ill_conditioned_motion"": 6}"
+accel_noise_0p2,accel_noise,0.2,m/s² per sample,circle_coning,8,8,2,2,6,0,0,25.0,100.0,2,0,2,752.1040573084008,2.8041667681722195,,,"{""weak_or_ill_conditioned_motion"": 6}"
+accel_noise_0p2,accel_noise,0.2,m/s² per sample,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,560.8742246227924,1.8993337564578283,39.56227250797019,0.9801050931469814,{}
+accel_noise_0p2,accel_noise,0.2,m/s² per sample,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,790.4492729053854,2.2416111206969767,90.02553219550964,2.9366398869995747,{}
+accel_noise_0p2,accel_noise,0.2,m/s² per sample,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,551.4801855907256,1.4579708048878472,103.39224490903325,1.0555269837945176,{}
+body_bias_0p2,body_bias,0.2,m/s² forward,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,1717.3788114235278,6.4511474228000125,57.80779062608599,1.1929147921510914,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+body_bias_0p2,body_bias,0.2,m/s² forward,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,2.2946902698668114e-11,7.539545727272438e-14,,,"{""insufficient_nonpolynomial_motion"": 8}"
+body_bias_0p2,body_bias,0.2,m/s² forward,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.508057600175778e-11,1.8725494207018291e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+body_bias_0p2,body_bias,0.2,m/s² forward,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,10.735195873777196,0.0417429722569533,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p2,body_bias,0.2,m/s² forward,circle,8,8,0,0,8,0,0,0.0,,0,0,0,3.9341201067260223,0.014778095909175056,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p2,body_bias,0.2,m/s² forward,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,1717.3788114235278,6.4511474228000125,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p2,body_bias,0.2,m/s² forward,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,9.021883794971897,0.030827442705243655,2.317629198074428,0.05189829366476538,{}
+body_bias_0p2,body_bias,0.2,m/s² forward,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,402.89352233508953,1.5049579927793209,38.04003858544684,1.1929147921510914,{}
+body_bias_0p2,body_bias,0.2,m/s² forward,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,404.40111929232825,1.5084498854015034,57.80779062608599,1.017721964874859,{}
+accel_noise_0p5,accel_noise,0.5,m/s² per sample,all,64,64,58,53,6,4,1,90.625,91.37931034482759,34,0,34,1976.123182263465,7.006401897073508,263.45531638448483,7.488099696938737,"{""insufficient_nonpolynomial_motion"": 4, ""weak_or_ill_conditioned_motion"": 2}"
+accel_noise_0p5,accel_noise,0.5,m/s² per sample,stationary,8,8,4,2,4,1,1,50.0,50.0,4,0,4,1199.7406316700894,4.348170227358319,,,"{""insufficient_nonpolynomial_motion"": 4}"
+accel_noise_0p5,accel_noise,0.5,m/s² per sample,constant_velocity,8,8,8,5,0,3,0,100.0,62.5,8,0,8,1598.5904058209771,4.574950337119436,,,{}
+accel_noise_0p5,accel_noise,0.5,m/s² per sample,east_oscillation,8,8,8,8,0,0,0,100.0,100.0,8,0,8,1156.8823396304406,5.18642026864242,,,{}
+accel_noise_0p5,accel_noise,0.5,m/s² per sample,circle,8,8,8,8,0,0,0,100.0,100.0,8,0,8,1304.5320192825927,3.902738816671168,,,{}
+accel_noise_0p5,accel_noise,0.5,m/s² per sample,circle_coning,8,8,6,6,2,0,0,75.0,100.0,6,0,6,1878.7043387882647,7.006401897073508,,,"{""weak_or_ill_conditioned_motion"": 2}"
+accel_noise_0p5,accel_noise,0.5,m/s² per sample,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1403.9315812888692,4.747855441785897,102.65797245874865,2.533312610626679,{}
+accel_noise_0p5,accel_noise,0.5,m/s² per sample,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1976.123182263465,5.6040278017424425,229.55492886078946,7.488099696938737,{}
+accel_noise_0p5,accel_noise,0.5,m/s² per sample,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1383.18331640745,3.652290730709992,263.45531638448483,2.640611514900524,{}
+body_bias_0p5,body_bias,0.5,m/s² forward,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,4287.545848398755,16.105701413136405,142.6574176825361,3.028988840555917,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+body_bias_0p5,body_bias,0.5,m/s² forward,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,5.1512109943694664e-11,1.3684687928018328e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+body_bias_0p5,body_bias,0.5,m/s² forward,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,7.976476979287106e-11,1.9998294990599715e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+body_bias_0p5,body_bias,0.5,m/s² forward,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,10.735195873777196,0.04174297225690938,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p5,body_bias,0.5,m/s² forward,circle,8,8,0,0,8,0,0,0.0,,0,0,0,3.934120106729701,0.014778095909203882,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p5,body_bias,0.5,m/s² forward,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,4287.545848398755,16.105701413136405,,,"{""rank_deficient_motion"": 8}"
+body_bias_0p5,body_bias,0.5,m/s² forward,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,9.021883794963877,0.03082744270519847,2.3176291985664648,0.05189829367578348,{}
+body_bias_0p5,body_bias,0.5,m/s² forward,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1007.2338058377296,3.76239498194833,96.58933993253822,3.028988840555917,{}
+body_bias_0p5,body_bias,0.5,m/s² forward,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1008.6864192831956,3.7635225819179943,142.6574176825361,2.5908238905088177,{}
+attitude_0p1deg,attitude,0.1,degrees about body Right,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,75.95973393951587,0.29156761333013964,3.160465752107484,0.09545649356008286,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+attitude_0p1deg,attitude,0.1,degrees about body Right,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,1.8237600205497945e-12,5.997143337864789e-15,,,"{""insufficient_nonpolynomial_motion"": 8}"
+attitude_0p1deg,attitude,0.1,degrees about body Right,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.092821292201982e-11,2.278822100736506e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+attitude_0p1deg,attitude,0.1,degrees about body Right,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,10.735195873794575,0.04174297225688985,,,"{""rank_deficient_motion"": 8}"
+attitude_0p1deg,attitude,0.1,degrees about body Right,circle,8,8,0,0,8,0,0,0.0,,0,0,0,75.95973393951587,0.29156761333013964,,,"{""rank_deficient_motion"": 8}"
+attitude_0p1deg,attitude,0.1,degrees about body Right,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,26.31160646399314,0.09883669875322602,,,"{""rank_deficient_motion"": 8}"
+attitude_0p1deg,attitude,0.1,degrees about body Right,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,44.517324221662754,0.16115140079111812,2.3176291964336997,0.05189829362802482,{}
+attitude_0p1deg,attitude,0.1,degrees about body Right,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,34.05472808661083,0.1180700592068613,2.944671259061579,0.09545649356008286,{}
+attitude_0p1deg,attitude,0.1,degrees about body Right,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,58.491249210754596,0.21269925175755347,3.160465752107484,0.05199607112267604,{}
+attitude_0p5deg,attitude,0.5,degrees about body Right,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,379.3081831914143,1.4595675888068746,18.06741246436286,0.4772527661470073,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+attitude_0p5deg,attitude,0.5,degrees about body Right,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,7.836326474573973e-12,2.723329665524169e-14,,,"{""insufficient_nonpolynomial_motion"": 8}"
+attitude_0p5deg,attitude,0.5,degrees about body Right,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.140300515344943e-11,2.448124023220562e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+attitude_0p5deg,attitude,0.5,degrees about body Right,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,10.735195873777196,0.04174297225698613,,,"{""rank_deficient_motion"": 8}"
+attitude_0p5deg,attitude,0.5,degrees about body Right,circle,8,8,0,0,8,0,0,0.0,,0,0,0,379.3081831914143,1.4595675888068746,,,"{""rank_deficient_motion"": 8}"
+attitude_0p5deg,attitude,0.5,degrees about body Right,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,146.86600161719167,0.5516862217744041,,,"{""rank_deficient_motion"": 8}"
+attitude_0p5deg,attitude,0.5,degrees about body Right,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,215.00071645338798,0.7736238978616155,2.3176291952268,0.05189829360099892,{}
+attitude_0p5deg,attitude,0.5,degrees about body Right,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,170.08643466722089,0.5903440112204416,14.721618043455237,0.4772527661470073,{}
+attitude_0p5deg,attitude,0.5,degrees about body Right,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,292.6351197205229,1.05525431955124,18.06741246436286,0.4275004018889919,{}
+attitude_1deg,attitude,1.0,degrees about body Right,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,758.5785417504447,2.919057933732309,38.29619740070848,0.9543297975658316,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+attitude_1deg,attitude,1.0,degrees about body Right,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,1.549703852644536e-11,5.267009071642253e-14,,,"{""insufficient_nonpolynomial_motion"": 8}"
+attitude_1deg,attitude,1.0,degrees about body Right,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.284169978882301e-11,2.638913006340395e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+attitude_1deg,attitude,1.0,degrees about body Right,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,10.735195873794575,0.04174297225695067,,,"{""rank_deficient_motion"": 8}"
+attitude_1deg,attitude,1.0,degrees about body Right,circle,8,8,0,0,8,0,0,0.0,,0,0,0,758.5785417504447,2.919057933732309,,,"{""rank_deficient_motion"": 8}"
+attitude_1deg,attitude,1.0,degrees about body Right,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,296.58796980052165,1.1141005725034248,,,"{""rank_deficient_motion"": 8}"
+attitude_1deg,attitude,1.0,degrees about body Right,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,428.91802219324546,1.5419605758140302,2.317629191913511,0.05189829352680497,{}
+attitude_1deg,attitude,1.0,degrees about body Right,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,339.7033762254024,1.180659725462848,29.435901033984464,0.9543297975658316,{}
+attitude_1deg,attitude,1.0,degrees about body Right,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,585.6736393832855,2.111070298494908,38.29619740070848,0.8943893822043649,{}
+attitude_3deg,attitude,3.0,degrees about body Right,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,2275.4773541287454,8.748209829612767,121.42835334698248,2.8575298841089314,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+attitude_3deg,attitude,3.0,degrees about body Right,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,7.594698571136728e-11,2.776907065196606e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+attitude_3deg,attitude,3.0,degrees about body Right,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,8.998628406538326e-11,3.998239110108168e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+attitude_3deg,attitude,3.0,degrees about body Right,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,10.735195873794575,0.04174297225699524,,,"{""rank_deficient_motion"": 8}"
+attitude_3deg,attitude,3.0,degrees about body Right,circle,8,8,0,0,8,0,0,0.0,,0,0,0,2275.4773541287454,8.748209829612767,,,"{""rank_deficient_motion"": 8}"
+attitude_3deg,attitude,3.0,degrees about body Right,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,884.4675187510568,3.322406399908737,,,"{""rank_deficient_motion"": 8}"
+attitude_3deg,attitude,3.0,degrees about body Right,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1284.7770946983762,4.618495920485056,2.317629205718731,0.051898293835943014,{}
+attitude_3deg,attitude,3.0,degrees about body Right,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1013.429627822126,3.541220243998152,88.12103424169891,2.8575298841089314,{}
+attitude_3deg,attitude,3.0,degrees about body Right,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1755.024207213609,6.340736434006214,121.42835334698248,2.729548339370201,{}
+timing_minus_50ms,timing,-50,ms,all,64,64,8,8,56,0,0,12.5,100.0,16,16,0,30314.20816574697,143.76314548074956,4963.657689015607,71.41671912685405,"{""insufficient_nonpolynomial_motion"": 16, ""neither_model_fits"": 15, ""optimizer_not_reliably_converged"": 1, ""rank_deficient_motion"": 24}"
+timing_minus_50ms,timing,-50,ms,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,3.964668320689717e-25,1.3586689852218889e-27,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_minus_50ms,timing,-50,ms,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.090091156344401e-11,2.2578917136289961e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_minus_50ms,timing,-50,ms,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,21221.039959124984,82.51635952359105,,,"{""rank_deficient_motion"": 8}"
+timing_minus_50ms,timing,-50,ms,circle,8,8,0,0,8,0,0,0.0,,0,0,0,14965.634717091089,56.82826557723042,,,"{""rank_deficient_motion"": 8}"
+timing_minus_50ms,timing,-50,ms,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,8668.84129811039,22.653991713544134,,,"{""rank_deficient_motion"": 8}"
+timing_minus_50ms,timing,-50,ms,three_axis,8,8,3,3,5,0,0,37.5,100.0,5,5,0,16981.28143023845,66.40969252631726,816.3190100824395,27.377052106509865,"{""neither_model_fits"": 4, ""optimizer_not_reliably_converged"": 1}"
+timing_minus_50ms,timing,-50,ms,rotation_only,8,8,2,2,6,0,0,25.0,100.0,6,6,0,17837.199040809865,79.777249160613,2241.801967692296,71.41671912685405,"{""neither_model_fits"": 6}"
+timing_minus_50ms,timing,-50,ms,combined,8,8,3,3,5,0,0,37.5,100.0,5,5,0,30314.20816574697,143.76314548074956,4963.657689015607,53.17916463317969,"{""neither_model_fits"": 5}"
+timing_minus_20ms,timing,-20,ms,all,64,64,22,22,42,0,0,34.375,100.0,2,2,0,12388.452058789635,58.002106591947026,1971.6621543893125,31.009645601905877,"{""insufficient_nonpolynomial_motion"": 16, ""neither_model_fits"": 2, ""rank_deficient_motion"": 24}"
+timing_minus_20ms,timing,-20,ms,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,3.327226226555439e-25,1.3849974705655497e-27,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_minus_20ms,timing,-20,ms,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.090091156344401e-11,2.2578917136289961e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_minus_20ms,timing,-20,ms,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,8591.015311512589,33.405493297354816,,,"{""rank_deficient_motion"": 8}"
+timing_minus_20ms,timing,-20,ms,circle,8,8,0,0,8,0,0,0.0,,0,0,0,6006.989238543485,21.467000942754137,,,"{""rank_deficient_motion"": 8}"
+timing_minus_20ms,timing,-20,ms,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,3477.5051241683586,9.159731885849489,,,"{""rank_deficient_motion"": 8}"
+timing_minus_20ms,timing,-20,ms,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,7022.389890687319,26.985135688161375,219.55289713551792,5.417953517799385,{}
+timing_minus_20ms,timing,-20,ms,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,7224.335338872899,31.945416964938087,970.3123789084839,31.009645601905877,{}
+timing_minus_20ms,timing,-20,ms,combined,8,8,6,6,2,0,0,75.0,100.0,2,2,0,12388.452058789635,58.002106591947026,1971.6621543893125,17.97876388943615,"{""neither_model_fits"": 2}"
+timing_minus_5ms,timing,-5,ms,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,3113.4755059259783,14.487099994310512,490.3665256437216,9.204182274240997,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+timing_minus_5ms,timing,-5,ms,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,3.9454614190419436e-25,1.3414213912680732e-27,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_minus_5ms,timing,-5,ms,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.090091156344401e-11,2.2578917136289961e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_minus_5ms,timing,-5,ms,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,2148.4109721189006,8.353928578489027,,,"{""rank_deficient_motion"": 8}"
+timing_minus_5ms,timing,-5,ms,circle,8,8,0,0,8,0,0,0.0,,0,0,0,1502.678905925322,5.200217153218774,,,"{""rank_deficient_motion"": 8}"
+timing_minus_5ms,timing,-5,ms,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,867.3681737850843,2.2921925090047073,,,"{""rank_deficient_motion"": 8}"
+timing_minus_5ms,timing,-5,ms,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1775.4907075710398,6.768495716255028,53.2629462554778,1.3143810480218958,{}
+timing_minus_5ms,timing,-5,ms,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1807.0989987162147,7.948358864976042,290.8065367241129,9.204182274240997,{}
+timing_minus_5ms,timing,-5,ms,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,3113.4755059259783,14.487099994310512,490.3665256437216,4.3584243036347825,{}
+timing_plus_5ms,timing,5,ms,all,64,64,24,24,40,0,0,37.5,100.0,0,0,0,3123.664529152585,14.462602200298566,482.3918080384665,9.823484856177187,"{""insufficient_nonpolynomial_motion"": 16, ""rank_deficient_motion"": 24}"
+timing_plus_5ms,timing,5,ms,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,3.8004894378928233e-25,1.3319581898017152e-27,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_plus_5ms,timing,5,ms,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.090091156344401e-11,2.2578917136289961e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_plus_5ms,timing,5,ms,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,2143.4163933156765,8.334507548181744,,,"{""rank_deficient_motion"": 8}"
+timing_plus_5ms,timing,5,ms,circle,8,8,0,0,8,0,0,0.0,,0,0,0,1502.678905925312,5.0593125075590315,,,"{""rank_deficient_motion"": 8}"
+timing_plus_5ms,timing,5,ms,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,874.1567219385691,2.31557623111148,,,"{""rank_deficient_motion"": 8}"
+timing_plus_5ms,timing,5,ms,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1787.3209525643933,6.772951841747359,57.55655519113452,1.9302855759536566,{}
+timing_plus_5ms,timing,5,ms,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,1804.020220201925,7.908034698570653,304.3560759951938,9.823484856177187,{}
+timing_plus_5ms,timing,5,ms,combined,8,8,8,8,0,0,0,100.0,100.0,0,0,0,3123.664529152585,14.462602200298566,482.3918080384665,4.287544255328587,{}
+timing_plus_20ms,timing,20,ms,all,64,64,23,23,41,0,0,35.9375,100.0,1,1,0,12488.363085970484,57.48563229472843,1899.7391409424126,38.13508478482345,"{""insufficient_nonpolynomial_motion"": 16, ""neither_model_fits"": 1, ""rank_deficient_motion"": 24}"
+timing_plus_20ms,timing,20,ms,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,3.336346204495452e-25,1.4692469498817807e-27,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_plus_20ms,timing,20,ms,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.090091156344401e-11,2.2578917136289961e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_plus_20ms,timing,20,ms,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,8522.610267036504,33.139505614654574,,,"{""rank_deficient_motion"": 8}"
+timing_plus_20ms,timing,20,ms,circle,8,8,0,0,8,0,0,0.0,,0,0,0,6006.989238543489,19.519223216337075,,,"{""rank_deficient_motion"": 8}"
+timing_plus_20ms,timing,20,ms,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,3484.2811291691823,9.253878987177915,,,"{""rank_deficient_motion"": 8}"
+timing_plus_20ms,timing,20,ms,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,7184.604435888848,27.047682822900278,304.7108318857104,10.21914743981106,{}
+timing_plus_20ms,timing,20,ms,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,7175.5300867217575,31.304808892817178,1169.067858225652,38.13508478482345,{}
+timing_plus_20ms,timing,20,ms,combined,8,8,7,7,1,0,0,87.5,100.0,1,1,0,12488.363085970484,57.48563229472843,1899.7391409424126,16.88506211059247,"{""neither_model_fits"": 1}"
+timing_plus_50ms,timing,50,ms,all,64,64,6,6,58,0,0,9.375,100.0,18,18,0,30887.659429208335,140.64076799587465,4445.975105791047,83.54886321762058,"{""insufficient_nonpolynomial_motion"": 16, ""neither_model_fits"": 18, ""rank_deficient_motion"": 24}"
+timing_plus_50ms,timing,50,ms,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,3.796789839720847e-25,1.283875720666348e-27,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_plus_50ms,timing,50,ms,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,6.090091156344401e-11,2.2578917136289961e-13,,,"{""insufficient_nonpolynomial_motion"": 8}"
+timing_plus_50ms,timing,50,ms,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,20824.464144006586,80.97430538290317,,,"{""rank_deficient_motion"": 8}"
+timing_plus_50ms,timing,50,ms,circle,8,8,0,0,8,0,0,0.0,,0,0,0,14965.63471709111,44.925671998691314,,,"{""rank_deficient_motion"": 8}"
+timing_plus_50ms,timing,50,ms,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,8675.547112554412,24.325868515017085,,,"{""rank_deficient_motion"": 8}"
+timing_plus_50ms,timing,50,ms,three_axis,8,8,2,2,6,0,0,25.0,100.0,6,6,0,17929.13632341842,66.82310102955289,928.8054200533907,31.149531087169596,"{""neither_model_fits"": 6}"
+timing_plus_50ms,timing,50,ms,rotation_only,8,8,2,2,6,0,0,25.0,100.0,6,6,0,17547.79166031202,75.93171847191735,2561.271100618685,83.54886321762058,"{""neither_model_fits"": 6}"
+timing_plus_50ms,timing,50,ms,combined,8,8,2,2,6,0,0,25.0,100.0,6,6,0,30887.659429208335,140.64076799587465,4445.975105791047,39.516249460538646,"{""neither_model_fits"": 6}"
+combined_errors,combined,1.0,,all,64,64,23,23,41,0,0,35.9375,100.0,1,1,0,12483.434906743403,57.21107300082511,1966.1341357953097,39.83743528699276,"{""insufficient_nonpolynomial_motion"": 16, ""neither_model_fits"": 1, ""weak_or_ill_conditioned_motion"": 24}"
+combined_errors,combined,1.0,,stationary,8,8,0,0,8,0,0,0.0,,0,0,0,125.39841882380813,0.4111812350328593,,,"{""insufficient_nonpolynomial_motion"": 8}"
+combined_errors,combined,1.0,,constant_velocity,8,8,0,0,8,0,0,0.0,,0,0,0,154.15913085899209,0.45350867187778865,,,"{""insufficient_nonpolynomial_motion"": 8}"
+combined_errors,combined,1.0,,east_oscillation,8,8,0,0,8,0,0,0.0,,0,0,0,8558.579731708622,33.19708205740058,,,"{""weak_or_ill_conditioned_motion"": 8}"
+combined_errors,combined,1.0,,circle,8,8,0,0,8,0,0,0.0,,0,0,0,6063.899665135122,19.082056072150586,,,"{""weak_or_ill_conditioned_motion"": 8}"
+combined_errors,combined,1.0,,circle_coning,8,8,0,0,8,0,0,0.0,,0,0,0,3771.0968294416857,10.121322913446948,,,"{""weak_or_ill_conditioned_motion"": 8}"
+combined_errors,combined,1.0,,three_axis,8,8,8,8,0,0,0,100.0,100.0,0,0,0,7195.2070321209885,27.00013880404703,304.39238035405924,10.208467467805349,{}
+combined_errors,combined,1.0,,rotation_only,8,8,8,8,0,0,0,100.0,100.0,0,0,0,7336.31187079079,31.09474412456415,1221.2550571462757,39.83743528699276,{}
+combined_errors,combined,1.0,,combined,8,8,7,7,1,0,0,87.5,100.0,1,1,0,12483.434906743403,57.21107300082511,1966.1341357953097,17.475187137635654,"{""neither_model_fits"": 1}"

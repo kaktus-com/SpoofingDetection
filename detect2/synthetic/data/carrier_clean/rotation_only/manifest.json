@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "provenance": "synthetic measurement-level observations",
+  "scenario": "rotation_only",
+  "timebase": "shared relative seconds, t=0 origin",
+  "gnss_rate_hz": 20.0,
+  "imu_rate_hz": 200.0,
+  "imu": "inputs/imu.csv",
+  "imu_quality": "ideal measurements and exact supplied attitude",
+  "satellite_geometry": "inputs/satellite_geometry.csv",
+  "frame": "inputs/frame.json",
+  "carrier_files": {
+    "benign": "benign/carrier.csv",
+    "spoofed": "spoofed/carrier.csv"
+  },
+  "phase_units": "cycles, range-observable sign; not receiver beat-phase convention",
+  "phase_noise_sigma_cycles": 0.0,
+  "phase_noise_lag1_rho": 0.0,
+  "signal_identity": "S01\u2013S08 are illustrative GPS L1 channels, not real satellite ephemerides",
+  "input_boundary": "only imu, satellite_geometry, frame and the selected carrier file are measured inputs; truth/ is evaluation only"
+}

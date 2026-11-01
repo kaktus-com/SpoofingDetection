@@ -1,4 +1,4 @@
-# detect2: geometry foundation and detector plan
+# detect2: IMU detector, synthetic data and implementation plan
 
 Implement the detector in **Consumer INS Coupled with Carrier Phase Measurements
 for GNSS Spoofing Detection**, arXiv:2502.03870v1, inside this directory.
@@ -6,10 +6,132 @@ for GNSS Spoofing Detection**, arXiv:2502.03870v1, inside this directory.
 Reference: [local paper](../../2502.03870v1.pdf),
 [version 1 online](https://arxiv.org/html/2502.03870v1).
 
-Status: the geometry and analytic-motion foundation is implemented. The current
-pass covers motion definitions, coordinate conversions and plots. The statistical
-detector, noisy measurement generation and inertial displacement estimation are
-still planned in stages 1–4 below. Another flight and live integration are later.
+Status: geometry, synthetic observations, the windowed statistical detector and
+short-window IMU displacement estimation are implemented. IMU mode uses specific
+force and supplied attitude, removes gravity, integrates acceleration and adds
+the rotating antenna offset. Predictions use no truth displacement or initial
+velocity. Oracle mode remains available as a separate reference. Controlled
+accelerometer, supplied-attitude and timing sensitivity tests are available.
+Attitude estimation, measured sensor validation, another flight and live
+integration are later work.
+
+Current priority: validate our own IMU integration. The additional motion-quality
+check propagates configured accelerometer noise into displacement uncertainty.
+A PX4 fused-displacement input remains deferred.
+
+## Run the IMU-displacement detector
+
+```bash
+python3 -m SpoofingDetection.detect2.replay --imu
+```
+
+Open the [IMU detector report](results/imu/report.html),
+[interactive motion/oracle comparison](results/imu/motion_report.html) or
+[all figures as PDF](results/imu/detector_results.pdf). The comparison shows raw
+and quadratic-removed displacement, motion-induced phase, gamma and decisions.
+Truth and labels are loaded only after predictions have been saved.
+
+For prediction without any truth access:
+
+```bash
+python3 -m SpoofingDetection.detect2.replay --imu --no-evaluate \
+  --output-dir /tmp/detect2-imu-inputs-only
+```
+
+For the existing zero-phase-noise dataset, which retains unknown slow trends:
+
+```bash
+python3 -m SpoofingDetection.detect2.replay --imu \
+  --data-dir SpoofingDetection/detect2/synthetic/data/carrier_clean \
+  --output-dir SpoofingDetection/detect2/results/imu_clean
+```
+
+Open its [detector report](results/imu_clean/report.html) or
+[motion comparison](results/imu_clean/motion_report.html).
+[IMU_ESTIMATION.md](IMU_ESTIMATION.md) documents integration, initialization,
+timing and assumptions. These datasets have ideal IMU measurements and exact
+supplied attitude; the noisy dataset adds carrier noise only.
+
+## Test our integration with input errors
+
+```bash
+python3 -m SpoofingDetection.detect2.imu_robustness
+```
+
+Open the [gated IMU sensitivity report](results/imu_robustness_gated/report.html) or
+[all sensitivity figures as PDF](results/imu_robustness_gated/imu_robustness.pdf).
+Twenty conditions vary accelerometer noise, body-frame bias, supplied-attitude
+error and IMU clock offset, then combine them once. Each uses identical carrier
+measurements, detector settings and interior windows. Separate condition reports
+show raw/observable displacement, motion phase, gamma and decisions. The actual
+perturbed IMU inputs are exported, and all predictions precede truth evaluation.
+
+These are engineering stress settings with one seed, not a calibrated hardware
+model. See [IMU_ROBUSTNESS.md](IMU_ROBUSTNESS.md) for exact levels, pairing,
+timing conventions and remaining work. Ideal baseline outputs remain separate.
+The [original ungated sweep](results/imu_robustness/report.html) is preserved.
+It exposed false classifications from noise-induced motion in weak controls.
+The new noise check requires motion reliably above its propagated uncertainty,
+and shows the resulting loss or retention of conclusive coverage.
+
+```bash
+python3 -m SpoofingDetection.detect2.imu_noise_validation
+```
+
+Open the [paired 10-seed comparison](results/imu_noise_validation/report.html).
+It holds carrier observations fixed and compares the same fits before/after
+the extra quality check. See [IMU_UNCERTAINTY.md](IMU_UNCERTAINTY.md) for the
+covariance derivation, conservative bound, assumptions and saved diagnostics.
+
+## Run the oracle-displacement detector
+
+```bash
+python3 -m SpoofingDetection.detect2.replay --oracle
+```
+
+Open the [noisy-data detector report](results/oracle/report.html) or
+[all detector figures as PDF](results/oracle/detector_results.pdf). The interactive
+report selects motion, input case, window and signal. It shows raw/fitted phase,
+phase after the candidate's estimated trend removal, and residuals. Static plots
+also show the two costs, gamma, predictions and separately loaded labels.
+
+For a noiseless validation that still contains unknown slow trends:
+
+```bash
+python3 -m SpoofingDetection.detect2.synthetic.generate_carrier \
+  --noise-sigma-cycles 0 --no-plots \
+  --output-dir SpoofingDetection/detect2/synthetic/data/carrier_clean
+python3 -m SpoofingDetection.detect2.replay --oracle \
+  --data-dir SpoofingDetection/detect2/synthetic/data/carrier_clean \
+  --output-dir SpoofingDetection/detect2/results/oracle_clean
+```
+
+Open the [noiseless detector report](results/oracle_clean/report.html).
+Read [DETECTOR.md](DETECTOR.md) for the equation mapping, quality policy,
+optimization limits, covariance handling and input/truth boundary.
+
+The first detector requires sufficiently excited full-rank 3D motion *after*
+quadratic removal. It conservatively leaves stationary, constant-velocity,
+one-axis and planar/coning controls inconclusive. The three-axis, combined and
+nonplanar rotation-only controls exercise the complete fit. This restriction
+is an implementation policy, not a claim that all planar motion is undetectable.
+
+## Generate the paired carrier observations
+
+```bash
+python3 -m SpoofingDetection.detect2.synthetic.generate_carrier
+```
+
+Open the [carrier comparison report](synthetic/data/carrier_phase/report.html) or
+[all carrier figures as PDF](synthetic/data/carrier_phase/carrier_observations.pdf).
+Defaults: eight motions, six seconds, eight illustrative GPS L1 signals, 20 Hz
+carrier observations, 200 Hz ideal IMU, 0.01-cycle phase noise and random seed 42.
+Each motion has both benign and single-transmitter spoofed observations.
+
+The raw carrier CSVs retain their full observed phases. The report's
+trend-removed plots use the exact generated trend for visualization; this is
+separate from the detector's fitted trends. Input and truth are separated. See
+[CARRIER_DATA.md](synthetic/CARRIER_DATA.md) for schema, model and controls.
 
 ## Run the geometry and motion examples
 
@@ -41,9 +163,10 @@ python3 -m SpoofingDetection.detect2.synthetic.generate \
 ```
 
 Other CLI options set the WGS-84 origin, duration, sample rate and translation
-amplitude/frequency scales. Run `--help` for details. The ideal accelerometer
-and geometric phase contributions are truth-derived checks, not measured inputs
-to a completed detector. Implementation is from scratch; the older `torej`
+amplitude/frequency scales. Run `--help` for details. This motion-only report
+shows truth-derived accelerometer and geometric phase checks. The carrier
+generator exports separate inputs consumed by IMU replay. Implementation is
+from scratch; the older `torej`
 implementations are not a dependency or design reference.
 
 For a circle with a rigidly mounted antenna whose pointing direction sweeps a
@@ -70,11 +193,34 @@ detect2/
   README.md                 implementation plan and equation mapping
   CONVENTIONS.md             implemented units, frame definitions and equations
   requirements.txt          Python dependencies (including test dependencies)
-  schema.py                 [planned] measured-input validation and stream definitions
+  schema.py                 measured-input validation and explicit oracle loading
   geometry.py               implemented coordinate transforms and signal geometry
-  detector.py               [planned] QR reduction, constrained fits and decision
-  motion.py                 [planned] inertial estimation of antenna displacement
-  replay.py                 [planned] offline detector execution
+  detector.py               QR reduction, constrained fits and decision
+  motion.py                 supplied-attitude IMU integration and antenna offset
+  motion_uncertainty.py     integration covariance and conservative noise gate
+  imu_errors.py             repeatable measured-input errors and input export
+  imu_robustness.py          matched error sweeps with frozen predictions
+  imu_robustness_report.py   motion/phase/gamma sensitivity plots and report
+  imu_noise_validation.py    paired uncertainty-gate validation across seeds
+  imu_noise_validation_report.py  coverage, error and noise-floor plots
+  replay.py                 IMU/oracle replay and prediction export
+  evaluation.py             held-out labels, read after prediction
+  motion_evaluation.py       held-out displacement/phase and oracle comparison
+  motion_plots.py            integration, phase-error and decision comparison plots
+  motion_report.py           interactive motion comparison report
+  detector_plots.py          fit, residual, cost, gamma and decision figures
+  detector_report.py         interactive window/signal comparison report
+  DETECTOR.md               implemented mathematics, limits and verification
+  IMU_ESTIMATION.md          integration, initialization and truth boundary
+  IMU_ROBUSTNESS.md          input-error experiment definitions and limits
+  IMU_UNCERTAINTY.md         noise propagation, additional gate and validation
+  results/imu/              ideal IMU with noisy-carrier results
+  results/imu_clean/        ideal IMU with zero-phase-noise results
+  results/imu_robustness/   twenty controlled IMU error conditions
+  results/imu_robustness_gated/  error conditions with uncertainty checks
+  results/imu_noise_validation/ paired before/after results across IMU seeds
+  results/oracle/           noisy-data oracle results
+  results/oracle_clean/     noiseless-data oracle results
   synthetic/
     README.md               implemented outputs and remaining generation plan
     motions.py              analytic body and antenna kinematics
@@ -82,7 +228,13 @@ detect2/
     plots.py                scientific figures
     report.py               standalone interactive HTML report
     report_template.html    local report viewer (no network dependencies)
+    carrier.py              paired phase model, named RNG streams and noise
+    generate_carrier.py     observation/ideal-IMU export and comparison report
+    carrier_plots.py        observations, components, differences and noise plots
+    carrier_report.py       interactive paired phase traces and plot gallery
+    CARRIER_DATA.md          measured-input schema, truth boundary and controls
     data/motion_geometry/   eight generated scenarios, figures and reports
+    data/carrier_phase/     paired carrier observations, ideal IMU and truth
   tests/                    independent geometry, kinematics and export checks
 ```
 
@@ -122,7 +274,7 @@ invalid geometry, non-monotonic timestamps and missing required fields explicitl
 First isolate the statistical model from inertial estimation errors. Provide
 known, time-aligned synthetic displacement and carrier phase to the detector.
 
-| Paper component | Planned implementation |
+| Paper component | Oracle-mode implementation |
 | --- | --- |
 | Eq. 3 | Per-signal constant, linear and quadratic nuisance phase terms |
 | Eqs. 4–5 | Motion-induced phase scaled by wavelength; separate satellite directions versus one shared spoofer direction |
@@ -153,28 +305,42 @@ their respective models. Verify invariance to an allowed common frame rotation
 and to the modeled quadratic phase trends. Stationary/degenerate inputs must not
 produce an unjustified confident classification.
 
-## 3. Add inertial estimation of antenna displacement
+## 3. Estimate antenna displacement from IMU inputs
 
-- Transform measured specific force using attitude, remove gravity and compensate
-  for sensor/antenna geometry. Include antenna translation caused by rotation
-  around a nonzero antenna offset.
-- Estimate attitude from gyro/accelerometer measurements when required, with
-  initial attitude and heading assumptions stated. Existing attitude can be used
-  as a separate development input whose errors are evaluated.
-- Implement the high-frequency separation and short integration needed to
-  estimate antenna displacement. Document filter order, cutoff, initialization,
-  transients, integration resets and phase delay; the paper does not fix every
-  implementation setting.
-- Preserve accelerometer/gyro sample timing and resample displacement to GNSS
-  measurement epochs. Account for filtering latency in that alignment.
-- Compare estimated displacement and classification with the known-displacement
-  mode. Report error attributable to IMU estimation separately from model fitting.
-- Add recording adapters later, after validating sensor frames and timing. Do
-  not infer missing high-rate phase from interpolated low-rate GNSS data.
+The supplied-attitude baseline is implemented; see
+[IMU_ESTIMATION.md](IMU_ESTIMATION.md). It rotates specific force into ENU,
+removes gravity, integrates per window with zero initial position/velocity and
+adds antenna translation from the rotating lever arm. Exact measurement times
+are preserved; missing coverage and IMU gaps produce inconclusive windows.
+No additional high-pass filter is applied. The detector's existing polynomial
+projection removes low-order drift, including unknown initial velocity.
 
-Completion: the synthetic inertial stream reconstructs the relevant antenna
-motion within documented tolerances, and its detector results can be compared
-with the oracle mode under increasing sensor and timing errors.
+Saved comparisons distinguish raw integration drift from the displacement and
+phase remaining after quadratic removal. Oracle fits and labels are evaluated
+only after IMU predictions are exported. The ideal baseline agrees with the
+oracle's decisions, including its conservative inconclusive controls.
+
+Controlled accelerometer noise/bias, supplied-attitude error and timestamp
+offset sweeps are implemented in [IMU_ROBUSTNESS.md](IMU_ROBUSTNESS.md).
+The detector is not retuned for these experiments. Remaining work:
+
+- Extend the implemented white-noise covariance to justified real sensor models
+  and assess systematic attitude, bias and timing errors. The extra uncertainty
+  gate is documented in [IMU_UNCERTAINTY.md](IMU_UNCERTAINTY.md).
+- Extend sensitivity checks across noise seeds, body axes and measured sensor
+  characteristics. Measure motion error, gamma changes and conclusive coverage
+  rather than only accuracy on usable windows. Gyro noise/bias belongs with the
+  future attitude estimator; the current supplied-attitude path does not use gyro
+  measurements to compute orientation.
+- Estimate attitude from gyro/accelerometer measurements, stating initialization
+  and heading assumptions. Keep supplied-attitude mode as a separate reference.
+- Evaluate any additional filtering with documented cutoff, transients, resets
+  and phase delay; do not silently change the present baseline.
+- Add recording adapters after validating sensor frames and timing. Do not infer
+  missing high-rate carrier phase by interpolating low-rate GNSS data.
+
+Next milestone: quantify degradation under sensor, attitude and timing errors
+before claiming suitability for another flight.
 
 ## 4. Generate synthetic datasets and verify the complete offline pipeline
 

@@ -1,0 +1,5 @@
+window_index,start_s,end_s,displacement_mode,decision,reason,gamma,samples,used_signals,motion_rank,motion_rms_m,min_axis_rms_m,motion_condition,best_fit_rms_sigma,sigma_floor_applied,benign_reduced_cost,benign_total_cost,spoofed_reduced_cost,spoofed_total_cost
+0,1.0,2.0,imu,inconclusive,rank_deficient_motion,,20,8,2,0.02767410790238132,2.459480834411921e-17,,,False,,,,
+1,2.0,3.0,imu,inconclusive,rank_deficient_motion,,20,8,2,0.027674107902381333,3.1957991888670834e-17,,,False,,,,
+2,3.0,4.0,imu,inconclusive,rank_deficient_motion,,20,8,2,0.02767410790238131,2.5932200681199182e-17,,,False,,,,
+3,4.0,5.0,imu,inconclusive,rank_deficient_motion,,20,8,2,0.027674107902381357,3.2129323920390235e-17,,,False,,,,
