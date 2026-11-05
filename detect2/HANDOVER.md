@@ -27,6 +27,7 @@ Open `http://127.0.0.1:8000/` and use these entries:
 
 - [Stage 5A timing review](results/acquisition_stage5a/report.html).
 - [Three November recordings](results/recorded_nov05/review_20261105T135817Z/report.html).
+- [Detector replay on the November recordings](results/november_detector/report.html).
 - [Stage 4 native IMU/attitude logging](results/acquisition_stage4/report.html).
 - [Stage 3 receiver bandwidth](results/acquisition_stage3/report.html).
 - [Runtime launcher checks](results/runtime_launcher/report.html).
@@ -45,7 +46,7 @@ python -m pip install -r detect2/acquisition/requirements.txt
 PYTHONPATH=.. python -m pytest detect2/tests -q
 ```
 
-The full suite passed **178 tests** before this handover. Drone acquisition
+The full suite passed **187 tests** after the November detector replay. Drone acquisition
 requires its hardware/router; offline tests use fixtures and local fake peers.
 The test imports use the `SpoofingDetection` package name, so the parent of the
 default clone directory is added to the Python path for that command.
@@ -61,6 +62,15 @@ reports. Original `stored_flights/` data and the separate PX4 source checkout
 outside this repository are not included; rebuilding the July-flight adapter
 from its original ULog requires those original inputs. Its saved report and
 adapted outputs are included.
+
+To rerun the detector on the imported November data (no drone connection needed):
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m detect2.recorded_raw
+```
+
+See [RECORDED_RAW.md](RECORDED_RAW.md) for the provisional clock and noise
+assumptions, and [CONTINUATION.md](CONTINUATION.md) for progress and remaining work.
 
 ## Current checkpoint
 

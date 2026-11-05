@@ -22,6 +22,10 @@ A PX4 fused-displacement input remains deferred.
 
 For another computer, see [the checkout/report handover](HANDOVER.md).
 The next hardware review is [the CubeOrange PPS input research](PPS_INPUT_RESEARCH.md).
+The [November raw-recording detector report](results/november_detector/report.html)
+shows the current conditional results; [RECORDED_RAW.md](RECORDED_RAW.md) explains
+the assumptions and rerun command, and [CONTINUATION.md](CONTINUATION.md) records
+the next software and validation tasks.
 
 For the drone, follow the [short run-and-fly guide](FLIGHT_QUICKSTART.md), or see
 the [detailed runtime recording guide](acquisition/RUNTIME.md):

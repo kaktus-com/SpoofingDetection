@@ -1,0 +1,447 @@
+{
+  "status": "EXPLORATORY_UNVERIFIED_CLOCK_AND_FIELD_ERROR_MODEL",
+  "recordings": [
+    {
+      "session": "20261105T131308Z_d3f681",
+      "primary_conditional_decisions": {
+        "inconclusive": 299
+      },
+      "primary_reasons": {
+        "imu_motion_below_noise_floor": 295,
+        "imu_time_gap": 1,
+        "px4_attitude_or_calibration_transition": 3
+      },
+      "primary_gamma_available": 0,
+      "primary_windows": 299,
+      "primary_airborne_conditional_decisions": {
+        "inconclusive": 145
+      },
+      "validated_conclusive_decisions": 0,
+      "variants": [
+        {
+          "offset_s": -0.05,
+          "noise_model": "configured",
+          "accel_noise_sigma_m_s2": 1.0,
+          "folder": "offset_-0p050",
+          "windows": 299,
+          "conditional_decisions": {
+            "inconclusive": 299
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 295,
+            "imu_time_gap": 1,
+            "px4_attitude_or_calibration_transition": 3
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.0,
+          "noise_model": "configured",
+          "accel_noise_sigma_m_s2": 1.0,
+          "folder": "offset_+0p000",
+          "windows": 299,
+          "conditional_decisions": {
+            "inconclusive": 299
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 295,
+            "imu_time_gap": 1,
+            "px4_attitude_or_calibration_transition": 3
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.05,
+          "noise_model": "configured",
+          "accel_noise_sigma_m_s2": 1.0,
+          "folder": "offset_+0p050",
+          "windows": 299,
+          "conditional_decisions": {
+            "inconclusive": 299
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 295,
+            "imu_time_gap": 1,
+            "px4_attitude_or_calibration_transition": 3
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": -0.05,
+          "noise_model": "ground_proxy_sensitivity",
+          "accel_noise_sigma_m_s2": 0.013041289165836705,
+          "folder": "ground_proxy_offset_-0p050",
+          "windows": 299,
+          "conditional_decisions": {
+            "inconclusive": 245,
+            "benign": 45,
+            "spoofed": 9
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 219,
+            "imu_time_gap": 1,
+            "positive_gamma": 45,
+            "neither_model_fits": 22,
+            "negative_gamma": 9,
+            "px4_attitude_or_calibration_transition": 3
+          },
+          "gamma_available": 76,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.0,
+          "noise_model": "ground_proxy_sensitivity",
+          "accel_noise_sigma_m_s2": 0.013041289165836705,
+          "folder": "ground_proxy_offset_+0p000",
+          "windows": 299,
+          "conditional_decisions": {
+            "inconclusive": 243,
+            "benign": 48,
+            "spoofed": 8
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 220,
+            "imu_time_gap": 1,
+            "positive_gamma": 48,
+            "neither_model_fits": 19,
+            "negative_gamma": 8,
+            "px4_attitude_or_calibration_transition": 3
+          },
+          "gamma_available": 75,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.05,
+          "noise_model": "ground_proxy_sensitivity",
+          "accel_noise_sigma_m_s2": 0.013041289165836705,
+          "folder": "ground_proxy_offset_+0p050",
+          "windows": 299,
+          "conditional_decisions": {
+            "inconclusive": 246,
+            "benign": 48,
+            "spoofed": 5
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 225,
+            "imu_time_gap": 1,
+            "positive_gamma": 48,
+            "neither_model_fits": 17,
+            "negative_gamma": 5,
+            "px4_attitude_or_calibration_transition": 3
+          },
+          "gamma_available": 70,
+          "validated_conclusive_decisions": 0
+        }
+      ],
+      "clock": {
+        "anchor_boot_s": 862.0530996760465,
+        "host_minus_px4_min_s": -0.3635054459999765,
+        "host_minus_gnss_elapsed_min_s": 861.6895942300465,
+        "gnss_receive_delay_range_s": 0.04547056900003099,
+        "px4_receive_offset_range_s": 0.012363604999904965,
+        "px4_messages": 14961,
+        "formula": "candidate_PX4_s = anchor_boot_s + GPS_elapsed_s + fixed_offset_s",
+        "status": "UNVERIFIED",
+        "rate_assumed_s_per_s": 1.0,
+        "phase_used_for_alignment": false,
+        "later_timesync_extrapolated": false,
+        "absolute_transport_latency_known": false
+      },
+      "source_unchanged": true
+    },
+    {
+      "session": "20261105T132010Z_c4cbfd",
+      "primary_conditional_decisions": {
+        "inconclusive": 173
+      },
+      "primary_reasons": {
+        "imu_motion_below_noise_floor": 170,
+        "px4_attitude_or_calibration_transition": 3
+      },
+      "primary_gamma_available": 0,
+      "primary_windows": 173,
+      "primary_airborne_conditional_decisions": {
+        "inconclusive": 81
+      },
+      "validated_conclusive_decisions": 0,
+      "variants": [
+        {
+          "offset_s": -0.05,
+          "noise_model": "configured",
+          "accel_noise_sigma_m_s2": 1.0,
+          "folder": "offset_-0p050",
+          "windows": 173,
+          "conditional_decisions": {
+            "inconclusive": 173
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 170,
+            "px4_attitude_or_calibration_transition": 3
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.0,
+          "noise_model": "configured",
+          "accel_noise_sigma_m_s2": 1.0,
+          "folder": "offset_+0p000",
+          "windows": 173,
+          "conditional_decisions": {
+            "inconclusive": 173
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 170,
+            "px4_attitude_or_calibration_transition": 3
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.05,
+          "noise_model": "configured",
+          "accel_noise_sigma_m_s2": 1.0,
+          "folder": "offset_+0p050",
+          "windows": 173,
+          "conditional_decisions": {
+            "inconclusive": 173
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 170,
+            "px4_attitude_or_calibration_transition": 3
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": -0.05,
+          "noise_model": "ground_proxy_sensitivity",
+          "accel_noise_sigma_m_s2": 0.015955058493702802,
+          "folder": "ground_proxy_offset_-0p050",
+          "windows": 173,
+          "conditional_decisions": {
+            "inconclusive": 140,
+            "benign": 30,
+            "spoofed": 3
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 133,
+            "px4_attitude_or_calibration_transition": 3,
+            "neither_model_fits": 4,
+            "positive_gamma": 30,
+            "negative_gamma": 3
+          },
+          "gamma_available": 37,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.0,
+          "noise_model": "ground_proxy_sensitivity",
+          "accel_noise_sigma_m_s2": 0.015955058493702802,
+          "folder": "ground_proxy_offset_+0p000",
+          "windows": 173,
+          "conditional_decisions": {
+            "inconclusive": 142,
+            "benign": 31
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 136,
+            "px4_attitude_or_calibration_transition": 3,
+            "neither_model_fits": 3,
+            "positive_gamma": 31
+          },
+          "gamma_available": 34,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.05,
+          "noise_model": "ground_proxy_sensitivity",
+          "accel_noise_sigma_m_s2": 0.015955058493702802,
+          "folder": "ground_proxy_offset_+0p050",
+          "windows": 173,
+          "conditional_decisions": {
+            "inconclusive": 143,
+            "benign": 29,
+            "spoofed": 1
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 137,
+            "px4_attitude_or_calibration_transition": 3,
+            "neither_model_fits": 3,
+            "positive_gamma": 29,
+            "negative_gamma": 1
+          },
+          "gamma_available": 33,
+          "validated_conclusive_decisions": 0
+        }
+      ],
+      "clock": {
+        "anchor_boot_s": 1276.0534155170465,
+        "host_minus_px4_min_s": -0.35823478099996464,
+        "host_minus_gnss_elapsed_min_s": 1275.6951807360465,
+        "gnss_receive_delay_range_s": 0.04248502200016446,
+        "px4_receive_offset_range_s": 0.009043067999982668,
+        "px4_messages": 8690,
+        "formula": "candidate_PX4_s = anchor_boot_s + GPS_elapsed_s + fixed_offset_s",
+        "status": "UNVERIFIED",
+        "rate_assumed_s_per_s": 1.0,
+        "phase_used_for_alignment": false,
+        "later_timesync_extrapolated": false,
+        "absolute_transport_latency_known": false
+      },
+      "source_unchanged": true
+    },
+    {
+      "session": "20261105T132748Z_9c3265",
+      "primary_conditional_decisions": {
+        "inconclusive": 143
+      },
+      "primary_reasons": {
+        "imu_motion_below_noise_floor": 141,
+        "px4_attitude_or_calibration_transition": 2
+      },
+      "primary_gamma_available": 0,
+      "primary_windows": 143,
+      "primary_airborne_conditional_decisions": {},
+      "validated_conclusive_decisions": 0,
+      "variants": [
+        {
+          "offset_s": -0.05,
+          "noise_model": "configured",
+          "accel_noise_sigma_m_s2": 1.0,
+          "folder": "offset_-0p050",
+          "windows": 143,
+          "conditional_decisions": {
+            "inconclusive": 143
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 141,
+            "px4_attitude_or_calibration_transition": 2
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.0,
+          "noise_model": "configured",
+          "accel_noise_sigma_m_s2": 1.0,
+          "folder": "offset_+0p000",
+          "windows": 143,
+          "conditional_decisions": {
+            "inconclusive": 143
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 141,
+            "px4_attitude_or_calibration_transition": 2
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.05,
+          "noise_model": "configured",
+          "accel_noise_sigma_m_s2": 1.0,
+          "folder": "offset_+0p050",
+          "windows": 143,
+          "conditional_decisions": {
+            "inconclusive": 143
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 141,
+            "px4_attitude_or_calibration_transition": 2
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": -0.05,
+          "noise_model": "ground_proxy_sensitivity",
+          "accel_noise_sigma_m_s2": 0.017292405505390344,
+          "folder": "ground_proxy_offset_-0p050",
+          "windows": 143,
+          "conditional_decisions": {
+            "inconclusive": 143
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 141,
+            "px4_attitude_or_calibration_transition": 2
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.0,
+          "noise_model": "ground_proxy_sensitivity",
+          "accel_noise_sigma_m_s2": 0.017292405505390344,
+          "folder": "ground_proxy_offset_+0p000",
+          "windows": 143,
+          "conditional_decisions": {
+            "inconclusive": 143
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 141,
+            "px4_attitude_or_calibration_transition": 2
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        },
+        {
+          "offset_s": 0.05,
+          "noise_model": "ground_proxy_sensitivity",
+          "accel_noise_sigma_m_s2": 0.017292405505390344,
+          "folder": "ground_proxy_offset_+0p050",
+          "windows": 143,
+          "conditional_decisions": {
+            "inconclusive": 143
+          },
+          "conditional_reasons": {
+            "imu_motion_below_noise_floor": 141,
+            "px4_attitude_or_calibration_transition": 2
+          },
+          "gamma_available": 0,
+          "validated_conclusive_decisions": 0
+        }
+      ],
+      "clock": {
+        "anchor_boot_s": 1734.0551563500464,
+        "host_minus_px4_min_s": -0.3529132969999864,
+        "host_minus_gnss_elapsed_min_s": 1733.7022430530465,
+        "gnss_receive_delay_range_s": 0.043623435000199606,
+        "px4_receive_offset_range_s": 0.008595192000029783,
+        "px4_messages": 7164,
+        "formula": "candidate_PX4_s = anchor_boot_s + GPS_elapsed_s + fixed_offset_s",
+        "status": "UNVERIFIED",
+        "rate_assumed_s_per_s": 1.0,
+        "phase_used_for_alignment": false,
+        "later_timesync_extrapolated": false,
+        "absolute_transport_latency_known": false
+      },
+      "source_unchanged": true
+    }
+  ],
+  "validated_conclusive_decisions": 0,
+  "timing_selected_from_detector": false,
+  "later_timesync_extrapolated": false,
+  "primary_offset_s": 0.0,
+  "window_s": 1.0,
+  "step_s": 1.0,
+  "accel_white_noise_sigma_assumption_m_s2": 1.0,
+  "report": "report.html",
+  "pdf": "november_detector_inspection.pdf",
+  "primary_conditional_decisions": {
+    "inconclusive": 615
+  },
+  "primary_reasons": {
+    "imu_motion_below_noise_floor": 606,
+    "imu_time_gap": 1,
+    "px4_attitude_or_calibration_transition": 8
+  },
+  "stationary_proxy_zero_offset_conditional_decisions": {
+    "inconclusive": 528,
+    "benign": 79,
+    "spoofed": 8
+  }
+}

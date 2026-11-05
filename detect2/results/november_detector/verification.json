@@ -1,0 +1,13 @@
+{
+  "tests_passed": 187,
+  "test_duration_s": 34.39,
+  "adapter_tests_passed": 9,
+  "report_relative_links_checked": 64,
+  "missing_report_resources": [],
+  "original_sources_unchanged": true,
+  "code_fingerprints_match": true,
+  "configuration_variants": 18,
+  "primary_windows": 615,
+  "validated_conclusive_decisions": 0,
+  "embedded_interactive_json_valid": true
+}
