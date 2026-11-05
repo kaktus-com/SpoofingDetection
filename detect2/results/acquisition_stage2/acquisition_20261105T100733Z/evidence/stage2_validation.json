@@ -1,0 +1,51 @@
+{
+  "checks": {
+    "receiver_ram_unchanged": true,
+    "receiver_identity_unchanged": true,
+    "px4_logging_parameters_unchanged": true,
+    "legacy_files_unchanged": true,
+    "router_process_unchanged": true,
+    "deployed_hashes_match": true
+  },
+  "captures": [
+    {
+      "command": [
+        "/home/nss/SpoofingDetection/releases/acquisition_20261105T100733Z/start_capture",
+        "--output-root",
+        "/home/nss/SpoofingDetection/recordings_v2_stage2/acquisition_20261105T100733Z/duration",
+        "--duration-s",
+        "20",
+        "--expected-rawx-hz",
+        "25"
+      ],
+      "CAPTURE_PYTHON": "/home/nss/venv/bin/python",
+      "exit_code": 0,
+      "elapsed_s": 20.62532259291038,
+      "session": "/home/nss/SpoofingDetection/recordings_v2_stage2/acquisition_20261105T100733Z/duration/20261105T101225Z_4e37ad",
+      "signal": null,
+      "expected_status": "complete"
+    },
+    {
+      "command": [
+        "/home/nss/SpoofingDetection/releases/acquisition_20261105T100733Z/start_capture",
+        "--output-root",
+        "/home/nss/SpoofingDetection/recordings_v2_stage2/acquisition_20261105T100733Z/interrupt",
+        "--duration-s",
+        "30",
+        "--expected-rawx-hz",
+        "25"
+      ],
+      "CAPTURE_PYTHON": "/home/nss/venv/bin/python",
+      "exit_code": 130,
+      "elapsed_s": 15.366458893753588,
+      "session": "/home/nss/SpoofingDetection/recordings_v2_stage2/acquisition_20261105T100733Z/interrupt/20261105T101248Z_1a2662",
+      "signal": "SIGINT to own capture child",
+      "expected_status": "stopped"
+    }
+  ],
+  "configuration_writes": false,
+  "timesync_active": false,
+  "checkpoint_2": "awaiting user review",
+  "stage3_started": false,
+  "read_only_postcheck_retried": true
+}

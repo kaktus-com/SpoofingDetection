@@ -1,0 +1,18 @@
+{
+  "parameters": {
+    "SDLOG_PROFILE": 1,
+    "SDLOG_MODE": 0,
+    "SDLOG_BACKEND": 3
+  },
+  "heartbeats": [
+    {
+      "system": 1,
+      "component": 1,
+      "base_mode": 29,
+      "armed": false
+    }
+  ],
+  "configuration_changed": false,
+  "integer_encoding": "MAVLink bytewise INT32",
+  "only_commands": "PARAM_REQUEST_READ"
+}

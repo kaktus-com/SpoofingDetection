@@ -1,0 +1,353 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>detect2 · Acquisition audit</title><style>
+:root{font:15px/1.6 system-ui,sans-serif;color:#23374a;background:#f1f5f7}body{max-width:1160px;margin:30px auto;padding:0 20px}h1{font-size:34px;line-height:1.2;letter-spacing:-1px}.tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#62798a}.card{border:1px solid #dae3e9;border-radius:12px;padding:23px;background:white;margin:20px 0}.notice{border-left:4px solid #bc7b28;background:#fff6e5;padding:12px 17px}.pass{color:#1f7856;font-weight:700}.fail{color:#ae3f30;font-weight:700}.unknown{color:#9b6b21;font-weight:700}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:10px;border-bottom:1px solid #e1e8ed;text-align:left;vertical-align:top}td:last-child{max-width:640px;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 ui-monospace,monospace}a{color:#216b8a}canvas{width:100%;height:260px;display:block}code{font-size:12px}</style></head><body>
+<div class="tag">detect2 / independent raw acquisition / offline audit</div><h1>Session 20261105T095932Z_0353f6</h1><p>Mode: <b>replay</b>. Recorded lifecycle status: <b>failed</b>.</p><p class="notice">Archive integrity, measurement quality and clock validation are separate checks. UNKNOWN never counts as PASS. Replay host timestamps are simulated; this report does not certify a clean/spoofed decision.</p>
+<section class="card"><h2>Checks to review</h2><div class="scroll"><table><tr><th>Check</th><th>Status</th><th>Evidence</th></tr><tr><td>receiver archive</td><td class="pass">PASS</td><td>{&quot;errors&quot;: [], &quot;rows&quot;: 1, &quot;bytes&quot;: 1, &quot;sha256&quot;: &quot;892f60b39450a0e770f00a836761c8e964fd74671ae2cc51cff36cde4f914c12&quot;}</td></tr><tr><td>mavlink archive</td><td class="pass">PASS</td><td>{&quot;errors&quot;: [], &quot;rows&quot;: 1, &quot;bytes&quot;: 93, &quot;sha256&quot;: &quot;6fe1d2dd6f77d3228c96fc69ffa617e1f9b252cbf1ebddf667fc3a04205a68d7&quot;}</td></tr><tr><td>receiver epoch continuity</td><td class="unknown">UNKNOWN</td><td>{&quot;expected_hz&quot;: 20, &quot;unexpected_intervals&quot;: null, &quot;clock_resets&quot;: 0}</td></tr><tr><td>finalized</td><td class="pass">PASS</td><td>{}</td></tr><tr><td>capture session</td><td class="fail">FAIL</td><td>{&quot;recorded_status&quot;: &quot;failed&quot;, &quot;issues&quot;: {&quot;archive_rejected_input&quot;: 43}}</td></tr><tr><td>receiver rawx present</td><td class="unknown">UNKNOWN</td><td>{}</td></tr><tr><td>receiver frame validation</td><td class="fail">FAIL</td><td>{&quot;diagnostics&quot;: {&quot;valid_frames&quot;: 0, &quot;invalid_candidates&quot;: 0, &quot;trailing_partial_candidates&quot;: 0}}</td></tr><tr><td>mavlink decoding</td><td class="pass">PASS</td><td>{}</td></tr><tr><td>mavlink source continuity</td><td class="unknown">UNKNOWN</td><td>{&quot;streams&quot;: {}, &quot;interpretation&quot;: &quot;Source timestamp gaps observed; a router/changed stream rate may also explain gaps. This is not a network loss probability.&quot;}</td></tr><tr><td>gnss to px4 clock</td><td class="unknown">UNKNOWN</td><td>{&quot;reason&quot;: &quot;No independently verified pulse/measurement-clock mapping in this stage.&quot;}</td></tr><tr><td>native ulog</td><td class="unknown">UNKNOWN</td><td>{&quot;reason&quot;: &quot;Native SD-card ULog is attached and validated in a later stage.&quot;}</td></tr><tr><td>receiver replay bytes</td><td class="fail">FAIL</td><td>{&quot;source&quot;: &quot;replay_inputs/receiver.bin&quot;, &quot;source_sha256&quot;: &quot;7e7cd672756bafff50ff942cbb84f6ffff76b11a1848fe77cb21d71b0c0f33ce&quot;}</td></tr><tr><td>mavlink replay bytes</td><td class="fail">FAIL</td><td>{&quot;source&quot;: &quot;replay_inputs/mavlink.bin&quot;, &quot;source_sha256&quot;: &quot;3f09efc4a568a7589aef26703d0ea3ecd9d50125ea4c7015308509c09e1d7c5a&quot;}</td></tr></table></div></section>
+<section class="card"><h2>Receiver epochs</h2><p>Original order, including missing epochs, repeats and reset boundaries. Source timestamps are not resampled.</p><canvas id="epochs" aria-label="RAWX measurement epoch spacings"></canvas><details><summary>Receiver counts, retained flags and all signal IDs</summary><pre>{
+  &quot;status&quot;: &quot;FAIL&quot;,
+  &quot;epochs&quot;: 0,
+  &quot;observations&quot;: 0,
+  &quot;signal_counts&quot;: {},
+  &quot;packet_counts&quot;: {},
+  &quot;invalid_carrier_flag_observations&quot;: 0,
+  &quot;clock_resets&quot;: 0,
+  &quot;backwards_or_repeated_epochs&quot;: 0,
+  &quot;median_epoch_interval_s&quot;: null,
+  &quot;max_epoch_gap_s&quot;: null,
+  &quot;diagnostics&quot;: {
+    &quot;valid_frames&quot;: 0,
+    &quot;invalid_candidates&quot;: 0,
+    &quot;trailing_partial_candidates&quot;: 0
+  },
+  &quot;note&quot;: &quot;Invalid flags retained; continuity at resets is segmented, not repaired.&quot;
+}</pre></details><p><a href="receiver_observations.csv">All decoded RAWX observations, including invalid flags</a> · <a href="receiver.bin">Original receiver bytes</a> · <a href="receiver_receive.csv">Receive index</a></p></section>
+<section class="card"><h2>MAVLink and clock information</h2><pre>{
+  &quot;status&quot;: &quot;PASS&quot;,
+  &quot;messages&quot;: {
+    &quot;ATTITUDE_QUATERNION&quot;: 1,
+    &quot;HIGHRES_IMU&quot;: 1
+  },
+  &quot;bad_or_undecodable_messages&quot;: 0,
+  &quot;distinct_source_timestamps&quot;: {
+    &quot;ATTITUDE_QUATERNION&quot;: 1,
+    &quot;HIGHRES_IMU&quot;: 1
+  },
+  &quot;source_gap_checks&quot;: {},
+  &quot;note&quot;: &quot;Unknown messages remain in original datagrams. Sequence gaps are not automatically equated with link loss through a router.&quot;
+}</pre><p>Quaternions and IMU are retained in the original datagrams. Native ULog remains the primary inertial record. TIMESYNC is optional and disabled by default; Pi↔PX4 exchanges do not establish the external GNSS clock.</p><p><a href="mavlink.bin">Original datagrams</a> · <a href="mavlink_receive.csv">Datagram boundaries and peers</a></p></section>
+<section class="card"><h2>Capture issues and explicit replay injections</h2><pre>{
+  &quot;counts&quot;: {
+    &quot;archive_rejected_input&quot;: 43
+  },
+  &quot;events&quot;: [
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018812981,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 1,
+      &quot;bytes&quot;: 7
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018837254,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 2,
+      &quot;bytes&quot;: 101
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018855490,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 3,
+      &quot;bytes&quot;: 4096
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018870521,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 4,
+      &quot;bytes&quot;: 1908
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018907687,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 1,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018919748,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 2,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018930540,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 3,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018941485,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 4,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018952043,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 5,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018962861,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 6,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018972660,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 7,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018982663,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 8,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466018992255,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 9,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019015960,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 10,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019026351,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 11,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019035686,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 12,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019045208,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 13,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019054823,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 14,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019064385,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 15,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019073677,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 16,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019083068,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 17,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019092507,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 18,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019101845,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 19,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019111300,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 20,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019120685,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 21,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019130912,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 22,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019140374,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 23,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019149926,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 24,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019159405,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 25,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019168833,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 26,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019178071,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 27,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019187326,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 28,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019196550,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 29,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019206280,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 30,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019216851,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 31,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019226212,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 32,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019235517,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 33,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019244758,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 34,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019254411,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 35,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019263916,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 36,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019273361,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019283037,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 38,
+      &quot;bytes&quot;: 93
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 27466019292408,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 39,
+      &quot;bytes&quot;: 93
+    }
+  ]
+}</pre><h3>Replay scenario</h3><pre>{
+  &quot;scenario&quot;: &quot;overflow&quot;,
+  &quot;purpose&quot;: &quot;manual checkpoint demonstration; no hardware touched&quot;
+}</pre><p>Injected faults are expected to appear in the checks above. A passing replay hash means captured bytes equal its input; it does not erase faults already present in that input.</p></section>
+<section class="card"><h2>Reviewable files</h2><p><a href="manifest.json">Manifest and source fingerprints</a> · <a href="audit.json">Machine-readable audit</a> · <a href="health.jsonl">Queue, byte and clock health</a> · <a href="clock_sync.csv">Clock exchanges (empty if disabled)</a></p></section>
+<script type="application/json" id="epoch-data">[]</script><script>
+'use strict';const data=JSON.parse(document.getElementById('epoch-data').textContent);
+function draw(){const c=document.getElementById('epochs'),g=c.getContext('2d'),ratio=window.devicePixelRatio||1,w=c.clientWidth||800,h=260;c.width=w*ratio;c.height=h*ratio;g.scale(ratio,ratio);g.clearRect(0,0,w,h);g.font='11px system-ui';g.fillStyle='#526b7d';const pts=data.slice(1).map((e,i)=>[e.elapsed,1000*(e.elapsed-data[i].elapsed),e.reset]).filter(p=>p.every((v,i)=>i===2||Number.isFinite(v)));
+if(!pts.length){g.fillText('Insufficient epochs to plot intervals.',30,60);return}const xmin=Math.min(...pts.map(p=>p[0])),xmax=Math.max(...pts.map(p=>p[0])),lo=Math.min(0,...pts.map(p=>p[1])),hi=Math.max(1,...pts.map(p=>p[1]));const x=v=>60+(v-xmin)/Math.max(1e-9,xmax-xmin)*(w-80),y=v=>25+(hi-v)/(hi-lo)*190;for(let i=0;i<5;i++){const v=lo+(hi-lo)*i/4;g.fillText(v.toFixed(1),5,y(v)+4);g.strokeStyle='#e2e9ee';g.beginPath();g.moveTo(55,y(v));g.lineTo(w-15,y(v));g.stroke()}for(const p of pts){g.fillStyle=p[2]?'#b44031':'#26718f';g.beginPath();g.arc(x(p[0]),y(p[1]),2.3,0,Math.PI*2);g.fill()}g.fillStyle='#526b7d';g.fillText('Spacing (ms)',5,13);g.fillText('External receiver elapsed seconds',60,h-8);g.fillText(xmin.toFixed(2),60,h-26);g.fillText(xmax.toFixed(2),w-65,h-26)}window.addEventListener('resize',draw);draw();
+</script></body></html>

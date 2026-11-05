@@ -1,0 +1,95 @@
+{
+  "date": "2026-11-03",
+  "host": "nss@10.15.4.141",
+  "hostname": "kth-nss-6",
+  "inspection": "Read-only SSH; passive telemetry and byte capture; read-only PX4/receiver requests; no configuration changes",
+  "router": {
+    "command": "/usr/bin/mavlink-routerd -e 127.0.0.1:14551 /dev/ttyACM0:1500000",
+    "version": "v4-16-g2362c62",
+    "systemd_service": "inactive; process launched manually"
+  },
+  "px4_device": "/dev/serial/by-id/usb-CubePilot_CubeOrange_0-if00",
+  "external_receiver_configured_device": "/dev/ttyUSB0",
+  "external_receiver_present": true,
+  "passive_observation": {
+    "seconds": 12.004466162994504,
+    "armed": false,
+    "system_id": 1,
+    "component_id": 1,
+    "rates_hz": {
+      "ATTITUDE": 99.88,
+      "ATTITUDE_QUATERNION": 49.98,
+      "HIGHRES_IMU": 49.98,
+      "TIMESYNC": 10.0,
+      "SYSTEM_TIME": 1.0
+    },
+    "unique_timestamp_rate_comparable": true
+  },
+  "current_recording": {
+    "format": "csv",
+    "layout": "wide",
+    "selected_signals": "GPS gnssId=0, sigId=7, PRNs 1-32",
+    "detrending_enabled": false,
+    "alerts_enabled": false,
+    "mavlink_message_saved": "ATTITUDE only",
+    "raw_receiver_bytes_saved": false,
+    "quality_fields_preserved": false,
+    "alignment": "nearest host arrival time"
+  },
+  "changes_applied": [],
+  "external_receiver_stable_device": "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0",
+  "receiver_identity": {
+    "model": "ZED-X20P",
+    "firmware": "HPG 2.00",
+    "protocol": "50.02"
+  },
+  "current_px4_logging_parameters": {
+    "SDLOG_PROFILE": 1,
+    "SDLOG_MODE": 0,
+    "SDLOG_BACKEND": 3
+  },
+  "current_receiver_configuration": {
+    "CFG_RATE_MEAS": 40,
+    "CFG_RATE_NAV": 1,
+    "CFG_UART1_BAUDRATE": 921600,
+    "CFG_UART2_BAUDRATE": 115200,
+    "CFG_MSGOUT_UBX_RXM_RAWX_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_SIG_UART1": 1,
+    "CFG_MSGOUT_UBX_RXM_MEASX_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_PVT_UART1": 1
+  },
+  "byte_capture": {
+    "duration_s": 8.00193346478045,
+    "bytes": 737554,
+    "bytes_per_second": 92171.97359191443,
+    "host_pending_bytes_max": 496,
+    "validated_ubx_packets": 2021,
+    "invalid_complete_ubx_candidates": 0,
+    "rawx_epochs": 110,
+    "observations_per_epoch": 104,
+    "median_epoch_interval_s": 0.08,
+    "max_epoch_gap_s": 0.27999999999883585,
+    "gaps_over_60ms": 65,
+    "receiver_gps_elapsed_s": 7.880000000004657,
+    "rawx_bytes": 368720,
+    "nav_sig_bytes": 233200,
+    "rxm_measx_bytes": 52160
+  },
+  "receiver_mon_comms": {
+    "portId": 256,
+    "txPending_bytes": 26736,
+    "txBytes": 29453680,
+    "txUsage_percent_buffer": 99,
+    "txPeakUsage_percent_buffer": 100,
+    "mem_flag": 1,
+    "alloc_flag": 1
+  },
+  "diagnosis": "UART1 saturated at 921600 baud, with RAWX epoch gaps even during fast byte acquisition; direct per-byte parsing additionally showed errors. Historical July cause not established independently.",
+  "read_only_queries": [
+    "MAVLink PARAM_REQUEST_READ",
+    "UBX MON-VER",
+    "UBX MON-COMMS",
+    "UBX CFG-VALGET"
+  ],
+  "proposed_profile_library_keys_verified": 18
+}

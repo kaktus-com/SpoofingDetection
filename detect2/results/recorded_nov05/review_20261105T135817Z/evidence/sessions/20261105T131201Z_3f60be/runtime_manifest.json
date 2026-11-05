@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "mavlink_bind": "127.0.0.1:14551",
+  "profile": {
+    "px4_uid": 3544703520294189106,
+    "px4_firmware_hash": "cb411db5b54a98442ab974292c81b74c057bdf25",
+    "receiver_model": "MOD=ZED-X20P",
+    "receiver_firmware": "FWVER=HPG 2.00",
+    "receiver_protocol": "PROTVER=50.02",
+    "gps_device": "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0",
+    "mavlink_bind": "127.0.0.1:14551",
+    "gps_baud": 2000000,
+    "rawx_hz": 20,
+    "logger_buffer_kib": 128,
+    "accepted_native_imu_hz": 189.6,
+    "receiver_persistence": false,
+    "startup_file_changes": false
+  },
+  "errors": [
+    "Receiver query timed out; no successful result inferred"
+  ],
+  "recording_ready": false,
+  "native_collection": "not_started",
+  "startup_files_changed": false,
+  "receiver_persistent_writes": false,
+  "px4_parameter_autosave": "possible if logging parameters need correction",
+  "accepted_native_imu_hz": 189.6,
+  "gnss_to_px4_clock": "UNKNOWN",
+  "updated_utc": "2026-11-05T13:12:17.839844+00:00",
+  "px4_identity": {
+    "uid": 3544703520294189106,
+    "flight_sw_version": 255,
+    "flight_custom_version": [
+      0,
+      0,
+      0,
+      181,
+      181,
+      29,
+      65,
+      203
+    ],
+    "vendor_id": 11694,
+    "product_id": 4118
+  }
+}

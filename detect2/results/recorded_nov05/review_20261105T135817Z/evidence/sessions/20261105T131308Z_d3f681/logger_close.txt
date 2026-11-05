@@ -1,0 +1,4 @@
+
+NuttShell (NSH) NuttX-11.0.0
+nsh> [Klogger stop
+nsh> [K

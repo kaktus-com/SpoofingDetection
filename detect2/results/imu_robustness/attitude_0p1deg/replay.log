@@ -1,0 +1,17 @@
+stationary/benign: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+stationary/spoofed: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+constant_velocity/benign: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+constant_velocity/spoofed: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+east_oscillation/benign: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+east_oscillation/spoofed: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+circle/benign: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+circle/spoofed: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+circle_coning/benign: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+circle_coning/spoofed: {'benign': 0, 'spoofed': 0, 'inconclusive': 4}
+three_axis/benign: {'benign': 4, 'spoofed': 0, 'inconclusive': 0}
+three_axis/spoofed: {'benign': 0, 'spoofed': 4, 'inconclusive': 0}
+rotation_only/benign: {'benign': 4, 'spoofed': 0, 'inconclusive': 0}
+rotation_only/spoofed: {'benign': 0, 'spoofed': 4, 'inconclusive': 0}
+combined/benign: {'benign': 4, 'spoofed': 0, 'inconclusive': 0}
+combined/spoofed: {'benign': 0, 'spoofed': 4, 'inconclusive': 0}
+Report: /home/borna/thesis/SpoofingDetection/detect2/results/imu_robustness/attitude_0p1deg/report.html

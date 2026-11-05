@@ -1,0 +1,11 @@
+{
+  "release_id": "launcher_20261105T113952Z",
+  "remote_release": "/home/nss/SpoofingDetection/releases/launcher_20261105T113952Z",
+  "package_sha256": "a0153bd36239f4a2ffc82281a46802f8e0cf1e3a3ab01a954116fd9cb2fab4ba",
+  "status": "live_tests_passed_installed",
+  "tests_passed": 41,
+  "installed_command": "/home/nss/SpoofingDetection/start_recording",
+  "report": "report.html",
+  "startup_files_changed": false,
+  "stage5_started": false
+}

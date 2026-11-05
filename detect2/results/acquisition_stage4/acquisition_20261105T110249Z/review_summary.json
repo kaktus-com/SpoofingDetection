@@ -1,0 +1,43 @@
+{
+  "stage": 4,
+  "checks": {
+    "px4_identity_unchanged": true,
+    "logging_parameter_readback": true,
+    "receiver_ram_and_identity_unchanged": true,
+    "legacy_scripts_unchanged": true,
+    "router_process_unchanged": true,
+    "raw_session_completed_without_drops": true,
+    "rawx_continuity": true
+  },
+  "native_logging_checks": {
+    "native_file_parsed": true,
+    "logging_parameters": true,
+    "native_imu_at_least_190_hz": false,
+    "supplied_attitude_at_least_100_hz": true,
+    "no_logged_dropouts": true,
+    "sensor_selection_present": true,
+    "imu_calibration_counters_present": true,
+    "attitude_reset_fields_present": true,
+    "imu_timestamp_continuity": true,
+    "attitude_timestamp_continuity": true
+  },
+  "manual_motion": {
+    "status": "User confirmed: Repeat movement completed",
+    "confirmed_motion": true,
+    "date": "2026-11-05",
+    "label_source": "explicit user confirmation after the second recording cue"
+  },
+  "max_native_orientation_change_deg": 69.02987133236239,
+  "all_native_logging_checks_pass": false,
+  "logger_restart_scope": "logger module only",
+  "whole_autopilot_reboot_performed": false,
+  "boot_logging_after_autopilot_restart": "UNKNOWN",
+  "receiver_profile_persisted": false,
+  "gnss_to_px4_clock": "UNKNOWN",
+  "manual_checkpoint_4": "awaiting user review",
+  "stage5_started": false,
+  "logger_runtime_buffer_kib": 128,
+  "startup_buffer_kib": 8,
+  "startup_override_applied": false,
+  "ready_for_validated_detector": false
+}

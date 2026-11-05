@@ -1,0 +1,2 @@
+# detect2: tested native logger buffer, KiB
+set LOGGER_BUF 128

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/home/nss/SpoofingDetection/releases/acquisition_20261105T100733Z/start_capture",
+    "--output-root",
+    "/home/nss/SpoofingDetection/recordings_v2_stage2/acquisition_20261105T100733Z/duration",
+    "--duration-s",
+    "20",
+    "--expected-rawx-hz",
+    "25"
+  ],
+  "CAPTURE_PYTHON": "/home/nss/venv/bin/python",
+  "exit_code": 0,
+  "elapsed_s": 20.62532259291038,
+  "session": "/home/nss/SpoofingDetection/recordings_v2_stage2/acquisition_20261105T100733Z/duration/20261105T101225Z_4e37ad",
+  "signal": null,
+  "expected_status": "complete"
+}

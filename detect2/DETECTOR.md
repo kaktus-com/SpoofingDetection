@@ -221,4 +221,5 @@ supplied-attitude and timing sensitivity tests are documented in
 from noise-induced apparent motion in weak controls. The additional white-noise
 quality gate and paired multi-seed validation are documented in
 [IMU_UNCERTAINTY.md](IMU_UNCERTAINTY.md). Systematic-error modelling, real sensor
-characterization and attitude estimation remain further work.
+characterization and a recording adapter using supplied PX4 attitude remain
+further work. A custom attitude estimator is optional.

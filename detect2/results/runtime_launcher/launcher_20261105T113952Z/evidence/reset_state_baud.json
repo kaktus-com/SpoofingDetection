@@ -1,0 +1,25 @@
+{
+  "status": "applied_and_verified",
+  "layer": "RAM only",
+  "key": "CFG_UART1_BAUDRATE",
+  "before": 2000000,
+  "desired": 921600,
+  "identity": {
+    "transport_device": "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0",
+    "reported_receiver": {
+      "swVersion": "EXT HPG 2.00 (1e963fM)",
+      "hwVersion": "000B0000",
+      "extension_01": "ROM BASE 0x22018AE9",
+      "extension_02": "FWVER=HPG 2.00",
+      "extension_03": "PROTVER=50.02",
+      "extension_04": "MOD=ZED-X20P",
+      "extension_05": "GPS;GLO;GAL;BDS",
+      "extension_06": "SBAS;QZSS",
+      "extension_07": "NAVIC",
+      "extension_08": "14.04.2025 14:04:27"
+    },
+    "unique_receiver_hardware_id": "not queried; physical identity must be checked at the manual gate"
+  },
+  "recovery_attempts": [],
+  "after": 921600
+}

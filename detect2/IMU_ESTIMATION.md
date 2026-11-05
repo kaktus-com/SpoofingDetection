@@ -46,6 +46,32 @@ python3 -m SpoofingDetection.detect2.replay --imu --no-evaluate \
   --output-dir /tmp/detect2-imu-inputs-only
 ```
 
+## PX4 attitude input plan
+
+The intended recording/live path takes attitude from PX4 rather than deriving
+it in detect2. PX4 provides orientation and calibrated body accelerometer data;
+detect2 rotates force, removes gravity, integrates displacement and applies the
+antenna offset. Synthetic supplied quaternions currently exercise this same
+interface. A separate gyro-based attitude estimator is optional and is not
+required before adopting PX4 attitude. An offline adapter now exercises the
+July recording; see [the recorded-flight inspection](RECORDED_FLIGHT.md).
+Its empirical clock alignment remains unverified, and the conditional quality
+screen does not produce a conclusive field decision.
+
+Use `vehicle_attitude.q`, whose Hamilton wxyz quaternion rotates body FRD into
+NED. The adapter must convert that rotation to our local ENU convention, align
+`timestamp_sample` with accelerometer/carrier epochs, and handle
+`quat_reset_counter`/`delta_q_reset` rather than interpolating through a reset.
+Source: [PX4 VehicleAttitude](https://docs.px4.io/main/en/msg_docs/VehicleAttitude).
+
+PX4 attitude remains an estimated input with errors, latency and finite sample
+rate. Check those effects rather than treating it as synthetic truth. Record
+the heading/aiding configuration: PX4 can use GNSS heading or GNSS-velocity-aided
+yaw, relevant to independence during spoofing tests. See
+[PX4's EKF documentation](https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf#yaw-from-gps-velocity).
+Using supplied PX4 attitude does not require using its fused position or
+displacement; the primary path continues our own short-window integration.
+
 ## Acceleration, integration and antenna geometry
 
 At each IMU sample, using supplied rotation `R` and measured specific force `f`:
@@ -181,7 +207,8 @@ errors can be much larger because initial velocity is deliberately unknown.
 Controlled accelerometer noise/bias, supplied-attitude error and timestamp-offset
 sweeps are now available in [IMU_ROBUSTNESS.md](IMU_ROBUSTNESS.md). They preserve
 this baseline and the existing numeric movement thresholds. Next work is
-measured sensor characterization and attitude estimation. The implemented
+measured sensor characterization, supplied-attitude validation and the PX4 input
+adapter. The implemented
 [white-noise motion check and paired multi-seed validation](IMU_UNCERTAINTY.md)
 add covariance diagnostics while preserving the likelihood fits. Our own
 integration remains the priority; PX4 fused displacement is deferred.

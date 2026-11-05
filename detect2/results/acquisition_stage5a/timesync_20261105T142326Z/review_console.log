@@ -1,0 +1,145 @@
+PASS receiver_archive
+PASS mavlink_archive
+PASS receiver_epoch_continuity
+PASS finalized
+PASS capture_session
+PASS receiver_rawx_present
+PASS receiver_frame_validation
+PASS mavlink_decoding
+FAIL mavlink_source_continuity
+UNKNOWN gnss_to_px4_clock
+UNKNOWN native_ulog
+HTML report: /home/borna/thesis/SpoofingDetection/detect2/results/acquisition_stage5a/timesync_20261105T142326Z/evidence/stationary/20261105T142408Z_2c5ceb/report.html
+Combined report: /home/borna/thesis/SpoofingDetection/detect2/results/acquisition_stage5a/timesync_20261105T142326Z/evidence/stationary/20261105T142408Z_2c5ceb/recording_report.html
+PASS receiver_archive
+PASS mavlink_archive
+PASS receiver_epoch_continuity
+PASS finalized
+PASS capture_session
+PASS receiver_rawx_present
+PASS receiver_frame_validation
+PASS mavlink_decoding
+FAIL mavlink_source_continuity
+UNKNOWN gnss_to_px4_clock
+UNKNOWN native_ulog
+HTML report: /home/borna/thesis/SpoofingDetection/detect2/results/acquisition_stage5a/timesync_20261105T142326Z/evidence/pause/20261105T142939Z_a44aa5/report.html
+Combined report: /home/borna/thesis/SpoofingDetection/detect2/results/acquisition_stage5a/timesync_20261105T142326Z/evidence/pause/20261105T142939Z_a44aa5/recording_report.html
+{
+  "checks_pass": false,
+  "report": "/home/borna/thesis/SpoofingDetection/detect2/results/acquisition_stage5a/timesync_20261105T142326Z/report.html",
+  "runs": [
+    {
+      "kind": "stationary",
+      "checks": {
+        "raw_archives_intact": true,
+        "no_recorder_queue_loss": true,
+        "complete_session": true,
+        "gnss_continuous_20hz": true,
+        "addressed_unique_matched_replies": true,
+        "native_parsed": true,
+        "native_no_dropouts": true,
+        "native_imu_continuous": true,
+        "native_attitude_continuous": true,
+        "three_minute_capture": true,
+        "single_clock_segment": true
+      },
+      "segments": [
+        {
+          "segment_id": 0,
+          "accepted_samples": 1756,
+          "selected_low_rtt_bins": 180,
+          "valid_host_min_ns": 4495754182767,
+          "valid_host_max_ns": 4675740440659,
+          "duration_s": 179.986257892,
+          "rtt_median_ms": 1.039568,
+          "rtt_p95_ms": 2.73656275,
+          "rtt_max_ms": 7.701862,
+          "mapping_status": "estimated_not_independently_verified",
+          "independent_accuracy_verified": false,
+          "origin_host_ns": 4495754182767,
+          "offset_at_origin_ns": 338738728.0081429,
+          "offset_slope_ns_per_s": -3940.6688870873354,
+          "drift_ppm": -3.940668887087335,
+          "training_bins": 120,
+          "training_outlier_bins": 0,
+          "held_out_bins": 60,
+          "held_out_abs_residual_p95_ms": 0.0906750605763651,
+          "held_out_abs_residual_max_ms": 0.18184969857392308,
+          "robust_training_threshold_ns": 225565.5275714703,
+          "formula": "PX4_ns = host_ns + offset_at_origin_ns + offset_slope_ns_per_s * ((host_ns - origin_host_ns) / 1e9)",
+          "extrapolation_allowed": false
+        }
+      ]
+    },
+    {
+      "kind": "pause",
+      "checks": {
+        "raw_archives_intact": true,
+        "no_recorder_queue_loss": true,
+        "complete_session": true,
+        "gnss_continuous_20hz": true,
+        "addressed_unique_matched_replies": true,
+        "native_parsed": true,
+        "native_no_dropouts": true,
+        "native_imu_continuous": false,
+        "native_attitude_continuous": false,
+        "explicit_transport_pause": true,
+        "new_clock_segment": true,
+        "receiver_bytes_during_pause": true,
+        "segment_gap_event": true
+      },
+      "segments": [
+        {
+          "segment_id": 0,
+          "accepted_samples": 99,
+          "selected_low_rtt_bins": 11,
+          "valid_host_min_ns": 4826729603449,
+          "valid_host_max_ns": 4836777927028,
+          "duration_s": 10.048323579,
+          "rtt_median_ms": 1.354839,
+          "rtt_p95_ms": 3.9126815,
+          "rtt_max_ms": 5.094249,
+          "mapping_status": "estimated_not_independently_verified",
+          "independent_accuracy_verified": false,
+          "origin_host_ns": 4826729603449,
+          "offset_at_origin_ns": 337938682.7184135,
+          "offset_slope_ns_per_s": -12924.512927350472,
+          "drift_ppm": -12.924512927350472,
+          "training_bins": 7,
+          "training_outlier_bins": 0,
+          "held_out_bins": 4,
+          "held_out_abs_residual_p95_ms": 0.6431516317309849,
+          "held_out_abs_residual_max_ms": 0.7368410304184861,
+          "robust_training_threshold_ns": 765027.456153069,
+          "formula": "PX4_ns = host_ns + offset_at_origin_ns + offset_slope_ns_per_s * ((host_ns - origin_host_ns) / 1e9)",
+          "extrapolation_allowed": false
+        },
+        {
+          "segment_id": 1,
+          "accepted_samples": 229,
+          "selected_low_rtt_bins": 24,
+          "valid_host_min_ns": 4838423889415,
+          "valid_host_max_ns": 4861802749616,
+          "duration_s": 23.378860201,
+          "rtt_median_ms": 1.335451,
+          "rtt_p95_ms": 3.4206491999999993,
+          "rtt_max_ms": 4.925028,
+          "mapping_status": "estimated_not_independently_verified",
+          "independent_accuracy_verified": false,
+          "origin_host_ns": 4838423889415,
+          "offset_at_origin_ns": 337847031.4785569,
+          "offset_slope_ns_per_s": 6356.750004498789,
+          "drift_ppm": 6.356750004498789,
+          "training_bins": 16,
+          "training_outlier_bins": 0,
+          "held_out_bins": 8,
+          "held_out_abs_residual_p95_ms": 0.14626879733159523,
+          "held_out_abs_residual_max_ms": 0.15985162332179018,
+          "robust_training_threshold_ns": 347736.47054744326,
+          "formula": "PX4_ns = host_ns + offset_at_origin_ns + offset_slope_ns_per_s * ((host_ns - origin_host_ns) / 1e9)",
+          "extrapolation_allowed": false
+        }
+      ]
+    }
+  ]
+}

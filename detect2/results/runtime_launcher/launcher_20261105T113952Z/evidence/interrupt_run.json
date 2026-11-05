@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/nss/SpoofingDetection/releases/launcher_20261105T113952Z/start_recording",
+    "--duration-s",
+    "120",
+    "--output-root",
+    "/home/nss/SpoofingDetection/runtime_launcher_validation/launcher_20261105T113952Z/interrupt"
+  ],
+  "exit_code": 130,
+  "session": "/home/nss/SpoofingDetection/runtime_launcher_validation/launcher_20261105T113952Z/interrupt/20261105T114406Z_f84a6c",
+  "status": "stopped",
+  "test_started_with_receiver_baud": 921600,
+  "test_started_with_measurement_ms": 40,
+  "signal": "SIGINT to owned launcher child after 10 ready seconds"
+}

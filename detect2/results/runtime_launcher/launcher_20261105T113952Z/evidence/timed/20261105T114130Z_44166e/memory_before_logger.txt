@@ -1,0 +1,7 @@
+
+NuttShell (NSH) NuttX-11.0.0
+nsh> [Kfree
+                   total       used       free    largest  nused  nfree
+        Umem:     969072     337200     631872     475952   1492    109
+        Prog:    2097184    1956928     140256     113664  61154   4383
+nsh> [K

@@ -159,8 +159,10 @@ results/imu_noise_validation/
 Use `--seeds`, `--sigmas`, `--scenario`, `--no-plots` or `--no-evaluate` for smaller
 runs. The normal replay flag `--no-imu-noise-gate` is available for explicit
 ablations. Existing likelihood parameters and fixed movement thresholds are
-unchanged. A known-noise synthetic benchmark is the first validation; attitude
-estimation, real sensor characterization and timestamp validation remain next.
+unchanged. A known-noise synthetic benchmark is the first validation. Next work
+uses supplied PX4 attitude, validates its errors/timestamps and characterizes
+real sensor noise. A custom attitude estimator is optional; our displacement
+integration remains the primary path.
 
 ## Recorded results
 

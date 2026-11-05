@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "capture_status": "complete",
+  "checks": {
+    "receiver_archive": {
+      "status": "PASS",
+      "errors": [],
+      "rows": 449,
+      "bytes": 1106578,
+      "sha256": "8d6b59268408247a36376ba06fcceb1cd5d9d337e5a63443d0257ab8ca92813a"
+    },
+    "mavlink_archive": {
+      "status": "PASS",
+      "errors": [],
+      "rows": 4901,
+      "bytes": 341688,
+      "sha256": "d681a5f7806aea67c68e8653598346c39062a38f7c8c91e89599ad5f03a7cf73"
+    },
+    "receiver_epoch_continuity": {
+      "status": "FAIL",
+      "expected_hz": 25.0,
+      "unexpected_intervals": 98,
+      "clock_resets": 0
+    },
+    "finalized": {
+      "status": "PASS"
+    },
+    "capture_session": {
+      "status": "PASS",
+      "recorded_status": "complete",
+      "issues": {}
+    },
+    "receiver_rawx_present": {
+      "status": "PASS"
+    },
+    "receiver_frame_validation": {
+      "status": "PASS",
+      "diagnostics": {
+        "valid_frames": 3117,
+        "invalid_candidates": 0,
+        "trailing_partial_candidates": 1
+      }
+    },
+    "mavlink_decoding": {
+      "status": "PASS"
+    },
+    "mavlink_source_continuity": {
+      "status": "FAIL",
+      "streams": {
+        "1:1:HIGHRES_IMU": {
+          "median_interval_s": 0.02108500013127923,
+          "max_interval_s": 108.93533000024036,
+          "large_gaps": 1,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE": {
+          "median_interval_s": 0.01000000024214387,
+          "max_interval_s": 108.9199999999255,
+          "large_gaps": 41,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE_QUATERNION": {
+          "median_interval_s": 0.020999999716877937,
+          "max_interval_s": 108.93500000005588,
+          "large_gaps": 1,
+          "backwards_timestamps": 0
+        }
+      },
+      "interpretation": "Source timestamp gaps observed; a router/changed stream rate may also explain gaps. This is not a network loss probability."
+    },
+    "gnss_to_px4_clock": {
+      "status": "UNKNOWN",
+      "reason": "No independently verified pulse/measurement-clock mapping in this stage."
+    },
+    "native_ulog": {
+      "status": "UNKNOWN",
+      "reason": "Native SD-card ULog is attached and validated in a later stage."
+    },
+    "receiver_replay_bytes": {
+      "status": "PASS",
+      "source": "replay_inputs/receiver.bin",
+      "source_sha256": "8d6b59268408247a36376ba06fcceb1cd5d9d337e5a63443d0257ab8ca92813a"
+    },
+    "mavlink_replay_bytes": {
+      "status": "PASS",
+      "source": "replay_inputs/mavlink.bin",
+      "source_sha256": "d681a5f7806aea67c68e8653598346c39062a38f7c8c91e89599ad5f03a7cf73"
+    }
+  },
+  "receiver": {
+    "status": "PASS",
+    "epochs": 150,
+    "observations": 15876,
+    "signal_counts": {
+      "0:3:7": 150,
+      "0:13:7": 150,
+      "5:3:9": 150,
+      "0:24:7": 150,
+      "0:28:7": 150,
+      "0:32:7": 150,
+      "0:11:7": 150,
+      "0:25:7": 150,
+      "0:6:7": 150,
+      "5:8:9": 150,
+      "3:40:7": 150,
+      "3:21:7": 150,
+      "3:42:7": 150,
+      "3:27:7": 150,
+      "3:29:7": 150,
+      "3:36:7": 150,
+      "3:30:7": 150,
+      "3:26:7": 150,
+      "3:33:7": 150,
+      "3:11:7": 150,
+      "3:14:7": 150,
+      "3:39:7": 150,
+      "3:8:7": 150,
+      "2:16:4": 150,
+      "2:7:4": 150,
+      "2:25:4": 150,
+      "2:2:4": 150,
+      "2:8:4": 150,
+      "2:32:4": 150,
+      "2:12:4": 150,
+      "2:33:4": 150,
+      "2:10:4": 150,
+      "2:11:4": 150,
+      "2:3:4": 150,
+      "3:40:4": 150,
+      "3:21:4": 150,
+      "3:42:4": 150,
+      "3:27:4": 150,
+      "3:29:4": 150,
+      "3:36:4": 150,
+      "3:30:4": 150,
+      "3:26:4": 150,
+      "3:33:4": 150,
+      "3:11:4": 150,
+      "3:14:4": 150,
+      "3:39:4": 150,
+      "3:8:4": 150,
+      "0:12:0": 150,
+      "0:3:0": 150,
+      "0:13:0": 150,
+      "5:3:0": 150,
+      "0:29:0": 150,
+      "0:24:0": 150,
+      "0:28:0": 150,
+      "0:17:0": 126,
+      "0:32:0": 150,
+      "0:11:0": 150,
+      "0:19:0": 150,
+      "0:25:0": 150,
+      "0:6:0": 150,
+      "3:21:5": 150,
+      "3:42:5": 150,
+      "3:27:5": 150,
+      "3:29:5": 150,
+      "3:36:5": 150,
+      "3:30:5": 150,
+      "3:26:5": 150,
+      "3:33:5": 150,
+      "3:11:5": 150,
+      "3:14:5": 150,
+      "3:39:5": 150,
+      "3:8:5": 150,
+      "2:16:0": 150,
+      "2:7:0": 150,
+      "2:25:0": 150,
+      "2:2:0": 150,
+      "2:8:0": 150,
+      "2:32:0": 150,
+      "2:12:0": 150,
+      "2:33:0": 150,
+      "2:10:0": 150,
+      "2:11:0": 150,
+      "2:3:0": 150,
+      "2:16:8": 150,
+      "2:7:8": 150,
+      "2:25:8": 150,
+      "2:2:8": 150,
+      "2:8:8": 150,
+      "2:32:8": 150,
+      "2:12:8": 150,
+      "2:33:8": 150,
+      "2:10:8": 150,
+      "2:11:8": 150,
+      "2:3:8": 150,
+      "0:12:3": 150,
+      "0:3:3": 150,
+      "0:13:3": 150,
+      "5:3:5": 150,
+      "0:29:3": 150,
+      "0:24:3": 150,
+      "0:28:3": 150,
+      "0:17:3": 150,
+      "0:32:3": 150,
+      "0:11:3": 150,
+      "0:25:3": 150,
+      "0:6:3": 150
+    },
+    "packet_counts": {
+      "NAV-PVT": 300,
+      "UNKNOWN_01_13": 298,
+      "UNKNOWN_01_01": 297,
+      "UNKNOWN_01_14": 295,
+      "UNKNOWN_01_12": 294,
+      "NAV-SAT": 29,
+      "UNKNOWN_01_43": 214,
+      "UNKNOWN_01_03": 284,
+      "UNKNOWN_01_04": 280,
+      "UNKNOWN_01_36": 267,
+      "UNKNOWN_01_61": 279,
+      "UNKNOWN_02_14": 119,
+      "RXM-RAWX": 150,
+      "MON-COMMS": 2,
+      "UNKNOWN_06_8b": 4,
+      "UNKNOWN_05_01": 4,
+      "UNKNOWN_05_00": 1
+    },
+    "invalid_carrier_flag_observations": 0,
+    "clock_resets": 0,
+    "backwards_or_repeated_epochs": 0,
+    "median_epoch_interval_s": 0.07999992370605469,
+    "max_epoch_gap_s": 0.24000000953674316,
+    "diagnostics": {
+      "valid_frames": 3117,
+      "invalid_candidates": 0,
+      "trailing_partial_candidates": 1
+    },
+    "note": "Invalid flags retained; continuity at resets is segmented, not repaired."
+  },
+  "telemetry": {
+    "status": "PASS",
+    "messages": {
+      "LOCAL_POSITION_NED": 325,
+      "ODOMETRY": 325,
+      "HIGHRES_IMU": 541,
+      "ATTITUDE": 1081,
+      "ATTITUDE_QUATERNION": 541,
+      "TIMESYNC": 108,
+      "ALTITUDE": 108,
+      "ATTITUDE_TARGET": 108,
+      "POSITION_TARGET_LOCAL_NED": 108,
+      "SERVO_OUTPUT_RAW": 108,
+      "VFR_HUD": 108,
+      "GPS_RAW_INT": 55,
+      "EXTENDED_SYS_STATE": 54,
+      "SYS_STATUS": 54,
+      "RADIO_STATUS": 11,
+      "ESTIMATOR_STATUS": 11,
+      "OPEN_DRONE_ID_LOCATION": 11,
+      "SCALED_PRESSURE": 11,
+      "SYSTEM_TIME": 11,
+      "MISSION_CURRENT": 11,
+      "PING": 11,
+      "HEARTBEAT": 11,
+      "UNKNOWN_380": 5,
+      "UNKNOWN_8": 10,
+      "UNKNOWN_411": 4,
+      "OPEN_DRONE_ID_SYSTEM": 10,
+      "BATTERY_STATUS": 5,
+      "UNKNOWN_436": 5,
+      "HOME_POSITION": 5,
+      "VIBRATION": 5,
+      "PARAM_VALUE": 1140
+    },
+    "bad_or_undecodable_messages": 0,
+    "distinct_source_timestamps": {
+      "LOCAL_POSITION_NED": 325,
+      "ODOMETRY": 325,
+      "HIGHRES_IMU": 541,
+      "ATTITUDE": 1081,
+      "ATTITUDE_QUATERNION": 541,
+      "ALTITUDE": 108,
+      "ATTITUDE_TARGET": 108,
+      "POSITION_TARGET_LOCAL_NED": 108,
+      "SERVO_OUTPUT_RAW": 108,
+      "GPS_RAW_INT": 55,
+      "ESTIMATOR_STATUS": 11,
+      "SCALED_PRESSURE": 11,
+      "SYSTEM_TIME": 11,
+      "PING": 11,
+      "HOME_POSITION": 1,
+      "VIBRATION": 5
+    },
+    "source_gap_checks": {
+      "1:1:HIGHRES_IMU": {
+        "median_interval_s": 0.02108500013127923,
+        "max_interval_s": 108.93533000024036,
+        "large_gaps": 1,
+        "backwards_timestamps": 0
+      },
+      "1:1:ATTITUDE": {
+        "median_interval_s": 0.01000000024214387,
+        "max_interval_s": 108.9199999999255,
+        "large_gaps": 41,
+        "backwards_timestamps": 0
+      },
+      "1:1:ATTITUDE_QUATERNION": {
+        "median_interval_s": 0.020999999716877937,
+        "max_interval_s": 108.93500000005588,
+        "large_gaps": 1,
+        "backwards_timestamps": 0
+      }
+    },
+    "note": "Unknown messages remain in original datagrams. Sequence gaps are not automatically equated with link loss through a router."
+  },
+  "ready_for_validated_detector": false,
+  "interpretation": "PASS concerns an individual check only. UNKNOWN never counts as PASS; this stage does not validate flight timing or detection."
+}

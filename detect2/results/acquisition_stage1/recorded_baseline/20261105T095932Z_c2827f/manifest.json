@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "mode": "replay",
+  "status": "complete",
+  "started_utc": "2026-11-05T09:59:32.769470+00:00",
+  "host": "borna-lab",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "boot_id": "2a05bf42-b6fd-4ea3-b528-09b13e3902b9",
+  "expected_streams": [
+    "receiver",
+    "mavlink"
+  ],
+  "configuration_changed": false,
+  "clock_anchors": [
+    {
+      "host_monotonic_ns": 27466378642817,
+      "unix_ns": 1793872772773643921
+    },
+    {
+      "host_monotonic_ns": 27466630255380,
+      "unix_ns": 1793872773025256915
+    }
+  ],
+  "packages": {
+    "pyserial": "3.5",
+    "pymavlink": "2.4.49",
+    "pyubx2": null
+  },
+  "source_hashes": {
+    "__init__.py": "3c0a4de92b2ea160cc5c8884e50dd2a09f7e498cfc54fe4541bb21a8471868b7",
+    "audit_session.py": "00a12dc73c9c191f6d62b6b84a35c13bbe1bcc0ffcf5fbacf27ffa85bbc5fc35",
+    "capture.py": "b378ba3395ab8efd2c1731a1f7b4904eb40888f88732290c7357e214d9b70099",
+    "common.py": "f58e4127ab315a3bcd38a7492e4904d3ff5e19595d8d16caa736889ffa2d9065",
+    "mavlink_capture.py": "282d47e83673fd79561900cddd0d431297627731c5a3e0be72c0c6d002bcdfdd",
+    "receiver_config.py": "ff7c0bc2bdf4bbc61d3ef69dbb6b4a644db0a78f97b91c48f8c1fcf620c24059",
+    "replay.py": "ccab711ce41547fd322970737e5eb011d7e957f432cc650712ed63bec89cd359",
+    "serial_capture.py": "39403bfe0a7294da96f81ccffdea92af7a8e37c1e57147556d3229372ea6ffaa",
+    "timesync.py": "621e8d0946436117d073dcf3a04d9d8a64a7392178621f53683b39a5bb5fb48f",
+    "ubx.py": "cf6466683219c46d1f071fcbbd99ecf75e43a365f4d07534424e32b981c5c145"
+  },
+  "metadata": {
+    "expected_rawx_hz": 25.0,
+    "replay_injections": {
+      "scenario": "recorded input; no synthetic repair or resampling"
+    },
+    "timesync_active": false,
+    "gnss_to_px4_clock_verified": false,
+    "external_source_paths": {
+      "receiver": "detect2/results/acquisition_stage0/acquisition_stage0_20261104T152748Z/receiver.bin",
+      "mavlink": "detect2/results/acquisition_stage0/acquisition_stage0_20261104T152748Z/mavlink.bin"
+    }
+  },
+  "replay_sources": {
+    "receiver": {
+      "path": "replay_inputs/receiver.bin",
+      "fingerprint": {
+        "bytes": 1106578,
+        "sha256": "8d6b59268408247a36376ba06fcceb1cd5d9d337e5a63443d0257ab8ca92813a"
+      }
+    },
+    "mavlink": {
+      "path": "replay_inputs/mavlink.bin",
+      "fingerprint": {
+        "bytes": 341688,
+        "sha256": "d681a5f7806aea67c68e8653598346c39062a38f7c8c91e89599ad5f03a7cf73"
+      }
+    }
+  },
+  "stop_reason": "replay_complete",
+  "ended_utc": "2026-11-05T09:59:33.010905+00:00",
+  "streams": {
+    "receiver": {
+      "received_bytes": 1106578,
+      "written_bytes": 1106578,
+      "input_chunks": 449,
+      "dropped_bytes": 0,
+      "dropped_chunks": 0,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 169353,
+      "peak_queue_chunks": 65,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    },
+    "mavlink": {
+      "received_bytes": 341688,
+      "written_bytes": 341688,
+      "input_chunks": 4901,
+      "dropped_bytes": 0,
+      "dropped_chunks": 0,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 5125,
+      "peak_queue_chunks": 65,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    }
+  },
+  "issues": {
+    "counts": {},
+    "events": []
+  },
+  "missing_streams": [],
+  "files": {
+    "mavlink_receive.csv": {
+      "bytes": 226014,
+      "sha256": "cc68adfcdd73fb3d421cf5b4867757076f04467d712cec5e4e525a5733d6c6db"
+    },
+    "mavlink.bin": {
+      "bytes": 341688,
+      "sha256": "d681a5f7806aea67c68e8653598346c39062a38f7c8c91e89599ad5f03a7cf73"
+    },
+    "receiver.bin": {
+      "bytes": 1106578,
+      "sha256": "8d6b59268408247a36376ba06fcceb1cd5d9d337e5a63443d0257ab8ca92813a"
+    },
+    "receiver_receive.csv": {
+      "bytes": 13691,
+      "sha256": "319a3b01b80101b96d43f8626fe6eaa7ee96177d58647b6b6165677bdc91505c"
+    },
+    "clock_sync.csv": {
+      "bytes": 176,
+      "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85"
+    },
+    "health.jsonl": {
+      "bytes": 1380,
+      "sha256": "97a8a13b9e60355c3c80c8cf558d17365ba4b0572a14a18235444e5e5119e523"
+    }
+  }
+}

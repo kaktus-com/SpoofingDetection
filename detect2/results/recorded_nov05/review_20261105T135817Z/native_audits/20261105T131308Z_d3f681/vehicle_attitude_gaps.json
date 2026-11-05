@@ -1,0 +1,20 @@
+[
+  {
+    "before_boot_us": 856158906,
+    "after_boot_us": 857179340,
+    "gap_ms": 1020.434,
+    "overlaps_airborne_flag": false
+  },
+  {
+    "before_boot_us": 889324633,
+    "after_boot_us": 889334528,
+    "gap_ms": 9.895,
+    "overlaps_airborne_flag": false
+  },
+  {
+    "before_boot_us": 1111838345,
+    "after_boot_us": 1111853256,
+    "gap_ms": 14.911,
+    "overlaps_airborne_flag": false
+  }
+]

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+CAPTURE_PYTHON="${CAPTURE_PYTHON:-python3}"
+if [[ "$CAPTURE_PYTHON" == python3 && -x "$SCRIPT_DIR/../venv/bin/python" ]]; then
+  CAPTURE_PYTHON="$SCRIPT_DIR/../venv/bin/python"
+fi
+exec "$CAPTURE_PYTHON" -m detect2.acquisition.capture "$@"

@@ -1,0 +1,28 @@
+{
+  "release": "/home/nss/SpoofingDetection/releases/timesync_20261105T142326Z",
+  "previous_launcher": "/home/nss/SpoofingDetection/releases/launcher_20261105T113952Z/start_recording",
+  "identity": {
+    "uid": 3544703520294189106,
+    "flight_sw_version": 255,
+    "flight_custom_version": [
+      0,
+      0,
+      0,
+      181,
+      181,
+      29,
+      65,
+      203
+    ],
+    "vendor_id": 11694,
+    "product_id": 4118
+  },
+  "parameters": {
+    "SDLOG_PROFILE": 17,
+    "SDLOG_MODE": 2,
+    "SDLOG_BACKEND": 3
+  },
+  "verified_files": 24,
+  "package_sha256": "d97d58d7e592edf553fe25c3951b89bff088ecd8967c29308018e0cefc513b35",
+  "boot_id": "dfbc98ba-89ec-4c58-8014-6d4099ebde99"
+}

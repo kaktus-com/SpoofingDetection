@@ -1,0 +1,14 @@
+ULog download progress: 21359669 / 35395599
+PASS receiver_archive
+PASS mavlink_archive
+PASS receiver_epoch_continuity
+PASS finalized
+FAIL capture_session
+PASS receiver_rawx_present
+PASS receiver_frame_validation
+PASS mavlink_decoding
+FAIL mavlink_source_continuity
+UNKNOWN gnss_to_px4_clock
+UNKNOWN native_ulog
+HTML report: /home/nss/SpoofingDetection/recordings_v2/20261105T131308Z_d3f681/report.html
+Combined report: /home/nss/SpoofingDetection/recordings_v2/20261105T131308Z_d3f681/recording_report.html

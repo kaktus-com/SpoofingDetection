@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "mavlink_bind": "127.0.0.1:14561",
+  "profile": {
+    "px4_uid": 3544703520294189106,
+    "px4_firmware_hash": "cb411db5b54a98442ab974292c81b74c057bdf25",
+    "receiver_model": "MOD=ZED-X20P",
+    "receiver_firmware": "FWVER=HPG 2.00",
+    "receiver_protocol": "PROTVER=50.02",
+    "gps_device": "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0",
+    "mavlink_bind": "127.0.0.1:14551",
+    "gps_baud": 2000000,
+    "rawx_hz": 20,
+    "logger_buffer_kib": 128,
+    "accepted_native_imu_hz": 189.6,
+    "receiver_persistence": false,
+    "startup_file_changes": false
+  },
+  "errors": [],
+  "recording_ready": true,
+  "native_collection": "collected",
+  "startup_files_changed": false,
+  "receiver_persistent_writes": false,
+  "px4_parameter_autosave": "possible if logging parameters need correction",
+  "accepted_native_imu_hz": 189.6,
+  "gnss_to_px4_clock": "UNKNOWN",
+  "timesync_active": true,
+  "updated_utc": "2026-11-05T14:31:08.631107+00:00",
+  "px4_identity": {
+    "uid": 3544703520294189106,
+    "flight_sw_version": 255,
+    "flight_custom_version": [
+      0,
+      0,
+      0,
+      181,
+      181,
+      29,
+      65,
+      203
+    ],
+    "vendor_id": 11694,
+    "product_id": 4118
+  },
+  "receiver_identity": {
+    "transport_device": "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0",
+    "reported_receiver": {
+      "swVersion": "EXT HPG 2.00 (1e963fM)",
+      "hwVersion": "000B0000",
+      "extension_01": "ROM BASE 0x22018AE9",
+      "extension_02": "FWVER=HPG 2.00",
+      "extension_03": "PROTVER=50.02",
+      "extension_04": "MOD=ZED-X20P",
+      "extension_05": "GPS;GLO;GAL;BDS",
+      "extension_06": "SBAS;QZSS",
+      "extension_07": "NAVIC",
+      "extension_08": "14.04.2025 14:04:27"
+    },
+    "unique_receiver_hardware_id": "not queried; physical identity must be checked at the manual gate"
+  },
+  "native_path": "/fs/microsd/log/2026-11-05/14_29_54.ulg",
+  "ready_monotonic_ns": 4826858741985,
+  "live_health": {
+    "ready": true,
+    "rawx_epochs": 703,
+    "mavlink_messages": {
+      "HIGHRES_IMU": 1686,
+      "ATTITUDE_QUATERNION": 1686
+    },
+    "last_receive_monotonic_ns": {
+      "HIGHRES_IMU": 4861892860124,
+      "ATTITUDE_QUATERNION": 4861893964374,
+      "RAWX": 4861888858106
+    },
+    "last_gps_epoch": 1477924254.054
+  },
+  "native_file": "native.ulg",
+  "native_fingerprint": {
+    "bytes": 5280694,
+    "sha256": "c141e5a05d0a55ef5b30758bc846022fdcf108826fe59f9018558859f590af29"
+  },
+  "files": {
+    "mavlink_tx.csv": {
+      "bytes": 47198,
+      "sha256": "39c2d62642ad2717737055fd1ae8d0b105d3736f236fd49e68c620bbce28df59"
+    },
+    "receiver_after.json": {
+      "bytes": 1702,
+      "sha256": "9d7bc48fc0dc10bb766bb5fb0d27764989c018ca795638f35f8df60a2934fe27"
+    },
+    "native.ulg": {
+      "bytes": 5280694,
+      "sha256": "c141e5a05d0a55ef5b30758bc846022fdcf108826fe59f9018558859f590af29"
+    },
+    "logger_close.txt": {
+      "bytes": 58,
+      "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac"
+    },
+    "mavlink.bin": {
+      "bytes": 1032372,
+      "sha256": "63f8c228a00744fd5f77bb0ae7cc8f08413ed7b7e5b667ddb21153a87068b657"
+    },
+    "receiver_before.json": {
+      "bytes": 1702,
+      "sha256": "e5db090c6cc3d75195135bc684d9394e4ca5d7bde3a57a595d75dce346ff63ea"
+    },
+    "live_health.json": {
+      "bytes": 304,
+      "sha256": "e0f218cadb270ecd4b404d65a0038f5469cff7146a8e935116ae05bc352d9ce1"
+    },
+    "native_download.json": {
+      "bytes": 413,
+      "sha256": "8b698c48f4ec821e1ee02088a157856da3a16e003a95c53566ccf4a3e484609e"
+    },
+    "mavlink_tx.bin": {
+      "bytes": 20400,
+      "sha256": "620002cbbfde4ab58ed05f95edccf6c31e41accd6ccb98204323b988f6459ea6"
+    },
+    "firmware.txt": {
+      "bytes": 497,
+      "sha256": "36555d46f7d31285fa5dc335d44659326de07a57989b792c58d97e697394ba2f"
+    },
+    "px4_after.json": {
+      "bytes": 342,
+      "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+    },
+    "logger_closed_status.txt": {
+      "bytes": 87,
+      "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+    },
+    "memory_before_logger.txt": {
+      "bytes": 267,
+      "sha256": "211b742e90d7bab1f1309f62c3d75fd1d7b5a4079aa01649d5abd5f054665e04"
+    },
+    "clock_sync.csv": {
+      "bytes": 119323,
+      "sha256": "94bc0be8f0289902fdf1bf2c5febd31d6e20e1ca950d5d7e80b154d9014b21b3"
+    },
+    "receiver_receive.csv": {
+      "bytes": 395730,
+      "sha256": "b7f2db42446094da3a66006cd628c825672947f3067cfe08909b84d0bc88b375"
+    },
+    "receiver.bin": {
+      "bytes": 2644783,
+      "sha256": "f99734fdd0e53d44ad982ddae1aebebc1a72fab3380e8693126d9b1b6d657fe9"
+    },
+    "previous_logger.txt": {
+      "bytes": 87,
+      "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+    },
+    "receiver_probe_attempts.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "logger_stop_before.txt": {
+      "bytes": 58,
+      "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac"
+    },
+    "px4_before.json": {
+      "bytes": 342,
+      "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+    },
+    "logger_recording.txt": {
+      "bytes": 410,
+      "sha256": "235bf0476637a845a1621adc15e1b3885bfb5b4affc68a7016588e1fb5d8fb8c"
+    },
+    "health.jsonl": {
+      "bytes": 24452,
+      "sha256": "392053d2298e2c6dbd77bad3ccb4ea7c6f3df560f5d75dcca6a85316f4bdb0df"
+    },
+    "mavlink_receive.csv": {
+      "bytes": 692477,
+      "sha256": "9c7e655b3524c4a60a9144c71ec1e0dbede1d32f77134e6d7025963bb8e0057b"
+    },
+    "manifest.json": {
+      "bytes": 6849,
+      "sha256": "b9eaf6a7cb44ee6ce96a2cfb9769dba3fc776ea6c002cfb8352b344a41b58a60"
+    },
+    "logger_start.txt": {
+      "bytes": 305,
+      "sha256": "c89b964616f3c8e2a4f19c3220740039e13fbc8e20682779c1430fe7955b8104"
+    },
+    "clock_sync.jsonl": {
+      "bytes": 296718,
+      "sha256": "c1df7dccad1b2f0b9315a0e886b3e96b03ad78d93d3a947bfe6aad0ce4c30495"
+    },
+    "logger_at_stop.txt": {
+      "bytes": 409,
+      "sha256": "be622f3040c6e756a858f7802b792b86f2ce4179f07a4edbd36837930132d131"
+    }
+  }
+}

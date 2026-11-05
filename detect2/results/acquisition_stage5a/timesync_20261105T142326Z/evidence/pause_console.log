@@ -1,0 +1,17 @@
+Session: /home/nss/SpoofingDetection/timing_reviews/timesync_20261105T142326Z/pause/20261105T142939Z_a44aa5
+RECORDING READY | RAWX 20 Hz, 2 Mbaud | quaternion + IMU present | native buffer 128 KiB
+Raw capture finalized; collecting native log (requires disarmed PX4).
+PASS receiver_archive
+PASS mavlink_archive
+PASS receiver_epoch_continuity
+PASS finalized
+PASS capture_session
+PASS receiver_rawx_present
+PASS receiver_frame_validation
+PASS mavlink_decoding
+FAIL mavlink_source_continuity
+UNKNOWN gnss_to_px4_clock
+UNKNOWN native_ulog
+HTML report: /home/nss/SpoofingDetection/timing_reviews/timesync_20261105T142326Z/pause/20261105T142939Z_a44aa5/report.html
+Combined report: /home/nss/SpoofingDetection/timing_reviews/timesync_20261105T142326Z/pause/20261105T142939Z_a44aa5/recording_report.html
+Runtime: complete | Session: /home/nss/SpoofingDetection/timing_reviews/timesync_20261105T142326Z/pause/20261105T142939Z_a44aa5

@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "profile_readback_matches": true,
+    "receiver_baud_is_2000000": true,
+    "constellation_enable_flags_unchanged": true,
+    "receiver_identity_unchanged": true,
+    "legacy_files_unchanged": true,
+    "router_process_unchanged": true,
+    "px4_logging_parameters_unchanged": true
+  },
+  "sessions": [
+    "/home/nss/SpoofingDetection/recordings_v2_stage3/acquisition_20261105T102353Z/reduced_921600/20261105T102637Z_d85d29",
+    "/home/nss/SpoofingDetection/recordings_v2_stage3/acquisition_20261105T102353Z/reduced_2000000/20261105T102716Z_74c8a9"
+  ],
+  "configuration_layer": "RAM only",
+  "current_host_baud": 2000000,
+  "constellation_changes": false,
+  "persistent_writes": false,
+  "manual_checkpoint_3": "awaiting user review",
+  "stage4_started": false
+}

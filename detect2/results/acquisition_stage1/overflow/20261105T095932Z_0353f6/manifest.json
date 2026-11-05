@@ -1,0 +1,434 @@
+{
+  "schema_version": 1,
+  "mode": "replay",
+  "status": "failed",
+  "started_utc": "2026-11-05T09:59:32.403158+00:00",
+  "host": "borna-lab",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "boot_id": "2a05bf42-b6fd-4ea3-b528-09b13e3902b9",
+  "expected_streams": [
+    "receiver",
+    "mavlink"
+  ],
+  "configuration_changed": false,
+  "clock_anchors": [
+    {
+      "host_monotonic_ns": 27466008381008,
+      "unix_ns": 1793872772403381557
+    },
+    {
+      "host_monotonic_ns": 27466177028672,
+      "unix_ns": 1793872772572029074
+    }
+  ],
+  "packages": {
+    "pyserial": "3.5",
+    "pymavlink": "2.4.49",
+    "pyubx2": null
+  },
+  "source_hashes": {
+    "__init__.py": "3c0a4de92b2ea160cc5c8884e50dd2a09f7e498cfc54fe4541bb21a8471868b7",
+    "audit_session.py": "00a12dc73c9c191f6d62b6b84a35c13bbe1bcc0ffcf5fbacf27ffa85bbc5fc35",
+    "capture.py": "b378ba3395ab8efd2c1731a1f7b4904eb40888f88732290c7357e214d9b70099",
+    "common.py": "f58e4127ab315a3bcd38a7492e4904d3ff5e19595d8d16caa736889ffa2d9065",
+    "mavlink_capture.py": "282d47e83673fd79561900cddd0d431297627731c5a3e0be72c0c6d002bcdfdd",
+    "receiver_config.py": "ff7c0bc2bdf4bbc61d3ef69dbb6b4a644db0a78f97b91c48f8c1fcf620c24059",
+    "replay.py": "ccab711ce41547fd322970737e5eb011d7e957f432cc650712ed63bec89cd359",
+    "serial_capture.py": "39403bfe0a7294da96f81ccffdea92af7a8e37c1e57147556d3229372ea6ffaa",
+    "timesync.py": "621e8d0946436117d073dcf3a04d9d8a64a7392178621f53683b39a5bb5fb48f",
+    "ubx.py": "cf6466683219c46d1f071fcbbd99ecf75e43a365f4d07534424e32b981c5c145"
+  },
+  "metadata": {
+    "expected_rawx_hz": 20,
+    "replay_injections": {
+      "scenario": "overflow",
+      "purpose": "manual checkpoint demonstration; no hardware touched"
+    },
+    "timesync_active": false,
+    "gnss_to_px4_clock_verified": false,
+    "external_source_paths": {}
+  },
+  "replay_sources": {
+    "receiver": {
+      "path": "replay_inputs/receiver.bin",
+      "fingerprint": {
+        "bytes": 6113,
+        "sha256": "7e7cd672756bafff50ff942cbb84f6ffff76b11a1848fe77cb21d71b0c0f33ce"
+      }
+    },
+    "mavlink": {
+      "path": "replay_inputs/mavlink.bin",
+      "fingerprint": {
+        "bytes": 3720,
+        "sha256": "3f09efc4a568a7589aef26703d0ea3ecd9d50125ea4c7015308509c09e1d7c5a"
+      }
+    }
+  },
+  "stop_reason": "replay_complete",
+  "ended_utc": "2026-11-05T09:59:32.570858+00:00",
+  "streams": {
+    "receiver": {
+      "received_bytes": 6113,
+      "written_bytes": 1,
+      "input_chunks": 5,
+      "dropped_bytes": 6112,
+      "dropped_chunks": 4,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 1,
+      "peak_queue_chunks": 1,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    },
+    "mavlink": {
+      "received_bytes": 3720,
+      "written_bytes": 93,
+      "input_chunks": 40,
+      "dropped_bytes": 3627,
+      "dropped_chunks": 39,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 93,
+      "peak_queue_chunks": 1,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    }
+  },
+  "issues": {
+    "counts": {
+      "archive_rejected_input": 43
+    },
+    "events": [
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018812981,
+        "stream": "receiver",
+        "sequence": 1,
+        "bytes": 7
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018837254,
+        "stream": "receiver",
+        "sequence": 2,
+        "bytes": 101
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018855490,
+        "stream": "receiver",
+        "sequence": 3,
+        "bytes": 4096
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018870521,
+        "stream": "receiver",
+        "sequence": 4,
+        "bytes": 1908
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018907687,
+        "stream": "mavlink",
+        "sequence": 1,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018919748,
+        "stream": "mavlink",
+        "sequence": 2,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018930540,
+        "stream": "mavlink",
+        "sequence": 3,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018941485,
+        "stream": "mavlink",
+        "sequence": 4,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018952043,
+        "stream": "mavlink",
+        "sequence": 5,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018962861,
+        "stream": "mavlink",
+        "sequence": 6,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018972660,
+        "stream": "mavlink",
+        "sequence": 7,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018982663,
+        "stream": "mavlink",
+        "sequence": 8,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466018992255,
+        "stream": "mavlink",
+        "sequence": 9,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019015960,
+        "stream": "mavlink",
+        "sequence": 10,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019026351,
+        "stream": "mavlink",
+        "sequence": 11,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019035686,
+        "stream": "mavlink",
+        "sequence": 12,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019045208,
+        "stream": "mavlink",
+        "sequence": 13,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019054823,
+        "stream": "mavlink",
+        "sequence": 14,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019064385,
+        "stream": "mavlink",
+        "sequence": 15,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019073677,
+        "stream": "mavlink",
+        "sequence": 16,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019083068,
+        "stream": "mavlink",
+        "sequence": 17,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019092507,
+        "stream": "mavlink",
+        "sequence": 18,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019101845,
+        "stream": "mavlink",
+        "sequence": 19,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019111300,
+        "stream": "mavlink",
+        "sequence": 20,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019120685,
+        "stream": "mavlink",
+        "sequence": 21,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019130912,
+        "stream": "mavlink",
+        "sequence": 22,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019140374,
+        "stream": "mavlink",
+        "sequence": 23,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019149926,
+        "stream": "mavlink",
+        "sequence": 24,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019159405,
+        "stream": "mavlink",
+        "sequence": 25,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019168833,
+        "stream": "mavlink",
+        "sequence": 26,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019178071,
+        "stream": "mavlink",
+        "sequence": 27,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019187326,
+        "stream": "mavlink",
+        "sequence": 28,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019196550,
+        "stream": "mavlink",
+        "sequence": 29,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019206280,
+        "stream": "mavlink",
+        "sequence": 30,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019216851,
+        "stream": "mavlink",
+        "sequence": 31,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019226212,
+        "stream": "mavlink",
+        "sequence": 32,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019235517,
+        "stream": "mavlink",
+        "sequence": 33,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019244758,
+        "stream": "mavlink",
+        "sequence": 34,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019254411,
+        "stream": "mavlink",
+        "sequence": 35,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019263916,
+        "stream": "mavlink",
+        "sequence": 36,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019273361,
+        "stream": "mavlink",
+        "sequence": 37,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019283037,
+        "stream": "mavlink",
+        "sequence": 38,
+        "bytes": 93
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 27466019292408,
+        "stream": "mavlink",
+        "sequence": 39,
+        "bytes": 93
+      }
+    ]
+  },
+  "missing_streams": [],
+  "files": {
+    "mavlink_receive.csv": {
+      "bytes": 115,
+      "sha256": "cb7abbd920a3c44ec6b2e48a4cca34a4d1b273e2e681401136e41cac443f9ddd"
+    },
+    "mavlink.bin": {
+      "bytes": 93,
+      "sha256": "6fe1d2dd6f77d3228c96fc69ffa617e1f9b252cbf1ebddf667fc3a04205a68d7"
+    },
+    "receiver.bin": {
+      "bytes": 1,
+      "sha256": "892f60b39450a0e770f00a836761c8e964fd74671ae2cc51cff36cde4f914c12"
+    },
+    "receiver_receive.csv": {
+      "bytes": 100,
+      "sha256": "c2552542804dd586210ef0c8d24c075b24a42e085a78ea290d470ce4da857909"
+    },
+    "clock_sync.csv": {
+      "bytes": 176,
+      "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85"
+    },
+    "health.jsonl": {
+      "bytes": 1382,
+      "sha256": "2b7bc317b45d194ab0fffff8ceb88cc0ca529a053245c5a3ef702c0cd9717428"
+    }
+  }
+}

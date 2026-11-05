@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "accepted_replies": 1756,
+  "requests_sent": 1756,
+  "rejected_reply_reasons": {},
+  "expired_requests": 0,
+  "abandoned_at_stop": 0,
+  "addressing": {
+    "addressed": 1756
+  },
+  "segment_events": [
+    {
+      "event": "clock_segment_start",
+      "segment_id": 0,
+      "reason": "observer_start",
+      "host_monotonic_ns": 4495750462548
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": 0,
+      "accepted_samples": 1756,
+      "selected_low_rtt_bins": 180,
+      "valid_host_min_ns": 4495754182767,
+      "valid_host_max_ns": 4675740440659,
+      "duration_s": 179.986257892,
+      "rtt_median_ms": 1.039568,
+      "rtt_p95_ms": 2.73656275,
+      "rtt_max_ms": 7.701862,
+      "mapping_status": "estimated_not_independently_verified",
+      "independent_accuracy_verified": false,
+      "origin_host_ns": 4495754182767,
+      "offset_at_origin_ns": 338738728.0081429,
+      "offset_slope_ns_per_s": -3940.6688870873354,
+      "drift_ppm": -3.940668887087335,
+      "training_bins": 120,
+      "training_outlier_bins": 0,
+      "held_out_bins": 60,
+      "held_out_abs_residual_p95_ms": 0.0906750605763651,
+      "held_out_abs_residual_max_ms": 0.18184969857392308,
+      "robust_training_threshold_ns": 225565.5275714703,
+      "formula": "PX4_ns = host_ns + offset_at_origin_ns + offset_slope_ns_per_s * ((host_ns - origin_host_ns) / 1e9)",
+      "extrapolation_allowed": false
+    }
+  ],
+  "gnss_to_px4_clock": "UNKNOWN",
+  "absolute_accuracy_verified": false,
+  "method": "Lowest RTT per 1-second bin; first 2/3 training with 6-MAD rejection (1 us floor); last 1/3 held out. No fit crosses segments."
+}

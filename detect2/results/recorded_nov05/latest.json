@@ -1,0 +1,11 @@
+{
+  "review_id": "review_20261105T135817Z",
+  "report": "review_20261105T135817Z/report.html",
+  "source_sessions": [
+    "20261105T131308Z_d3f681",
+    "20261105T132010Z_c4cbfd",
+    "20261105T132748Z_9c3265"
+  ],
+  "result": "flight portions continuous; marked ground gaps/reset events retained; stationary reference clean",
+  "clock_alignment": "UNKNOWN"
+}

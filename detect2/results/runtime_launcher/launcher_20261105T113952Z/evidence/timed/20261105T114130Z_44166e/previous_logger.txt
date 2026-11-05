@@ -1,0 +1,10 @@
+
+NuttShell (NSH) NuttX-11.0.0
+nsh> [Klogger status
+INFO  [logger] Running in mode: all
+INFO  [logger] Number of subscriptions: 234 (7488 bytes)
+INFO  [logger] Full File Logging Running:
+INFO  [logger] Log file: /fs/microsd/log/2026-11-05/11_10_57.ulg
+INFO  [logger] Wrote 190.53 MiB (avg 106.78 KiB/s)
+INFO  [logger] Since last status: dropouts: 0 (max len: 0.000 s), max used buffer: 85766 / 131072 B
+nsh> [K

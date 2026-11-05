@@ -1,0 +1,30 @@
+{
+  "stage": 0,
+  "status": "approved",
+  "settings_changed": false,
+  "backup_checks_verified": {
+    "px4_parameter_export_complete": true,
+    "all_touched_receiver_ram_keys_saved": true,
+    "receiver_ram_unchanged": true,
+    "original_script_hashes_still_match": true,
+    "raw_receiver_capture_saved": true,
+    "router_single_process": true
+  },
+  "archive_sha256": "57690416a4ed3e38b245cb877a263a7f59ff2d36c00f60706aff0029cd2124b1",
+  "receiver_known_quality_issue": "UART output saturated; RAWX epoch gaps reproduced",
+  "receiver_layers": {
+    "RAM": "18 keys saved and read twice, identical",
+    "Flash": "18 keys returned",
+    "Defaults": "18 keys returned",
+    "BBR": "request returned negative acknowledgement; contents unavailable, do not assume defaults"
+  },
+  "required_user_checks": [
+    "hardware identity",
+    "one router / no competing recorder",
+    "backup and configuration readable",
+    "baseline traffic problem reproduced"
+  ],
+  "next_stage": "Stage 1 local recorder implementation, after explicit approval",
+  "approval_date": "2026-11-05",
+  "approval_source": "user: ok do next"
+}

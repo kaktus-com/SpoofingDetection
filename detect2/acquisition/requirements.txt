@@ -1,0 +1,4 @@
+# Versions verified during the 3 November Pi inspection. No install/deploy in Stage 1.
+pyserial==3.5
+pymavlink==2.4.49
+pyubx2==1.3.3

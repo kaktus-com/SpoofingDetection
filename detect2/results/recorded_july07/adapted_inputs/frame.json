@@ -1,0 +1,16 @@
+{
+  "body_axes": "Forward, Right, Down",
+  "local_axes": "East, North, Up",
+  "quaternion": "Hamilton wxyz, active FRD body to ENU",
+  "gravity_enu_m_s2": [
+    0.0,
+    0.0,
+    -9.80665
+  ],
+  "lever_arm_body_m": [
+    0.02,
+    0.0,
+    0.0
+  ],
+  "status": "inspection_only_not_replay_ready"
+}

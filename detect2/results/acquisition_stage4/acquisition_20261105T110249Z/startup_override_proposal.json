@@ -1,0 +1,13 @@
+{
+  "target": "/fs/microsd/etc/config.txt",
+  "directory_observed": "missing in read-only NSH ls/cat probe",
+  "existing_file": false,
+  "proposed_content": "# detect2: tested native logger buffer, KiB\nset LOGGER_BUF 128\n",
+  "sha256": "33a9b0ee642eced4a0003d76ee4a330ef0a82e95b85d0be54e49c87da5c67c8b",
+  "only_effect": "set logger buffer to 128 KiB in startup shell",
+  "source_commit": "cb411db5b54a98442ab974292c81b74c057bdf25",
+  "backup_proof": "evidence/startup_config_readonly_probe.txt",
+  "applied": false,
+  "manual_review": "pending checkpoint 4",
+  "requires_controlled_reboot_verification": true
+}

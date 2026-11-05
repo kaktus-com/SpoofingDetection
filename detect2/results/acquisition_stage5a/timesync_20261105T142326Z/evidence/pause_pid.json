@@ -1,0 +1,13 @@
+{
+  "pid": 1193,
+  "args": [
+    "/home/nss/venv/bin/python",
+    "/home/nss/SpoofingDetection/releases/timesync_20261105T142326Z_final/detect2/acquisition/transport_pause_test.py",
+    "--launcher",
+    "/home/nss/SpoofingDetection/releases/timesync_20261105T142326Z_final/start_recording",
+    "--output-root",
+    "/home/nss/SpoofingDetection/timing_reviews/timesync_20261105T142326Z/pause",
+    "--review",
+    "/home/nss/SpoofingDetection/timing_reviews/timesync_20261105T142326Z"
+  ]
+}

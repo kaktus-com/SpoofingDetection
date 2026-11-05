@@ -1,0 +1,17 @@
+
+NuttShell (NSH) NuttX-11.0.0
+nsh> [Kver all
+HW arch: CUBEPILOT_CUBEORANGE
+PX4 git-hash: cb411db5b54a98442ab974292c81b74c057bdf25
+PX4 version: Release 0.0.0 (255)
+PX4 git-branch: more-configts
+OS: NuttX
+OS version: Release 11.0.0 (184549631)
+OS git-hash: 29450774d75a2ad4748ac93b2d8759f1ada48883
+Build datetime: Jun  9 2026 21:09:54
+Build uri: localhost
+Build variant: default
+Toolchain: GNU GCC, 13.2.1 20231009
+PX4GUID: 0006000000003136383231315112002c003c
+MCU: STM32H7[4|5]xxx, rev. V
+nsh> [K

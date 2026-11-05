@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "capture_status": "complete",
+  "checks": {
+    "receiver_archive": {
+      "status": "PASS",
+      "errors": [],
+      "rows": 5,
+      "bytes": 5961,
+      "sha256": "416c1d78dcf67a2384f61a765c7240a4859e382fc328b7ca6d792975b562a556"
+    },
+    "mavlink_archive": {
+      "status": "PASS",
+      "errors": [],
+      "rows": 29,
+      "bytes": 2697,
+      "sha256": "4deda7330b3abe8cac7263ac56e3e4f2227db95224620eef60260fb1295bd762"
+    },
+    "receiver_epoch_continuity": {
+      "status": "FAIL",
+      "expected_hz": 20,
+      "unexpected_intervals": 1,
+      "clock_resets": 1
+    },
+    "finalized": {
+      "status": "PASS"
+    },
+    "capture_session": {
+      "status": "PASS",
+      "recorded_status": "complete",
+      "issues": {}
+    },
+    "receiver_rawx_present": {
+      "status": "PASS"
+    },
+    "receiver_frame_validation": {
+      "status": "PASS",
+      "diagnostics": {
+        "valid_frames": 40,
+        "invalid_candidates": 0,
+        "trailing_partial_candidates": 0
+      }
+    },
+    "mavlink_decoding": {
+      "status": "PASS"
+    },
+    "mavlink_source_continuity": {
+      "status": "FAIL",
+      "streams": {
+        "1:1:ATTITUDE_QUATERNION": {
+          "median_interval_s": 0.050000000000000044,
+          "max_interval_s": 0.6000000000000001,
+          "large_gaps": 1,
+          "backwards_timestamps": 0
+        },
+        "1:1:HIGHRES_IMU": {
+          "median_interval_s": 0.050000000000000044,
+          "max_interval_s": 0.6000000000000001,
+          "large_gaps": 1,
+          "backwards_timestamps": 0
+        }
+      },
+      "interpretation": "Source timestamp gaps observed; a router/changed stream rate may also explain gaps. This is not a network loss probability."
+    },
+    "gnss_to_px4_clock": {
+      "status": "UNKNOWN",
+      "reason": "No independently verified pulse/measurement-clock mapping in this stage."
+    },
+    "native_ulog": {
+      "status": "UNKNOWN",
+      "reason": "Native SD-card ULog is attached and validated in a later stage."
+    },
+    "receiver_replay_bytes": {
+      "status": "PASS",
+      "source": "replay_inputs/receiver.bin",
+      "source_sha256": "416c1d78dcf67a2384f61a765c7240a4859e382fc328b7ca6d792975b562a556"
+    },
+    "mavlink_replay_bytes": {
+      "status": "PASS",
+      "source": "replay_inputs/mavlink.bin",
+      "source_sha256": "4deda7330b3abe8cac7263ac56e3e4f2227db95224620eef60260fb1295bd762"
+    }
+  },
+  "receiver": {
+    "status": "PASS",
+    "epochs": 39,
+    "observations": 156,
+    "signal_counts": {
+      "0:3:0": 39,
+      "0:3:7": 39,
+      "2:11:0": 39,
+      "3:7:5": 39
+    },
+    "packet_counts": {
+      "RXM-RAWX": 39,
+      "UNKNOWN_99_55": 1
+    },
+    "invalid_carrier_flag_observations": 1,
+    "clock_resets": 1,
+    "backwards_or_repeated_epochs": 0,
+    "median_epoch_interval_s": 0.04999995231628418,
+    "max_epoch_gap_s": 0.10000014305114746,
+    "diagnostics": {
+      "valid_frames": 40,
+      "invalid_candidates": 0,
+      "trailing_partial_candidates": 0
+    },
+    "note": "Invalid flags retained; continuity at resets is segmented, not repaired."
+  },
+  "telemetry": {
+    "status": "PASS",
+    "messages": {
+      "ATTITUDE_QUATERNION": 29,
+      "HIGHRES_IMU": 29
+    },
+    "bad_or_undecodable_messages": 0,
+    "distinct_source_timestamps": {
+      "ATTITUDE_QUATERNION": 29,
+      "HIGHRES_IMU": 29
+    },
+    "source_gap_checks": {
+      "1:1:ATTITUDE_QUATERNION": {
+        "median_interval_s": 0.050000000000000044,
+        "max_interval_s": 0.6000000000000001,
+        "large_gaps": 1,
+        "backwards_timestamps": 0
+      },
+      "1:1:HIGHRES_IMU": {
+        "median_interval_s": 0.050000000000000044,
+        "max_interval_s": 0.6000000000000001,
+        "large_gaps": 1,
+        "backwards_timestamps": 0
+      }
+    },
+    "note": "Unknown messages remain in original datagrams. Sequence gaps are not automatically equated with link loss through a router."
+  },
+  "ready_for_validated_detector": false,
+  "interpretation": "PASS concerns an individual check only. UNKNOWN never counts as PASS; this stage does not validate flight timing or detection."
+}

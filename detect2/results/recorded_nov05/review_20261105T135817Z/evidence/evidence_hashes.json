@@ -1,0 +1,454 @@
+{
+  "inventory_after.json": {
+    "bytes": 856,
+    "sha256": "88643460e7068270cb45a340140a773519758fd537d7786f3d15fc6e7aba8e1e"
+  },
+  "finalization_results.json": {
+    "bytes": 399,
+    "sha256": "97b515d50adba5bcb8b620ba59e025fed013e19df66d23eecd0c7bc807a32621"
+  },
+  "20261105T131308Z_d3f681_finalize_stderr.txt": {
+    "bytes": 50,
+    "sha256": "5ef704db967b9d60dd86eecebe980918eeb1da93de14e32874bee171c751105c"
+  },
+  "20261105T132748Z_9c3265_finalize_stderr.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "raw_hashes_before.json": {
+    "bytes": 1473,
+    "sha256": "6427e9effa80c8b7f24d6e54050203667dbada3aa0f2a426c3ef5daf82802519"
+  },
+  "20261105T131308Z_d3f681_finalize_stdout.txt": {
+    "bytes": 507,
+    "sha256": "89e06691ef8a71d2b1b2f2220c7c6ee15c8fc6b2e26a348e74f62ffd8f012bc7"
+  },
+  "20261105T132748Z_9c3265_finalize_stdout.txt": {
+    "bytes": 463,
+    "sha256": "36644f19d0963995d15d3892c9609bf39dd4c4c303b47fa05076d877b495a8c3"
+  },
+  "before/20261105T132010Z_c4cbfd/runtime_manifest.json": {
+    "bytes": 5836,
+    "sha256": "cb64f0c993f5eb8ca83dab1dd484c09eafa1cecdff82b8a9b8a79021f8910451"
+  },
+  "before/20261105T132010Z_c4cbfd/audit.json": {
+    "bytes": 7278,
+    "sha256": "cb7f20be085f35ba34c3705cf9b6f05565da3ef3d53ec7d82b5c9ffc0eb17221"
+  },
+  "before/20261105T132010Z_c4cbfd/manifest.json": {
+    "bytes": 6247,
+    "sha256": "1d909450b0aed0f2f9a79123d650710362a0b6a01cee2e47b1faaa0283e520cb"
+  },
+  "before/20261105T132748Z_9c3265/runtime_manifest.json": {
+    "bytes": 5478,
+    "sha256": "632aa231cfbe030c067e9ef7f8fd84524acf68c174b5bcb5914863032787e42c"
+  },
+  "before/20261105T132748Z_9c3265/audit.json": {
+    "bytes": 6939,
+    "sha256": "11a5d3e3d800acb05cb5db14e0badbb9d483f1e5a58f128b0d1bfd866fb63828"
+  },
+  "before/20261105T132748Z_9c3265/manifest.json": {
+    "bytes": 6242,
+    "sha256": "a1d454b7d795bdb3b59819a304e544138a3abd7c641a291767b0d3c219f56e6b"
+  },
+  "before/20261105T131308Z_d3f681/runtime_manifest.json": {
+    "bytes": 5772,
+    "sha256": "04c26d2349be082deae60351ab7c63f301575fd688295efd6861c5d37a02218b"
+  },
+  "before/20261105T131308Z_d3f681/audit.json": {
+    "bytes": 7296,
+    "sha256": "785ac6977269112ba7d4a547398b867215e1716e416d965715b533c963d76600"
+  },
+  "before/20261105T131308Z_d3f681/manifest.json": {
+    "bytes": 6541,
+    "sha256": "0fa14ef6035b0f7b3a81f581051c454f2fd8979ccab2256878a04ca6736abb0a"
+  },
+  "sessions/20261105T132010Z_c4cbfd/receiver_after.json": {
+    "bytes": 1702,
+    "sha256": "1bf12f2a16f1d3f3ea313d42df0ef85044210696c4206f12481390645661d1ec"
+  },
+  "sessions/20261105T132010Z_c4cbfd/native.ulg": {
+    "bytes": 20774737,
+    "sha256": "e38ae79ecf34da97b02b3c7ad2d3ad4784e5cea53e831535d47d179e3220b0f9"
+  },
+  "sessions/20261105T132010Z_c4cbfd/runtime_manifest.json": {
+    "bytes": 5836,
+    "sha256": "cb64f0c993f5eb8ca83dab1dd484c09eafa1cecdff82b8a9b8a79021f8910451"
+  },
+  "sessions/20261105T132010Z_c4cbfd/logger_close.txt": {
+    "bytes": 58,
+    "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac"
+  },
+  "sessions/20261105T132010Z_c4cbfd/mavlink.bin": {
+    "bytes": 5346917,
+    "sha256": "53a57133bb06066c5e24337a417a08cbfeec743bed29cfdef52c71ba8fe55a5c"
+  },
+  "sessions/20261105T132010Z_c4cbfd/receiver_before.json": {
+    "bytes": 1702,
+    "sha256": "a2cd282133c0ad339b42e8a258ea9a050bc357b6af2e4357d4bb5f0dbc200b6f"
+  },
+  "sessions/20261105T132010Z_c4cbfd/live_health.json": {
+    "bytes": 305,
+    "sha256": "ee6478211744aa2928c08ec55e5a4c53046f1342e8a25911aee12a63c222b350"
+  },
+  "sessions/20261105T132010Z_c4cbfd/native_download.json": {
+    "bytes": 383,
+    "sha256": "990b0ff2775630d37f2d44f73e94922af6753ec2678b6c92d7e6903c1f2ade58"
+  },
+  "sessions/20261105T132010Z_c4cbfd/firmware.txt": {
+    "bytes": 497,
+    "sha256": "36555d46f7d31285fa5dc335d44659326de07a57989b792c58d97e697394ba2f"
+  },
+  "sessions/20261105T132010Z_c4cbfd/px4_after.json": {
+    "bytes": 342,
+    "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+  },
+  "sessions/20261105T132010Z_c4cbfd/logger_closed_status.txt": {
+    "bytes": 87,
+    "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+  },
+  "sessions/20261105T132010Z_c4cbfd/memory_before_logger.txt": {
+    "bytes": 267,
+    "sha256": "e1335b7751fcadb8220bc5fee1fd0c35a727817f0e2dfee29698aa957a6fbde4"
+  },
+  "sessions/20261105T132010Z_c4cbfd/clock_sync.csv": {
+    "bytes": 176,
+    "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85"
+  },
+  "sessions/20261105T132010Z_c4cbfd/receiver_receive.csv": {
+    "bytes": 1054763,
+    "sha256": "5e45c44a5d6deafa364961c8b35dd5b5f638ae6cda87caee1fb7e51ca5ee0692"
+  },
+  "sessions/20261105T132010Z_c4cbfd/receiver.bin": {
+    "bytes": 6522263,
+    "sha256": "3943d3f6d21fe0b076b334b8cbb88a9700dbe616bb80316fb9285613f4d2889f"
+  },
+  "sessions/20261105T132010Z_c4cbfd/previous_logger.txt": {
+    "bytes": 87,
+    "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+  },
+  "sessions/20261105T132010Z_c4cbfd/receiver_probe_attempts.json": {
+    "bytes": 3,
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "sessions/20261105T132010Z_c4cbfd/logger_stop_before.txt": {
+    "bytes": 58,
+    "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac"
+  },
+  "sessions/20261105T132010Z_c4cbfd/px4_before.json": {
+    "bytes": 342,
+    "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+  },
+  "sessions/20261105T132010Z_c4cbfd/logger_recording.txt": {
+    "bytes": 410,
+    "sha256": "55fd60efe504b7980adf38d5e1f17dfa97e33f91bd9702243ad7fdd4f82d05e9"
+  },
+  "sessions/20261105T132010Z_c4cbfd/health.jsonl": {
+    "bytes": 118304,
+    "sha256": "57f2a5699d1a732ab3faee506b4a900f1528c4f461ab3089347602b0d98a49a4"
+  },
+  "sessions/20261105T132010Z_c4cbfd/mavlink_receive.csv": {
+    "bytes": 3679040,
+    "sha256": "0c0f98b64712442eb5f05f54d18c86676d22a9c39122cf42d6ab94fce9708488"
+  },
+  "sessions/20261105T132010Z_c4cbfd/manifest.json": {
+    "bytes": 6247,
+    "sha256": "1d909450b0aed0f2f9a79123d650710362a0b6a01cee2e47b1faaa0283e520cb"
+  },
+  "sessions/20261105T132010Z_c4cbfd/logger_start.txt": {
+    "bytes": 305,
+    "sha256": "0af03d00b6eddc0565fc3009fb830c147c18f91a35f0ff8705ee1d633770565b"
+  },
+  "sessions/20261105T132010Z_c4cbfd/logger_at_stop.txt": {
+    "bytes": 410,
+    "sha256": "915cf9ac749c1f1a36a41335f5e48705b835216447ee3864db2eb7b2800ac2f5"
+  },
+  "sessions/20261105T132010Z_c4cbfd/source_reports/report.html": {
+    "bytes": 173604,
+    "sha256": "930ddf14b68a0a50a5056743c02a17336be70fd3e00088f338d5d294622758ce"
+  },
+  "sessions/20261105T132010Z_c4cbfd/source_reports/audit.json": {
+    "bytes": 7278,
+    "sha256": "cb7f20be085f35ba34c3705cf9b6f05565da3ef3d53ec7d82b5c9ffc0eb17221"
+  },
+  "sessions/20261105T132010Z_c4cbfd/source_reports/recording_report.html": {
+    "bytes": 3831,
+    "sha256": "82ab890a30c2267446fc32f1fd5907b50fc8e707ac11d092049b1ada25f59e3f"
+  },
+  "sessions/20261105T132748Z_9c3265/native_001.ulg": {
+    "bytes": 17210169,
+    "sha256": "2bbfb5d63a0558c79f22eac9398fc39f13152422e4255f85be461f194019c63b"
+  },
+  "sessions/20261105T132748Z_9c3265/receiver_after.json": {
+    "bytes": 1702,
+    "sha256": "a2245ba28e1c1a847bead03cc25694720d4927535337e8007609a73f55ffc9a6"
+  },
+  "sessions/20261105T132748Z_9c3265/runtime_manifest.json": {
+    "bytes": 5841,
+    "sha256": "10e26e9fd73c5ce3e8a7aa4920e58d65c47dc5c0ed979e6a35eaa2d33c2e3633"
+  },
+  "sessions/20261105T132748Z_9c3265/logger_close.txt": {
+    "bytes": 58,
+    "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac"
+  },
+  "sessions/20261105T132748Z_9c3265/mavlink.bin": {
+    "bytes": 4353682,
+    "sha256": "6f36baabd8221fa8d1a46abd3756cd41eaeb771b33f418352dddf4f6fd15b009"
+  },
+  "sessions/20261105T132748Z_9c3265/receiver_before.json": {
+    "bytes": 1702,
+    "sha256": "a34d02b0d2e2b0099f6c61695960a8daa8e55aec22da9e8efcd1d4890872933e"
+  },
+  "sessions/20261105T132748Z_9c3265/live_health.json": {
+    "bytes": 305,
+    "sha256": "bfdd277579b4621f91fbd5b60788090f8a26992e0f03a8ede4de648e067d95ae"
+  },
+  "sessions/20261105T132748Z_9c3265/native_download.json": {
+    "bytes": 387,
+    "sha256": "8dfb947eb9b46b894c861f18b2964dbffd7474b6e36ff4d5df4b1da3e4a45c53"
+  },
+  "sessions/20261105T132748Z_9c3265/firmware.txt": {
+    "bytes": 497,
+    "sha256": "36555d46f7d31285fa5dc335d44659326de07a57989b792c58d97e697394ba2f"
+  },
+  "sessions/20261105T132748Z_9c3265/px4_after.json": {
+    "bytes": 342,
+    "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+  },
+  "sessions/20261105T132748Z_9c3265/logger_closed_status.txt": {
+    "bytes": 87,
+    "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+  },
+  "sessions/20261105T132748Z_9c3265/memory_before_logger.txt": {
+    "bytes": 267,
+    "sha256": "8836c7024a23e5a3b63a38b441fac11d68d1119a5a36ccf7933cf5eeb486b2f9"
+  },
+  "sessions/20261105T132748Z_9c3265/clock_sync.csv": {
+    "bytes": 176,
+    "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85"
+  },
+  "sessions/20261105T132748Z_9c3265/receiver_receive.csv": {
+    "bytes": 829307,
+    "sha256": "25e96ee86576cd20aa61d6dcb6c59d6988a41f6dc8241009db0c88fc3ea45aaa"
+  },
+  "sessions/20261105T132748Z_9c3265/receiver.bin": {
+    "bytes": 5151503,
+    "sha256": "ca390e2b3bcca894d76082342c7663a87e1d77242d20f80d95179300b23db8b9"
+  },
+  "sessions/20261105T132748Z_9c3265/previous_logger.txt": {
+    "bytes": 87,
+    "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+  },
+  "sessions/20261105T132748Z_9c3265/receiver_probe_attempts.json": {
+    "bytes": 3,
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "sessions/20261105T132748Z_9c3265/logger_stop_before.txt": {
+    "bytes": 58,
+    "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac"
+  },
+  "sessions/20261105T132748Z_9c3265/px4_before.json": {
+    "bytes": 342,
+    "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+  },
+  "sessions/20261105T132748Z_9c3265/logger_recording.txt": {
+    "bytes": 410,
+    "sha256": "60b304092a97a3457e7954e4056f58f925cdb87ed423a2113230a1ea6ed7a00c"
+  },
+  "sessions/20261105T132748Z_9c3265/health.jsonl": {
+    "bytes": 97580,
+    "sha256": "65deb6c1f282fdbaac6ef43ff02446ae0793dd856c6e88855d65798fabf39442"
+  },
+  "sessions/20261105T132748Z_9c3265/mavlink_receive.csv": {
+    "bytes": 2993371,
+    "sha256": "defdb07ea7b5fe5bcc2f728ea767f88ff5ff32b41854ad7f37d0690524fd55f4"
+  },
+  "sessions/20261105T132748Z_9c3265/manifest.json": {
+    "bytes": 6242,
+    "sha256": "a1d454b7d795bdb3b59819a304e544138a3abd7c641a291767b0d3c219f56e6b"
+  },
+  "sessions/20261105T132748Z_9c3265/logger_start.txt": {
+    "bytes": 305,
+    "sha256": "918b72c5e23852c8faed2e2370cf35bfea7984b85bfcdf75cd6729f7f7043e45"
+  },
+  "sessions/20261105T132748Z_9c3265/logger_at_stop.txt": {
+    "bytes": 87,
+    "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+  },
+  "sessions/20261105T132748Z_9c3265/source_reports/report.html": {
+    "bytes": 144710,
+    "sha256": "fa81c0fa1f28990a6b3fa25b7a2301dbb2da8d866b2b8e702b5a2d34c5eb73bf"
+  },
+  "sessions/20261105T132748Z_9c3265/source_reports/audit.json": {
+    "bytes": 6939,
+    "sha256": "11a5d3e3d800acb05cb5db14e0badbb9d483f1e5a58f128b0d1bfd866fb63828"
+  },
+  "sessions/20261105T132748Z_9c3265/source_reports/recording_report.html": {
+    "bytes": 3839,
+    "sha256": "dd5ef023aed406301be37b11f1141ba957e524f5b20405c396c1b2fbb2e5ab52"
+  },
+  "sessions/20261105T131308Z_d3f681/receiver_after.json": {
+    "bytes": 1702,
+    "sha256": "2025581d15f9b28cea825265dedb77f1e527e661a4eef62e8097c7e1a6ce7f82"
+  },
+  "sessions/20261105T131308Z_d3f681/native.ulg": {
+    "bytes": 35395599,
+    "sha256": "40c7c1780aefa0d721503ea937cba22424aa8ab53dd4758d1a6325fe2218b0d3"
+  },
+  "sessions/20261105T131308Z_d3f681/runtime_manifest.json": {
+    "bytes": 6127,
+    "sha256": "028207c4d1e53da230848994b4aa47d233c35c00935557b41749ccb4469d4ca6"
+  },
+  "sessions/20261105T131308Z_d3f681/logger_close.txt": {
+    "bytes": 58,
+    "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac"
+  },
+  "sessions/20261105T131308Z_d3f681/mavlink.bin": {
+    "bytes": 9090704,
+    "sha256": "6b9155dfa985dbcd8f57c079b2b8b5fad9a0d91da78c5bab3cf647c53d67e2c8"
+  },
+  "sessions/20261105T131308Z_d3f681/receiver_before.json": {
+    "bytes": 1700,
+    "sha256": "e1c6422c3f47a3b34bfba84d69fffe8cc88df0632802776d677db5cf8a87089d"
+  },
+  "sessions/20261105T131308Z_d3f681/live_health.json": {
+    "bytes": 307,
+    "sha256": "8f03c807e2053ed7fbb40bcf199238a0745b04d6349dfb6966dcc683a7b0c942"
+  },
+  "sessions/20261105T131308Z_d3f681/native_download.json": {
+    "bytes": 383,
+    "sha256": "bc7ca1f8501184c22f7b1bdfb8ca7410e1aadbc08acbdaaa40fb44fa72a17b8e"
+  },
+  "sessions/20261105T131308Z_d3f681/firmware.txt": {
+    "bytes": 497,
+    "sha256": "36555d46f7d31285fa5dc335d44659326de07a57989b792c58d97e697394ba2f"
+  },
+  "sessions/20261105T131308Z_d3f681/px4_after.json": {
+    "bytes": 342,
+    "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+  },
+  "sessions/20261105T131308Z_d3f681/logger_closed_status.txt": {
+    "bytes": 87,
+    "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+  },
+  "sessions/20261105T131308Z_d3f681/memory_before_logger.txt": {
+    "bytes": 267,
+    "sha256": "66f07f0035a35d082ef24db7fc93f8ca104fe6f4a91abffd5e8ae9ef39ba095a"
+  },
+  "sessions/20261105T131308Z_d3f681/clock_sync.csv": {
+    "bytes": 176,
+    "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85"
+  },
+  "sessions/20261105T131308Z_d3f681/receiver_receive.csv": {
+    "bytes": 1740198,
+    "sha256": "06019b2d0bd2898dfd1fe6081dfe2a9d6fe4ee07d3438291ca60ab6040863975"
+  },
+  "sessions/20261105T131308Z_d3f681/receiver.bin": {
+    "bytes": 10896611,
+    "sha256": "f2c90f3c820f3e16e2fc21510353d4762c1674c03a5cd44eff2582b58743eb4c"
+  },
+  "sessions/20261105T131308Z_d3f681/previous_logger.txt": {
+    "bytes": 406,
+    "sha256": "1b329258989f125302dd99443717ae746f9eac9835cf8c80af626d2ff9ee674b"
+  },
+  "sessions/20261105T131308Z_d3f681/receiver_probe_attempts.json": {
+    "bytes": 104,
+    "sha256": "eab56f8a5844cbaeb45a74b9661190c413ed97e5d65237a52c8b779afa6f0430"
+  },
+  "sessions/20261105T131308Z_d3f681/logger_stop_before.txt": {
+    "bytes": 58,
+    "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac"
+  },
+  "sessions/20261105T131308Z_d3f681/baud_transaction.json": {
+    "bytes": 821,
+    "sha256": "7600251bd0ab7c60b9ad1f79694da38dd20f6e69e3be41d637702584f771a168"
+  },
+  "sessions/20261105T131308Z_d3f681/px4_before.json": {
+    "bytes": 342,
+    "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+  },
+  "sessions/20261105T131308Z_d3f681/logger_recording.txt": {
+    "bytes": 409,
+    "sha256": "b8bd73f4fe4105dba35eaadac62fb7dfa41c8baeb3af14f0d84d3dc369c38478"
+  },
+  "sessions/20261105T131308Z_d3f681/health.jsonl": {
+    "bytes": 203626,
+    "sha256": "072860ad642c670e56379c2d4b90725846fb22ce9407c2bc9a17c86f0abe4e1a"
+  },
+  "sessions/20261105T131308Z_d3f681/mavlink_receive.csv": {
+    "bytes": 6243252,
+    "sha256": "6c2201311f97be69e6fd631e970ddc8db189f213f23a25674b8a90511319a514"
+  },
+  "sessions/20261105T131308Z_d3f681/manifest.json": {
+    "bytes": 6541,
+    "sha256": "0fa14ef6035b0f7b3a81f581051c454f2fd8979ccab2256878a04ca6736abb0a"
+  },
+  "sessions/20261105T131308Z_d3f681/logger_start.txt": {
+    "bytes": 305,
+    "sha256": "e92dfe1ddfe90a8ba4ea663c0c66d2e1d1776819b8e010f34273195863c0f15f"
+  },
+  "sessions/20261105T131308Z_d3f681/receiver_transaction.json": {
+    "bytes": 2857,
+    "sha256": "a954ae4c7ea433ad8d063106cd2b3a0801d17afe107337070d6227241d2851a5"
+  },
+  "sessions/20261105T131308Z_d3f681/logger_at_stop.txt": {
+    "bytes": 87,
+    "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+  },
+  "sessions/20261105T131308Z_d3f681/source_reports/report.html": {
+    "bytes": 289998,
+    "sha256": "43ac364352e52ad02bc1c8875871a3140f236c96390fef9dc9822ebf6d976496"
+  },
+  "sessions/20261105T131308Z_d3f681/source_reports/audit.json": {
+    "bytes": 7296,
+    "sha256": "785ac6977269112ba7d4a547398b867215e1716e416d965715b533c963d76600"
+  },
+  "sessions/20261105T131308Z_d3f681/source_reports/recording_report.html": {
+    "bytes": 3971,
+    "sha256": "0d450198ed3c56c0fadadce5d6fda36a0b458e7a9f6175fce5e27f7d36f0964e"
+  },
+  "sessions/20261105T131201Z_3f60be/runtime_manifest.json": {
+    "bytes": 1309,
+    "sha256": "c5e0cea90f4688ea6bd8515f89fe6330d3e31590be004c5d84771ad7f78bc39f"
+  },
+  "sessions/20261105T131201Z_3f60be/mavlink.bin": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sessions/20261105T131201Z_3f60be/receiver_before.json": {
+    "bytes": 1700,
+    "sha256": "ecb04322edfb4a60192ede712221ef1572ee482de4992908b7a7f8c05411d29d"
+  },
+  "sessions/20261105T131201Z_3f60be/firmware.txt": {
+    "bytes": 497,
+    "sha256": "36555d46f7d31285fa5dc335d44659326de07a57989b792c58d97e697394ba2f"
+  },
+  "sessions/20261105T131201Z_3f60be/clock_sync.csv": {
+    "bytes": 176,
+    "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85"
+  },
+  "sessions/20261105T131201Z_3f60be/receiver_receive.csv": {
+    "bytes": 78,
+    "sha256": "3624dc94687bb5d62b72af0f1a47e2c428e9b38d5861b58a9c6a12d425e82ec2"
+  },
+  "sessions/20261105T131201Z_3f60be/receiver.bin": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sessions/20261105T131201Z_3f60be/receiver_probe_attempts.json": {
+    "bytes": 104,
+    "sha256": "eab56f8a5844cbaeb45a74b9661190c413ed97e5d65237a52c8b779afa6f0430"
+  },
+  "sessions/20261105T131201Z_3f60be/health.jsonl": {
+    "bytes": 685,
+    "sha256": "8f7dd36d833b21fc4437516698b95ab04c9966262d2ceefa928c9a7630b6bb50"
+  },
+  "sessions/20261105T131201Z_3f60be/mavlink_receive.csv": {
+    "bytes": 78,
+    "sha256": "3624dc94687bb5d62b72af0f1a47e2c428e9b38d5861b58a9c6a12d425e82ec2"
+  },
+  "sessions/20261105T131201Z_3f60be/manifest.json": {
+    "bytes": 5091,
+    "sha256": "d4c8258fb86435294ca26552d84f242b6605daf3e078e8f5fee5ba81075e6e7e"
+  }
+}

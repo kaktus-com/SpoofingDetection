@@ -1,0 +1,11 @@
+{
+  "archive_sha256": "8667972e0ec770df8bf3fc2dd1370f94cdf88c49da4bff9bf95b253d77cc34c9",
+  "evidence_files_verified": 76,
+  "report_pages_checked": 5,
+  "report_links_checked": 82,
+  "tests_passed": 41,
+  "live_tests_passed": 2,
+  "startup_files_changed": false,
+  "receiver_persistence_writes": false,
+  "stage5_started": false
+}

@@ -1,0 +1,838 @@
+{
+  "recordings": [
+    {
+      "recording": 1,
+      "session": "20261105T131308Z_d3f681",
+      "pi_folder_time_cet": "2026-11-05T14:13:08+01:00",
+      "assessment": "Flight samples continuous; exclude marked ground events",
+      "raw_lifecycle": "stopped",
+      "combined_lifecycle": "stopped",
+      "raw_issues": {},
+      "rawx_epochs": 5987,
+      "rawx_duration_s": 299.2999999523163,
+      "rawx_unexpected_intervals": 0,
+      "rawx_clock_resets": 0,
+      "ubx_diagnostics": {
+        "valid_frames": 10879,
+        "invalid_candidates": 0,
+        "trailing_partial_candidates": 1
+      },
+      "archive_integrity": "PASS",
+      "recorder_dropped_bytes": 0,
+      "carrier_valid_percent": 93.3147398987392,
+      "carrier_and_half_cycle_valid_percent": 92.27886429067804,
+      "signal_identities": 72,
+      "lock_counter_decreases": 225,
+      "native_file": "native.ulg",
+      "bookmarked_sd_path": "/fs/microsd/log/2026-11-05/13_23_49.ulg",
+      "native_file_fingerprint": {
+        "bytes": 35395599,
+        "sha256": "40c7c1780aefa0d721503ea937cba22424aa8ab53dd4758d1a6325fe2218b0d3"
+      },
+      "native_imu": {
+        "samples": 61807,
+        "distinct_timestamps": 61807,
+        "duration_s": 309.894661,
+        "average_hz": 199.4419645713096,
+        "median_interval_us": 5000.0,
+        "max_interval_us": 1020434,
+        "duplicate_timestamps": 0,
+        "backwards_timestamps": 0,
+        "zero_timestamps": 0,
+        "large_gaps": 3,
+        "timestamp_source": "timestamp",
+        "publication_timing": {
+          "samples": 61807,
+          "distinct_timestamps": 61807,
+          "duration_s": 309.894661,
+          "average_hz": 199.4419645713096,
+          "median_interval_us": 5000.0,
+          "max_interval_us": 1020434,
+          "duplicate_timestamps": 0,
+          "backwards_timestamps": 0,
+          "zero_timestamps": 0,
+          "large_gaps": 3
+        },
+        "provenance_and_reset_fields": {
+          "accelerometer_clipping": {
+            "first": 0,
+            "last": 0,
+            "changes": 0
+          },
+          "gyro_clipping": {
+            "first": 0,
+            "last": 0,
+            "changes": 0
+          },
+          "accel_calibration_count": {
+            "first": 2,
+            "last": 3,
+            "changes": 1
+          },
+          "gyro_calibration_count": {
+            "first": 1,
+            "last": 1,
+            "changes": 0
+          }
+        },
+        "field_names": [
+          "timestamp",
+          "gyro_rad[0]",
+          "gyro_rad[1]",
+          "gyro_rad[2]",
+          "gyro_integral_dt",
+          "accelerometer_timestamp_relative",
+          "accelerometer_m_s2[0]",
+          "accelerometer_m_s2[1]",
+          "accelerometer_m_s2[2]",
+          "accelerometer_integral_dt",
+          "accelerometer_clipping",
+          "gyro_clipping",
+          "accel_calibration_count",
+          "gyro_calibration_count"
+        ]
+      },
+      "native_attitude": {
+        "samples": 61807,
+        "distinct_timestamps": 61807,
+        "duration_s": 309.894661,
+        "average_hz": 199.4419645713096,
+        "median_interval_us": 5000.0,
+        "max_interval_us": 1020434,
+        "duplicate_timestamps": 0,
+        "backwards_timestamps": 0,
+        "zero_timestamps": 0,
+        "large_gaps": 3,
+        "timestamp_source": "timestamp_sample",
+        "publication_timing": {
+          "samples": 61807,
+          "distinct_timestamps": 61807,
+          "duration_s": 309.895144,
+          "average_hz": 199.44165372271854,
+          "median_interval_us": 5046.0,
+          "max_interval_us": 1020851,
+          "duplicate_timestamps": 0,
+          "backwards_timestamps": 0,
+          "zero_timestamps": 0,
+          "large_gaps": 4
+        },
+        "provenance_and_reset_fields": {
+          "timestamp_sample": {
+            "first": 856089269,
+            "last": 1165983930,
+            "changes": 61806
+          },
+          "quat_reset_counter": {
+            "first": 3,
+            "last": 5,
+            "changes": 2
+          }
+        },
+        "field_names": [
+          "timestamp",
+          "timestamp_sample",
+          "q[0]",
+          "q[1]",
+          "q[2]",
+          "q[3]",
+          "delta_q_reset[0]",
+          "delta_q_reset[1]",
+          "delta_q_reset[2]",
+          "delta_q_reset[3]",
+          "quat_reset_counter"
+        ]
+      },
+      "native_dropouts": [
+        {
+          "timestamp": 856162850,
+          "duration_ms": 0
+        },
+        {
+          "timestamp": 856162862,
+          "duration_ms": 1017
+        }
+      ],
+      "native_dropout_total_ms": 1017,
+      "native_issues": [
+        "Native ULog dropouts",
+        "Native IMU measurement gaps",
+        "Native attitude measurement gaps"
+      ],
+      "clipping_sample_counts": {
+        "accelerometer_clipping": 0,
+        "gyro_clipping": 0
+      },
+      "armed": {
+        "duration_s": 165.585472,
+        "intervals_boot_us": [
+          [
+            909720435,
+            913009215
+          ],
+          [
+            923215604,
+            934229550
+          ],
+          [
+            960555721,
+            1111838467
+          ]
+        ],
+        "intervals_elapsed_s": [
+          [
+            53.631166,
+            56.919946
+          ],
+          [
+            67.126335,
+            78.140281
+          ],
+          [
+            104.466452,
+            255.749198
+          ]
+        ]
+      },
+      "airborne": {
+        "duration_s": 144.81802,
+        "intervals_boot_us": [
+          [
+            965015083,
+            1109833103
+          ]
+        ],
+        "intervals_elapsed_s": [
+          [
+            108.925814,
+            253.743834
+          ]
+        ]
+      },
+      "native_quality_events": [
+        {
+          "kind": "measurement_gap",
+          "topic": "sensor_combined",
+          "before_boot_us": 856158906,
+          "after_boot_us": 857179340,
+          "gap_ms": 1020.434,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "measurement_gap",
+          "topic": "sensor_combined",
+          "before_boot_us": 889324633,
+          "after_boot_us": 889334528,
+          "gap_ms": 9.895,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "measurement_gap",
+          "topic": "sensor_combined",
+          "before_boot_us": 1111838345,
+          "after_boot_us": 1111853256,
+          "gap_ms": 14.911,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "counter_change",
+          "topic": "sensor_combined",
+          "field": "accel_calibration_count",
+          "boot_us": 1111853256,
+          "new_value": 3,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "measurement_gap",
+          "topic": "vehicle_attitude",
+          "before_boot_us": 856158906,
+          "after_boot_us": 857179340,
+          "gap_ms": 1020.434,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "measurement_gap",
+          "topic": "vehicle_attitude",
+          "before_boot_us": 889324633,
+          "after_boot_us": 889334528,
+          "gap_ms": 9.895,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "measurement_gap",
+          "topic": "vehicle_attitude",
+          "before_boot_us": 1111838345,
+          "after_boot_us": 1111853256,
+          "gap_ms": 14.911,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "counter_change",
+          "topic": "vehicle_attitude",
+          "field": "quat_reset_counter",
+          "boot_us": 1112122147,
+          "new_value": 4,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "counter_change",
+          "topic": "vehicle_attitude",
+          "field": "quat_reset_counter",
+          "boot_us": 1144135757,
+          "new_value": 5,
+          "overlaps_airborne": false
+        }
+      ],
+      "native_quality_events_overlapping_airborne": 0,
+      "max_orientation_change_deg": 179.99970897584657,
+      "raw_px4_source_ranges_boot_us": {
+        "HIGHRES_IMU": [
+          862057387,
+          1161402431
+        ],
+        "ATTITUDE_QUATERNION": [
+          862058000,
+          1161403000
+        ]
+      },
+      "native_px4_ranges_boot_us": {
+        "HIGHRES_IMU": [
+          856089269,
+          1165983930
+        ],
+        "ATTITUDE_QUATERNION": [
+          856089651,
+          1165984795
+        ]
+      },
+      "native_covers_raw_px4_source_times": {
+        "HIGHRES_IMU": true,
+        "ATTITUDE_QUATERNION": true
+      },
+      "mavlink_source_gap_checks": {
+        "1:1:ATTITUDE": {
+          "median_interval_s": 0.009999999999990905,
+          "max_interval_s": 0.05899999999996908,
+          "large_gaps": 604,
+          "backwards_timestamps": 0
+        },
+        "1:1:HIGHRES_IMU": {
+          "median_interval_s": 0.019901000000004387,
+          "max_interval_s": 0.06471699999997327,
+          "large_gaps": 6,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE_QUATERNION": {
+          "median_interval_s": 0.01999999999998181,
+          "max_interval_s": 0.06399999999996453,
+          "large_gaps": 4,
+          "backwards_timestamps": 0
+        }
+      },
+      "clock_alignment": "UNKNOWN",
+      "native_imu_reference_accepted_by_user_hz": 189.6,
+      "spoofing_label": "not provided; no detector verdict inferred"
+    },
+    {
+      "recording": 2,
+      "session": "20261105T132010Z_c4cbfd",
+      "pi_folder_time_cet": "2026-11-05T14:20:10+01:00",
+      "assessment": "Flight samples continuous; exclude marked ground events",
+      "raw_lifecycle": "stopped",
+      "combined_lifecycle": "stopped",
+      "raw_issues": {},
+      "rawx_epochs": 3477,
+      "rawx_duration_s": 173.79999995231628,
+      "rawx_unexpected_intervals": 0,
+      "rawx_clock_resets": 0,
+      "ubx_diagnostics": {
+        "valid_frames": 6367,
+        "invalid_candidates": 0,
+        "trailing_partial_candidates": 0
+      },
+      "archive_integrity": "PASS",
+      "recorder_dropped_bytes": 0,
+      "carrier_valid_percent": 92.82172067501811,
+      "carrier_and_half_cycle_valid_percent": 91.8407702660731,
+      "signal_identities": 70,
+      "lock_counter_decreases": 202,
+      "native_file": "native.ulg",
+      "bookmarked_sd_path": "/fs/microsd/log/2026-11-05/13_30_43.ulg",
+      "native_file_fingerprint": {
+        "bytes": 20774737,
+        "sha256": "e38ae79ecf34da97b02b3c7ad2d3ad4784e5cea53e831535d47d179e3220b0f9"
+      },
+      "native_imu": {
+        "samples": 35084,
+        "distinct_timestamps": 35084,
+        "duration_s": 184.894269,
+        "average_hz": 189.74628142746815,
+        "median_interval_us": 5276.0,
+        "max_interval_us": 8213,
+        "duplicate_timestamps": 0,
+        "backwards_timestamps": 0,
+        "zero_timestamps": 0,
+        "large_gaps": 1,
+        "timestamp_source": "timestamp",
+        "publication_timing": {
+          "samples": 35084,
+          "distinct_timestamps": 35084,
+          "duration_s": 184.894269,
+          "average_hz": 189.74628142746815,
+          "median_interval_us": 5276.0,
+          "max_interval_us": 8213,
+          "duplicate_timestamps": 0,
+          "backwards_timestamps": 0,
+          "zero_timestamps": 0,
+          "large_gaps": 1
+        },
+        "provenance_and_reset_fields": {
+          "accelerometer_clipping": {
+            "first": 0,
+            "last": 0,
+            "changes": 0
+          },
+          "gyro_clipping": {
+            "first": 0,
+            "last": 0,
+            "changes": 0
+          },
+          "accel_calibration_count": {
+            "first": 3,
+            "last": 4,
+            "changes": 1
+          },
+          "gyro_calibration_count": {
+            "first": 1,
+            "last": 1,
+            "changes": 0
+          }
+        },
+        "field_names": [
+          "timestamp",
+          "gyro_rad[0]",
+          "gyro_rad[1]",
+          "gyro_rad[2]",
+          "gyro_integral_dt",
+          "accelerometer_timestamp_relative",
+          "accelerometer_m_s2[0]",
+          "accelerometer_m_s2[1]",
+          "accelerometer_m_s2[2]",
+          "accelerometer_integral_dt",
+          "accelerometer_clipping",
+          "gyro_clipping",
+          "accel_calibration_count",
+          "gyro_calibration_count"
+        ]
+      },
+      "native_attitude": {
+        "samples": 35085,
+        "distinct_timestamps": 35085,
+        "duration_s": 184.894269,
+        "average_hz": 189.7516899239316,
+        "median_interval_us": 5276.0,
+        "max_interval_us": 5547,
+        "duplicate_timestamps": 0,
+        "backwards_timestamps": 0,
+        "zero_timestamps": 0,
+        "large_gaps": 0,
+        "timestamp_source": "timestamp_sample",
+        "publication_timing": {
+          "samples": 35085,
+          "distinct_timestamps": 35085,
+          "duration_s": 184.893544,
+          "average_hz": 189.75243397357346,
+          "median_interval_us": 5248.0,
+          "max_interval_us": 8403,
+          "duplicate_timestamps": 0,
+          "backwards_timestamps": 0,
+          "zero_timestamps": 0,
+          "large_gaps": 1
+        },
+        "provenance_and_reset_fields": {
+          "timestamp_sample": {
+            "first": 1270092664,
+            "last": 1454986933,
+            "changes": 35084
+          },
+          "quat_reset_counter": {
+            "first": 6,
+            "last": 8,
+            "changes": 2
+          }
+        },
+        "field_names": [
+          "timestamp",
+          "timestamp_sample",
+          "q[0]",
+          "q[1]",
+          "q[2]",
+          "q[3]",
+          "delta_q_reset[0]",
+          "delta_q_reset[1]",
+          "delta_q_reset[2]",
+          "delta_q_reset[3]",
+          "quat_reset_counter"
+        ]
+      },
+      "native_dropouts": [],
+      "native_dropout_total_ms": 0,
+      "native_issues": [
+        "Native IMU measurement gaps"
+      ],
+      "clipping_sample_counts": {
+        "accelerometer_clipping": 0,
+        "gyro_clipping": 0
+      },
+      "armed": {
+        "duration_s": 84.892021,
+        "intervals_boot_us": [
+          [
+            1355047445,
+            1439939466
+          ]
+        ],
+        "intervals_elapsed_s": [
+          [
+            84.954781,
+            169.846802
+          ]
+        ]
+      },
+      "airborne": {
+        "duration_s": 81.058139,
+        "intervals_boot_us": [
+          [
+            1356864576,
+            1437922715
+          ]
+        ],
+        "intervals_elapsed_s": [
+          [
+            86.771912,
+            167.830051
+          ]
+        ]
+      },
+      "native_quality_events": [
+        {
+          "kind": "measurement_gap",
+          "topic": "sensor_combined",
+          "before_boot_us": 1297940802,
+          "after_boot_us": 1297949015,
+          "gap_ms": 8.213,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "counter_change",
+          "topic": "sensor_combined",
+          "field": "accel_calibration_count",
+          "boot_us": 1439947141,
+          "new_value": 4,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "counter_change",
+          "topic": "vehicle_attitude",
+          "field": "quat_reset_counter",
+          "boot_us": 1297938920,
+          "new_value": 7,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "counter_change",
+          "topic": "vehicle_attitude",
+          "field": "quat_reset_counter",
+          "boot_us": 1308152486,
+          "new_value": 8,
+          "overlaps_airborne": false
+        }
+      ],
+      "native_quality_events_overlapping_airborne": 0,
+      "max_orientation_change_deg": 179.9738869372719,
+      "raw_px4_source_ranges_boot_us": {
+        "HIGHRES_IMU": [
+          1276041956,
+          1449867939
+        ],
+        "ATTITUDE_QUATERNION": [
+          1276042000,
+          1449868000
+        ]
+      },
+      "native_px4_ranges_boot_us": {
+        "HIGHRES_IMU": [
+          1270092664,
+          1454986933
+        ],
+        "ATTITUDE_QUATERNION": [
+          1270093946,
+          1454987490
+        ]
+      },
+      "native_covers_raw_px4_source_times": {
+        "HIGHRES_IMU": true,
+        "ATTITUDE_QUATERNION": true
+      },
+      "mavlink_source_gap_checks": {
+        "1:1:ATTITUDE": {
+          "median_interval_s": 0.009999999999990905,
+          "max_interval_s": 0.057999999999992724,
+          "large_gaps": 893,
+          "backwards_timestamps": 0
+        },
+        "1:1:HIGHRES_IMU": {
+          "median_interval_s": 0.02113299999996343,
+          "max_interval_s": 0.058177999999998065,
+          "large_gaps": 2,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE_QUATERNION": {
+          "median_interval_s": 0.020999999999958163,
+          "max_interval_s": 0.057999999999992724,
+          "large_gaps": 2,
+          "backwards_timestamps": 0
+        }
+      },
+      "clock_alignment": "UNKNOWN",
+      "native_imu_reference_accepted_by_user_hz": 189.6,
+      "spoofing_label": "not provided; no detector verdict inferred"
+    },
+    {
+      "recording": 3,
+      "session": "20261105T132748Z_9c3265",
+      "pi_folder_time_cet": "2026-11-05T14:27:48+01:00",
+      "assessment": "Continuous stationary reference; no airborne interval",
+      "raw_lifecycle": "stopped",
+      "combined_lifecycle": "stopped",
+      "raw_issues": {},
+      "rawx_epochs": 2865,
+      "rawx_duration_s": 143.20000004768372,
+      "rawx_unexpected_intervals": 0,
+      "rawx_clock_resets": 0,
+      "ubx_diagnostics": {
+        "valid_frames": 5126,
+        "invalid_candidates": 0,
+        "trailing_partial_candidates": 1
+      },
+      "archive_integrity": "PASS",
+      "recorder_dropped_bytes": 0,
+      "carrier_valid_percent": 90.95151825449963,
+      "carrier_and_half_cycle_valid_percent": 90.77035169942106,
+      "signal_identities": 61,
+      "lock_counter_decreases": 27,
+      "native_file": "native_001.ulg",
+      "bookmarked_sd_path": "/fs/microsd/log/2026-11-05/13_38_21.ulg",
+      "native_file_fingerprint": {
+        "bytes": 17210169,
+        "sha256": "2bbfb5d63a0558c79f22eac9398fc39f13152422e4255f85be461f194019c63b"
+      },
+      "native_imu": {
+        "samples": 29266,
+        "distinct_timestamps": 29266,
+        "duration_s": 153.887281,
+        "average_hz": 190.17166207517826,
+        "median_interval_us": 5253.0,
+        "max_interval_us": 6263,
+        "duplicate_timestamps": 0,
+        "backwards_timestamps": 0,
+        "zero_timestamps": 0,
+        "large_gaps": 0,
+        "timestamp_source": "timestamp",
+        "publication_timing": {
+          "samples": 29266,
+          "distinct_timestamps": 29266,
+          "duration_s": 153.887281,
+          "average_hz": 190.17166207517826,
+          "median_interval_us": 5253.0,
+          "max_interval_us": 6263,
+          "duplicate_timestamps": 0,
+          "backwards_timestamps": 0,
+          "zero_timestamps": 0,
+          "large_gaps": 0
+        },
+        "provenance_and_reset_fields": {
+          "accelerometer_clipping": {
+            "first": 0,
+            "last": 0,
+            "changes": 0
+          },
+          "gyro_clipping": {
+            "first": 0,
+            "last": 0,
+            "changes": 0
+          },
+          "accel_calibration_count": {
+            "first": 4,
+            "last": 4,
+            "changes": 0
+          },
+          "gyro_calibration_count": {
+            "first": 1,
+            "last": 1,
+            "changes": 0
+          }
+        },
+        "field_names": [
+          "timestamp",
+          "gyro_rad[0]",
+          "gyro_rad[1]",
+          "gyro_rad[2]",
+          "gyro_integral_dt",
+          "accelerometer_timestamp_relative",
+          "accelerometer_m_s2[0]",
+          "accelerometer_m_s2[1]",
+          "accelerometer_m_s2[2]",
+          "accelerometer_integral_dt",
+          "accelerometer_clipping",
+          "gyro_clipping",
+          "accel_calibration_count",
+          "gyro_calibration_count"
+        ]
+      },
+      "native_attitude": {
+        "samples": 29266,
+        "distinct_timestamps": 29266,
+        "duration_s": 153.887281,
+        "average_hz": 190.17166207517826,
+        "median_interval_us": 5253.0,
+        "max_interval_us": 6333,
+        "duplicate_timestamps": 0,
+        "backwards_timestamps": 0,
+        "zero_timestamps": 0,
+        "large_gaps": 0,
+        "timestamp_source": "timestamp_sample",
+        "publication_timing": {
+          "samples": 29266,
+          "distinct_timestamps": 29266,
+          "duration_s": 153.886818,
+          "average_hz": 190.17223424556093,
+          "median_interval_us": 5251.0,
+          "max_interval_us": 8151,
+          "duplicate_timestamps": 0,
+          "backwards_timestamps": 0,
+          "zero_timestamps": 0,
+          "large_gaps": 1
+        },
+        "provenance_and_reset_fields": {
+          "timestamp_sample": {
+            "first": 1728094569,
+            "last": 1881981850,
+            "changes": 29265
+          },
+          "quat_reset_counter": {
+            "first": 14,
+            "last": 16,
+            "changes": 2
+          }
+        },
+        "field_names": [
+          "timestamp",
+          "timestamp_sample",
+          "q[0]",
+          "q[1]",
+          "q[2]",
+          "q[3]",
+          "delta_q_reset[0]",
+          "delta_q_reset[1]",
+          "delta_q_reset[2]",
+          "delta_q_reset[3]",
+          "quat_reset_counter"
+        ]
+      },
+      "native_dropouts": [],
+      "native_dropout_total_ms": 0,
+      "native_issues": [],
+      "clipping_sample_counts": {
+        "accelerometer_clipping": 0,
+        "gyro_clipping": 0
+      },
+      "armed": {
+        "duration_s": 0,
+        "intervals_boot_us": [],
+        "intervals_elapsed_s": []
+      },
+      "airborne": {
+        "duration_s": 0,
+        "intervals_boot_us": [],
+        "intervals_elapsed_s": []
+      },
+      "native_quality_events": [
+        {
+          "kind": "counter_change",
+          "topic": "vehicle_attitude",
+          "field": "quat_reset_counter",
+          "boot_us": 1806546160,
+          "new_value": 15,
+          "overlaps_airborne": false
+        },
+        {
+          "kind": "counter_change",
+          "topic": "vehicle_attitude",
+          "field": "quat_reset_counter",
+          "boot_us": 1816756239,
+          "new_value": 16,
+          "overlaps_airborne": false
+        }
+      ],
+      "native_quality_events_overlapping_airborne": 0,
+      "max_orientation_change_deg": 1.630073804064911,
+      "raw_px4_source_ranges_boot_us": {
+        "HIGHRES_IMU": [
+          1734041661,
+          1877301726
+        ],
+        "ATTITUDE_QUATERNION": [
+          1734042000,
+          1877303000
+        ]
+      },
+      "native_px4_ranges_boot_us": {
+        "HIGHRES_IMU": [
+          1728094569,
+          1881981850
+        ],
+        "ATTITUDE_QUATERNION": [
+          1728095582,
+          1881982400
+        ]
+      },
+      "native_covers_raw_px4_source_times": {
+        "HIGHRES_IMU": true,
+        "ATTITUDE_QUATERNION": true
+      },
+      "mavlink_source_gap_checks": {
+        "1:1:HIGHRES_IMU": {
+          "median_interval_s": 0.021084999999857246,
+          "max_interval_s": 0.02663099999995211,
+          "large_gaps": 0,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE": {
+          "median_interval_s": 0.009999999999990905,
+          "max_interval_s": 0.018000000000029104,
+          "large_gaps": 686,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE_QUATERNION": {
+          "median_interval_s": 0.020999999999958163,
+          "max_interval_s": 0.02800000000002001,
+          "large_gaps": 0,
+          "backwards_timestamps": 0
+        }
+      },
+      "clock_alignment": "UNKNOWN",
+      "native_imu_reference_accepted_by_user_hz": 189.6,
+      "spoofing_label": "not provided; no detector verdict inferred"
+    }
+  ],
+  "failed_setup_attempt": "20261105T131201Z_3f60be",
+  "source_evidence_files_verified": 113,
+  "pending_downloads_recovered": [
+    "20261105T131308Z_d3f681",
+    "20261105T132748Z_9c3265"
+  ],
+  "source_raw_archives_and_manifests_unchanged": true,
+  "timesync_changes_deployed": false,
+  "gnss_to_px4_clock_alignment": "UNKNOWN",
+  "detector_run": false
+}

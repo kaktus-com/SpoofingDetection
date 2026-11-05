@@ -1,0 +1,63 @@
+{
+  "router_process": {
+    "command": [
+      "ps",
+      "-C",
+      "mavlink-routerd",
+      "-o",
+      "pid,args"
+    ],
+    "returncode": 0,
+    "stdout": "    PID COMMAND\n  19394 /usr/bin/mavlink-routerd -e 127.0.0.1:14551 /dev/ttyACM0:1500000\n",
+    "stderr": ""
+  },
+  "router_version": {
+    "command": [
+      "/usr/bin/mavlink-routerd",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "mavlink-router version v4-16-g2362c62\n",
+    "stderr": ""
+  },
+  "router_service": {
+    "command": [
+      "systemctl",
+      "is-active",
+      "mavlink-router"
+    ],
+    "returncode": 3,
+    "stdout": "inactive\n",
+    "stderr": ""
+  },
+  "udp_sockets": {
+    "command": [
+      "ss",
+      "-unlp"
+    ],
+    "returncode": 0,
+    "stdout": "State  Recv-Q Send-Q               Local Address:Port  Peer Address:PortProcess                                    \nUNCONN 0      0                          0.0.0.0:43157      0.0.0.0:*                                              \nUNCONN 0      0                          0.0.0.0:35490      0.0.0.0:*    users:((\"mavlink-routerd\",pid=19394,fd=5))\nUNCONN 0      0                        127.0.0.1:53         0.0.0.0:*                                              \nUNCONN 0      0                          0.0.0.0:67         0.0.0.0:*                                              \nUNCONN 0      0                          0.0.0.0:68         0.0.0.0:*                                              \nUNCONN 0      0                          0.0.0.0:5353       0.0.0.0:*                                              \nUNCONN 0      0      [fe80::2ecf:67ff:fe1c:3c94]:53               *:*                                              \nUNCONN 0      0                            [::1]:53               *:*                                              \nUNCONN 0      0                                *:546              *:*                                              \nUNCONN 0      0                                *:5353             *:*                                              \nUNCONN 0      0                                *:58968            *:*                                              \n",
+    "stderr": ""
+  },
+  "disk": {
+    "command": [
+      "df",
+      "-h",
+      "/home/nss"
+    ],
+    "returncode": 0,
+    "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/mmcblk0p2   29G   11G   17G  39% /\n",
+    "stderr": ""
+  },
+  "device_owners": {
+    "command": [
+      "fuser",
+      "-v",
+      "/dev/ttyUSB0",
+      "/dev/ttyACM0"
+    ],
+    "returncode": 0,
+    "stdout": " 19394",
+    "stderr": "                     USER        PID ACCESS COMMAND\n/dev/ttyACM0:        nss       F.... mavlink-routerd\n"
+  }
+}

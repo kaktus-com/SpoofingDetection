@@ -1,0 +1,11 @@
+{
+  "capture_status": "failed",
+  "dropped_bytes_by_stream": {
+    "receiver": 21200,
+    "mavlink": 10271
+  },
+  "automatic_rollback_verified": true,
+  "restored_baud": 921600,
+  "superseded_by": "acquisition_20261105T103442Z",
+  "included_in_passing_acceptance": false
+}

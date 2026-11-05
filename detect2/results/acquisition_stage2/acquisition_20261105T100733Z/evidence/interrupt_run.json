@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/home/nss/SpoofingDetection/releases/acquisition_20261105T100733Z/start_capture",
+    "--output-root",
+    "/home/nss/SpoofingDetection/recordings_v2_stage2/acquisition_20261105T100733Z/interrupt",
+    "--duration-s",
+    "30",
+    "--expected-rawx-hz",
+    "25"
+  ],
+  "CAPTURE_PYTHON": "/home/nss/venv/bin/python",
+  "exit_code": 130,
+  "elapsed_s": 15.366458893753588,
+  "session": "/home/nss/SpoofingDetection/recordings_v2_stage2/acquisition_20261105T100733Z/interrupt/20261105T101248Z_1a2662",
+  "signal": "SIGINT to own capture child",
+  "expected_status": "stopped"
+}

@@ -1,0 +1,44 @@
+{
+  "release_id": "acquisition_20261105T105214Z",
+  "stage": 4,
+  "stage3_approval": "user: ok continue",
+  "tests_passed": 27,
+  "source_files": {
+    "start_capture": "9786009a243c63e3247055da96e8d90997c88a603c2dddf98b77640585403971",
+    "detect2/acquisition/__init__.py": "3c0a4de92b2ea160cc5c8884e50dd2a09f7e498cfc54fe4541bb21a8471868b7",
+    "detect2/acquisition/audit_session.py": "00a12dc73c9c191f6d62b6b84a35c13bbe1bcc0ffcf5fbacf27ffa85bbc5fc35",
+    "detect2/acquisition/baudrate.py": "58292dd9c67d4fec328f4786a20b7680fcd0005988a8b04106280145e8ca70c8",
+    "detect2/acquisition/capture.py": "2cc93e4f73b7981c54dd7ee65526b6343aeb0fad58307ecb605ab0a5874902ec",
+    "detect2/acquisition/common.py": "8f3d0cc68b1d0380a89f6409682258ff14d83462dde46d72fe18895e332ef11a",
+    "detect2/acquisition/mavlink_capture.py": "282d47e83673fd79561900cddd0d431297627731c5a3e0be72c0c6d002bcdfdd",
+    "detect2/acquisition/px4_logging.py": "0ace3836d3bae2539904c8dae403ef0426fbc68d3a67a0f3c40f000ceaffc81e",
+    "detect2/acquisition/receiver_config.py": "ff7c0bc2bdf4bbc61d3ef69dbb6b4a644db0a78f97b91c48f8c1fcf620c24059",
+    "detect2/acquisition/replay.py": "ccab711ce41547fd322970737e5eb011d7e957f432cc650712ed63bec89cd359",
+    "detect2/acquisition/serial_capture.py": "39403bfe0a7294da96f81ccffdea92af7a8e37c1e57147556d3229372ea6ffaa",
+    "detect2/acquisition/timesync.py": "621e8d0946436117d073dcf3a04d9d8a64a7392178621f53683b39a5bb5fb48f",
+    "detect2/acquisition/ubx.py": "cf6466683219c46d1f071fcbbd99ecf75e43a365f4d07534424e32b981c5c145",
+    "detect2/acquisition/ulog_audit.py": "266c7399fd49cb3237d7eee38cdcf018391c5aecedcc21f9edebff6573435906",
+    "detect2/acquisition/audit_template.html": "89a0bdb1321e1c6839b119a4cce541d71d46ae0fadb7d0a8888f4424bd4e0abc",
+    "detect2/acquisition/x20_recording_profile.json": "800400fb7ac7f252f6acde246832a9becfbcddbab0b33f0b564026eadb9b7af8",
+    "detect2/acquisition/requirements.txt": "81ced511ffda4fcc5a23fb19f1dc58278506777c883230acc33fcf061526bb1e",
+    "detect2/acquisition/px4_logging_profile.params": "cf661b8d033fb2d7fc5e923d063e785fcaf0ae2e2cf5b1af4318dfa4f73f8c31"
+  },
+  "firmware_hash": "cb411db5b54a98442ab974292c81b74c057bdf25",
+  "planned_logging_diff": {
+    "SDLOG_PROFILE": [
+      1,
+      17
+    ],
+    "SDLOG_MODE": [
+      0,
+      2
+    ],
+    "SDLOG_BACKEND": [
+      3,
+      3
+    ]
+  },
+  "restart_scope": "logger module only; SD startup behavior after autopilot reboot remains unverified",
+  "receiver_writes": false,
+  "arming_commands": false
+}

@@ -1,0 +1,5 @@
+
+NuttShell (NSH) NuttX-11.0.0
+nsh> [Klogger status
+INFO  [module] not running
+nsh> [K

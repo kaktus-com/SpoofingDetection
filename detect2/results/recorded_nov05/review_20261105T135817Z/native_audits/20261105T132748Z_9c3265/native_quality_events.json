@@ -1,0 +1,18 @@
+[
+  {
+    "kind": "counter_change",
+    "topic": "vehicle_attitude",
+    "field": "quat_reset_counter",
+    "boot_us": 1806546160,
+    "new_value": 15,
+    "overlaps_airborne": false
+  },
+  {
+    "kind": "counter_change",
+    "topic": "vehicle_attitude",
+    "field": "quat_reset_counter",
+    "boot_us": 1816756239,
+    "new_value": 16,
+    "overlaps_airborne": false
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "inspected_utc": "2026-11-05T14:45:57.847671+00:00",
+  "read_only": true,
+  "identity": {
+    "uid": 3544703520294189106,
+    "flight_sw_version": 255,
+    "flight_custom_version": [
+      0,
+      0,
+      0,
+      181,
+      181,
+      29,
+      65,
+      203
+    ],
+    "vendor_id": 11694,
+    "product_id": 4118
+  },
+  "parameters": {
+    "values": {
+      "PWM_AUX_FUNC1": 0,
+      "PWM_AUX_FUNC2": 0,
+      "PWM_AUX_FUNC3": 0,
+      "PWM_AUX_FUNC4": 0,
+      "PWM_AUX_FUNC5": 0,
+      "PWM_AUX_FUNC6": 0,
+      "PWM_AUX_TIM0": 400,
+      "PWM_AUX_TIM1": 400,
+      "PPS_CAP_ENABLE": 0,
+      "PPS_CAP_GPS_ID": 0,
+      "CAM_CAP_FBACK": 0,
+      "CAM_CAP_MODE": 0,
+      "CAM_CAP_EDGE": 0,
+      "SENS_EN_LL40LS": 0,
+      "FD_EXT_ATS_EN": 0,
+      "PWM_MAIN_FUNC1": 101,
+      "PWM_MAIN_FUNC2": 102,
+      "PWM_MAIN_FUNC3": 103,
+      "PWM_MAIN_FUNC4": 104,
+      "PWM_MAIN_FUNC5": 0,
+      "PWM_MAIN_FUNC6": 0,
+      "PWM_MAIN_FUNC7": 0,
+      "PWM_MAIN_FUNC8": 0
+    },
+    "unanswered": []
+  },
+  "status": {
+    "ver all": "\nNuttShell (NSH) NuttX-11.0.0\nnsh> \u001b[Kver all\nHW arch: CUBEPILOT_CUBEORANGE\nPX4 git-hash: cb411db5b54a98442ab974292c81b74c057bdf25\nPX4 version: Release 0.0.0 (255)\nPX4 git-branch: more-configts\nOS: NuttX\nOS version: Release 11.0.0 (184549631)\nOS git-hash: 29450774d75a2ad4748ac93b2d8759f1ada48883\nBuild datetime: Jun  9 2026 21:09:54\nBuild uri: localhost\nBuild variant: default\nToolchain: GNU GCC, 13.2.1 20231009\nPX4GUID: 0006000000003136383231315112002c003c\nMCU: STM32H7[4|5]xxx, rev. V\nnsh> \u001b[K",
+    "pps_capture status": "\nNuttShell (NSH) NuttX-11.0.0\nnsh> \u001b[Kpps_capture status\nINFO  [module] not running\nnsh> \u001b[K",
+    "camera_capture status": "\nNuttShell (NSH) NuttX-11.0.0\nnsh> \u001b[Kcamera_capture status\nWARN  [camera_capture] not running\nnsh> \u001b[K",
+    "pwm_out status": "\nNuttShell (NSH) NuttX-11.0.0\nnsh> \u001b[Kpwm_out status\npwm_out: cycle: 3239 events, 18309us elapsed, 5.65us avg, min 2us max 863us 28.572us rms\npwm_out: interval: 3239 events, 299907.41us avg, min 297341us max 302687us 438.884us rms\nINFO  [mixer_module] Param prefix: PWM_AUX\ncontrol latency: 0 events, 0us elapsed, 0.00us avg, min 0us max 0us 0.000us rms\nChannel Configuration:\nChannel  0: func:   0, value: 1000.00, failsafe: 1000.00, disarmed: 1000, min: 1100, max: 1900, center: 65535\nChannel  1: func:   0, value: 1000.00, failsafe: 1000.00, disarmed: 1000, min: 1100, max: 1900, center: 65535\nChannel  2: func:   0, value: 1000.00, failsafe: 1000.00, disarmed: 1000, min: 1100, max: 1900, center: 65535\nChannel  3: func:   0, value: 1000.00, failsafe: 1000.00, disarmed: 1000, min: 1100, max: 1900, center: 65535\nChannel  4: func:   0, value: 1000.00, failsafe: 1000.00, disarmed: 1000, min: 1000, max: 2000, center: 65535\nChannel  5: func:   0, value: 1000.00, failsafe: 1000.00, disarmed: 1000, min: 1000, max: 2000, center: 65535\nTimer 0: rate: 400 channels: 0 1 2 3 \nTimer 1: rate: 400 channels: 4 5 \nnsh> \u001b[K",
+    "pwm_input status": "\nNuttShell (NSH) NuttX-11.0.0\nnsh> \u001b[Kpwm_input status\nINFO  [module] not running\nnsh> \u001b[K",
+    "logger status": "\nNuttShell (NSH) NuttX-11.0.0\nnsh> \u001b[Klogger status\nINFO  [module] not running\nnsh> \u001b[K"
+  }
+}

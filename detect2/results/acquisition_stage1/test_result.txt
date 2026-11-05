@@ -1,0 +1,4 @@
+Recorded test result from successful local test run, 5 November 2026:
+149 passed in 31.54s
+15 acquisition tests + 134 existing detector/geometry tests.
+Local loopback UDP and pseudo-terminal tests only; no drone access.

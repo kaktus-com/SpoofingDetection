@@ -1,0 +1,50 @@
+[
+  {
+    "source": "/home/nss/SpoofingDetection/detrend_carrier.py",
+    "backup": "scripts/detrend_carrier.py",
+    "sha256": "f803a1209797081ce6c3f69ddd3b72e95e6f8ce40e64fca02db59fc3230cede8",
+    "bytes": 4867
+  },
+  {
+    "source": "/home/nss/SpoofingDetection/mavlink_read.py",
+    "backup": "scripts/mavlink_read.py",
+    "sha256": "3716eb6efb6055451aff38b0c22620cf025423c4897ba0fe17f754f7157424f7",
+    "bytes": 5831
+  },
+  {
+    "source": "/home/nss/SpoofingDetection/npy_database.py",
+    "backup": "scripts/npy_database.py",
+    "sha256": "7d339a00c81434a7ed3dbda3b0e40081cebdbe1e1c843e4952dcea34257b5492",
+    "bytes": 10101
+  },
+  {
+    "source": "/home/nss/SpoofingDetection/redetrend_synced_csv.py",
+    "backup": "scripts/redetrend_synced_csv.py",
+    "sha256": "a83fe28456f0d00c6e23ba5369b6bf73eb939d576e7b27cf6d4d7e05411ea379",
+    "bytes": 9229
+  },
+  {
+    "source": "/home/nss/SpoofingDetection/spoofing_detector.py",
+    "backup": "scripts/spoofing_detector.py",
+    "sha256": "a9117f82954763742de37faf06d920c0d36f9d2b8311180c659266c2a563a9d8",
+    "bytes": 7779
+  },
+  {
+    "source": "/home/nss/SpoofingDetection/sync_measurements_recorder.py",
+    "backup": "scripts/sync_measurements_recorder.py",
+    "sha256": "ed4179f0563c4f270f07b196c20695a6bccd8da6366bf06ace8ffbf3db72a641",
+    "bytes": 7510
+  },
+  {
+    "source": "/home/nss/SpoofingDetection/start",
+    "backup": "scripts/start",
+    "sha256": "5ed4db8eded44750ff063d992bdd52ba0c9823eec21f6c68913384044d2d03df",
+    "bytes": 226
+  },
+  {
+    "source": "/home/nss/SpoofingDetection/README.md",
+    "backup": "scripts/README.md",
+    "sha256": "4bee76c6e416948dafd9513daa66831cc6174c59d2e1d69e7faabf73ff2692ce",
+    "bytes": 19
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "native_logger_running": true,
+  "logger_buffer_kib": 128,
+  "buffer_persisted": false,
+  "receiver_profile_persisted": false,
+  "raw_recorder_running": false,
+  "whole_autopilot_rebooted": false,
+  "next_boot_buffer_kib": 8,
+  "px4_logging_parameters": {
+    "SDLOG_PROFILE": 17,
+    "SDLOG_MODE": 2,
+    "SDLOG_BACKEND": 3
+  }
+}

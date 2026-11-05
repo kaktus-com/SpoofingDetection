@@ -1,0 +1,74 @@
+[
+  {
+    "kind": "measurement_gap",
+    "topic": "sensor_combined",
+    "before_boot_us": 856158906,
+    "after_boot_us": 857179340,
+    "gap_ms": 1020.434,
+    "overlaps_airborne": false
+  },
+  {
+    "kind": "measurement_gap",
+    "topic": "sensor_combined",
+    "before_boot_us": 889324633,
+    "after_boot_us": 889334528,
+    "gap_ms": 9.895,
+    "overlaps_airborne": false
+  },
+  {
+    "kind": "measurement_gap",
+    "topic": "sensor_combined",
+    "before_boot_us": 1111838345,
+    "after_boot_us": 1111853256,
+    "gap_ms": 14.911,
+    "overlaps_airborne": false
+  },
+  {
+    "kind": "counter_change",
+    "topic": "sensor_combined",
+    "field": "accel_calibration_count",
+    "boot_us": 1111853256,
+    "new_value": 3,
+    "overlaps_airborne": false
+  },
+  {
+    "kind": "measurement_gap",
+    "topic": "vehicle_attitude",
+    "before_boot_us": 856158906,
+    "after_boot_us": 857179340,
+    "gap_ms": 1020.434,
+    "overlaps_airborne": false
+  },
+  {
+    "kind": "measurement_gap",
+    "topic": "vehicle_attitude",
+    "before_boot_us": 889324633,
+    "after_boot_us": 889334528,
+    "gap_ms": 9.895,
+    "overlaps_airborne": false
+  },
+  {
+    "kind": "measurement_gap",
+    "topic": "vehicle_attitude",
+    "before_boot_us": 1111838345,
+    "after_boot_us": 1111853256,
+    "gap_ms": 14.911,
+    "overlaps_airborne": false
+  },
+  {
+    "kind": "counter_change",
+    "topic": "vehicle_attitude",
+    "field": "quat_reset_counter",
+    "boot_us": 1112122147,
+    "new_value": 4,
+    "overlaps_airborne": false
+  },
+  {
+    "kind": "counter_change",
+    "topic": "vehicle_attitude",
+    "field": "quat_reset_counter",
+    "boot_us": 1144135757,
+    "new_value": 5,
+    "overlaps_airborne": false
+  }
+]

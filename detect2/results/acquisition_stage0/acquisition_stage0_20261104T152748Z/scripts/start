@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+exec python3 spoofing_detector.py \
+  --record-format csv \
+  --csv-layout wide \
+  --no-detrended \
+  --no-alert

@@ -1,0 +1,26 @@
+{
+  "legacy_files": {
+    "README.md": "4bee76c6e416948dafd9513daa66831cc6174c59d2e1d69e7faabf73ff2692ce",
+    "detrend_carrier.py": "f803a1209797081ce6c3f69ddd3b72e95e6f8ce40e64fca02db59fc3230cede8",
+    "mavlink_read.py": "3716eb6efb6055451aff38b0c22620cf025423c4897ba0fe17f754f7157424f7",
+    "npy_database.py": "7d339a00c81434a7ed3dbda3b0e40081cebdbe1e1c843e4952dcea34257b5492",
+    "redetrend_synced_csv.py": "a83fe28456f0d00c6e23ba5369b6bf73eb939d576e7b27cf6d4d7e05411ea379",
+    "spoofing_detector.py": "a9117f82954763742de37faf06d920c0d36f9d2b8311180c659266c2a563a9d8",
+    "start": "5ed4db8eded44750ff063d992bdd52ba0c9823eec21f6c68913384044d2d03df",
+    "sync_measurements_recorder.py": "ed4179f0563c4f270f07b196c20695a6bccd8da6366bf06ace8ffbf3db72a641"
+  },
+  "router_processes": [
+    "19394 /usr/bin/mavlink-routerd -e 127.0.0.1:14551 /dev/ttyACM0:1500000"
+  ],
+  "device_links": {
+    "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0": "/dev/ttyUSB0",
+    "/dev/serial/by-id/usb-CubePilot_CubeOrange_0-if00": "/dev/ttyACM0"
+  },
+  "free_bytes": 17563865088,
+  "packages": {
+    "pyserial": "3.5",
+    "pymavlink": "2.4.49",
+    "pyubx2": "1.3.3"
+  },
+  "udp_sockets": "State  Recv-Q Send-Q               Local Address:Port  Peer Address:PortProcess                                    \nUNCONN 0      0                          0.0.0.0:43157      0.0.0.0:*                                              \nUNCONN 0      0                          0.0.0.0:35490      0.0.0.0:*    users:((\"mavlink-routerd\",pid=19394,fd=5))\nUNCONN 0      0                        127.0.0.1:53         0.0.0.0:*                                              \nUNCONN 0      0                          0.0.0.0:67         0.0.0.0:*                                              \nUNCONN 0      0                          0.0.0.0:68         0.0.0.0:*                                              \nUNCONN 0      0                          0.0.0.0:5353       0.0.0.0:*                                              \nUNCONN 0      0      [fe80::2ecf:67ff:fe1c:3c94]:53               *:*                                              \nUNCONN 0      0                            [::1]:53               *:*                                              \nUNCONN 0      0                                *:546              *:*                                              \nUNCONN 0      0                                *:5353             *:*                                              \nUNCONN 0      0                                *:58968            *:*                                              \n"
+}

@@ -1,0 +1,15 @@
+{
+  "installed_command": "/home/nss/SpoofingDetection/start_recording",
+  "symlink_target": "/home/nss/SpoofingDetection/releases/launcher_20261105T113952Z/start_recording",
+  "source_hashes_match": true,
+  "legacy_files_unchanged": true,
+  "router_processes": [
+    "19394 /usr/bin/mavlink-routerd -e 127.0.0.1:14551 /dev/ttyACM0:1500000"
+  ],
+  "no_raw_recorder_running": true,
+  "timed_test": "PASS",
+  "reset_state_and_ctrl_c_test": "PASS",
+  "receiver_persistence_writes": false,
+  "startup_files_changed": false,
+  "clock_validation_started": false
+}

@@ -1,0 +1,8 @@
+{
+  "remote_path": "/fs/microsd/log/2026-11-05/10_54_35.ulg",
+  "restart_scope": "logger module only",
+  "flight_controller_rebooted": false,
+  "startup_flags": "logger start -b 8 -t -m all -f",
+  "source_commit": "cb411db5b54a98442ab974292c81b74c057bdf25",
+  "boot_behavior_independently_verified": false
+}

@@ -1,0 +1,6 @@
+[
+  {
+    "baud": 2000000,
+    "error": "Receiver query timed out; no successful result inferred"
+  }
+]

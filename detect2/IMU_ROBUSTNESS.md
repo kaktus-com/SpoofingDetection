@@ -137,6 +137,7 @@ evidence of the previous failure.
 This is one reproducible sensitivity sweep. More seeds, bias directions,
 attitude-error dynamics, timing jitter, sensor noise spectra and real vibration
 are needed to characterize robustness. Position/attitude reset handling for a
-future recording adapter also remains separate. Once integration errors are
-understood, add gyro-based attitude estimation with explicit initialization and
-heading assumptions. A PX4 displacement adapter can follow that work.
+future recording adapter also remains separate. The planned real-data adapter
+uses PX4 attitude with our own acceleration/displacement integration; validate
+its timing, frame conversion, errors and reset handling. A custom gyro-based
+attitude estimator is optional. PX4 fused displacement remains deferred.

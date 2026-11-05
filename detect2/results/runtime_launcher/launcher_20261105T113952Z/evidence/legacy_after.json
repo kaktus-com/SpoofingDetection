@@ -1,0 +1,9 @@
+{
+  "sync_measurements_recorder.py": "ed4179f0563c4f270f07b196c20695a6bccd8da6366bf06ace8ffbf3db72a641",
+  "npy_database.py": "7d339a00c81434a7ed3dbda3b0e40081cebdbe1e1c843e4952dcea34257b5492",
+  "mavlink_read.py": "3716eb6efb6055451aff38b0c22620cf025423c4897ba0fe17f754f7157424f7",
+  "detrend_carrier.py": "f803a1209797081ce6c3f69ddd3b72e95e6f8ce40e64fca02db59fc3230cede8",
+  "redetrend_synced_csv.py": "a83fe28456f0d00c6e23ba5369b6bf73eb939d576e7b27cf6d4d7e05411ea379",
+  "spoofing_detector.py": "a9117f82954763742de37faf06d920c0d36f9d2b8311180c659266c2a563a9d8",
+  "start": "5ed4db8eded44750ff063d992bdd52ba0c9823eec21f6c68913384044d2d03df"
+}

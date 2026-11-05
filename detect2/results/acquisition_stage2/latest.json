@@ -1,0 +1,15 @@
+{
+  "release_id": "acquisition_20261105T100733Z",
+  "local_directory": "/home/borna/thesis/SpoofingDetection/detect2/results/acquisition_stage2/acquisition_20261105T100733Z",
+  "archive": "/home/borna/thesis/SpoofingDetection/detect2/results/acquisition_stage2/acquisition_20261105T100733Z/acquisition_20261105T100733Z.tar.gz",
+  "archive_sha256": "af08d81b5a1bcaaec563f70cf94f90b058e8b338bd357826e954a02f240615d8",
+  "remote_release": "/home/nss/SpoofingDetection/releases/acquisition_20261105T100733Z",
+  "status": "approved_by_user",
+  "report": "report.html",
+  "evidence_archive_sha256": "59a77747e214e57677fbb1dc31f85457c56c18b5cfc2b3e576615fbf85b0b4c1",
+  "stage3_started": false,
+  "manual_checkpoint_2": {
+    "approved_by": "user: do all of this, including 2 Mbaud test",
+    "date": "2026-11-05"
+  }
+}

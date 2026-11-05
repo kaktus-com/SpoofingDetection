@@ -1,0 +1,11 @@
+{
+  "remote_path": "/fs/microsd/log/2026-11-05/11_41_35.ulg",
+  "advertised_bytes": 3516993,
+  "local_file": "/home/nss/SpoofingDetection/runtime_launcher_validation/launcher_20261105T113952Z/timed/20261105T114130Z_44166e/native.ulg",
+  "fingerprint": {
+    "bytes": 3516993,
+    "sha256": "f570e4cc684d9f26182a4a83cacb0ff7a73bc9cf0f5aeb0e95b5e5b16ddbd236"
+  },
+  "sdk_no_gap_completion": true,
+  "completed_bytes": 3516993
+}

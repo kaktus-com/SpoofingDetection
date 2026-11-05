@@ -1,0 +1,90 @@
+{
+  "receiver_before.json": {
+    "sha256": "6fa2ab7c04f96820ba7c5044b4b93dcb527373d8ff94897eac728de7753304f0",
+    "bytes": 1755
+  },
+  "comms_restore.json": {
+    "sha256": "afc95ee8e01305404382dbf139f99bdd16a334097629b8ed81aad14ac24aa121",
+    "bytes": 782
+  },
+  "profile_restore_2000000.json": {
+    "sha256": "9c596a5318029e58686a269d9f2bb26ee063141617763e2a7a7abb2e67971cb9",
+    "bytes": 780
+  },
+  "comms_correction_error.json": {
+    "sha256": "77c90ade980847086da7f33a32574d5a20724509debc9e18f7b2e5848aeea0bd",
+    "bytes": 29074
+  },
+  "stage3_validation_initial.json": {
+    "sha256": "ad02a7ba9d5929e791b7ca9d4a90f7a6b618b7288f73d3b7ecb981d4375d2013",
+    "bytes": 786
+  },
+  "baud_restore_2000000.json": {
+    "sha256": "f8280a3b822d29e6364732e623d4590d9edc06cffa5d1d962be2b7c9aef924fd",
+    "bytes": 820
+  },
+  "rollback_readback.json": {
+    "sha256": "98cc68e955d685757bdd7c8d4220f3bba91e86199814aa374648b33c81434c37",
+    "bytes": 1755
+  },
+  "profile_transaction.json": {
+    "sha256": "37fbe5a0c5b8b2bc976d3f38f483040ba2eff228c139b8909fcdb02c2d64bda8",
+    "bytes": 2859
+  },
+  "baud_transaction.json": {
+    "sha256": "7600251bd0ab7c60b9ad1f79694da38dd20f6e69e3be41d637702584f771a168",
+    "bytes": 821
+  },
+  "comms_transaction.json": {
+    "sha256": "88174659e7138dc351e6b0c211ce566f56601988f224933af68250f140d57913",
+    "bytes": 2859
+  },
+  "previous_attempt_summary.json": {
+    "sha256": "12594a85187b2a67e934e39d81044808b3fc9cdb7cbca5d1645613e735c30b02",
+    "bytes": 273
+  },
+  "failed_capture/report.html": {
+    "sha256": "d234681610b921a65e6a6567a7e532445fc6ba56edc51e6eb5cd1e93e7284915",
+    "bytes": 168386
+  },
+  "failed_capture/mavlink.bin": {
+    "sha256": "59120d8d951dd769398df851030b76dfe8b0bb7ccab60f467f2e5f0ba9b6e224",
+    "bytes": 3145062
+  },
+  "failed_capture/receiver_comms.json": {
+    "sha256": "577d79699c677e332352efde8f648a501ed71a3547aeba13395b61f9dda81346",
+    "bytes": 92794
+  },
+  "failed_capture/receiver_observations.csv": {
+    "sha256": "40a9a517731841f99b65faa8f41acb5928d07404348a7284dec855c1a44bd225",
+    "bytes": 39249000
+  },
+  "failed_capture/audit.json": {
+    "sha256": "5828f8d8f964bddd2cdbf48188ba3963850f9b80fd4a4ba2e9095be407ba8951",
+    "bytes": 5168
+  },
+  "failed_capture/clock_sync.csv": {
+    "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85",
+    "bytes": 176
+  },
+  "failed_capture/receiver_receive.csv": {
+    "sha256": "f33e988e29c082c93ea1698018f3c20c93201640e4641b591df543f00a394b6b",
+    "bytes": 1355670
+  },
+  "failed_capture/receiver.bin": {
+    "sha256": "06b7cb60ace5ebe703f23b63c0d157363f38c21cb212a793ab33616e6ba9840c",
+    "bytes": 8394951
+  },
+  "failed_capture/health.jsonl": {
+    "sha256": "96979d7a7de03e7165d5f31758735f9e06a025b2873f714894473d03e3680011",
+    "bytes": 84426
+  },
+  "failed_capture/mavlink_receive.csv": {
+    "sha256": "61303e5cfad9bc13569ae9d0e42ff4c62c0f997ae6ddcb13cd90c7eaa519ced3",
+    "bytes": 2182343
+  },
+  "failed_capture/manifest.json": {
+    "sha256": "9286b57b408668ada209c7a6596d98417db2d0f7bd38ee43db7031e1611785f0",
+    "bytes": 40409
+  }
+}

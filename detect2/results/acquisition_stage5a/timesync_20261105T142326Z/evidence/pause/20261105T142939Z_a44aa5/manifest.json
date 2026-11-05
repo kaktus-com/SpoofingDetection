@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "mode": "live",
+  "status": "complete",
+  "started_utc": "2026-11-05T14:29:39.268401+00:00",
+  "host": "kth-nss-6",
+  "platform": "Linux-6.12.87+rpt-rpi-v8-aarch64-with-glibc2.36",
+  "boot_id": "dfbc98ba-89ec-4c58-8014-6d4099ebde99",
+  "expected_streams": [
+    "receiver",
+    "mavlink"
+  ],
+  "configuration_changed": true,
+  "buffer_limits_per_stream": {
+    "max_chunks": 4096,
+    "max_bytes": 8388608
+  },
+  "clock_anchors": [
+    {
+      "host_monotonic_ns": 4805078850304,
+      "unix_ns": 1793888979276381649
+    },
+    {
+      "host_monotonic_ns": 4862293967020,
+      "unix_ns": 1793889036491497514
+    }
+  ],
+  "packages": {
+    "pyserial": "3.5",
+    "pymavlink": "2.4.49",
+    "pyubx2": "1.3.3"
+  },
+  "source_hashes": {
+    "__init__.py": "3c0a4de92b2ea160cc5c8884e50dd2a09f7e498cfc54fe4541bb21a8471868b7",
+    "audit_session.py": "00a12dc73c9c191f6d62b6b84a35c13bbe1bcc0ffcf5fbacf27ffa85bbc5fc35",
+    "baudrate.py": "58292dd9c67d4fec328f4786a20b7680fcd0005988a8b04106280145e8ca70c8",
+    "capture.py": "8568664264a81c7e543da03fb837fbe7d4e13bbecb7dc0311989d6cab53a41bd",
+    "clock_report.py": "955ce66f48ff12d0dad9ff4bfa8ffff31031e455c6781984a7c478e2433a0d0e",
+    "common.py": "8f3d0cc68b1d0380a89f6409682258ff14d83462dde46d72fe18895e332ef11a",
+    "live_health.py": "f0bc60dbd41b4f3c943418c54294a8052ccf4e62df39e57e16d3a1149cc2db6b",
+    "mavlink_capture.py": "282d47e83673fd79561900cddd0d431297627731c5a3e0be72c0c6d002bcdfdd",
+    "ownership.py": "60ef9b53020a5fb0990940d2c8cb3165e2eda08e9bcdefb0df3a6a9abd114da6",
+    "px4_logging.py": "0ade8f45424f5496df47b7d6eea68641151412058457f3d7ff6edf83f51689d4",
+    "receiver_config.py": "ff7c0bc2bdf4bbc61d3ef69dbb6b4a644db0a78f97b91c48f8c1fcf620c24059",
+    "replay.py": "ccab711ce41547fd322970737e5eb011d7e957f432cc650712ed63bec89cd359",
+    "runtime.py": "ef679f52aca458e4780cea1874972d86fb86381a49117abeaf30ac967b403560",
+    "runtime_report.py": "92aa7e1d61d24cff1e819109b68c853a365f96029f1b789c6c638eed3a7a66f7",
+    "serial_capture.py": "ca23a3f3dfc6e7ee83d089746db69e2cfdc9f068e2a21461713554bc4df6c7cd",
+    "timesync.py": "6b7320cd64363641eff6b1ebf1994829713fb1b86de021acb20f4b64d29c26c1",
+    "transport_pause_test.py": "c7153384dc23ea068f9352a21beb34e23272c3361b50834ff451778e8d9e0376",
+    "ubx.py": "cf6466683219c46d1f071fcbbd99ecf75e43a365f4d07534424e32b981c5c145",
+    "ulog_audit.py": "6a9e2dafac346b1562085efb02289623221a16d6aa319d597b27cb7a7baaae39"
+  },
+  "metadata": {
+    "gps_device": "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0",
+    "gps_baud": 2000000,
+    "expected_rawx_hz": 20,
+    "mavlink_bind": [
+      "127.0.0.1",
+      14561
+    ],
+    "timesync_active": true,
+    "runtime_launcher": true,
+    "serial_reconnect_policy": "stop and mark failed; reconfigure only in a new session",
+    "gnss_to_px4_clock_verified": false,
+    "receiver_profile": "verified: receiver_after.json",
+    "native_log_bookmark": "/fs/microsd/log/2026-11-05/14_29_54.ulg"
+  },
+  "stop_reason": "duration",
+  "ended_utc": "2026-11-05T14:30:36.434905+00:00",
+  "streams": {
+    "receiver": {
+      "received_bytes": 2644783,
+      "written_bytes": 2644783,
+      "input_chunks": 11432,
+      "dropped_bytes": 0,
+      "dropped_chunks": 0,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 1487,
+      "peak_queue_chunks": 4,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    },
+    "mavlink": {
+      "received_bytes": 1032372,
+      "written_bytes": 1032372,
+      "input_chunks": 14359,
+      "dropped_bytes": 0,
+      "dropped_chunks": 0,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 1073,
+      "peak_queue_chunks": 15,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    }
+  },
+  "issues": {
+    "counts": {},
+    "events": []
+  },
+  "missing_streams": [],
+  "files": {
+    "mavlink_tx.csv": {
+      "bytes": 47198,
+      "sha256": "39c2d62642ad2717737055fd1ae8d0b105d3736f236fd49e68c620bbce28df59"
+    },
+    "receiver_after.json": {
+      "bytes": 1702,
+      "sha256": "9d7bc48fc0dc10bb766bb5fb0d27764989c018ca795638f35f8df60a2934fe27"
+    },
+    "mavlink.bin": {
+      "bytes": 1032372,
+      "sha256": "63f8c228a00744fd5f77bb0ae7cc8f08413ed7b7e5b667ddb21153a87068b657"
+    },
+    "receiver_before.json": {
+      "bytes": 1702,
+      "sha256": "e5db090c6cc3d75195135bc684d9394e4ca5d7bde3a57a595d75dce346ff63ea"
+    },
+    "live_health.json": {
+      "bytes": 304,
+      "sha256": "e0f218cadb270ecd4b404d65a0038f5469cff7146a8e935116ae05bc352d9ce1"
+    },
+    "mavlink_tx.bin": {
+      "bytes": 20400,
+      "sha256": "620002cbbfde4ab58ed05f95edccf6c31e41accd6ccb98204323b988f6459ea6"
+    },
+    "firmware.txt": {
+      "bytes": 497,
+      "sha256": "36555d46f7d31285fa5dc335d44659326de07a57989b792c58d97e697394ba2f"
+    },
+    "px4_after.json": {
+      "bytes": 342,
+      "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+    },
+    "memory_before_logger.txt": {
+      "bytes": 267,
+      "sha256": "211b742e90d7bab1f1309f62c3d75fd1d7b5a4079aa01649d5abd5f054665e04"
+    },
+    "clock_sync.csv": {
+      "bytes": 119323,
+      "sha256": "94bc0be8f0289902fdf1bf2c5febd31d6e20e1ca950d5d7e80b154d9014b21b3"
+    },
+    "receiver_receive.csv": {
+      "bytes": 395730,
+      "sha256": "b7f2db42446094da3a66006cd628c825672947f3067cfe08909b84d0bc88b375"
+    },
+    "receiver.bin": {
+      "bytes": 2644783,
+      "sha256": "f99734fdd0e53d44ad982ddae1aebebc1a72fab3380e8693126d9b1b6d657fe9"
+    },
+    "previous_logger.txt": {
+      "bytes": 87,
+      "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf"
+    },
+    "receiver_probe_attempts.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "logger_stop_before.txt": {
+      "bytes": 58,
+      "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac"
+    },
+    "px4_before.json": {
+      "bytes": 342,
+      "sha256": "d3a545ddaeb61094b0788bec29fc69d82ab8048ebcceeb3b8b3adbb3693f1c94"
+    },
+    "logger_recording.txt": {
+      "bytes": 410,
+      "sha256": "235bf0476637a845a1621adc15e1b3885bfb5b4affc68a7016588e1fb5d8fb8c"
+    },
+    "health.jsonl": {
+      "bytes": 24452,
+      "sha256": "392053d2298e2c6dbd77bad3ccb4ea7c6f3df560f5d75dcca6a85316f4bdb0df"
+    },
+    "mavlink_receive.csv": {
+      "bytes": 692477,
+      "sha256": "9c7e655b3524c4a60a9144c71ec1e0dbede1d32f77134e6d7025963bb8e0057b"
+    },
+    "logger_start.txt": {
+      "bytes": 305,
+      "sha256": "c89b964616f3c8e2a4f19c3220740039e13fbc8e20682779c1430fe7955b8104"
+    },
+    "clock_sync.jsonl": {
+      "bytes": 296718,
+      "sha256": "c1df7dccad1b2f0b9315a0e886b3e96b03ad78d93d3a947bfe6aad0ce4c30495"
+    }
+  }
+}

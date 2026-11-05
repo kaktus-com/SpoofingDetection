@@ -1,0 +1,18 @@
+{
+  "final_archive_sha256": "96359131e3fcf3cfadc1d3d681a0d9a817c90eba5c71f526293f0e680463c911",
+  "previous_archive_sha256": "b6cb1935708f8e1fa4ee77f454b8183bfc736ec9c312fca39d238feaa27b31dc",
+  "final_evidence_files_verified": 43,
+  "previous_evidence_files_verified": 26,
+  "report_links_checked": 38,
+  "native_imu_hz": 189.55079542425955,
+  "native_imu_measurement_gaps": 0,
+  "native_attitude_measurement_gaps": 0,
+  "native_attitude_publication_jitter_intervals": 2,
+  "native_dropouts": 0,
+  "strict_190_hz_check": "REVIEW",
+  "local_audit_source_sha256": "6a9e2dafac346b1562085efb02289623221a16d6aa319d597b27cb7a7baaae39",
+  "manual_checkpoint_4": "pending",
+  "startup_buffer_override_applied": false,
+  "autopilot_reboot_verified": false,
+  "stage5_started": false
+}

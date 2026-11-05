@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "accepted_replies": 328,
+  "requests_sent": 343,
+  "rejected_reply_reasons": {},
+  "expired_requests": 5,
+  "abandoned_at_stop": 0,
+  "addressing": {
+    "addressed": 328
+  },
+  "segment_events": [
+    {
+      "event": "clock_segment_start",
+      "segment_id": 0,
+      "reason": "observer_start",
+      "host_monotonic_ns": 4826726848513
+    },
+    {
+      "event": "clock_segment_start",
+      "segment_id": 1,
+      "reason": "accepted_reply_gap",
+      "host_monotonic_ns": 4837811633546,
+      "last_accepted_reply_ns": 4836779732150,
+      "abandoned_request_tokens": [
+        4836903403930,
+        4837004176277,
+        4837105021939,
+        4837206003247,
+        4837306833261,
+        4837407656756,
+        4837508538844,
+        4837609410764,
+        4837710249278,
+        4837811082125
+      ],
+      "gap_threshold_ns": 1000000000
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": 0,
+      "accepted_samples": 99,
+      "selected_low_rtt_bins": 11,
+      "valid_host_min_ns": 4826729603449,
+      "valid_host_max_ns": 4836777927028,
+      "duration_s": 10.048323579,
+      "rtt_median_ms": 1.354839,
+      "rtt_p95_ms": 3.9126815,
+      "rtt_max_ms": 5.094249,
+      "mapping_status": "estimated_not_independently_verified",
+      "independent_accuracy_verified": false,
+      "origin_host_ns": 4826729603449,
+      "offset_at_origin_ns": 337938682.7184135,
+      "offset_slope_ns_per_s": -12924.512927350472,
+      "drift_ppm": -12.924512927350472,
+      "training_bins": 7,
+      "training_outlier_bins": 0,
+      "held_out_bins": 4,
+      "held_out_abs_residual_p95_ms": 0.6431516317309849,
+      "held_out_abs_residual_max_ms": 0.7368410304184861,
+      "robust_training_threshold_ns": 765027.456153069,
+      "formula": "PX4_ns = host_ns + offset_at_origin_ns + offset_slope_ns_per_s * ((host_ns - origin_host_ns) / 1e9)",
+      "extrapolation_allowed": false
+    },
+    {
+      "segment_id": 1,
+      "accepted_samples": 229,
+      "selected_low_rtt_bins": 24,
+      "valid_host_min_ns": 4838423889415,
+      "valid_host_max_ns": 4861802749616,
+      "duration_s": 23.378860201,
+      "rtt_median_ms": 1.335451,
+      "rtt_p95_ms": 3.4206491999999993,
+      "rtt_max_ms": 4.925028,
+      "mapping_status": "estimated_not_independently_verified",
+      "independent_accuracy_verified": false,
+      "origin_host_ns": 4838423889415,
+      "offset_at_origin_ns": 337847031.4785569,
+      "offset_slope_ns_per_s": 6356.750004498789,
+      "drift_ppm": 6.356750004498789,
+      "training_bins": 16,
+      "training_outlier_bins": 0,
+      "held_out_bins": 8,
+      "held_out_abs_residual_p95_ms": 0.14626879733159523,
+      "held_out_abs_residual_max_ms": 0.15985162332179018,
+      "robust_training_threshold_ns": 347736.47054744326,
+      "formula": "PX4_ns = host_ns + offset_at_origin_ns + offset_slope_ns_per_s * ((host_ns - origin_host_ns) / 1e9)",
+      "extrapolation_allowed": false
+    }
+  ],
+  "gnss_to_px4_clock": "UNKNOWN",
+  "absolute_accuracy_verified": false,
+  "method": "Lowest RTT per 1-second bin; first 2/3 training with 6-MAD rejection (1 us floor); last 1/3 held out. No fit crosses segments."
+}

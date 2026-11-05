@@ -1,0 +1,31 @@
+{
+  "status": "complete",
+  "test": "controlled UDP transport pause/resume; not a physical reconnect",
+  "started_host_ns": 4804824309382,
+  "events": [
+    {
+      "event": "pause_start",
+      "host_monotonic_ns": 4836861863450
+    },
+    {
+      "event": "pause_end",
+      "host_monotonic_ns": 4838371837071
+    }
+  ],
+  "counts": {
+    "to_recorder_forwarded": 61194,
+    "to_router_forwarded": 818,
+    "to_recorder_dropped": 628,
+    "to_router_dropped": 15
+  },
+  "pause_start_host_ns": 4836861863450,
+  "pause_end_host_ns": 4838371837071,
+  "requested_pause_s": 1.5,
+  "router_peer": [
+    "127.0.0.1",
+    51330
+  ],
+  "watchdog_unchanged_s": 2.5,
+  "buffering": false,
+  "child_exit_code": 0
+}

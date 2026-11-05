@@ -1,0 +1,12 @@
+{
+  "full_test_suite": "178 passed in 34.34s",
+  "new_generated_report_pages": 45,
+  "relative_resources_checked": 557,
+  "missing_current_report_resources": [],
+  "ignored_current_report_resources": [],
+  "excluded_from_link_check": [
+    "source templates",
+    "unchanged archived source_reports relocated from the Pi"
+  ],
+  "scope": "detect2 plus start_capture and start_recording"
+}

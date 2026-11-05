@@ -1,0 +1,4 @@
+Session: /home/nss/SpoofingDetection/recordings_v2_stage3/acquisition_20261105T103442Z/reduced_2000000/20261105T103656Z_83478c
+GNSS: /dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0 baud 2000000 | MAVLink: 127.0.0.1:14551
+Receiver profile: UNKNOWN (not queried) | TIMESYNC: disabled/passive
+Capture: complete | Audit: python -m detect2.acquisition.audit_session /home/nss/SpoofingDetection/recordings_v2_stage3/acquisition_20261105T103442Z/reduced_2000000/20261105T103656Z_83478c

@@ -1,0 +1,5 @@
+# Proposed values for the inspected PX4 profile. Not applied to the aircraft.
+# High-rate bit 4 plus default bit 0; verify on the actual firmware.
+SDLOG_PROFILE 17
+# Include stationary preflight/postflight data in the native SD-card ULog.
+SDLOG_MODE 2

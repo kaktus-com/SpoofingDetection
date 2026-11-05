@@ -1,0 +1,23 @@
+{
+  "20261105T131308Z_d3f681": {
+    "receiver.bin": "f2c90f3c820f3e16e2fc21510353d4762c1674c03a5cd44eff2582b58743eb4c",
+    "receiver_receive.csv": "06019b2d0bd2898dfd1fe6081dfe2a9d6fe4ee07d3438291ca60ab6040863975",
+    "mavlink.bin": "6b9155dfa985dbcd8f57c079b2b8b5fad9a0d91da78c5bab3cf647c53d67e2c8",
+    "mavlink_receive.csv": "6c2201311f97be69e6fd631e970ddc8db189f213f23a25674b8a90511319a514",
+    "manifest.json": "0fa14ef6035b0f7b3a81f581051c454f2fd8979ccab2256878a04ca6736abb0a"
+  },
+  "20261105T132010Z_c4cbfd": {
+    "receiver.bin": "3943d3f6d21fe0b076b334b8cbb88a9700dbe616bb80316fb9285613f4d2889f",
+    "receiver_receive.csv": "5e45c44a5d6deafa364961c8b35dd5b5f638ae6cda87caee1fb7e51ca5ee0692",
+    "mavlink.bin": "53a57133bb06066c5e24337a417a08cbfeec743bed29cfdef52c71ba8fe55a5c",
+    "mavlink_receive.csv": "0c0f98b64712442eb5f05f54d18c86676d22a9c39122cf42d6ab94fce9708488",
+    "manifest.json": "1d909450b0aed0f2f9a79123d650710362a0b6a01cee2e47b1faaa0283e520cb"
+  },
+  "20261105T132748Z_9c3265": {
+    "receiver.bin": "ca390e2b3bcca894d76082342c7663a87e1d77242d20f80d95179300b23db8b9",
+    "receiver_receive.csv": "25e96ee86576cd20aa61d6dcb6c59d6988a41f6dc8241009db0c88fc3ea45aaa",
+    "mavlink.bin": "6f36baabd8221fa8d1a46abd3756cd41eaeb771b33f418352dddf4f6fd15b009",
+    "mavlink_receive.csv": "defdb07ea7b5fe5bcc2f728ea767f88ff5ff32b41854ad7f37d0690524fd55f4",
+    "manifest.json": "a1d454b7d795bdb3b59819a304e544138a3abd7c641a291767b0d3c219f56e6b"
+  }
+}

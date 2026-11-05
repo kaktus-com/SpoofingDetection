@@ -1,0 +1,404 @@
+{
+  "evidence_files_verified": 66,
+  "runs": [
+    {
+      "kind": "stationary",
+      "session": "20261105T142408Z_2c5ceb",
+      "checks": {
+        "raw_archives_intact": true,
+        "no_recorder_queue_loss": true,
+        "complete_session": true,
+        "gnss_continuous_20hz": true,
+        "addressed_unique_matched_replies": true,
+        "native_parsed": true,
+        "native_no_dropouts": true,
+        "native_imu_continuous": true,
+        "native_attitude_continuous": true,
+        "three_minute_capture": true,
+        "single_clock_segment": true
+      },
+      "clock": {
+        "schema_version": 1,
+        "accepted_replies": 1756,
+        "requests_sent": 1756,
+        "rejected_reply_reasons": {},
+        "expired_requests": 0,
+        "abandoned_at_stop": 0,
+        "addressing": {
+          "addressed": 1756
+        },
+        "segment_events": [
+          {
+            "event": "clock_segment_start",
+            "segment_id": 0,
+            "reason": "observer_start",
+            "host_monotonic_ns": 4495750462548
+          }
+        ],
+        "segments": [
+          {
+            "segment_id": 0,
+            "accepted_samples": 1756,
+            "selected_low_rtt_bins": 180,
+            "valid_host_min_ns": 4495754182767,
+            "valid_host_max_ns": 4675740440659,
+            "duration_s": 179.986257892,
+            "rtt_median_ms": 1.039568,
+            "rtt_p95_ms": 2.73656275,
+            "rtt_max_ms": 7.701862,
+            "mapping_status": "estimated_not_independently_verified",
+            "independent_accuracy_verified": false,
+            "origin_host_ns": 4495754182767,
+            "offset_at_origin_ns": 338738728.0081429,
+            "offset_slope_ns_per_s": -3940.6688870873354,
+            "drift_ppm": -3.940668887087335,
+            "training_bins": 120,
+            "training_outlier_bins": 0,
+            "held_out_bins": 60,
+            "held_out_abs_residual_p95_ms": 0.0906750605763651,
+            "held_out_abs_residual_max_ms": 0.18184969857392308,
+            "robust_training_threshold_ns": 225565.5275714703,
+            "formula": "PX4_ns = host_ns + offset_at_origin_ns + offset_slope_ns_per_s * ((host_ns - origin_host_ns) / 1e9)",
+            "extrapolation_allowed": false
+          }
+        ],
+        "gnss_to_px4_clock": "UNKNOWN",
+        "absolute_accuracy_verified": false,
+        "method": "Lowest RTT per 1-second bin; first 2/3 training with 6-MAD rejection (1 us floor); last 1/3 held out. No fit crosses segments."
+      },
+      "transmit_archive": {
+        "status": "PASS",
+        "transmitted_frames": 3557,
+        "bytes": 106710,
+        "unique_matched_replies": 1756
+      },
+      "rawx_epochs": 3603,
+      "native_imu_hz": 200.78151398953293,
+      "native_attitude_hz": 200.78151398953293,
+      "native_imu_gaps": 0,
+      "native_attitude_gaps": 0,
+      "native_dropouts": [],
+      "native_orientation_change_deg": 1.314097633249445,
+      "native_gap_events": [],
+      "receiver_during_pause": null,
+      "mavlink_source_gaps": {
+        "1:1:HIGHRES_IMU": {
+          "median_interval_s": 0.0199110000003202,
+          "max_interval_s": 0.025190000000293367,
+          "large_gaps": 0,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE_QUATERNION": {
+          "median_interval_s": 0.019999999999527063,
+          "max_interval_s": 0.02999999999974534,
+          "large_gaps": 0,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE": {
+          "median_interval_s": 0.010000000000218279,
+          "max_interval_s": 0.020000000000436557,
+          "large_gaps": 403,
+          "backwards_timestamps": 0
+        }
+      },
+      "native_imu_provenance": {
+        "accelerometer_clipping": {
+          "first": 0,
+          "last": 0,
+          "changes": 0
+        },
+        "gyro_clipping": {
+          "first": 0,
+          "last": 0,
+          "changes": 0
+        },
+        "accel_calibration_count": {
+          "first": 4,
+          "last": 4,
+          "changes": 0
+        },
+        "gyro_calibration_count": {
+          "first": 1,
+          "last": 1,
+          "changes": 0
+        }
+      },
+      "native_attitude_provenance": {
+        "timestamp_sample": {
+          "first": 4490099622,
+          "last": 4680983729,
+          "changes": 38326
+        },
+        "quat_reset_counter": {
+          "first": 24,
+          "last": 24,
+          "changes": 0
+        }
+      },
+      "archive_issues": {
+        "counts": {},
+        "events": []
+      },
+      "runtime_errors": []
+    },
+    {
+      "kind": "pause",
+      "session": "20261105T142939Z_a44aa5",
+      "checks": {
+        "raw_archives_intact": true,
+        "no_recorder_queue_loss": true,
+        "complete_session": true,
+        "gnss_continuous_20hz": true,
+        "addressed_unique_matched_replies": true,
+        "native_parsed": true,
+        "native_no_dropouts": true,
+        "native_imu_continuous": false,
+        "native_attitude_continuous": false,
+        "explicit_transport_pause": true,
+        "new_clock_segment": true,
+        "receiver_bytes_during_pause": true,
+        "segment_gap_event": true
+      },
+      "clock": {
+        "schema_version": 1,
+        "accepted_replies": 328,
+        "requests_sent": 343,
+        "rejected_reply_reasons": {},
+        "expired_requests": 5,
+        "abandoned_at_stop": 0,
+        "addressing": {
+          "addressed": 328
+        },
+        "segment_events": [
+          {
+            "event": "clock_segment_start",
+            "segment_id": 0,
+            "reason": "observer_start",
+            "host_monotonic_ns": 4826726848513
+          },
+          {
+            "event": "clock_segment_start",
+            "segment_id": 1,
+            "reason": "accepted_reply_gap",
+            "host_monotonic_ns": 4837811633546,
+            "last_accepted_reply_ns": 4836779732150,
+            "abandoned_request_tokens": [
+              4836903403930,
+              4837004176277,
+              4837105021939,
+              4837206003247,
+              4837306833261,
+              4837407656756,
+              4837508538844,
+              4837609410764,
+              4837710249278,
+              4837811082125
+            ],
+            "gap_threshold_ns": 1000000000
+          }
+        ],
+        "segments": [
+          {
+            "segment_id": 0,
+            "accepted_samples": 99,
+            "selected_low_rtt_bins": 11,
+            "valid_host_min_ns": 4826729603449,
+            "valid_host_max_ns": 4836777927028,
+            "duration_s": 10.048323579,
+            "rtt_median_ms": 1.354839,
+            "rtt_p95_ms": 3.9126815,
+            "rtt_max_ms": 5.094249,
+            "mapping_status": "estimated_not_independently_verified",
+            "independent_accuracy_verified": false,
+            "origin_host_ns": 4826729603449,
+            "offset_at_origin_ns": 337938682.7184135,
+            "offset_slope_ns_per_s": -12924.512927350472,
+            "drift_ppm": -12.924512927350472,
+            "training_bins": 7,
+            "training_outlier_bins": 0,
+            "held_out_bins": 4,
+            "held_out_abs_residual_p95_ms": 0.6431516317309849,
+            "held_out_abs_residual_max_ms": 0.7368410304184861,
+            "robust_training_threshold_ns": 765027.456153069,
+            "formula": "PX4_ns = host_ns + offset_at_origin_ns + offset_slope_ns_per_s * ((host_ns - origin_host_ns) / 1e9)",
+            "extrapolation_allowed": false
+          },
+          {
+            "segment_id": 1,
+            "accepted_samples": 229,
+            "selected_low_rtt_bins": 24,
+            "valid_host_min_ns": 4838423889415,
+            "valid_host_max_ns": 4861802749616,
+            "duration_s": 23.378860201,
+            "rtt_median_ms": 1.335451,
+            "rtt_p95_ms": 3.4206491999999993,
+            "rtt_max_ms": 4.925028,
+            "mapping_status": "estimated_not_independently_verified",
+            "independent_accuracy_verified": false,
+            "origin_host_ns": 4838423889415,
+            "offset_at_origin_ns": 337847031.4785569,
+            "offset_slope_ns_per_s": 6356.750004498789,
+            "drift_ppm": 6.356750004498789,
+            "training_bins": 16,
+            "training_outlier_bins": 0,
+            "held_out_bins": 8,
+            "held_out_abs_residual_p95_ms": 0.14626879733159523,
+            "held_out_abs_residual_max_ms": 0.15985162332179018,
+            "robust_training_threshold_ns": 347736.47054744326,
+            "formula": "PX4_ns = host_ns + offset_at_origin_ns + offset_slope_ns_per_s * ((host_ns - origin_host_ns) / 1e9)",
+            "extrapolation_allowed": false
+          }
+        ],
+        "gnss_to_px4_clock": "UNKNOWN",
+        "absolute_accuracy_verified": false,
+        "method": "Lowest RTT per 1-second bin; first 2/3 training with 6-MAD rejection (1 us floor); last 1/3 held out. No fit crosses segments."
+      },
+      "transmit_archive": {
+        "status": "PASS",
+        "transmitted_frames": 680,
+        "bytes": 20400,
+        "unique_matched_replies": 328
+      },
+      "rawx_epochs": 703,
+      "native_imu_hz": 200.73292907655159,
+      "native_attitude_hz": 200.73292907655159,
+      "native_imu_gaps": 2,
+      "native_attitude_gaps": 2,
+      "native_dropouts": [],
+      "native_orientation_change_deg": 0.3123046245586276,
+      "native_gap_events": [
+        {
+          "topic": "sensor_combined",
+          "source_time_field": "timestamp",
+          "start_px4_us": 4822024448,
+          "end_px4_us": 4822034225,
+          "interval_ms": 9.777
+        },
+        {
+          "topic": "sensor_combined",
+          "source_time_field": "timestamp",
+          "start_px4_us": 4837115511,
+          "end_px4_us": 4837125510,
+          "interval_ms": 9.999
+        },
+        {
+          "topic": "vehicle_attitude",
+          "source_time_field": "timestamp_sample",
+          "start_px4_us": 4822024448,
+          "end_px4_us": 4822034225,
+          "interval_ms": 9.777
+        },
+        {
+          "topic": "vehicle_attitude",
+          "source_time_field": "timestamp_sample",
+          "start_px4_us": 4837115511,
+          "end_px4_us": 4837125510,
+          "interval_ms": 9.999
+        }
+      ],
+      "receiver_during_pause": {
+        "chunks": 502,
+        "bytes": 116346,
+        "pause_s": 1.509973621
+      },
+      "mavlink_source_gaps": {
+        "1:1:HIGHRES_IMU": {
+          "median_interval_s": 0.019913000000087777,
+          "max_interval_s": 1.5240759999996953,
+          "large_gaps": 1,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE": {
+          "median_interval_s": 0.010000000000218279,
+          "max_interval_s": 1.5239999999994325,
+          "large_gaps": 73,
+          "backwards_timestamps": 0
+        },
+        "1:1:ATTITUDE_QUATERNION": {
+          "median_interval_s": 0.019999999999527063,
+          "max_interval_s": 1.5239999999994325,
+          "large_gaps": 1,
+          "backwards_timestamps": 0
+        }
+      },
+      "native_imu_provenance": {
+        "accelerometer_clipping": {
+          "first": 0,
+          "last": 0,
+          "changes": 0
+        },
+        "gyro_clipping": {
+          "first": 0,
+          "last": 0,
+          "changes": 0
+        },
+        "accel_calibration_count": {
+          "first": 4,
+          "last": 4,
+          "changes": 0
+        },
+        "gyro_calibration_count": {
+          "first": 1,
+          "last": 1,
+          "changes": 0
+        }
+      },
+      "native_attitude_provenance": {
+        "timestamp_sample": {
+          "first": 4821097800,
+          "last": 4866984641,
+          "changes": 9211
+        },
+        "quat_reset_counter": {
+          "first": 24,
+          "last": 24,
+          "changes": 0
+        }
+      },
+      "archive_issues": {
+        "counts": {},
+        "events": []
+      },
+      "runtime_errors": []
+    }
+  ],
+  "transport_test": {
+    "status": "complete",
+    "test": "controlled UDP transport pause/resume; not a physical reconnect",
+    "started_host_ns": 4804824309382,
+    "events": [
+      {
+        "event": "pause_start",
+        "host_monotonic_ns": 4836861863450
+      },
+      {
+        "event": "pause_end",
+        "host_monotonic_ns": 4838371837071
+      }
+    ],
+    "counts": {
+      "to_recorder_forwarded": 61194,
+      "to_router_forwarded": 818,
+      "to_recorder_dropped": 628,
+      "to_router_dropped": 15
+    },
+    "pause_start_host_ns": 4836861863450,
+    "pause_end_host_ns": 4838371837071,
+    "requested_pause_s": 1.5,
+    "router_peer": [
+      "127.0.0.1",
+      51330
+    ],
+    "watchdog_unchanged_s": 2.5,
+    "buffering": false,
+    "child_exit_code": 0
+  },
+  "all_stage5a_checks_pass": false,
+  "stage5a_clock_and_receiver_checks_pass": true,
+  "additional_native_quality_review": "Pause-test ULog contains two ~10 ms sample intervals in both IMU and attitude. Zero logger dropouts. Preserve/exclude marked windows; do not label entire recording gap-free.",
+  "pi_px4_mapping": "estimated_not_independently_verified",
+  "gnss_to_px4_clock": "UNKNOWN",
+  "physical_usb_reconnect_tested": false,
+  "existing_flight_recordings_modified": false,
+  "manual_checkpoint": "Review Stage 5A before proceeding to 5B; no PPS wiring changes."
+}

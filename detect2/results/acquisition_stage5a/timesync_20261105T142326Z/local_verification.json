@@ -1,0 +1,9 @@
+{
+  "original_evidence_files_unchanged": 66,
+  "html_pages": 9,
+  "relative_links_checked": 110,
+  "missing_links": [],
+  "clock_receiver_checks_pass": true,
+  "additional_native_gaps_retained_for_review": true,
+  "tests_passed": 44
+}

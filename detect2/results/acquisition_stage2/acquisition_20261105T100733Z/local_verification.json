@@ -1,0 +1,27 @@
+{
+  "evidence_archive_sha256": "59a77747e214e57677fbb1dc31f85457c56c18b5cfc2b3e576615fbf85b0b4c1",
+  "downloaded_fingerprints_verified": 39,
+  "receiver_ram_matches_stage0": true,
+  "live_captures": [
+    {
+      "session": "acquisition_20261105T100733Z/evidence/duration/20261105T101225Z_4e37ad",
+      "index_coverage_and_archive_hashes": "PASS",
+      "receive_indexes_match_manifest": "PASS",
+      "received_equals_written": "PASS",
+      "both_writers_closed": true,
+      "dropped_bytes": 0,
+      "finalized": true
+    },
+    {
+      "session": "acquisition_20261105T100733Z/evidence/interrupt/20261105T101248Z_1a2662",
+      "index_coverage_and_archive_hashes": "PASS",
+      "receive_indexes_match_manifest": "PASS",
+      "received_equals_written": "PASS",
+      "both_writers_closed": true,
+      "dropped_bytes": 0,
+      "finalized": true
+    }
+  ],
+  "manual_checkpoint_2": "awaiting user review",
+  "stage3_started": false
+}

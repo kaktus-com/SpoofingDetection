@@ -1,0 +1,13 @@
+{
+  "stage": 3,
+  "final_evidence_sha256": "d7fd8172fb694e2f81472dbdf72ac2568ddf22e57c07d63f3f11c5eb344e7be7",
+  "final_file_fingerprints_verified": 45,
+  "previous_failure_sha256": "915a907efa246d69d57c2040346f52da8012735c31e4d5fee7a41c259cf0459e",
+  "previous_file_fingerprints_verified": 22,
+  "report_links_checked": 47,
+  "all_automated_traffic_checks_pass": true,
+  "manual_checkpoint_3": "awaiting user review",
+  "persistent_writes": false,
+  "current_receiver_baud": 2000000,
+  "stage4_started": false
+}

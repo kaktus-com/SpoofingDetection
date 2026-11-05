@@ -1,0 +1,8 @@
+{
+  "run_id": "timesync_20261105T142326Z",
+  "report": "timesync_20261105T142326Z/report.html",
+  "clock_receiver_checks_pass": true,
+  "additional_native_quality": "REVIEW",
+  "gnss_to_px4_clock": "UNKNOWN",
+  "manual_checkpoint": "5A"
+}

@@ -1,0 +1,5 @@
+# Console evidence linked from saved acquisition reports belongs with the report.
+!results/**/*.log
+
+# Incomplete/duplicate native download staging files are not evidence originals.
+*.ftp.part

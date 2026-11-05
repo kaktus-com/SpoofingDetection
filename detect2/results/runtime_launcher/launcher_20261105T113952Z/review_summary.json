@@ -1,0 +1,60 @@
+{
+  "tests_passed": 41,
+  "simulated_runtime_cases": 11,
+  "live_results": [
+    {
+      "test": "timed",
+      "status": "complete",
+      "exit_code": 0,
+      "initial_baud": 2000000,
+      "initial_measurement_ms": 50,
+      "final_baud": 2000000,
+      "final_measurement_ms": 50,
+      "rawx_epochs": 402,
+      "recorder_dropped_bytes": 0,
+      "native_imu_hz": 189.54836039534982,
+      "native_attitude_hz": 189.54836039534982,
+      "native_dropouts": 0,
+      "native_imu_measurement_gaps": 0,
+      "native_attitude_measurement_gaps": 0,
+      "native_file_sha256": "f570e4cc684d9f26182a4a83cacb0ff7a73bc9cf0f5aeb0e95b5e5b16ddbd236"
+    },
+    {
+      "test": "interrupt",
+      "status": "stopped",
+      "exit_code": 130,
+      "initial_baud": 921600,
+      "initial_measurement_ms": 40,
+      "final_baud": 2000000,
+      "final_measurement_ms": 50,
+      "rawx_epochs": 205,
+      "recorder_dropped_bytes": 0,
+      "native_imu_hz": 189.5498306400983,
+      "native_attitude_hz": 189.5498306400983,
+      "native_dropouts": 0,
+      "native_imu_measurement_gaps": 0,
+      "native_attitude_measurement_gaps": 0,
+      "native_file_sha256": "c9faafa7414bade11512584dcbdf9e576d094aa9504769a7fa6c1450cb25cc4d"
+    }
+  ],
+  "deployed_validation": {
+    "installed_command": "/home/nss/SpoofingDetection/start_recording",
+    "symlink_target": "/home/nss/SpoofingDetection/releases/launcher_20261105T113952Z/start_recording",
+    "source_hashes_match": true,
+    "legacy_files_unchanged": true,
+    "router_processes": [
+      "19394 /usr/bin/mavlink-routerd -e 127.0.0.1:14551 /dev/ttyACM0:1500000"
+    ],
+    "no_raw_recorder_running": true,
+    "timed_test": "PASS",
+    "reset_state_and_ctrl_c_test": "PASS",
+    "receiver_persistence_writes": false,
+    "startup_files_changed": false,
+    "clock_validation_started": false
+  },
+  "downloaded_evidence_files_verified": 76,
+  "native_rate_user_accepted": 189.6,
+  "startup_persistence": false,
+  "receiver_flash_bbr_writes": false,
+  "clock_validation_started": false
+}

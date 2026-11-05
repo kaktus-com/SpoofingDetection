@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/home/nss/SpoofingDetection/releases/launcher_20261105T113952Z/start_recording",
+    "--duration-s",
+    "20",
+    "--output-root",
+    "/home/nss/SpoofingDetection/runtime_launcher_validation/launcher_20261105T113952Z/timed"
+  ],
+  "exit_code": 0,
+  "session": "/home/nss/SpoofingDetection/runtime_launcher_validation/launcher_20261105T113952Z/timed/20261105T114130Z_44166e",
+  "status": "complete"
+}

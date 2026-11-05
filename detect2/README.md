@@ -12,14 +12,50 @@ force and supplied attitude, removes gravity, integrates acceleration and adds
 the rotating antenna offset. Predictions use no truth displacement or initial
 velocity. Oracle mode remains available as a separate reference. Controlled
 accelerometer, supplied-attitude and timing sensitivity tests are available.
-Attitude estimation, measured sensor validation, another flight and live
-integration are later work.
+An offline recorded PX4 attitude/IMU adapter and July-flight inspection are
+available; measurement-clock verification, measured noise validation, another
+flight and live integration remain later work.
 
 Current priority: validate our own IMU integration. The additional motion-quality
 check propagates configured accelerometer noise into displacement uncertainty.
 A PX4 fused-displacement input remains deferred.
 
+For another computer, see [the checkout/report handover](HANDOVER.md).
+The next hardware review is [the CubeOrange PPS input research](PPS_INPUT_RESEARCH.md).
+
+For the drone, follow the [short run-and-fly guide](FLIGHT_QUICKSTART.md), or see
+the [detailed runtime recording guide](acquisition/RUNTIME.md):
+
+```bash
+cd /home/nss/SpoofingDetection
+./start_recording --timesync
+```
+
+It verifies/configures the receiver at 20 Hz/2 Mbaud and starts native PX4 logging
+with a 128 KiB runtime buffer before recording. Stop with Ctrl+C; if the aircraft
+is armed, native collection waits until disarm. No startup-file or receiver
+flash/BBR changes are made. The accepted native bench rate is 189.6 Hz.
+Pi/PX4 TIMESYNC estimation is implemented and bench-tested; see the
+[Stage 5A timing review](results/acquisition_stage5a/timesync_20261105T142326Z/report.html).
+The flag records clock exchanges and produces offset/RTT plots and bounded
+per-segment mappings. GNSS epoch alignment and independently verified timing
+accuracy remain later steps. Without the flag, recording stays passive.
+
+The intended real-data path uses **attitude supplied by PX4** and our own
+accelerometer integration to estimate antenna displacement. The synthetic
+quaternions currently stand in for that supplied attitude. A custom gyro-based
+attitude estimator is an optional experiment, not a prerequisite or the next
+required stage. See [the PX4 attitude input plan](IMU_ESTIMATION.md#px4-attitude-input-plan).
+
 ## Run the IMU-displacement detector
+
+For the first real-data inspection, open the
+[July flight HTML report](results/recorded_july07/report.html), or see the
+[recorded-data method and reproduction command](RECORDED_FLIGHT.md). It uses
+the confirmed 2 cm forward antenna offset and supplied PX4 attitude. ULog GNSS
+position is used only for the user-authorized fixed satellite-geometry origin.
+Estimated timing and conditional quality checks do not establish a conclusive
+field detector result.
 
 ```bash
 python3 -m SpoofingDetection.detect2.replay --imu
@@ -329,18 +365,18 @@ The detector is not retuned for these experiments. Remaining work:
   gate is documented in [IMU_UNCERTAINTY.md](IMU_UNCERTAINTY.md).
 - Extend sensitivity checks across noise seeds, body axes and measured sensor
   characteristics. Measure motion error, gamma changes and conclusive coverage
-  rather than only accuracy on usable windows. Gyro noise/bias belongs with the
-  future attitude estimator; the current supplied-attitude path does not use gyro
-  measurements to compute orientation.
-- Estimate attitude from gyro/accelerometer measurements, stating initialization
-  and heading assumptions. Keep supplied-attitude mode as a separate reference.
+  rather than only accuracy on usable windows. Test errors and latency in the
+  supplied attitude; gyro measurements remain available for diagnostics.
+- Validate the implemented PX4 recording adapter's supplied-attitude timing and
+  the empirical carrier epoch alignment. FRD-to-NED quaternions are converted
+  into FRD-to-ENU, and reset/gap windows are rejected.
 - Evaluate any additional filtering with documented cutoff, transients, resets
   and phase delay; do not silently change the present baseline.
-- Add recording adapters after validating sensor frames and timing. Do not infer
-  missing high-rate carrier phase by interpolating low-rate GNSS data.
+- Extend the recorded-data inspection after validating sensor timing and noise.
+  Do not infer missing high-rate phase by interpolating low-rate GNSS data.
 
-Next milestone: quantify degradation under sensor, attitude and timing errors
-before claiming suitability for another flight.
+Next milestone: independently verify the recorded clock alignment and measured
+noise/quality model, and assess the motion needed for conclusive coverage.
 
 ## 4. Generate synthetic datasets and verify the complete offline pipeline
 
@@ -374,6 +410,26 @@ No simulator hardware, receiver or new flight is required for this milestone.
 
 ## Later: real acquisition and live operation
 
+The [next-flight acquisition guide](ACQUISITION.md) includes a read-only SSH
+inspection of the Pi, measured MAVLink streams, confirmed X20 UART saturation,
+and proposed receiver/PX4 logging profiles. No remote settings were changed.
+
+Stage 1 acquisition tools are implemented locally: independent raw capture,
+offline auditing, replay, optional TIMESYNC, and reviewed RAM-only receiver
+transactions. Open the [Stage 1 manual review](results/acquisition_stage1/report.html)
+or [command guide](acquisition/README.md). Pi deployment waits for Checkpoint 1.
+
+An [audit of the stored flight recordings](results/recording_audit/report.html)
+identifies external-GPS session `20260707_152258` and PX4 `log_170` as the first
+candidate pair. It includes raw GPS L5 carrier cycles and recorded IMU/attitude,
+but receive-time pairing accumulates about 30 seconds of delay over 72 seconds
+of GPS epochs. Recover and validate measurement-time alignment before detector
+replay. Satellite geometry and carrier quality metadata also need attention.
+See the [full findings](results/recording_audit/report.md) and
+[recording inventory](results/recording_audit/recordings.csv). This audit reads
+no GNSS/position measurements from the ULogs and produces no flight detector
+decisions.
+
 Before another flight, inspect the actual receiver output and logger settings.
 Measure the saved GNSS rate rather than assuming a requested rate is achieved.
 Plan for high-rate continuous raw carrier measurements, high-rate inertial data,
@@ -381,7 +437,7 @@ attitude, quality/lock fields, navigation ephemerides or satellite geometry,
 sensor/antenna calibration and a documented common timebase. Save raw receiver
 messages as well as decoded data where possible.
 
-After the offline pipeline passes, add adapters for recordings and live streams,
-using the same validated detector. New field recordings and any Skydel hardware
+After recorded timing and quality are validated, extend the offline adapter to
+live streams using the same detector. New field recordings and any Skydel hardware
 experiment are deferred until the synthetic pipeline and acquisition requirements
 are ready.

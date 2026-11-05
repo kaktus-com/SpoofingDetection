@@ -1,0 +1,6 @@
+{
+  "healthy": "healthy/20261105T095932Z_6643d0",
+  "faults": "faults/20261105T095932Z_9e07b3",
+  "missing-mavlink": "missing-mavlink/20261105T095932Z_36aef2",
+  "overflow": "overflow/20261105T095932Z_0353f6"
+}

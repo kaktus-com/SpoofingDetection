@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "capture_status": "failed",
+  "checks": {
+    "receiver_archive": {
+      "status": "FAIL",
+      "errors": [
+        "input sequence gap"
+      ],
+      "rows": 35170,
+      "bytes": 8394951,
+      "sha256": "06b7cb60ace5ebe703f23b63c0d157363f38c21cb212a793ab33616e6ba9840c"
+    },
+    "mavlink_archive": {
+      "status": "FAIL",
+      "errors": [
+        "input sequence gap"
+      ],
+      "rows": 41594,
+      "bytes": 3145062,
+      "sha256": "59120d8d951dd769398df851030b76dfe8b0bb7ccab60f467f2e5f0ba9b6e224"
+    },
+    "receiver_epoch_continuity": {
+      "status": "FAIL",
+      "expected_hz": 20.0,
+      "unexpected_intervals": 1,
+      "clock_resets": 0
+    },
+    "finalized": {
+      "status": "PASS"
+    },
+    "capture_session": {
+      "status": "FAIL",
+      "recorded_status": "failed",
+      "issues": {
+        "archive_rejected_input": 228
+      }
+    },
+    "receiver_rawx_present": {
+      "status": "PASS"
+    },
+    "receiver_frame_validation": {
+      "status": "FAIL",
+      "diagnostics": {
+        "valid_frames": 6712,
+        "invalid_candidates": 1,
+        "trailing_partial_candidates": 1
+      }
+    },
+    "mavlink_decoding": {
+      "status": "UNKNOWN"
+    },
+    "mavlink_source_continuity": {
+      "status": "UNKNOWN",
+      "streams": {},
+      "interpretation": "Source timestamp gaps observed; a router/changed stream rate may also explain gaps. This is not a network loss probability."
+    },
+    "gnss_to_px4_clock": {
+      "status": "UNKNOWN",
+      "reason": "No independently verified pulse/measurement-clock mapping in this stage."
+    },
+    "native_ulog": {
+      "status": "UNKNOWN",
+      "reason": "Native SD-card ULog is attached and validated in a later stage."
+    }
+  },
+  "receiver": {
+    "status": "FAIL",
+    "epochs": 2392,
+    "observations": 249894,
+    "signal_counts": {
+      "0:20:7": 2392,
+      "0:8:7": 2392,
+      "0:27:7": 2392,
+      "0:14:7": 2392,
+      "0:23:7": 2392,
+      "0:18:7": 2392,
+      "0:30:7": 2392,
+      "5:2:9": 2392,
+      "0:21:7": 2392,
+      "5:8:9": 2392,
+      "3:37:7": 2392,
+      "3:34:7": 2392,
+      "3:12:7": 2392,
+      "3:31:7": 2392,
+      "3:23:7": 2392,
+      "3:25:7": 2392,
+      "3:19:7": 2392,
+      "3:32:7": 2392,
+      "3:20:7": 2392,
+      "3:8:7": 2392,
+      "2:11:4": 2392,
+      "2:6:4": 2392,
+      "2:28:4": 2392,
+      "2:29:4": 2392,
+      "2:19:4": 2392,
+      "2:30:4": 2392,
+      "2:23:4": 2392,
+      "2:10:4": 2392,
+      "2:12:4": 972,
+      "2:36:4": 2392,
+      "2:21:4": 2392,
+      "2:27:4": 2392,
+      "2:4:4": 2392,
+      "3:37:4": 2392,
+      "3:34:4": 2392,
+      "3:12:4": 2392,
+      "3:31:4": 2392,
+      "3:23:4": 2392,
+      "3:25:4": 2392,
+      "3:19:4": 2392,
+      "3:32:4": 2392,
+      "3:20:4": 2392,
+      "3:10:4": 2392,
+      "3:8:4": 2392,
+      "0:20:0": 2392,
+      "0:8:0": 2392,
+      "0:27:0": 2392,
+      "0:14:0": 2392,
+      "0:5:0": 2392,
+      "0:23:0": 2392,
+      "0:7:0": 2392,
+      "0:18:0": 2392,
+      "0:15:0": 2392,
+      "0:30:0": 2392,
+      "5:2:0": 2392,
+      "0:22:0": 2392,
+      "0:21:0": 2392,
+      "3:37:5": 2392,
+      "3:34:5": 2392,
+      "3:41:5": 903,
+      "3:12:5": 2392,
+      "3:31:5": 2392,
+      "3:23:5": 2392,
+      "3:25:5": 2392,
+      "3:19:5": 2392,
+      "3:32:5": 2392,
+      "3:20:5": 2392,
+      "3:8:5": 2392,
+      "2:11:0": 2392,
+      "2:6:0": 2392,
+      "2:28:0": 2392,
+      "2:29:0": 2392,
+      "2:19:0": 2392,
+      "2:30:0": 2392,
+      "2:23:0": 2392,
+      "2:10:0": 2392,
+      "2:12:0": 618,
+      "2:36:0": 2392,
+      "2:21:0": 2392,
+      "2:27:0": 2392,
+      "2:4:0": 2392,
+      "2:11:8": 2392,
+      "2:6:8": 2392,
+      "2:28:8": 2392,
+      "2:29:8": 2392,
+      "2:19:8": 2392,
+      "2:30:8": 2392,
+      "2:23:8": 2392,
+      "2:10:8": 2392,
+      "2:36:8": 2392,
+      "2:21:8": 2392,
+      "2:27:8": 2392,
+      "2:4:8": 2392,
+      "0:20:3": 2392,
+      "0:8:3": 2392,
+      "0:27:3": 2392,
+      "0:14:3": 2392,
+      "0:5:3": 2392,
+      "0:23:3": 2392,
+      "0:7:3": 2392,
+      "0:18:3": 2392,
+      "0:15:3": 2392,
+      "0:30:3": 2392,
+      "5:2:5": 2392,
+      "0:21:3": 2392,
+      "3:41:4": 2195,
+      "3:41:7": 458,
+      "2:34:4": 262,
+      "2:34:8": 254,
+      "2:34:0": 248
+    },
+    "packet_counts": {
+      "RXM-RAWX": 2392,
+      "NAV-PVT": 120,
+      "NAV-SAT": 119,
+      "TIM-TP": 119,
+      "RXM-SFRBX": 3851,
+      "MON-COMMS": 111
+    },
+    "invalid_carrier_flag_observations": 3069,
+    "clock_resets": 0,
+    "backwards_or_repeated_epochs": 0,
+    "median_epoch_interval_s": 0.04999995231628418,
+    "max_epoch_gap_s": 0.40000009536743164,
+    "diagnostics": {
+      "valid_frames": 6712,
+      "invalid_candidates": 1,
+      "trailing_partial_candidates": 1
+    },
+    "note": "Invalid flags retained; continuity at resets is segmented, not repaired."
+  },
+  "telemetry": {
+    "status": "UNKNOWN",
+    "reason": "MAVLink index/archive integrity failed; decoding skipped"
+  },
+  "ready_for_validated_detector": false,
+  "interpretation": "PASS concerns an individual check only. UNKNOWN never counts as PASS; this stage does not validate flight timing or detection."
+}

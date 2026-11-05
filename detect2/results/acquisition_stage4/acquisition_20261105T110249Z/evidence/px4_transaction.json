@@ -1,0 +1,36 @@
+{
+  "status": "applied_and_verified",
+  "identity": {
+    "uid": 3544703520294189106,
+    "flight_sw_version": 255,
+    "flight_custom_version": [
+      0,
+      0,
+      0,
+      181,
+      181,
+      29,
+      65,
+      203
+    ],
+    "vendor_id": 11694,
+    "product_id": 4118
+  },
+  "before": {
+    "SDLOG_PROFILE": 17,
+    "SDLOG_MODE": 2,
+    "SDLOG_BACKEND": 3
+  },
+  "desired": {
+    "SDLOG_PROFILE": 17,
+    "SDLOG_MODE": 2,
+    "SDLOG_BACKEND": 3
+  },
+  "scope": "PX4 logging parameters only",
+  "writes": [],
+  "after": {
+    "SDLOG_PROFILE": 17,
+    "SDLOG_MODE": 2,
+    "SDLOG_BACKEND": 3
+  }
+}

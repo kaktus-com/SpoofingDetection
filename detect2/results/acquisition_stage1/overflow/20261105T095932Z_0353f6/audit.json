@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "capture_status": "failed",
+  "checks": {
+    "receiver_archive": {
+      "status": "PASS",
+      "errors": [],
+      "rows": 1,
+      "bytes": 1,
+      "sha256": "892f60b39450a0e770f00a836761c8e964fd74671ae2cc51cff36cde4f914c12"
+    },
+    "mavlink_archive": {
+      "status": "PASS",
+      "errors": [],
+      "rows": 1,
+      "bytes": 93,
+      "sha256": "6fe1d2dd6f77d3228c96fc69ffa617e1f9b252cbf1ebddf667fc3a04205a68d7"
+    },
+    "receiver_epoch_continuity": {
+      "status": "UNKNOWN",
+      "expected_hz": 20,
+      "unexpected_intervals": null,
+      "clock_resets": 0
+    },
+    "finalized": {
+      "status": "PASS"
+    },
+    "capture_session": {
+      "status": "FAIL",
+      "recorded_status": "failed",
+      "issues": {
+        "archive_rejected_input": 43
+      }
+    },
+    "receiver_rawx_present": {
+      "status": "UNKNOWN"
+    },
+    "receiver_frame_validation": {
+      "status": "FAIL",
+      "diagnostics": {
+        "valid_frames": 0,
+        "invalid_candidates": 0,
+        "trailing_partial_candidates": 0
+      }
+    },
+    "mavlink_decoding": {
+      "status": "PASS"
+    },
+    "mavlink_source_continuity": {
+      "status": "UNKNOWN",
+      "streams": {},
+      "interpretation": "Source timestamp gaps observed; a router/changed stream rate may also explain gaps. This is not a network loss probability."
+    },
+    "gnss_to_px4_clock": {
+      "status": "UNKNOWN",
+      "reason": "No independently verified pulse/measurement-clock mapping in this stage."
+    },
+    "native_ulog": {
+      "status": "UNKNOWN",
+      "reason": "Native SD-card ULog is attached and validated in a later stage."
+    },
+    "receiver_replay_bytes": {
+      "status": "FAIL",
+      "source": "replay_inputs/receiver.bin",
+      "source_sha256": "7e7cd672756bafff50ff942cbb84f6ffff76b11a1848fe77cb21d71b0c0f33ce"
+    },
+    "mavlink_replay_bytes": {
+      "status": "FAIL",
+      "source": "replay_inputs/mavlink.bin",
+      "source_sha256": "3f09efc4a568a7589aef26703d0ea3ecd9d50125ea4c7015308509c09e1d7c5a"
+    }
+  },
+  "receiver": {
+    "status": "FAIL",
+    "epochs": 0,
+    "observations": 0,
+    "signal_counts": {},
+    "packet_counts": {},
+    "invalid_carrier_flag_observations": 0,
+    "clock_resets": 0,
+    "backwards_or_repeated_epochs": 0,
+    "median_epoch_interval_s": null,
+    "max_epoch_gap_s": null,
+    "diagnostics": {
+      "valid_frames": 0,
+      "invalid_candidates": 0,
+      "trailing_partial_candidates": 0
+    },
+    "note": "Invalid flags retained; continuity at resets is segmented, not repaired."
+  },
+  "telemetry": {
+    "status": "PASS",
+    "messages": {
+      "ATTITUDE_QUATERNION": 1,
+      "HIGHRES_IMU": 1
+    },
+    "bad_or_undecodable_messages": 0,
+    "distinct_source_timestamps": {
+      "ATTITUDE_QUATERNION": 1,
+      "HIGHRES_IMU": 1
+    },
+    "source_gap_checks": {},
+    "note": "Unknown messages remain in original datagrams. Sequence gaps are not automatically equated with link loss through a router."
+  },
+  "ready_for_validated_detector": false,
+  "interpretation": "PASS concerns an individual check only. UNKNOWN never counts as PASS; this stage does not validate flight timing or detection."
+}

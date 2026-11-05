@@ -1,0 +1,66 @@
+{
+  "CFG_RATE_MEAS": {
+    "before": 40,
+    "desired": 50
+  },
+  "CFG_MSGOUT_UBX_NAV_PVT_UART1": {
+    "before": 1,
+    "desired": 20
+  },
+  "CFG_MSGOUT_UBX_NAV_SAT_UART1": {
+    "before": 10,
+    "desired": 20
+  },
+  "CFG_MSGOUT_UBX_MON_COMMS_UART1": {
+    "before": 0,
+    "desired": 1
+  },
+  "CFG_MSGOUT_UBX_RXM_SFRBX_UART1": {
+    "before": 0,
+    "desired": 1
+  },
+  "CFG_MSGOUT_UBX_TIM_TP_UART1": {
+    "before": 0,
+    "desired": 1
+  },
+  "CFG_MSGOUT_UBX_NAV_SIG_UART1": {
+    "before": 1,
+    "desired": 0
+  },
+  "CFG_MSGOUT_UBX_RXM_MEASX_UART1": {
+    "before": 1,
+    "desired": 0
+  },
+  "CFG_MSGOUT_UBX_NAV_HPPOSECEF_UART1": {
+    "before": 1,
+    "desired": 0
+  },
+  "CFG_MSGOUT_UBX_NAV_POSECEF_UART1": {
+    "before": 1,
+    "desired": 0
+  },
+  "CFG_MSGOUT_UBX_NAV_HPPOSLLH_UART1": {
+    "before": 1,
+    "desired": 0
+  },
+  "CFG_MSGOUT_UBX_NAV_VELNED_UART1": {
+    "before": 1,
+    "desired": 0
+  },
+  "CFG_MSGOUT_UBX_NAV_STATUS_UART1": {
+    "before": 1,
+    "desired": 0
+  },
+  "CFG_MSGOUT_UBX_NAV_DOP_UART1": {
+    "before": 1,
+    "desired": 0
+  },
+  "CFG_MSGOUT_UBX_NAV_COV_UART1": {
+    "before": 1,
+    "desired": 0
+  },
+  "CFG_MSGOUT_UBX_NAV_EOE_UART1": {
+    "before": 1,
+    "desired": 0
+  }
+}

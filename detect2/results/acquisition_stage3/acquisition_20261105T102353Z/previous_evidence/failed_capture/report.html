@@ -1,0 +1,1557 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>detect2 · Acquisition audit</title><style>
+:root{font:15px/1.6 system-ui,sans-serif;color:#23374a;background:#f1f5f7}body{max-width:1160px;margin:30px auto;padding:0 20px}h1{font-size:34px;line-height:1.2;letter-spacing:-1px}.tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#62798a}.card{border:1px solid #dae3e9;border-radius:12px;padding:23px;background:white;margin:20px 0}.notice{border-left:4px solid #bc7b28;background:#fff6e5;padding:12px 17px}.pass{color:#1f7856;font-weight:700}.fail{color:#ae3f30;font-weight:700}.unknown{color:#9b6b21;font-weight:700}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:10px;border-bottom:1px solid #e1e8ed;text-align:left;vertical-align:top}td:last-child{max-width:640px;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 ui-monospace,monospace}a{color:#216b8a}canvas{width:100%;height:260px;display:block}code{font-size:12px}</style></head><body>
+<div class="tag">detect2 / independent raw acquisition / offline audit</div><h1>Session 20261105T103205Z_486ad0</h1><p>Mode: <b>live</b>. Recorded lifecycle status: <b>failed</b>.</p><p class="notice">Archive integrity, measurement quality and clock validation are separate checks. UNKNOWN never counts as PASS. Replay host timestamps are simulated; this report does not certify a clean/spoofed decision.</p>
+<section class="card"><h2>Checks to review</h2><div class="scroll"><table><tr><th>Check</th><th>Status</th><th>Evidence</th></tr><tr><td>receiver archive</td><td class="fail">FAIL</td><td>{&quot;errors&quot;: [&quot;input sequence gap&quot;], &quot;rows&quot;: 35170, &quot;bytes&quot;: 8394951, &quot;sha256&quot;: &quot;06b7cb60ace5ebe703f23b63c0d157363f38c21cb212a793ab33616e6ba9840c&quot;}</td></tr><tr><td>mavlink archive</td><td class="fail">FAIL</td><td>{&quot;errors&quot;: [&quot;input sequence gap&quot;], &quot;rows&quot;: 41594, &quot;bytes&quot;: 3145062, &quot;sha256&quot;: &quot;59120d8d951dd769398df851030b76dfe8b0bb7ccab60f467f2e5f0ba9b6e224&quot;}</td></tr><tr><td>receiver epoch continuity</td><td class="fail">FAIL</td><td>{&quot;expected_hz&quot;: 20.0, &quot;unexpected_intervals&quot;: 1, &quot;clock_resets&quot;: 0}</td></tr><tr><td>finalized</td><td class="pass">PASS</td><td>{}</td></tr><tr><td>capture session</td><td class="fail">FAIL</td><td>{&quot;recorded_status&quot;: &quot;failed&quot;, &quot;issues&quot;: {&quot;archive_rejected_input&quot;: 228}}</td></tr><tr><td>receiver rawx present</td><td class="pass">PASS</td><td>{}</td></tr><tr><td>receiver frame validation</td><td class="fail">FAIL</td><td>{&quot;diagnostics&quot;: {&quot;valid_frames&quot;: 6712, &quot;invalid_candidates&quot;: 1, &quot;trailing_partial_candidates&quot;: 1}}</td></tr><tr><td>mavlink decoding</td><td class="unknown">UNKNOWN</td><td>{}</td></tr><tr><td>mavlink source continuity</td><td class="unknown">UNKNOWN</td><td>{&quot;streams&quot;: {}, &quot;interpretation&quot;: &quot;Source timestamp gaps observed; a router/changed stream rate may also explain gaps. This is not a network loss probability.&quot;}</td></tr><tr><td>gnss to px4 clock</td><td class="unknown">UNKNOWN</td><td>{&quot;reason&quot;: &quot;No independently verified pulse/measurement-clock mapping in this stage.&quot;}</td></tr><tr><td>native ulog</td><td class="unknown">UNKNOWN</td><td>{&quot;reason&quot;: &quot;Native SD-card ULog is attached and validated in a later stage.&quot;}</td></tr></table></div></section>
+<section class="card"><h2>Receiver epochs</h2><p>Original order, including missing epochs, repeats and reset boundaries. Source timestamps are not resampled.</p><canvas id="epochs" aria-label="RAWX measurement epoch spacings"></canvas><details><summary>Receiver counts, retained flags and all signal IDs</summary><pre>{
+  &quot;status&quot;: &quot;FAIL&quot;,
+  &quot;epochs&quot;: 2392,
+  &quot;observations&quot;: 249894,
+  &quot;signal_counts&quot;: {
+    &quot;0:20:7&quot;: 2392,
+    &quot;0:8:7&quot;: 2392,
+    &quot;0:27:7&quot;: 2392,
+    &quot;0:14:7&quot;: 2392,
+    &quot;0:23:7&quot;: 2392,
+    &quot;0:18:7&quot;: 2392,
+    &quot;0:30:7&quot;: 2392,
+    &quot;5:2:9&quot;: 2392,
+    &quot;0:21:7&quot;: 2392,
+    &quot;5:8:9&quot;: 2392,
+    &quot;3:37:7&quot;: 2392,
+    &quot;3:34:7&quot;: 2392,
+    &quot;3:12:7&quot;: 2392,
+    &quot;3:31:7&quot;: 2392,
+    &quot;3:23:7&quot;: 2392,
+    &quot;3:25:7&quot;: 2392,
+    &quot;3:19:7&quot;: 2392,
+    &quot;3:32:7&quot;: 2392,
+    &quot;3:20:7&quot;: 2392,
+    &quot;3:8:7&quot;: 2392,
+    &quot;2:11:4&quot;: 2392,
+    &quot;2:6:4&quot;: 2392,
+    &quot;2:28:4&quot;: 2392,
+    &quot;2:29:4&quot;: 2392,
+    &quot;2:19:4&quot;: 2392,
+    &quot;2:30:4&quot;: 2392,
+    &quot;2:23:4&quot;: 2392,
+    &quot;2:10:4&quot;: 2392,
+    &quot;2:12:4&quot;: 972,
+    &quot;2:36:4&quot;: 2392,
+    &quot;2:21:4&quot;: 2392,
+    &quot;2:27:4&quot;: 2392,
+    &quot;2:4:4&quot;: 2392,
+    &quot;3:37:4&quot;: 2392,
+    &quot;3:34:4&quot;: 2392,
+    &quot;3:12:4&quot;: 2392,
+    &quot;3:31:4&quot;: 2392,
+    &quot;3:23:4&quot;: 2392,
+    &quot;3:25:4&quot;: 2392,
+    &quot;3:19:4&quot;: 2392,
+    &quot;3:32:4&quot;: 2392,
+    &quot;3:20:4&quot;: 2392,
+    &quot;3:10:4&quot;: 2392,
+    &quot;3:8:4&quot;: 2392,
+    &quot;0:20:0&quot;: 2392,
+    &quot;0:8:0&quot;: 2392,
+    &quot;0:27:0&quot;: 2392,
+    &quot;0:14:0&quot;: 2392,
+    &quot;0:5:0&quot;: 2392,
+    &quot;0:23:0&quot;: 2392,
+    &quot;0:7:0&quot;: 2392,
+    &quot;0:18:0&quot;: 2392,
+    &quot;0:15:0&quot;: 2392,
+    &quot;0:30:0&quot;: 2392,
+    &quot;5:2:0&quot;: 2392,
+    &quot;0:22:0&quot;: 2392,
+    &quot;0:21:0&quot;: 2392,
+    &quot;3:37:5&quot;: 2392,
+    &quot;3:34:5&quot;: 2392,
+    &quot;3:41:5&quot;: 903,
+    &quot;3:12:5&quot;: 2392,
+    &quot;3:31:5&quot;: 2392,
+    &quot;3:23:5&quot;: 2392,
+    &quot;3:25:5&quot;: 2392,
+    &quot;3:19:5&quot;: 2392,
+    &quot;3:32:5&quot;: 2392,
+    &quot;3:20:5&quot;: 2392,
+    &quot;3:8:5&quot;: 2392,
+    &quot;2:11:0&quot;: 2392,
+    &quot;2:6:0&quot;: 2392,
+    &quot;2:28:0&quot;: 2392,
+    &quot;2:29:0&quot;: 2392,
+    &quot;2:19:0&quot;: 2392,
+    &quot;2:30:0&quot;: 2392,
+    &quot;2:23:0&quot;: 2392,
+    &quot;2:10:0&quot;: 2392,
+    &quot;2:12:0&quot;: 618,
+    &quot;2:36:0&quot;: 2392,
+    &quot;2:21:0&quot;: 2392,
+    &quot;2:27:0&quot;: 2392,
+    &quot;2:4:0&quot;: 2392,
+    &quot;2:11:8&quot;: 2392,
+    &quot;2:6:8&quot;: 2392,
+    &quot;2:28:8&quot;: 2392,
+    &quot;2:29:8&quot;: 2392,
+    &quot;2:19:8&quot;: 2392,
+    &quot;2:30:8&quot;: 2392,
+    &quot;2:23:8&quot;: 2392,
+    &quot;2:10:8&quot;: 2392,
+    &quot;2:36:8&quot;: 2392,
+    &quot;2:21:8&quot;: 2392,
+    &quot;2:27:8&quot;: 2392,
+    &quot;2:4:8&quot;: 2392,
+    &quot;0:20:3&quot;: 2392,
+    &quot;0:8:3&quot;: 2392,
+    &quot;0:27:3&quot;: 2392,
+    &quot;0:14:3&quot;: 2392,
+    &quot;0:5:3&quot;: 2392,
+    &quot;0:23:3&quot;: 2392,
+    &quot;0:7:3&quot;: 2392,
+    &quot;0:18:3&quot;: 2392,
+    &quot;0:15:3&quot;: 2392,
+    &quot;0:30:3&quot;: 2392,
+    &quot;5:2:5&quot;: 2392,
+    &quot;0:21:3&quot;: 2392,
+    &quot;3:41:4&quot;: 2195,
+    &quot;3:41:7&quot;: 458,
+    &quot;2:34:4&quot;: 262,
+    &quot;2:34:8&quot;: 254,
+    &quot;2:34:0&quot;: 248
+  },
+  &quot;packet_counts&quot;: {
+    &quot;RXM-RAWX&quot;: 2392,
+    &quot;NAV-PVT&quot;: 120,
+    &quot;NAV-SAT&quot;: 119,
+    &quot;TIM-TP&quot;: 119,
+    &quot;RXM-SFRBX&quot;: 3851,
+    &quot;MON-COMMS&quot;: 111
+  },
+  &quot;invalid_carrier_flag_observations&quot;: 3069,
+  &quot;clock_resets&quot;: 0,
+  &quot;backwards_or_repeated_epochs&quot;: 0,
+  &quot;median_epoch_interval_s&quot;: 0.04999995231628418,
+  &quot;max_epoch_gap_s&quot;: 0.40000009536743164,
+  &quot;diagnostics&quot;: {
+    &quot;valid_frames&quot;: 6712,
+    &quot;invalid_candidates&quot;: 1,
+    &quot;trailing_partial_candidates&quot;: 1
+  },
+  &quot;note&quot;: &quot;Invalid flags retained; continuity at resets is segmented, not repaired.&quot;
+}</pre></details><p><a href="receiver_observations.csv">All decoded RAWX observations, including invalid flags</a> · <a href="receiver.bin">Original receiver bytes</a> · <a href="receiver_receive.csv">Receive index</a></p></section>
+<section class="card"><h2>MAVLink and clock information</h2><pre>{
+  &quot;status&quot;: &quot;UNKNOWN&quot;,
+  &quot;reason&quot;: &quot;MAVLink index/archive integrity failed; decoding skipped&quot;
+}</pre><p>Quaternions and IMU are retained in the original datagrams. Native ULog remains the primary inertial record. TIMESYNC is optional and disabled by default; Pi↔PX4 exchanges do not establish the external GNSS clock.</p><p><a href="mavlink.bin">Original datagrams</a> · <a href="mavlink_receive.csv">Datagram boundaries and peers</a></p></section>
+<section class="card"><h2>Capture issues and explicit replay injections</h2><pre>{
+  &quot;counts&quot;: {
+    &quot;archive_rejected_input&quot;: 228
+  },
+  &quot;events&quot;: [
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109282693635,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 36999,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109296783488,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37000,
+      &quot;bytes&quot;: 86
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109296899006,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37001,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109297302762,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37002,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109303221624,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37003,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109303329438,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37004,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109303665713,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37005,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109303775434,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37006,
+      &quot;bytes&quot;: 71
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109312608217,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37007,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109315738934,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37008,
+      &quot;bytes&quot;: 86
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109315837396,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37009,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109324902085,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37010,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109336135831,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37011,
+      &quot;bytes&quot;: 87
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109336242534,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37012,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109336338459,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37013,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109336528680,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37014,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109336625920,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37015,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109342655466,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37016,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109342761447,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37017,
+      &quot;bytes&quot;: 27
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109342916982,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37018,
+      &quot;bytes&quot;: 65
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109351497157,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31241,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109351640637,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31242,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109352586593,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37019,
+      &quot;bytes&quot;: 40
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109352689499,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37020,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109352808813,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37021,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109352907868,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37022,
+      &quot;bytes&quot;: 61
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109353001608,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37023,
+      &quot;bytes&quot;: 76
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109353094903,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37024,
+      &quot;bytes&quot;: 37
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109353185199,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37025,
+      &quot;bytes&quot;: 42
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109356503784,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37026,
+      &quot;bytes&quot;: 86
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109356597673,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37027,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109363800154,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37028,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109368716893,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31243,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109368902929,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31244,
+      &quot;bytes&quot;: 391
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109370648656,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37029,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109371310003,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37030,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109373730836,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37031,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109377214624,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37032,
+      &quot;bytes&quot;: 87
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109377315234,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37033,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109382934302,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37034,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109385267284,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31245,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109385454819,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31246,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109387670080,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31247,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109387805542,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31248,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109390152005,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31249,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109390287671,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31250,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109392627282,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31251,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109392762855,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31252,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109394696803,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37035,
+      &quot;bytes&quot;: 87
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109394798228,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37036,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109394888487,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37037,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109395111189,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31253,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109395254706,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31254,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109397588392,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31255,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109397726168,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31256,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109404675318,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37038,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109404796373,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37039,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109405076500,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37040,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109413310918,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37041,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109414663352,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31257,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109414816906,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31258,
+      &quot;bytes&quot;: 343
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109415811139,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37042,
+      &quot;bytes&quot;: 86
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109415906416,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37043,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109424669219,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37044,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109434412995,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37045,
+      &quot;bytes&quot;: 87
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109434523624,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37046,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109434629641,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37047,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109434776066,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31259,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109434939602,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31260,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109437066123,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31261,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109437225232,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31262,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109438348853,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37048,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109438734647,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37049,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109439531918,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31263,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109439677899,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31264,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109442006066,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31265,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109442146250,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31266,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109444482898,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31267,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109444618305,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31268,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109444939173,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37050,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109446967175,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31269,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109447108656,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31270,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109452101710,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37051,
+      &quot;bytes&quot;: 40
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109452205709,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37052,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109452300356,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37053,
+      &quot;bytes&quot;: 61
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109452620539,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37054,
+      &quot;bytes&quot;: 76
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109452721205,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37055,
+      &quot;bytes&quot;: 37
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109452813778,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37056,
+      &quot;bytes&quot;: 42
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109455619182,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37057,
+      &quot;bytes&quot;: 86
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109455715219,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37058,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109455806107,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37059,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109458674122,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37060,
+      &quot;bytes&quot;: 66
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109458773565,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37061,
+      &quot;bytes&quot;: 33
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109458874898,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37062,
+      &quot;bytes&quot;: 67
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109458968508,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37063,
+      &quot;bytes&quot;: 83
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109459134562,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37064,
+      &quot;bytes&quot;: 84
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109459228784,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37065,
+      &quot;bytes&quot;: 39
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109459319820,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37066,
+      &quot;bytes&quot;: 37
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109459408931,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37067,
+      &quot;bytes&quot;: 45
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109463745286,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31271,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109463904655,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31272,
+      &quot;bytes&quot;: 367
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109464648723,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37068,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109473023881,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37069,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109473122454,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37070,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109473509210,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37071,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109475604953,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37072,
+      &quot;bytes&quot;: 86
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109475699156,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37073,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109482651047,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37074,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109484786178,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31273,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109484954473,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31274,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109487259937,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31275,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109487399214,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31276,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109489698048,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31277,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109489857102,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31278,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109492186510,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31279,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109492322379,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31280,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109494659361,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31281,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109494943674,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31282,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109495186431,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37075,
+      &quot;bytes&quot;: 87
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109495283060,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37076,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109495398003,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37077,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109497172471,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31283,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109497315915,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31284,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109504866800,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37078,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109504967707,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37079,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109505248297,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37080,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109505342482,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37081,
+      &quot;bytes&quot;: 71
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109515594754,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37082,
+      &quot;bytes&quot;: 87
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109515712883,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37083,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109515810419,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37084,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109526087951,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37085,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109530764859,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31285,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109530949487,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31286,
+      &quot;bytes&quot;: 471
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109534766439,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31287,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109534904290,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31288,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109535260768,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37086,
+      &quot;bytes&quot;: 87
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109535361082,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37087,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109535450934,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37088,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109537261716,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31289,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109537406530,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31290,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109537652954,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37089,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109537981525,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37090,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109539756659,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31291,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109539923288,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31292,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109542220548,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31293,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109542358213,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31294,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109543738258,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37091,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109543836943,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37092,
+      &quot;bytes&quot;: 27
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109543984293,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37093,
+      &quot;bytes&quot;: 65
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109544708325,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31295,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109544890490,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31296,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109547159750,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31297,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109547291897,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31298,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109549645379,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31299,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109549780545,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31300,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109553622126,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37094,
+      &quot;bytes&quot;: 40
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109553724755,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37095,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109553818273,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37096,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109553911346,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37097,
+      &quot;bytes&quot;: 61
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109554006049,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37098,
+      &quot;bytes&quot;: 76
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109554103437,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37099,
+      &quot;bytes&quot;: 37
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109554193881,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37100,
+      &quot;bytes&quot;: 42
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109556625103,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37101,
+      &quot;bytes&quot;: 86
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109556796064,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37102,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109562634167,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37103,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109565712940,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31301,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109565862975,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31302,
+      &quot;bytes&quot;: 87
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109572096946,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37104,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109572441258,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37105,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109574648574,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37106,
+      &quot;bytes&quot;: 86
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109574767147,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37107,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109574862591,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37108,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109583655060,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37109,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109585382046,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31303,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109585542638,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31304,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109587830509,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31305,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109587965619,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31306,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109590295434,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31307,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109590428692,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31308,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109592774137,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31309,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109592965747,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31310,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109593142134,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37110,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109595401172,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31311,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109595667337,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31312,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109596377702,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37111,
+      &quot;bytes&quot;: 87
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109596490497,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37112,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109597833042,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31313,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109598006485,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31314,
+      &quot;bytes&quot;: 495
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109604659063,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37113,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109604763452,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37114,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109604995894,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37115,
+      &quot;bytes&quot;: 257
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109605092690,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37116,
+      &quot;bytes&quot;: 36
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109614626190,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37117,
+      &quot;bytes&quot;: 86
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109614732041,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37118,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109614843262,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37119,
+      &quot;bytes&quot;: 57
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109614985428,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31315,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109615145982,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31316,
+      &quot;bytes&quot;: 343
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109623651509,
+      &quot;stream&quot;: &quot;mavlink&quot;,
+      &quot;sequence&quot;: 37120,
+      &quot;bytes&quot;: 53
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109634721997,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31317,
+      &quot;bytes&quot;: 1
+    },
+    {
+      &quot;kind&quot;: &quot;archive_rejected_input&quot;,
+      &quot;host_monotonic_ns&quot;: 3801109634886514,
+      &quot;stream&quot;: &quot;receiver&quot;,
+      &quot;sequence&quot;: 31318,
+      &quot;bytes&quot;: 495
+    }
+  ]
+}</pre><h3>Replay scenario</h3><pre>{}</pre><p>Injected faults are expected to appear in the checks above. A passing replay hash means captured bytes equal its input; it does not erase faults already present in that input.</p></section>
+<section class="card"><h2>Reviewable files</h2><p><a href="manifest.json">Manifest and source fingerprints</a> · <a href="audit.json">Machine-readable audit</a> · <a href="health.jsonl">Queue, byte and clock health</a> · <a href="clock_sync.csv">Clock exchanges (empty if disabled)</a></p></section>
+<script type="application/json" id="epoch-data">[{"elapsed": 0.0, "reset": false}, {"elapsed": 0.04999995231628418, "reset": false}, {"elapsed": 0.09999990463256836, "reset": false}, {"elapsed": 0.14999985694885254, "reset": false}, {"elapsed": 0.19999980926513672, "reset": false}, {"elapsed": 0.25, "reset": false}, {"elapsed": 0.2999999523162842, "reset": false}, {"elapsed": 0.34999990463256836, "reset": false}, {"elapsed": 0.39999985694885254, "reset": false}, {"elapsed": 0.4499998092651367, "reset": false}, {"elapsed": 0.5, "reset": false}, {"elapsed": 0.5499999523162842, "reset": false}, {"elapsed": 0.5999999046325684, "reset": false}, {"elapsed": 0.6499998569488525, "reset": false}, {"elapsed": 0.6999998092651367, "reset": false}, {"elapsed": 0.75, "reset": false}, {"elapsed": 0.7999999523162842, "reset": false}, {"elapsed": 0.8499999046325684, "reset": false}, {"elapsed": 0.8999998569488525, "reset": false}, {"elapsed": 0.9499998092651367, "reset": false}, {"elapsed": 1.0, "reset": false}, {"elapsed": 1.0499999523162842, "reset": false}, {"elapsed": 1.0999999046325684, "reset": false}, {"elapsed": 1.1499998569488525, "reset": false}, {"elapsed": 1.1999998092651367, "reset": false}, {"elapsed": 1.25, "reset": false}, {"elapsed": 1.2999999523162842, "reset": false}, {"elapsed": 1.3499999046325684, "reset": false}, {"elapsed": 1.3999998569488525, "reset": false}, {"elapsed": 1.4499998092651367, "reset": false}, {"elapsed": 1.5, "reset": false}, {"elapsed": 1.5499999523162842, "reset": false}, {"elapsed": 1.5999999046325684, "reset": false}, {"elapsed": 1.6499998569488525, "reset": false}, {"elapsed": 1.6999998092651367, "reset": false}, {"elapsed": 1.75, "reset": false}, {"elapsed": 1.7999999523162842, "reset": false}, {"elapsed": 1.8499999046325684, "reset": false}, {"elapsed": 1.8999998569488525, "reset": false}, {"elapsed": 1.9499998092651367, "reset": false}, {"elapsed": 2.0, "reset": false}, {"elapsed": 2.049999952316284, "reset": false}, {"elapsed": 2.0999999046325684, "reset": false}, {"elapsed": 2.1499998569488525, "reset": false}, {"elapsed": 2.1999998092651367, "reset": false}, {"elapsed": 2.25, "reset": false}, {"elapsed": 2.299999952316284, "reset": false}, {"elapsed": 2.3499999046325684, "reset": false}, {"elapsed": 2.3999998569488525, "reset": false}, {"elapsed": 2.4499998092651367, "reset": false}, {"elapsed": 2.5, "reset": false}, {"elapsed": 2.549999952316284, "reset": false}, {"elapsed": 2.5999999046325684, "reset": false}, {"elapsed": 2.6499998569488525, "reset": false}, {"elapsed": 2.6999998092651367, "reset": false}, {"elapsed": 2.75, "reset": false}, {"elapsed": 2.799999952316284, "reset": false}, {"elapsed": 2.8499999046325684, "reset": false}, {"elapsed": 2.8999998569488525, "reset": false}, {"elapsed": 2.9499998092651367, "reset": false}, {"elapsed": 3.0, "reset": false}, {"elapsed": 3.049999952316284, "reset": false}, {"elapsed": 3.0999999046325684, "reset": false}, {"elapsed": 3.1499998569488525, "reset": false}, {"elapsed": 3.1999998092651367, "reset": false}, {"elapsed": 3.25, "reset": false}, {"elapsed": 3.299999952316284, "reset": false}, {"elapsed": 3.3499999046325684, "reset": false}, {"elapsed": 3.3999998569488525, "reset": false}, {"elapsed": 3.4499998092651367, "reset": false}, {"elapsed": 3.5, "reset": false}, {"elapsed": 3.549999952316284, "reset": false}, {"elapsed": 3.5999999046325684, "reset": false}, {"elapsed": 3.6499998569488525, "reset": false}, {"elapsed": 3.6999998092651367, "reset": false}, {"elapsed": 3.75, "reset": false}, {"elapsed": 3.799999952316284, "reset": false}, {"elapsed": 3.8499999046325684, "reset": false}, {"elapsed": 3.8999998569488525, "reset": false}, {"elapsed": 3.9499998092651367, "reset": false}, {"elapsed": 4.0, "reset": false}, {"elapsed": 4.049999952316284, "reset": false}, {"elapsed": 4.099999904632568, "reset": false}, {"elapsed": 4.1499998569488525, "reset": false}, {"elapsed": 4.199999809265137, "reset": false}, {"elapsed": 4.25, "reset": false}, {"elapsed": 4.299999952316284, "reset": false}, {"elapsed": 4.349999904632568, "reset": false}, {"elapsed": 4.3999998569488525, "reset": false}, {"elapsed": 4.449999809265137, "reset": false}, {"elapsed": 4.5, "reset": false}, {"elapsed": 4.549999952316284, "reset": false}, {"elapsed": 4.599999904632568, "reset": false}, {"elapsed": 4.6499998569488525, "reset": false}, {"elapsed": 4.699999809265137, "reset": false}, {"elapsed": 4.75, "reset": false}, {"elapsed": 4.799999952316284, "reset": false}, {"elapsed": 4.849999904632568, "reset": false}, {"elapsed": 4.8999998569488525, "reset": false}, {"elapsed": 4.949999809265137, "reset": false}, {"elapsed": 5.0, "reset": false}, {"elapsed": 5.049999952316284, "reset": false}, {"elapsed": 5.099999904632568, "reset": false}, {"elapsed": 5.1499998569488525, "reset": false}, {"elapsed": 5.199999809265137, "reset": false}, {"elapsed": 5.25, "reset": false}, {"elapsed": 5.299999952316284, "reset": false}, {"elapsed": 5.349999904632568, "reset": false}, {"elapsed": 5.3999998569488525, "reset": false}, {"elapsed": 5.449999809265137, "reset": false}, {"elapsed": 5.5, "reset": false}, {"elapsed": 5.549999952316284, "reset": false}, {"elapsed": 5.599999904632568, "reset": false}, {"elapsed": 5.6499998569488525, "reset": false}, {"elapsed": 5.699999809265137, "reset": false}, {"elapsed": 5.75, "reset": false}, {"elapsed": 5.799999952316284, "reset": false}, {"elapsed": 5.849999904632568, "reset": false}, {"elapsed": 5.8999998569488525, "reset": false}, {"elapsed": 5.949999809265137, "reset": false}, {"elapsed": 6.0, "reset": false}, {"elapsed": 6.049999952316284, "reset": false}, {"elapsed": 6.099999904632568, "reset": false}, {"elapsed": 6.1499998569488525, "reset": false}, {"elapsed": 6.199999809265137, "reset": false}, {"elapsed": 6.25, "reset": false}, {"elapsed": 6.299999952316284, "reset": false}, {"elapsed": 6.349999904632568, "reset": false}, {"elapsed": 6.3999998569488525, "reset": false}, {"elapsed": 6.449999809265137, "reset": false}, {"elapsed": 6.5, "reset": false}, {"elapsed": 6.549999952316284, "reset": false}, {"elapsed": 6.599999904632568, "reset": false}, {"elapsed": 6.6499998569488525, "reset": false}, {"elapsed": 6.699999809265137, "reset": false}, {"elapsed": 6.75, "reset": false}, {"elapsed": 6.799999952316284, "reset": false}, {"elapsed": 6.849999904632568, "reset": false}, {"elapsed": 6.8999998569488525, "reset": false}, {"elapsed": 6.949999809265137, "reset": false}, {"elapsed": 7.0, "reset": false}, {"elapsed": 7.049999952316284, "reset": false}, {"elapsed": 7.099999904632568, "reset": false}, {"elapsed": 7.1499998569488525, "reset": false}, {"elapsed": 7.199999809265137, "reset": false}, {"elapsed": 7.25, "reset": false}, {"elapsed": 7.299999952316284, "reset": false}, {"elapsed": 7.349999904632568, "reset": false}, {"elapsed": 7.3999998569488525, "reset": false}, {"elapsed": 7.449999809265137, "reset": false}, {"elapsed": 7.5, "reset": false}, {"elapsed": 7.549999952316284, "reset": false}, {"elapsed": 7.599999904632568, "reset": false}, {"elapsed": 7.6499998569488525, "reset": false}, {"elapsed": 7.699999809265137, "reset": false}, {"elapsed": 7.75, "reset": false}, {"elapsed": 7.799999952316284, "reset": false}, {"elapsed": 7.849999904632568, "reset": false}, {"elapsed": 7.8999998569488525, "reset": false}, {"elapsed": 7.949999809265137, "reset": false}, {"elapsed": 8.0, "reset": false}, {"elapsed": 8.049999952316284, "reset": false}, {"elapsed": 8.099999904632568, "reset": false}, {"elapsed": 8.149999856948853, "reset": false}, {"elapsed": 8.199999809265137, "reset": false}, {"elapsed": 8.25, "reset": false}, {"elapsed": 8.299999952316284, "reset": false}, {"elapsed": 8.349999904632568, "reset": false}, {"elapsed": 8.399999856948853, "reset": false}, {"elapsed": 8.449999809265137, "reset": false}, {"elapsed": 8.5, "reset": false}, {"elapsed": 8.549999952316284, "reset": false}, {"elapsed": 8.599999904632568, "reset": false}, {"elapsed": 8.649999856948853, "reset": false}, {"elapsed": 8.699999809265137, "reset": false}, {"elapsed": 8.75, "reset": false}, {"elapsed": 8.799999952316284, "reset": false}, {"elapsed": 8.849999904632568, "reset": false}, {"elapsed": 8.899999856948853, "reset": false}, {"elapsed": 8.949999809265137, "reset": false}, {"elapsed": 9.0, "reset": false}, {"elapsed": 9.049999952316284, "reset": false}, {"elapsed": 9.099999904632568, "reset": false}, {"elapsed": 9.149999856948853, "reset": false}, {"elapsed": 9.199999809265137, "reset": false}, {"elapsed": 9.25, "reset": false}, {"elapsed": 9.299999952316284, "reset": false}, {"elapsed": 9.349999904632568, "reset": false}, {"elapsed": 9.399999856948853, "reset": false}, {"elapsed": 9.449999809265137, "reset": false}, {"elapsed": 9.5, "reset": false}, {"elapsed": 9.549999952316284, "reset": false}, {"elapsed": 9.599999904632568, "reset": false}, {"elapsed": 9.649999856948853, "reset": false}, {"elapsed": 9.699999809265137, "reset": false}, {"elapsed": 9.75, "reset": false}, {"elapsed": 9.799999952316284, "reset": false}, {"elapsed": 9.849999904632568, "reset": false}, {"elapsed": 9.899999856948853, "reset": false}, {"elapsed": 9.949999809265137, "reset": false}, {"elapsed": 10.0, "reset": false}, {"elapsed": 10.049999952316284, "reset": false}, {"elapsed": 10.099999904632568, "reset": false}, {"elapsed": 10.149999856948853, "reset": false}, {"elapsed": 10.199999809265137, "reset": false}, {"elapsed": 10.25, "reset": false}, {"elapsed": 10.299999952316284, "reset": false}, {"elapsed": 10.349999904632568, "reset": false}, {"elapsed": 10.399999856948853, "reset": false}, {"elapsed": 10.449999809265137, "reset": false}, {"elapsed": 10.5, "reset": false}, {"elapsed": 10.549999952316284, "reset": false}, {"elapsed": 10.599999904632568, "reset": false}, {"elapsed": 10.649999856948853, "reset": false}, {"elapsed": 10.699999809265137, "reset": false}, {"elapsed": 10.75, "reset": false}, {"elapsed": 10.799999952316284, "reset": false}, {"elapsed": 10.849999904632568, "reset": false}, {"elapsed": 10.899999856948853, "reset": false}, {"elapsed": 10.949999809265137, "reset": false}, {"elapsed": 11.0, "reset": false}, {"elapsed": 11.049999952316284, "reset": false}, {"elapsed": 11.099999904632568, "reset": false}, {"elapsed": 11.149999856948853, "reset": false}, {"elapsed": 11.199999809265137, "reset": false}, {"elapsed": 11.25, "reset": false}, {"elapsed": 11.299999952316284, "reset": false}, {"elapsed": 11.349999904632568, "reset": false}, {"elapsed": 11.399999856948853, "reset": false}, {"elapsed": 11.449999809265137, "reset": false}, {"elapsed": 11.5, "reset": false}, {"elapsed": 11.549999952316284, "reset": false}, {"elapsed": 11.599999904632568, "reset": false}, {"elapsed": 11.649999856948853, "reset": false}, {"elapsed": 11.699999809265137, "reset": false}, {"elapsed": 11.75, "reset": false}, {"elapsed": 11.799999952316284, "reset": false}, {"elapsed": 11.849999904632568, "reset": false}, {"elapsed": 11.899999856948853, "reset": false}, {"elapsed": 11.949999809265137, "reset": false}, {"elapsed": 12.0, "reset": false}, {"elapsed": 12.049999952316284, "reset": false}, {"elapsed": 12.099999904632568, "reset": false}, {"elapsed": 12.149999856948853, "reset": false}, {"elapsed": 12.199999809265137, "reset": false}, {"elapsed": 12.25, "reset": false}, {"elapsed": 12.299999952316284, "reset": false}, {"elapsed": 12.349999904632568, "reset": false}, {"elapsed": 12.399999856948853, "reset": false}, {"elapsed": 12.449999809265137, "reset": false}, {"elapsed": 12.5, "reset": false}, {"elapsed": 12.549999952316284, "reset": false}, {"elapsed": 12.599999904632568, "reset": false}, {"elapsed": 12.649999856948853, "reset": false}, {"elapsed": 12.699999809265137, "reset": false}, {"elapsed": 12.75, "reset": false}, {"elapsed": 12.799999952316284, "reset": false}, {"elapsed": 12.849999904632568, "reset": false}, {"elapsed": 12.899999856948853, "reset": false}, {"elapsed": 12.949999809265137, "reset": false}, {"elapsed": 13.0, "reset": false}, {"elapsed": 13.049999952316284, "reset": false}, {"elapsed": 13.099999904632568, "reset": false}, {"elapsed": 13.149999856948853, "reset": false}, {"elapsed": 13.199999809265137, "reset": false}, {"elapsed": 13.25, "reset": false}, {"elapsed": 13.299999952316284, "reset": false}, {"elapsed": 13.349999904632568, "reset": false}, {"elapsed": 13.399999856948853, "reset": false}, {"elapsed": 13.449999809265137, "reset": false}, {"elapsed": 13.5, "reset": false}, {"elapsed": 13.549999952316284, "reset": false}, {"elapsed": 13.599999904632568, "reset": false}, {"elapsed": 13.649999856948853, "reset": false}, {"elapsed": 13.699999809265137, "reset": false}, {"elapsed": 13.75, "reset": false}, {"elapsed": 13.799999952316284, "reset": false}, {"elapsed": 13.849999904632568, "reset": false}, {"elapsed": 13.899999856948853, "reset": false}, {"elapsed": 13.949999809265137, "reset": false}, {"elapsed": 14.0, "reset": false}, {"elapsed": 14.049999952316284, "reset": false}, {"elapsed": 14.099999904632568, "reset": false}, {"elapsed": 14.149999856948853, "reset": false}, {"elapsed": 14.199999809265137, "reset": false}, {"elapsed": 14.25, "reset": false}, {"elapsed": 14.299999952316284, "reset": false}, {"elapsed": 14.349999904632568, "reset": false}, {"elapsed": 14.399999856948853, "reset": false}, {"elapsed": 14.449999809265137, "reset": false}, {"elapsed": 14.5, "reset": false}, {"elapsed": 14.549999952316284, "reset": false}, {"elapsed": 14.599999904632568, "reset": false}, {"elapsed": 14.649999856948853, "reset": false}, {"elapsed": 14.699999809265137, "reset": false}, {"elapsed": 14.75, "reset": false}, {"elapsed": 14.799999952316284, "reset": false}, {"elapsed": 14.849999904632568, "reset": false}, {"elapsed": 14.899999856948853, "reset": false}, {"elapsed": 14.949999809265137, "reset": false}, {"elapsed": 15.0, "reset": false}, {"elapsed": 15.049999952316284, "reset": false}, {"elapsed": 15.099999904632568, "reset": false}, {"elapsed": 15.149999856948853, "reset": false}, {"elapsed": 15.199999809265137, "reset": false}, {"elapsed": 15.25, "reset": false}, {"elapsed": 15.299999952316284, "reset": false}, {"elapsed": 15.349999904632568, "reset": false}, {"elapsed": 15.399999856948853, "reset": false}, {"elapsed": 15.449999809265137, "reset": false}, {"elapsed": 15.5, "reset": false}, {"elapsed": 15.549999952316284, "reset": false}, {"elapsed": 15.599999904632568, "reset": false}, {"elapsed": 15.649999856948853, "reset": false}, {"elapsed": 15.699999809265137, "reset": false}, {"elapsed": 15.75, "reset": false}, {"elapsed": 15.799999952316284, "reset": false}, {"elapsed": 15.849999904632568, "reset": false}, {"elapsed": 15.899999856948853, "reset": false}, {"elapsed": 15.949999809265137, "reset": false}, {"elapsed": 16.0, "reset": false}, {"elapsed": 16.049999952316284, "reset": false}, {"elapsed": 16.09999990463257, "reset": false}, {"elapsed": 16.149999856948853, "reset": false}, {"elapsed": 16.199999809265137, "reset": false}, {"elapsed": 16.25, "reset": false}, {"elapsed": 16.299999952316284, "reset": false}, {"elapsed": 16.34999990463257, "reset": false}, {"elapsed": 16.399999856948853, "reset": false}, {"elapsed": 16.449999809265137, "reset": false}, {"elapsed": 16.5, "reset": false}, {"elapsed": 16.549999952316284, "reset": false}, {"elapsed": 16.59999990463257, "reset": false}, {"elapsed": 16.649999856948853, "reset": false}, {"elapsed": 16.699999809265137, "reset": false}, {"elapsed": 16.75, "reset": false}, {"elapsed": 16.799999952316284, "reset": false}, {"elapsed": 16.84999990463257, "reset": false}, {"elapsed": 16.899999856948853, "reset": false}, {"elapsed": 16.949999809265137, "reset": false}, {"elapsed": 17.0, "reset": false}, {"elapsed": 17.049999952316284, "reset": false}, {"elapsed": 17.09999990463257, "reset": false}, {"elapsed": 17.149999856948853, "reset": false}, {"elapsed": 17.199999809265137, "reset": false}, {"elapsed": 17.25, "reset": false}, {"elapsed": 17.299999952316284, "reset": false}, {"elapsed": 17.34999990463257, "reset": false}, {"elapsed": 17.399999856948853, "reset": false}, {"elapsed": 17.449999809265137, "reset": false}, {"elapsed": 17.5, "reset": false}, {"elapsed": 17.549999952316284, "reset": false}, {"elapsed": 17.59999990463257, "reset": false}, {"elapsed": 17.649999856948853, "reset": false}, {"elapsed": 17.699999809265137, "reset": false}, {"elapsed": 17.75, "reset": false}, {"elapsed": 17.799999952316284, "reset": false}, {"elapsed": 17.84999990463257, "reset": false}, {"elapsed": 17.899999856948853, "reset": false}, {"elapsed": 17.949999809265137, "reset": false}, {"elapsed": 18.0, "reset": false}, {"elapsed": 18.049999952316284, "reset": false}, {"elapsed": 18.09999990463257, "reset": false}, {"elapsed": 18.149999856948853, "reset": false}, {"elapsed": 18.199999809265137, "reset": false}, {"elapsed": 18.25, "reset": false}, {"elapsed": 18.299999952316284, "reset": false}, {"elapsed": 18.34999990463257, "reset": false}, {"elapsed": 18.399999856948853, "reset": false}, {"elapsed": 18.449999809265137, "reset": false}, {"elapsed": 18.5, "reset": false}, {"elapsed": 18.549999952316284, "reset": false}, {"elapsed": 18.59999990463257, "reset": false}, {"elapsed": 18.649999856948853, "reset": false}, {"elapsed": 18.699999809265137, "reset": false}, {"elapsed": 18.75, "reset": false}, {"elapsed": 18.799999952316284, "reset": false}, {"elapsed": 18.84999990463257, "reset": false}, {"elapsed": 18.899999856948853, "reset": false}, {"elapsed": 18.949999809265137, "reset": false}, {"elapsed": 19.0, "reset": false}, {"elapsed": 19.049999952316284, "reset": false}, {"elapsed": 19.09999990463257, "reset": false}, {"elapsed": 19.149999856948853, "reset": false}, {"elapsed": 19.199999809265137, "reset": false}, {"elapsed": 19.25, "reset": false}, {"elapsed": 19.299999952316284, "reset": false}, {"elapsed": 19.34999990463257, "reset": false}, {"elapsed": 19.399999856948853, "reset": false}, {"elapsed": 19.449999809265137, "reset": false}, {"elapsed": 19.5, "reset": false}, {"elapsed": 19.549999952316284, "reset": false}, {"elapsed": 19.59999990463257, "reset": false}, {"elapsed": 19.649999856948853, "reset": false}, {"elapsed": 19.699999809265137, "reset": false}, {"elapsed": 19.75, "reset": false}, {"elapsed": 19.799999952316284, "reset": false}, {"elapsed": 19.84999990463257, "reset": false}, {"elapsed": 19.899999856948853, "reset": false}, {"elapsed": 19.949999809265137, "reset": false}, {"elapsed": 20.0, "reset": false}, {"elapsed": 20.049999952316284, "reset": false}, {"elapsed": 20.09999990463257, "reset": false}, {"elapsed": 20.149999856948853, "reset": false}, {"elapsed": 20.199999809265137, "reset": false}, {"elapsed": 20.25, "reset": false}, {"elapsed": 20.299999952316284, "reset": false}, {"elapsed": 20.34999990463257, "reset": false}, {"elapsed": 20.399999856948853, "reset": false}, {"elapsed": 20.449999809265137, "reset": false}, {"elapsed": 20.5, "reset": false}, {"elapsed": 20.549999952316284, "reset": false}, {"elapsed": 20.59999990463257, "reset": false}, {"elapsed": 20.649999856948853, "reset": false}, {"elapsed": 20.699999809265137, "reset": false}, {"elapsed": 20.75, "reset": false}, {"elapsed": 20.799999952316284, "reset": false}, {"elapsed": 20.84999990463257, "reset": false}, {"elapsed": 20.899999856948853, "reset": false}, {"elapsed": 20.949999809265137, "reset": false}, {"elapsed": 21.0, "reset": false}, {"elapsed": 21.049999952316284, "reset": false}, {"elapsed": 21.09999990463257, "reset": false}, {"elapsed": 21.149999856948853, "reset": false}, {"elapsed": 21.199999809265137, "reset": false}, {"elapsed": 21.25, "reset": false}, {"elapsed": 21.299999952316284, "reset": false}, {"elapsed": 21.34999990463257, "reset": false}, {"elapsed": 21.399999856948853, "reset": false}, {"elapsed": 21.449999809265137, "reset": false}, {"elapsed": 21.5, "reset": false}, {"elapsed": 21.549999952316284, "reset": false}, {"elapsed": 21.59999990463257, "reset": false}, {"elapsed": 21.649999856948853, "reset": false}, {"elapsed": 21.699999809265137, "reset": false}, {"elapsed": 21.75, "reset": false}, {"elapsed": 21.799999952316284, "reset": false}, {"elapsed": 21.84999990463257, "reset": false}, {"elapsed": 21.899999856948853, "reset": false}, {"elapsed": 21.949999809265137, "reset": false}, {"elapsed": 22.0, "reset": false}, {"elapsed": 22.049999952316284, "reset": false}, {"elapsed": 22.09999990463257, "reset": false}, {"elapsed": 22.149999856948853, "reset": false}, {"elapsed": 22.199999809265137, "reset": false}, {"elapsed": 22.25, "reset": false}, {"elapsed": 22.299999952316284, "reset": false}, {"elapsed": 22.34999990463257, "reset": false}, {"elapsed": 22.399999856948853, "reset": false}, {"elapsed": 22.449999809265137, "reset": false}, {"elapsed": 22.5, "reset": false}, {"elapsed": 22.549999952316284, "reset": false}, {"elapsed": 22.59999990463257, "reset": false}, {"elapsed": 22.649999856948853, "reset": false}, {"elapsed": 22.699999809265137, "reset": false}, {"elapsed": 22.75, "reset": false}, {"elapsed": 22.799999952316284, "reset": false}, {"elapsed": 22.84999990463257, "reset": false}, {"elapsed": 22.899999856948853, "reset": false}, {"elapsed": 22.949999809265137, "reset": false}, {"elapsed": 23.0, "reset": false}, {"elapsed": 23.049999952316284, "reset": false}, {"elapsed": 23.09999990463257, "reset": false}, {"elapsed": 23.149999856948853, "reset": false}, {"elapsed": 23.199999809265137, "reset": false}, {"elapsed": 23.25, "reset": false}, {"elapsed": 23.299999952316284, "reset": false}, {"elapsed": 23.34999990463257, "reset": false}, {"elapsed": 23.399999856948853, "reset": false}, {"elapsed": 23.449999809265137, "reset": false}, {"elapsed": 23.5, "reset": false}, {"elapsed": 23.549999952316284, "reset": false}, {"elapsed": 23.59999990463257, "reset": false}, {"elapsed": 23.649999856948853, "reset": false}, {"elapsed": 23.699999809265137, "reset": false}, {"elapsed": 23.75, "reset": false}, {"elapsed": 23.799999952316284, "reset": false}, {"elapsed": 23.84999990463257, "reset": false}, {"elapsed": 23.899999856948853, "reset": false}, {"elapsed": 23.949999809265137, "reset": false}, {"elapsed": 24.0, "reset": false}, {"elapsed": 24.049999952316284, "reset": false}, {"elapsed": 24.09999990463257, "reset": false}, {"elapsed": 24.149999856948853, "reset": false}, {"elapsed": 24.199999809265137, "reset": false}, {"elapsed": 24.25, "reset": false}, {"elapsed": 24.299999952316284, "reset": false}, {"elapsed": 24.34999990463257, "reset": false}, {"elapsed": 24.399999856948853, "reset": false}, {"elapsed": 24.449999809265137, "reset": false}, {"elapsed": 24.5, "reset": false}, {"elapsed": 24.549999952316284, "reset": false}, {"elapsed": 24.59999990463257, "reset": false}, {"elapsed": 24.649999856948853, "reset": false}, {"elapsed": 24.699999809265137, "reset": false}, {"elapsed": 24.75, "reset": false}, {"elapsed": 24.799999952316284, "reset": false}, {"elapsed": 24.84999990463257, "reset": false}, {"elapsed": 24.899999856948853, "reset": false}, {"elapsed": 24.949999809265137, "reset": false}, {"elapsed": 25.0, "reset": false}, {"elapsed": 25.049999952316284, "reset": false}, {"elapsed": 25.09999990463257, "reset": false}, {"elapsed": 25.149999856948853, "reset": false}, {"elapsed": 25.199999809265137, "reset": false}, {"elapsed": 25.25, "reset": false}, {"elapsed": 25.299999952316284, "reset": false}, {"elapsed": 25.34999990463257, "reset": false}, {"elapsed": 25.399999856948853, "reset": false}, {"elapsed": 25.449999809265137, "reset": false}, {"elapsed": 25.5, "reset": false}, {"elapsed": 25.549999952316284, "reset": false}, {"elapsed": 25.59999990463257, "reset": false}, {"elapsed": 25.649999856948853, "reset": false}, {"elapsed": 25.699999809265137, "reset": false}, {"elapsed": 25.75, "reset": false}, {"elapsed": 25.799999952316284, "reset": false}, {"elapsed": 25.84999990463257, "reset": false}, {"elapsed": 25.899999856948853, "reset": false}, {"elapsed": 25.949999809265137, "reset": false}, {"elapsed": 26.0, "reset": false}, {"elapsed": 26.049999952316284, "reset": false}, {"elapsed": 26.09999990463257, "reset": false}, {"elapsed": 26.149999856948853, "reset": false}, {"elapsed": 26.199999809265137, "reset": false}, {"elapsed": 26.25, "reset": false}, {"elapsed": 26.299999952316284, "reset": false}, {"elapsed": 26.34999990463257, "reset": false}, {"elapsed": 26.399999856948853, "reset": false}, {"elapsed": 26.449999809265137, "reset": false}, {"elapsed": 26.5, "reset": false}, {"elapsed": 26.549999952316284, "reset": false}, {"elapsed": 26.59999990463257, "reset": false}, {"elapsed": 26.649999856948853, "reset": false}, {"elapsed": 26.699999809265137, "reset": false}, {"elapsed": 26.75, "reset": false}, {"elapsed": 26.799999952316284, "reset": false}, {"elapsed": 26.84999990463257, "reset": false}, {"elapsed": 26.899999856948853, "reset": false}, {"elapsed": 26.949999809265137, "reset": false}, {"elapsed": 27.0, "reset": false}, {"elapsed": 27.049999952316284, "reset": false}, {"elapsed": 27.09999990463257, "reset": false}, {"elapsed": 27.149999856948853, "reset": false}, {"elapsed": 27.199999809265137, "reset": false}, {"elapsed": 27.25, "reset": false}, {"elapsed": 27.299999952316284, "reset": false}, {"elapsed": 27.34999990463257, "reset": false}, {"elapsed": 27.399999856948853, "reset": false}, {"elapsed": 27.449999809265137, "reset": false}, {"elapsed": 27.5, "reset": false}, {"elapsed": 27.549999952316284, "reset": false}, {"elapsed": 27.59999990463257, "reset": false}, {"elapsed": 27.649999856948853, "reset": false}, {"elapsed": 27.699999809265137, "reset": false}, {"elapsed": 27.75, "reset": false}, {"elapsed": 27.799999952316284, "reset": false}, {"elapsed": 27.84999990463257, "reset": false}, {"elapsed": 27.899999856948853, "reset": false}, {"elapsed": 27.949999809265137, "reset": false}, {"elapsed": 28.0, "reset": false}, {"elapsed": 28.049999952316284, "reset": false}, {"elapsed": 28.09999990463257, "reset": false}, {"elapsed": 28.149999856948853, "reset": false}, {"elapsed": 28.199999809265137, "reset": false}, {"elapsed": 28.25, "reset": false}, {"elapsed": 28.299999952316284, "reset": false}, {"elapsed": 28.34999990463257, "reset": false}, {"elapsed": 28.399999856948853, "reset": false}, {"elapsed": 28.449999809265137, "reset": false}, {"elapsed": 28.5, "reset": false}, {"elapsed": 28.549999952316284, "reset": false}, {"elapsed": 28.59999990463257, "reset": false}, {"elapsed": 28.649999856948853, "reset": false}, {"elapsed": 28.699999809265137, "reset": false}, {"elapsed": 28.75, "reset": false}, {"elapsed": 28.799999952316284, "reset": false}, {"elapsed": 28.84999990463257, "reset": false}, {"elapsed": 28.899999856948853, "reset": false}, {"elapsed": 28.949999809265137, "reset": false}, {"elapsed": 29.0, "reset": false}, {"elapsed": 29.049999952316284, "reset": false}, {"elapsed": 29.09999990463257, "reset": false}, {"elapsed": 29.149999856948853, "reset": false}, {"elapsed": 29.199999809265137, "reset": false}, {"elapsed": 29.25, "reset": false}, {"elapsed": 29.299999952316284, "reset": false}, {"elapsed": 29.34999990463257, "reset": false}, {"elapsed": 29.399999856948853, "reset": false}, {"elapsed": 29.449999809265137, "reset": false}, {"elapsed": 29.5, "reset": false}, {"elapsed": 29.549999952316284, "reset": false}, {"elapsed": 29.59999990463257, "reset": false}, {"elapsed": 29.649999856948853, "reset": false}, {"elapsed": 29.699999809265137, "reset": false}, {"elapsed": 29.75, "reset": false}, {"elapsed": 29.799999952316284, "reset": false}, {"elapsed": 29.84999990463257, "reset": false}, {"elapsed": 29.899999856948853, "reset": false}, {"elapsed": 29.949999809265137, "reset": false}, {"elapsed": 30.0, "reset": false}, {"elapsed": 30.049999952316284, "reset": false}, {"elapsed": 30.09999990463257, "reset": false}, {"elapsed": 30.149999856948853, "reset": false}, {"elapsed": 30.199999809265137, "reset": false}, {"elapsed": 30.25, "reset": false}, {"elapsed": 30.299999952316284, "reset": false}, {"elapsed": 30.34999990463257, "reset": false}, {"elapsed": 30.399999856948853, "reset": false}, {"elapsed": 30.449999809265137, "reset": false}, {"elapsed": 30.5, "reset": false}, {"elapsed": 30.549999952316284, "reset": false}, {"elapsed": 30.59999990463257, "reset": false}, {"elapsed": 30.649999856948853, "reset": false}, {"elapsed": 30.699999809265137, "reset": false}, {"elapsed": 30.75, "reset": false}, {"elapsed": 30.799999952316284, "reset": false}, {"elapsed": 30.84999990463257, "reset": false}, {"elapsed": 30.899999856948853, "reset": false}, {"elapsed": 30.949999809265137, "reset": false}, {"elapsed": 31.0, "reset": false}, {"elapsed": 31.049999952316284, "reset": false}, {"elapsed": 31.09999990463257, "reset": false}, {"elapsed": 31.149999856948853, "reset": false}, {"elapsed": 31.199999809265137, "reset": false}, {"elapsed": 31.25, "reset": false}, {"elapsed": 31.299999952316284, "reset": false}, {"elapsed": 31.34999990463257, "reset": false}, {"elapsed": 31.399999856948853, "reset": false}, {"elapsed": 31.449999809265137, "reset": false}, {"elapsed": 31.5, "reset": false}, {"elapsed": 31.549999952316284, "reset": false}, {"elapsed": 31.59999990463257, "reset": false}, {"elapsed": 31.649999856948853, "reset": false}, {"elapsed": 31.699999809265137, "reset": false}, {"elapsed": 31.75, "reset": false}, {"elapsed": 31.799999952316284, "reset": false}, {"elapsed": 31.84999990463257, "reset": false}, {"elapsed": 31.899999856948853, "reset": false}, {"elapsed": 31.949999809265137, "reset": false}, {"elapsed": 32.0, "reset": false}, {"elapsed": 32.049999952316284, "reset": false}, {"elapsed": 32.09999990463257, "reset": false}, {"elapsed": 32.14999985694885, "reset": false}, {"elapsed": 32.19999980926514, "reset": false}, {"elapsed": 32.25, "reset": false}, {"elapsed": 32.299999952316284, "reset": false}, {"elapsed": 32.34999990463257, "reset": false}, {"elapsed": 32.39999985694885, "reset": false}, {"elapsed": 32.44999980926514, "reset": false}, {"elapsed": 32.5, "reset": false}, {"elapsed": 32.549999952316284, "reset": false}, {"elapsed": 32.59999990463257, "reset": false}, {"elapsed": 32.64999985694885, "reset": false}, {"elapsed": 32.69999980926514, "reset": false}, {"elapsed": 32.75, "reset": false}, {"elapsed": 32.799999952316284, "reset": false}, {"elapsed": 32.84999990463257, "reset": false}, {"elapsed": 32.89999985694885, "reset": false}, {"elapsed": 32.94999980926514, "reset": false}, {"elapsed": 33.0, "reset": false}, {"elapsed": 33.049999952316284, "reset": false}, {"elapsed": 33.09999990463257, "reset": false}, {"elapsed": 33.14999985694885, "reset": false}, {"elapsed": 33.19999980926514, "reset": false}, {"elapsed": 33.25, "reset": false}, {"elapsed": 33.299999952316284, "reset": false}, {"elapsed": 33.34999990463257, "reset": false}, {"elapsed": 33.39999985694885, "reset": false}, {"elapsed": 33.44999980926514, "reset": false}, {"elapsed": 33.5, "reset": false}, {"elapsed": 33.549999952316284, "reset": false}, {"elapsed": 33.59999990463257, "reset": false}, {"elapsed": 33.64999985694885, "reset": false}, {"elapsed": 33.69999980926514, "reset": false}, {"elapsed": 33.75, "reset": false}, {"elapsed": 33.799999952316284, "reset": false}, {"elapsed": 33.84999990463257, "reset": false}, {"elapsed": 33.89999985694885, "reset": false}, {"elapsed": 33.94999980926514, "reset": false}, {"elapsed": 34.0, "reset": false}, {"elapsed": 34.049999952316284, "reset": false}, {"elapsed": 34.09999990463257, "reset": false}, {"elapsed": 34.14999985694885, "reset": false}, {"elapsed": 34.19999980926514, "reset": false}, {"elapsed": 34.25, "reset": false}, {"elapsed": 34.299999952316284, "reset": false}, {"elapsed": 34.34999990463257, "reset": false}, {"elapsed": 34.39999985694885, "reset": false}, {"elapsed": 34.44999980926514, "reset": false}, {"elapsed": 34.5, "reset": false}, {"elapsed": 34.549999952316284, "reset": false}, {"elapsed": 34.59999990463257, "reset": false}, {"elapsed": 34.64999985694885, "reset": false}, {"elapsed": 34.69999980926514, "reset": false}, {"elapsed": 34.75, "reset": false}, {"elapsed": 34.799999952316284, "reset": false}, {"elapsed": 34.84999990463257, "reset": false}, {"elapsed": 34.89999985694885, "reset": false}, {"elapsed": 34.94999980926514, "reset": false}, {"elapsed": 35.0, "reset": false}, {"elapsed": 35.049999952316284, "reset": false}, {"elapsed": 35.09999990463257, "reset": false}, {"elapsed": 35.14999985694885, "reset": false}, {"elapsed": 35.19999980926514, "reset": false}, {"elapsed": 35.25, "reset": false}, {"elapsed": 35.299999952316284, "reset": false}, {"elapsed": 35.34999990463257, "reset": false}, {"elapsed": 35.39999985694885, "reset": false}, {"elapsed": 35.44999980926514, "reset": false}, {"elapsed": 35.5, "reset": false}, {"elapsed": 35.549999952316284, "reset": false}, {"elapsed": 35.59999990463257, "reset": false}, {"elapsed": 35.64999985694885, "reset": false}, {"elapsed": 35.69999980926514, "reset": false}, {"elapsed": 35.75, "reset": false}, {"elapsed": 35.799999952316284, "reset": false}, {"elapsed": 35.84999990463257, "reset": false}, {"elapsed": 35.89999985694885, "reset": false}, {"elapsed": 35.94999980926514, "reset": false}, {"elapsed": 36.0, "reset": false}, {"elapsed": 36.049999952316284, "reset": false}, {"elapsed": 36.09999990463257, "reset": false}, {"elapsed": 36.14999985694885, "reset": false}, {"elapsed": 36.19999980926514, "reset": false}, {"elapsed": 36.25, "reset": false}, {"elapsed": 36.299999952316284, "reset": false}, {"elapsed": 36.34999990463257, "reset": false}, {"elapsed": 36.39999985694885, "reset": false}, {"elapsed": 36.44999980926514, "reset": false}, {"elapsed": 36.5, "reset": false}, {"elapsed": 36.549999952316284, "reset": false}, {"elapsed": 36.59999990463257, "reset": false}, {"elapsed": 36.64999985694885, "reset": false}, {"elapsed": 36.69999980926514, "reset": false}, {"elapsed": 36.75, "reset": false}, {"elapsed": 36.799999952316284, "reset": false}, {"elapsed": 36.84999990463257, "reset": false}, {"elapsed": 36.89999985694885, "reset": false}, {"elapsed": 36.94999980926514, "reset": false}, {"elapsed": 37.0, "reset": false}, {"elapsed": 37.049999952316284, "reset": false}, {"elapsed": 37.09999990463257, "reset": false}, {"elapsed": 37.14999985694885, "reset": false}, {"elapsed": 37.19999980926514, "reset": false}, {"elapsed": 37.25, "reset": false}, {"elapsed": 37.299999952316284, "reset": false}, {"elapsed": 37.34999990463257, "reset": false}, {"elapsed": 37.39999985694885, "reset": false}, {"elapsed": 37.44999980926514, "reset": false}, {"elapsed": 37.5, "reset": false}, {"elapsed": 37.549999952316284, "reset": false}, {"elapsed": 37.59999990463257, "reset": false}, {"elapsed": 37.64999985694885, "reset": false}, {"elapsed": 37.69999980926514, "reset": false}, {"elapsed": 37.75, "reset": false}, {"elapsed": 37.799999952316284, "reset": false}, {"elapsed": 37.84999990463257, "reset": false}, {"elapsed": 37.89999985694885, "reset": false}, {"elapsed": 37.94999980926514, "reset": false}, {"elapsed": 38.0, "reset": false}, {"elapsed": 38.049999952316284, "reset": false}, {"elapsed": 38.09999990463257, "reset": false}, {"elapsed": 38.14999985694885, "reset": false}, {"elapsed": 38.19999980926514, "reset": false}, {"elapsed": 38.25, "reset": false}, {"elapsed": 38.299999952316284, "reset": false}, {"elapsed": 38.34999990463257, "reset": false}, {"elapsed": 38.39999985694885, "reset": false}, {"elapsed": 38.44999980926514, "reset": false}, {"elapsed": 38.5, "reset": false}, {"elapsed": 38.549999952316284, "reset": false}, {"elapsed": 38.59999990463257, "reset": false}, {"elapsed": 38.64999985694885, "reset": false}, {"elapsed": 38.69999980926514, "reset": false}, {"elapsed": 38.75, "reset": false}, {"elapsed": 38.799999952316284, "reset": false}, {"elapsed": 38.84999990463257, "reset": false}, {"elapsed": 38.89999985694885, "reset": false}, {"elapsed": 38.94999980926514, "reset": false}, {"elapsed": 39.0, "reset": false}, {"elapsed": 39.049999952316284, "reset": false}, {"elapsed": 39.09999990463257, "reset": false}, {"elapsed": 39.14999985694885, "reset": false}, {"elapsed": 39.19999980926514, "reset": false}, {"elapsed": 39.25, "reset": false}, {"elapsed": 39.299999952316284, "reset": false}, {"elapsed": 39.34999990463257, "reset": false}, {"elapsed": 39.39999985694885, "reset": false}, {"elapsed": 39.44999980926514, "reset": false}, {"elapsed": 39.5, "reset": false}, {"elapsed": 39.549999952316284, "reset": false}, {"elapsed": 39.59999990463257, "reset": false}, {"elapsed": 39.64999985694885, "reset": false}, {"elapsed": 39.69999980926514, "reset": false}, {"elapsed": 39.75, "reset": false}, {"elapsed": 39.799999952316284, "reset": false}, {"elapsed": 39.84999990463257, "reset": false}, {"elapsed": 39.89999985694885, "reset": false}, {"elapsed": 39.94999980926514, "reset": false}, {"elapsed": 40.0, "reset": false}, {"elapsed": 40.049999952316284, "reset": false}, {"elapsed": 40.09999990463257, "reset": false}, {"elapsed": 40.14999985694885, "reset": false}, {"elapsed": 40.19999980926514, "reset": false}, {"elapsed": 40.25, "reset": false}, {"elapsed": 40.299999952316284, "reset": false}, {"elapsed": 40.34999990463257, "reset": false}, {"elapsed": 40.39999985694885, "reset": false}, {"elapsed": 40.44999980926514, "reset": false}, {"elapsed": 40.5, "reset": false}, {"elapsed": 40.549999952316284, "reset": false}, {"elapsed": 40.59999990463257, "reset": false}, {"elapsed": 40.64999985694885, "reset": false}, {"elapsed": 40.69999980926514, "reset": false}, {"elapsed": 40.75, "reset": false}, {"elapsed": 40.799999952316284, "reset": false}, {"elapsed": 40.84999990463257, "reset": false}, {"elapsed": 40.89999985694885, "reset": false}, {"elapsed": 40.94999980926514, "reset": false}, {"elapsed": 41.0, "reset": false}, {"elapsed": 41.049999952316284, "reset": false}, {"elapsed": 41.09999990463257, "reset": false}, {"elapsed": 41.14999985694885, "reset": false}, {"elapsed": 41.19999980926514, "reset": false}, {"elapsed": 41.25, "reset": false}, {"elapsed": 41.299999952316284, "reset": false}, {"elapsed": 41.34999990463257, "reset": false}, {"elapsed": 41.39999985694885, "reset": false}, {"elapsed": 41.44999980926514, "reset": false}, {"elapsed": 41.5, "reset": false}, {"elapsed": 41.549999952316284, "reset": false}, {"elapsed": 41.59999990463257, "reset": false}, {"elapsed": 41.64999985694885, "reset": false}, {"elapsed": 41.69999980926514, "reset": false}, {"elapsed": 41.75, "reset": false}, {"elapsed": 41.799999952316284, "reset": false}, {"elapsed": 41.84999990463257, "reset": false}, {"elapsed": 41.89999985694885, "reset": false}, {"elapsed": 41.94999980926514, "reset": false}, {"elapsed": 42.0, "reset": false}, {"elapsed": 42.049999952316284, "reset": false}, {"elapsed": 42.09999990463257, "reset": false}, {"elapsed": 42.14999985694885, "reset": false}, {"elapsed": 42.19999980926514, "reset": false}, {"elapsed": 42.25, "reset": false}, {"elapsed": 42.299999952316284, "reset": false}, {"elapsed": 42.34999990463257, "reset": false}, {"elapsed": 42.39999985694885, "reset": false}, {"elapsed": 42.44999980926514, "reset": false}, {"elapsed": 42.5, "reset": false}, {"elapsed": 42.549999952316284, "reset": false}, {"elapsed": 42.59999990463257, "reset": false}, {"elapsed": 42.64999985694885, "reset": false}, {"elapsed": 42.69999980926514, "reset": false}, {"elapsed": 42.75, "reset": false}, {"elapsed": 42.799999952316284, "reset": false}, {"elapsed": 42.84999990463257, "reset": false}, {"elapsed": 42.89999985694885, "reset": false}, {"elapsed": 42.94999980926514, "reset": false}, {"elapsed": 43.0, "reset": false}, {"elapsed": 43.049999952316284, "reset": false}, {"elapsed": 43.09999990463257, "reset": false}, {"elapsed": 43.14999985694885, "reset": false}, {"elapsed": 43.19999980926514, "reset": false}, {"elapsed": 43.25, "reset": false}, {"elapsed": 43.299999952316284, "reset": false}, {"elapsed": 43.34999990463257, "reset": false}, {"elapsed": 43.39999985694885, "reset": false}, {"elapsed": 43.44999980926514, "reset": false}, {"elapsed": 43.5, "reset": false}, {"elapsed": 43.549999952316284, "reset": false}, {"elapsed": 43.59999990463257, "reset": false}, {"elapsed": 43.64999985694885, "reset": false}, {"elapsed": 43.69999980926514, "reset": false}, {"elapsed": 43.75, "reset": false}, {"elapsed": 43.799999952316284, "reset": false}, {"elapsed": 43.84999990463257, "reset": false}, {"elapsed": 43.89999985694885, "reset": false}, {"elapsed": 43.94999980926514, "reset": false}, {"elapsed": 44.0, "reset": false}, {"elapsed": 44.049999952316284, "reset": false}, {"elapsed": 44.09999990463257, "reset": false}, {"elapsed": 44.14999985694885, "reset": false}, {"elapsed": 44.19999980926514, "reset": false}, {"elapsed": 44.25, "reset": false}, {"elapsed": 44.299999952316284, "reset": false}, {"elapsed": 44.34999990463257, "reset": false}, {"elapsed": 44.39999985694885, "reset": false}, {"elapsed": 44.44999980926514, "reset": false}, {"elapsed": 44.5, "reset": false}, {"elapsed": 44.549999952316284, "reset": false}, {"elapsed": 44.59999990463257, "reset": false}, {"elapsed": 44.64999985694885, "reset": false}, {"elapsed": 44.69999980926514, "reset": false}, {"elapsed": 44.75, "reset": false}, {"elapsed": 44.799999952316284, "reset": false}, {"elapsed": 44.84999990463257, "reset": false}, {"elapsed": 44.89999985694885, "reset": false}, {"elapsed": 44.94999980926514, "reset": false}, {"elapsed": 45.0, "reset": false}, {"elapsed": 45.049999952316284, "reset": false}, {"elapsed": 45.09999990463257, "reset": false}, {"elapsed": 45.14999985694885, "reset": false}, {"elapsed": 45.19999980926514, "reset": false}, {"elapsed": 45.25, "reset": false}, {"elapsed": 45.299999952316284, "reset": false}, {"elapsed": 45.34999990463257, "reset": false}, {"elapsed": 45.39999985694885, "reset": false}, {"elapsed": 45.44999980926514, "reset": false}, {"elapsed": 45.5, "reset": false}, {"elapsed": 45.549999952316284, "reset": false}, {"elapsed": 45.59999990463257, "reset": false}, {"elapsed": 45.64999985694885, "reset": false}, {"elapsed": 45.69999980926514, "reset": false}, {"elapsed": 45.75, "reset": false}, {"elapsed": 45.799999952316284, "reset": false}, {"elapsed": 45.84999990463257, "reset": false}, {"elapsed": 45.89999985694885, "reset": false}, {"elapsed": 45.94999980926514, "reset": false}, {"elapsed": 46.0, "reset": false}, {"elapsed": 46.049999952316284, "reset": false}, {"elapsed": 46.09999990463257, "reset": false}, {"elapsed": 46.14999985694885, "reset": false}, {"elapsed": 46.19999980926514, "reset": false}, {"elapsed": 46.25, "reset": false}, {"elapsed": 46.299999952316284, "reset": false}, {"elapsed": 46.34999990463257, "reset": false}, {"elapsed": 46.39999985694885, "reset": false}, {"elapsed": 46.44999980926514, "reset": false}, {"elapsed": 46.5, "reset": false}, {"elapsed": 46.549999952316284, "reset": false}, {"elapsed": 46.59999990463257, "reset": false}, {"elapsed": 46.64999985694885, "reset": false}, {"elapsed": 46.69999980926514, "reset": false}, {"elapsed": 46.75, "reset": false}, {"elapsed": 46.799999952316284, "reset": false}, {"elapsed": 46.84999990463257, "reset": false}, {"elapsed": 46.89999985694885, "reset": false}, {"elapsed": 46.94999980926514, "reset": false}, {"elapsed": 47.0, "reset": false}, {"elapsed": 47.049999952316284, "reset": false}, {"elapsed": 47.09999990463257, "reset": false}, {"elapsed": 47.14999985694885, "reset": false}, {"elapsed": 47.19999980926514, "reset": false}, {"elapsed": 47.25, "reset": false}, {"elapsed": 47.299999952316284, "reset": false}, {"elapsed": 47.34999990463257, "reset": false}, {"elapsed": 47.39999985694885, "reset": false}, {"elapsed": 47.44999980926514, "reset": false}, {"elapsed": 47.5, "reset": false}, {"elapsed": 47.549999952316284, "reset": false}, {"elapsed": 47.59999990463257, "reset": false}, {"elapsed": 47.64999985694885, "reset": false}, {"elapsed": 47.69999980926514, "reset": false}, {"elapsed": 47.75, "reset": false}, {"elapsed": 47.799999952316284, "reset": false}, {"elapsed": 47.84999990463257, "reset": false}, {"elapsed": 47.89999985694885, "reset": false}, {"elapsed": 47.94999980926514, "reset": false}, {"elapsed": 48.0, "reset": false}, {"elapsed": 48.049999952316284, "reset": false}, {"elapsed": 48.09999990463257, "reset": false}, {"elapsed": 48.14999985694885, "reset": false}, {"elapsed": 48.19999980926514, "reset": false}, {"elapsed": 48.25, "reset": false}, {"elapsed": 48.299999952316284, "reset": false}, {"elapsed": 48.34999990463257, "reset": false}, {"elapsed": 48.39999985694885, "reset": false}, {"elapsed": 48.44999980926514, "reset": false}, {"elapsed": 48.5, "reset": false}, {"elapsed": 48.549999952316284, "reset": false}, {"elapsed": 48.59999990463257, "reset": false}, {"elapsed": 48.64999985694885, "reset": false}, {"elapsed": 48.69999980926514, "reset": false}, {"elapsed": 48.75, "reset": false}, {"elapsed": 48.799999952316284, "reset": false}, {"elapsed": 48.84999990463257, "reset": false}, {"elapsed": 48.89999985694885, "reset": false}, {"elapsed": 48.94999980926514, "reset": false}, {"elapsed": 49.0, "reset": false}, {"elapsed": 49.049999952316284, "reset": false}, {"elapsed": 49.09999990463257, "reset": false}, {"elapsed": 49.14999985694885, "reset": false}, {"elapsed": 49.19999980926514, "reset": false}, {"elapsed": 49.25, "reset": false}, {"elapsed": 49.299999952316284, "reset": false}, {"elapsed": 49.34999990463257, "reset": false}, {"elapsed": 49.39999985694885, "reset": false}, {"elapsed": 49.44999980926514, "reset": false}, {"elapsed": 49.5, "reset": false}, {"elapsed": 49.549999952316284, "reset": false}, {"elapsed": 49.59999990463257, "reset": false}, {"elapsed": 49.64999985694885, "reset": false}, {"elapsed": 49.69999980926514, "reset": false}, {"elapsed": 49.75, "reset": false}, {"elapsed": 49.799999952316284, "reset": false}, {"elapsed": 49.84999990463257, "reset": false}, {"elapsed": 49.89999985694885, "reset": false}, {"elapsed": 49.94999980926514, "reset": false}, {"elapsed": 50.0, "reset": false}, {"elapsed": 50.049999952316284, "reset": false}, {"elapsed": 50.09999990463257, "reset": false}, {"elapsed": 50.14999985694885, "reset": false}, {"elapsed": 50.19999980926514, "reset": false}, {"elapsed": 50.25, "reset": false}, {"elapsed": 50.299999952316284, "reset": false}, {"elapsed": 50.34999990463257, "reset": false}, {"elapsed": 50.39999985694885, "reset": false}, {"elapsed": 50.44999980926514, "reset": false}, {"elapsed": 50.5, "reset": false}, {"elapsed": 50.549999952316284, "reset": false}, {"elapsed": 50.59999990463257, "reset": false}, {"elapsed": 50.64999985694885, "reset": false}, {"elapsed": 50.69999980926514, "reset": false}, {"elapsed": 50.75, "reset": false}, {"elapsed": 50.799999952316284, "reset": false}, {"elapsed": 50.84999990463257, "reset": false}, {"elapsed": 50.89999985694885, "reset": false}, {"elapsed": 50.94999980926514, "reset": false}, {"elapsed": 51.0, "reset": false}, {"elapsed": 51.049999952316284, "reset": false}, {"elapsed": 51.09999990463257, "reset": false}, {"elapsed": 51.14999985694885, "reset": false}, {"elapsed": 51.19999980926514, "reset": false}, {"elapsed": 51.25, "reset": false}, {"elapsed": 51.299999952316284, "reset": false}, {"elapsed": 51.34999990463257, "reset": false}, {"elapsed": 51.39999985694885, "reset": false}, {"elapsed": 51.44999980926514, "reset": false}, {"elapsed": 51.5, "reset": false}, {"elapsed": 51.549999952316284, "reset": false}, {"elapsed": 51.59999990463257, "reset": false}, {"elapsed": 51.64999985694885, "reset": false}, {"elapsed": 51.69999980926514, "reset": false}, {"elapsed": 51.75, "reset": false}, {"elapsed": 51.799999952316284, "reset": false}, {"elapsed": 51.84999990463257, "reset": false}, {"elapsed": 51.89999985694885, "reset": false}, {"elapsed": 51.94999980926514, "reset": false}, {"elapsed": 52.0, "reset": false}, {"elapsed": 52.049999952316284, "reset": false}, {"elapsed": 52.09999990463257, "reset": false}, {"elapsed": 52.14999985694885, "reset": false}, {"elapsed": 52.19999980926514, "reset": false}, {"elapsed": 52.25, "reset": false}, {"elapsed": 52.299999952316284, "reset": false}, {"elapsed": 52.34999990463257, "reset": false}, {"elapsed": 52.39999985694885, "reset": false}, {"elapsed": 52.44999980926514, "reset": false}, {"elapsed": 52.5, "reset": false}, {"elapsed": 52.549999952316284, "reset": false}, {"elapsed": 52.59999990463257, "reset": false}, {"elapsed": 52.64999985694885, "reset": false}, {"elapsed": 52.69999980926514, "reset": false}, {"elapsed": 52.75, "reset": false}, {"elapsed": 52.799999952316284, "reset": false}, {"elapsed": 52.84999990463257, "reset": false}, {"elapsed": 52.89999985694885, "reset": false}, {"elapsed": 52.94999980926514, "reset": false}, {"elapsed": 53.0, "reset": false}, {"elapsed": 53.049999952316284, "reset": false}, {"elapsed": 53.09999990463257, "reset": false}, {"elapsed": 53.14999985694885, "reset": false}, {"elapsed": 53.19999980926514, "reset": false}, {"elapsed": 53.25, "reset": false}, {"elapsed": 53.299999952316284, "reset": false}, {"elapsed": 53.34999990463257, "reset": false}, {"elapsed": 53.39999985694885, "reset": false}, {"elapsed": 53.44999980926514, "reset": false}, {"elapsed": 53.5, "reset": false}, {"elapsed": 53.549999952316284, "reset": false}, {"elapsed": 53.59999990463257, "reset": false}, {"elapsed": 53.64999985694885, "reset": false}, {"elapsed": 53.69999980926514, "reset": false}, {"elapsed": 53.75, "reset": false}, {"elapsed": 53.799999952316284, "reset": false}, {"elapsed": 53.84999990463257, "reset": false}, {"elapsed": 53.89999985694885, "reset": false}, {"elapsed": 53.94999980926514, "reset": false}, {"elapsed": 54.0, "reset": false}, {"elapsed": 54.049999952316284, "reset": false}, {"elapsed": 54.09999990463257, "reset": false}, {"elapsed": 54.14999985694885, "reset": false}, {"elapsed": 54.19999980926514, "reset": false}, {"elapsed": 54.25, "reset": false}, {"elapsed": 54.299999952316284, "reset": false}, {"elapsed": 54.34999990463257, "reset": false}, {"elapsed": 54.39999985694885, "reset": false}, {"elapsed": 54.44999980926514, "reset": false}, {"elapsed": 54.5, "reset": false}, {"elapsed": 54.549999952316284, "reset": false}, {"elapsed": 54.59999990463257, "reset": false}, {"elapsed": 54.64999985694885, "reset": false}, {"elapsed": 54.69999980926514, "reset": false}, {"elapsed": 54.75, "reset": false}, {"elapsed": 54.799999952316284, "reset": false}, {"elapsed": 54.84999990463257, "reset": false}, {"elapsed": 54.89999985694885, "reset": false}, {"elapsed": 54.94999980926514, "reset": false}, {"elapsed": 55.0, "reset": false}, {"elapsed": 55.049999952316284, "reset": false}, {"elapsed": 55.09999990463257, "reset": false}, {"elapsed": 55.14999985694885, "reset": false}, {"elapsed": 55.19999980926514, "reset": false}, {"elapsed": 55.25, "reset": false}, {"elapsed": 55.299999952316284, "reset": false}, {"elapsed": 55.34999990463257, "reset": false}, {"elapsed": 55.39999985694885, "reset": false}, {"elapsed": 55.44999980926514, "reset": false}, {"elapsed": 55.5, "reset": false}, {"elapsed": 55.549999952316284, "reset": false}, {"elapsed": 55.59999990463257, "reset": false}, {"elapsed": 55.64999985694885, "reset": false}, {"elapsed": 55.69999980926514, "reset": false}, {"elapsed": 55.75, "reset": false}, {"elapsed": 55.799999952316284, "reset": false}, {"elapsed": 55.84999990463257, "reset": false}, {"elapsed": 55.89999985694885, "reset": false}, {"elapsed": 55.94999980926514, "reset": false}, {"elapsed": 56.0, "reset": false}, {"elapsed": 56.049999952316284, "reset": false}, {"elapsed": 56.09999990463257, "reset": false}, {"elapsed": 56.14999985694885, "reset": false}, {"elapsed": 56.19999980926514, "reset": false}, {"elapsed": 56.25, "reset": false}, {"elapsed": 56.299999952316284, "reset": false}, {"elapsed": 56.34999990463257, "reset": false}, {"elapsed": 56.39999985694885, "reset": false}, {"elapsed": 56.44999980926514, "reset": false}, {"elapsed": 56.5, "reset": false}, {"elapsed": 56.549999952316284, "reset": false}, {"elapsed": 56.59999990463257, "reset": false}, {"elapsed": 56.64999985694885, "reset": false}, {"elapsed": 56.69999980926514, "reset": false}, {"elapsed": 56.75, "reset": false}, {"elapsed": 56.799999952316284, "reset": false}, {"elapsed": 56.84999990463257, "reset": false}, {"elapsed": 56.89999985694885, "reset": false}, {"elapsed": 56.94999980926514, "reset": false}, {"elapsed": 57.0, "reset": false}, {"elapsed": 57.049999952316284, "reset": false}, {"elapsed": 57.09999990463257, "reset": false}, {"elapsed": 57.14999985694885, "reset": false}, {"elapsed": 57.19999980926514, "reset": false}, {"elapsed": 57.25, "reset": false}, {"elapsed": 57.299999952316284, "reset": false}, {"elapsed": 57.34999990463257, "reset": false}, {"elapsed": 57.39999985694885, "reset": false}, {"elapsed": 57.44999980926514, "reset": false}, {"elapsed": 57.5, "reset": false}, {"elapsed": 57.549999952316284, "reset": false}, {"elapsed": 57.59999990463257, "reset": false}, {"elapsed": 57.64999985694885, "reset": false}, {"elapsed": 57.69999980926514, "reset": false}, {"elapsed": 57.75, "reset": false}, {"elapsed": 57.799999952316284, "reset": false}, {"elapsed": 57.84999990463257, "reset": false}, {"elapsed": 57.89999985694885, "reset": false}, {"elapsed": 57.94999980926514, "reset": false}, {"elapsed": 58.0, "reset": false}, {"elapsed": 58.049999952316284, "reset": false}, {"elapsed": 58.09999990463257, "reset": false}, {"elapsed": 58.14999985694885, "reset": false}, {"elapsed": 58.19999980926514, "reset": false}, {"elapsed": 58.25, "reset": false}, {"elapsed": 58.299999952316284, "reset": false}, {"elapsed": 58.34999990463257, "reset": false}, {"elapsed": 58.39999985694885, "reset": false}, {"elapsed": 58.44999980926514, "reset": false}, {"elapsed": 58.5, "reset": false}, {"elapsed": 58.549999952316284, "reset": false}, {"elapsed": 58.59999990463257, "reset": false}, {"elapsed": 58.64999985694885, "reset": false}, {"elapsed": 58.69999980926514, "reset": false}, {"elapsed": 58.75, "reset": false}, {"elapsed": 58.799999952316284, "reset": false}, {"elapsed": 58.84999990463257, "reset": false}, {"elapsed": 58.89999985694885, "reset": false}, {"elapsed": 58.94999980926514, "reset": false}, {"elapsed": 59.0, "reset": false}, {"elapsed": 59.049999952316284, "reset": false}, {"elapsed": 59.09999990463257, "reset": false}, {"elapsed": 59.14999985694885, "reset": false}, {"elapsed": 59.19999980926514, "reset": false}, {"elapsed": 59.25, "reset": false}, {"elapsed": 59.299999952316284, "reset": false}, {"elapsed": 59.34999990463257, "reset": false}, {"elapsed": 59.39999985694885, "reset": false}, {"elapsed": 59.44999980926514, "reset": false}, {"elapsed": 59.5, "reset": false}, {"elapsed": 59.549999952316284, "reset": false}, {"elapsed": 59.59999990463257, "reset": false}, {"elapsed": 59.64999985694885, "reset": false}, {"elapsed": 59.69999980926514, "reset": false}, {"elapsed": 59.75, "reset": false}, {"elapsed": 59.799999952316284, "reset": false}, {"elapsed": 59.84999990463257, "reset": false}, {"elapsed": 59.89999985694885, "reset": false}, {"elapsed": 59.94999980926514, "reset": false}, {"elapsed": 60.0, "reset": false}, {"elapsed": 60.049999952316284, "reset": false}, {"elapsed": 60.09999990463257, "reset": false}, {"elapsed": 60.14999985694885, "reset": false}, {"elapsed": 60.19999980926514, "reset": false}, {"elapsed": 60.25, "reset": false}, {"elapsed": 60.299999952316284, "reset": false}, {"elapsed": 60.34999990463257, "reset": false}, {"elapsed": 60.39999985694885, "reset": false}, {"elapsed": 60.44999980926514, "reset": false}, {"elapsed": 60.5, "reset": false}, {"elapsed": 60.549999952316284, "reset": false}, {"elapsed": 60.59999990463257, "reset": false}, {"elapsed": 60.64999985694885, "reset": false}, {"elapsed": 60.69999980926514, "reset": false}, {"elapsed": 60.75, "reset": false}, {"elapsed": 60.799999952316284, "reset": false}, {"elapsed": 60.84999990463257, "reset": false}, {"elapsed": 60.89999985694885, "reset": false}, {"elapsed": 60.94999980926514, "reset": false}, {"elapsed": 61.0, "reset": false}, {"elapsed": 61.049999952316284, "reset": false}, {"elapsed": 61.09999990463257, "reset": false}, {"elapsed": 61.14999985694885, "reset": false}, {"elapsed": 61.19999980926514, "reset": false}, {"elapsed": 61.25, "reset": false}, {"elapsed": 61.299999952316284, "reset": false}, {"elapsed": 61.34999990463257, "reset": false}, {"elapsed": 61.39999985694885, "reset": false}, {"elapsed": 61.44999980926514, "reset": false}, {"elapsed": 61.5, "reset": false}, {"elapsed": 61.549999952316284, "reset": false}, {"elapsed": 61.59999990463257, "reset": false}, {"elapsed": 61.64999985694885, "reset": false}, {"elapsed": 61.69999980926514, "reset": false}, {"elapsed": 61.75, "reset": false}, {"elapsed": 61.799999952316284, "reset": false}, {"elapsed": 61.84999990463257, "reset": false}, {"elapsed": 61.89999985694885, "reset": false}, {"elapsed": 61.94999980926514, "reset": false}, {"elapsed": 62.0, "reset": false}, {"elapsed": 62.049999952316284, "reset": false}, {"elapsed": 62.09999990463257, "reset": false}, {"elapsed": 62.14999985694885, "reset": false}, {"elapsed": 62.19999980926514, "reset": false}, {"elapsed": 62.25, "reset": false}, {"elapsed": 62.299999952316284, "reset": false}, {"elapsed": 62.34999990463257, "reset": false}, {"elapsed": 62.39999985694885, "reset": false}, {"elapsed": 62.44999980926514, "reset": false}, {"elapsed": 62.5, "reset": false}, {"elapsed": 62.549999952316284, "reset": false}, {"elapsed": 62.59999990463257, "reset": false}, {"elapsed": 62.64999985694885, "reset": false}, {"elapsed": 62.69999980926514, "reset": false}, {"elapsed": 62.75, "reset": false}, {"elapsed": 62.799999952316284, "reset": false}, {"elapsed": 62.84999990463257, "reset": false}, {"elapsed": 62.89999985694885, "reset": false}, {"elapsed": 62.94999980926514, "reset": false}, {"elapsed": 63.0, "reset": false}, {"elapsed": 63.049999952316284, "reset": false}, {"elapsed": 63.09999990463257, "reset": false}, {"elapsed": 63.14999985694885, "reset": false}, {"elapsed": 63.19999980926514, "reset": false}, {"elapsed": 63.25, "reset": false}, {"elapsed": 63.299999952316284, "reset": false}, {"elapsed": 63.34999990463257, "reset": false}, {"elapsed": 63.39999985694885, "reset": false}, {"elapsed": 63.44999980926514, "reset": false}, {"elapsed": 63.5, "reset": false}, {"elapsed": 63.549999952316284, "reset": false}, {"elapsed": 63.59999990463257, "reset": false}, {"elapsed": 63.64999985694885, "reset": false}, {"elapsed": 63.69999980926514, "reset": false}, {"elapsed": 63.75, "reset": false}, {"elapsed": 63.799999952316284, "reset": false}, {"elapsed": 63.84999990463257, "reset": false}, {"elapsed": 63.89999985694885, "reset": false}, {"elapsed": 63.94999980926514, "reset": false}, {"elapsed": 64.0, "reset": false}, {"elapsed": 64.04999995231628, "reset": false}, {"elapsed": 64.09999990463257, "reset": false}, {"elapsed": 64.14999985694885, "reset": false}, {"elapsed": 64.19999980926514, "reset": false}, {"elapsed": 64.25, "reset": false}, {"elapsed": 64.29999995231628, "reset": false}, {"elapsed": 64.34999990463257, "reset": false}, {"elapsed": 64.39999985694885, "reset": false}, {"elapsed": 64.44999980926514, "reset": false}, {"elapsed": 64.5, "reset": false}, {"elapsed": 64.54999995231628, "reset": false}, {"elapsed": 64.59999990463257, "reset": false}, {"elapsed": 64.64999985694885, "reset": false}, {"elapsed": 64.69999980926514, "reset": false}, {"elapsed": 64.75, "reset": false}, {"elapsed": 64.79999995231628, "reset": false}, {"elapsed": 64.84999990463257, "reset": false}, {"elapsed": 64.89999985694885, "reset": false}, {"elapsed": 64.94999980926514, "reset": false}, {"elapsed": 65.0, "reset": false}, {"elapsed": 65.04999995231628, "reset": false}, {"elapsed": 65.09999990463257, "reset": false}, {"elapsed": 65.14999985694885, "reset": false}, {"elapsed": 65.19999980926514, "reset": false}, {"elapsed": 65.25, "reset": false}, {"elapsed": 65.29999995231628, "reset": false}, {"elapsed": 65.34999990463257, "reset": false}, {"elapsed": 65.39999985694885, "reset": false}, {"elapsed": 65.44999980926514, "reset": false}, {"elapsed": 65.5, "reset": false}, {"elapsed": 65.54999995231628, "reset": false}, {"elapsed": 65.59999990463257, "reset": false}, {"elapsed": 65.64999985694885, "reset": false}, {"elapsed": 65.69999980926514, "reset": false}, {"elapsed": 65.75, "reset": false}, {"elapsed": 65.79999995231628, "reset": false}, {"elapsed": 65.84999990463257, "reset": false}, {"elapsed": 65.89999985694885, "reset": false}, {"elapsed": 65.94999980926514, "reset": false}, {"elapsed": 66.0, "reset": false}, {"elapsed": 66.04999995231628, "reset": false}, {"elapsed": 66.09999990463257, "reset": false}, {"elapsed": 66.14999985694885, "reset": false}, {"elapsed": 66.19999980926514, "reset": false}, {"elapsed": 66.25, "reset": false}, {"elapsed": 66.29999995231628, "reset": false}, {"elapsed": 66.34999990463257, "reset": false}, {"elapsed": 66.39999985694885, "reset": false}, {"elapsed": 66.44999980926514, "reset": false}, {"elapsed": 66.5, "reset": false}, {"elapsed": 66.54999995231628, "reset": false}, {"elapsed": 66.59999990463257, "reset": false}, {"elapsed": 66.64999985694885, "reset": false}, {"elapsed": 66.69999980926514, "reset": false}, {"elapsed": 66.75, "reset": false}, {"elapsed": 66.79999995231628, "reset": false}, {"elapsed": 66.84999990463257, "reset": false}, {"elapsed": 66.89999985694885, "reset": false}, {"elapsed": 66.94999980926514, "reset": false}, {"elapsed": 67.0, "reset": false}, {"elapsed": 67.04999995231628, "reset": false}, {"elapsed": 67.09999990463257, "reset": false}, {"elapsed": 67.14999985694885, "reset": false}, {"elapsed": 67.19999980926514, "reset": false}, {"elapsed": 67.25, "reset": false}, {"elapsed": 67.29999995231628, "reset": false}, {"elapsed": 67.34999990463257, "reset": false}, {"elapsed": 67.39999985694885, "reset": false}, {"elapsed": 67.44999980926514, "reset": false}, {"elapsed": 67.5, "reset": false}, {"elapsed": 67.54999995231628, "reset": false}, {"elapsed": 67.59999990463257, "reset": false}, {"elapsed": 67.64999985694885, "reset": false}, {"elapsed": 67.69999980926514, "reset": false}, {"elapsed": 67.75, "reset": false}, {"elapsed": 67.79999995231628, "reset": false}, {"elapsed": 67.84999990463257, "reset": false}, {"elapsed": 67.89999985694885, "reset": false}, {"elapsed": 67.94999980926514, "reset": false}, {"elapsed": 68.0, "reset": false}, {"elapsed": 68.04999995231628, "reset": false}, {"elapsed": 68.09999990463257, "reset": false}, {"elapsed": 68.14999985694885, "reset": false}, {"elapsed": 68.19999980926514, "reset": false}, {"elapsed": 68.25, "reset": false}, {"elapsed": 68.29999995231628, "reset": false}, {"elapsed": 68.34999990463257, "reset": false}, {"elapsed": 68.39999985694885, "reset": false}, {"elapsed": 68.44999980926514, "reset": false}, {"elapsed": 68.5, "reset": false}, {"elapsed": 68.54999995231628, "reset": false}, {"elapsed": 68.59999990463257, "reset": false}, {"elapsed": 68.64999985694885, "reset": false}, {"elapsed": 68.69999980926514, "reset": false}, {"elapsed": 68.75, "reset": false}, {"elapsed": 68.79999995231628, "reset": false}, {"elapsed": 68.84999990463257, "reset": false}, {"elapsed": 68.89999985694885, "reset": false}, {"elapsed": 68.94999980926514, "reset": false}, {"elapsed": 69.0, "reset": false}, {"elapsed": 69.04999995231628, "reset": false}, {"elapsed": 69.09999990463257, "reset": false}, {"elapsed": 69.14999985694885, "reset": false}, {"elapsed": 69.19999980926514, "reset": false}, {"elapsed": 69.25, "reset": false}, {"elapsed": 69.29999995231628, "reset": false}, {"elapsed": 69.34999990463257, "reset": false}, {"elapsed": 69.39999985694885, "reset": false}, {"elapsed": 69.44999980926514, "reset": false}, {"elapsed": 69.5, "reset": false}, {"elapsed": 69.54999995231628, "reset": false}, {"elapsed": 69.59999990463257, "reset": false}, {"elapsed": 69.64999985694885, "reset": false}, {"elapsed": 69.69999980926514, "reset": false}, {"elapsed": 69.75, "reset": false}, {"elapsed": 69.79999995231628, "reset": false}, {"elapsed": 69.84999990463257, "reset": false}, {"elapsed": 69.89999985694885, "reset": false}, {"elapsed": 69.94999980926514, "reset": false}, {"elapsed": 70.0, "reset": false}, {"elapsed": 70.04999995231628, "reset": false}, {"elapsed": 70.09999990463257, "reset": false}, {"elapsed": 70.14999985694885, "reset": false}, {"elapsed": 70.19999980926514, "reset": false}, {"elapsed": 70.25, "reset": false}, {"elapsed": 70.29999995231628, "reset": false}, {"elapsed": 70.34999990463257, "reset": false}, {"elapsed": 70.39999985694885, "reset": false}, {"elapsed": 70.44999980926514, "reset": false}, {"elapsed": 70.5, "reset": false}, {"elapsed": 70.54999995231628, "reset": false}, {"elapsed": 70.59999990463257, "reset": false}, {"elapsed": 70.64999985694885, "reset": false}, {"elapsed": 70.69999980926514, "reset": false}, {"elapsed": 70.75, "reset": false}, {"elapsed": 70.79999995231628, "reset": false}, {"elapsed": 70.84999990463257, "reset": false}, {"elapsed": 70.89999985694885, "reset": false}, {"elapsed": 70.94999980926514, "reset": false}, {"elapsed": 71.0, "reset": false}, {"elapsed": 71.04999995231628, "reset": false}, {"elapsed": 71.09999990463257, "reset": false}, {"elapsed": 71.14999985694885, "reset": false}, {"elapsed": 71.19999980926514, "reset": false}, {"elapsed": 71.25, "reset": false}, {"elapsed": 71.29999995231628, "reset": false}, {"elapsed": 71.34999990463257, "reset": false}, {"elapsed": 71.39999985694885, "reset": false}, {"elapsed": 71.44999980926514, "reset": false}, {"elapsed": 71.5, "reset": false}, {"elapsed": 71.54999995231628, "reset": false}, {"elapsed": 71.59999990463257, "reset": false}, {"elapsed": 71.64999985694885, "reset": false}, {"elapsed": 71.69999980926514, "reset": false}, {"elapsed": 71.75, "reset": false}, {"elapsed": 71.79999995231628, "reset": false}, {"elapsed": 71.84999990463257, "reset": false}, {"elapsed": 71.89999985694885, "reset": false}, {"elapsed": 71.94999980926514, "reset": false}, {"elapsed": 72.0, "reset": false}, {"elapsed": 72.04999995231628, "reset": false}, {"elapsed": 72.09999990463257, "reset": false}, {"elapsed": 72.14999985694885, "reset": false}, {"elapsed": 72.19999980926514, "reset": false}, {"elapsed": 72.25, "reset": false}, {"elapsed": 72.29999995231628, "reset": false}, {"elapsed": 72.34999990463257, "reset": false}, {"elapsed": 72.39999985694885, "reset": false}, {"elapsed": 72.44999980926514, "reset": false}, {"elapsed": 72.5, "reset": false}, {"elapsed": 72.54999995231628, "reset": false}, {"elapsed": 72.59999990463257, "reset": false}, {"elapsed": 72.64999985694885, "reset": false}, {"elapsed": 72.69999980926514, "reset": false}, {"elapsed": 72.75, "reset": false}, {"elapsed": 72.79999995231628, "reset": false}, {"elapsed": 72.84999990463257, "reset": false}, {"elapsed": 72.89999985694885, "reset": false}, {"elapsed": 72.94999980926514, "reset": false}, {"elapsed": 73.0, "reset": false}, {"elapsed": 73.04999995231628, "reset": false}, {"elapsed": 73.09999990463257, "reset": false}, {"elapsed": 73.14999985694885, "reset": false}, {"elapsed": 73.19999980926514, "reset": false}, {"elapsed": 73.25, "reset": false}, {"elapsed": 73.29999995231628, "reset": false}, {"elapsed": 73.34999990463257, "reset": false}, {"elapsed": 73.39999985694885, "reset": false}, {"elapsed": 73.44999980926514, "reset": false}, {"elapsed": 73.5, "reset": false}, {"elapsed": 73.54999995231628, "reset": false}, {"elapsed": 73.59999990463257, "reset": false}, {"elapsed": 73.64999985694885, "reset": false}, {"elapsed": 73.69999980926514, "reset": false}, {"elapsed": 73.75, "reset": false}, {"elapsed": 73.79999995231628, "reset": false}, {"elapsed": 73.84999990463257, "reset": false}, {"elapsed": 73.89999985694885, "reset": false}, {"elapsed": 73.94999980926514, "reset": false}, {"elapsed": 74.0, "reset": false}, {"elapsed": 74.04999995231628, "reset": false}, {"elapsed": 74.09999990463257, "reset": false}, {"elapsed": 74.14999985694885, "reset": false}, {"elapsed": 74.19999980926514, "reset": false}, {"elapsed": 74.25, "reset": false}, {"elapsed": 74.29999995231628, "reset": false}, {"elapsed": 74.34999990463257, "reset": false}, {"elapsed": 74.39999985694885, "reset": false}, {"elapsed": 74.44999980926514, "reset": false}, {"elapsed": 74.5, "reset": false}, {"elapsed": 74.54999995231628, "reset": false}, {"elapsed": 74.59999990463257, "reset": false}, {"elapsed": 74.64999985694885, "reset": false}, {"elapsed": 74.69999980926514, "reset": false}, {"elapsed": 74.75, "reset": false}, {"elapsed": 74.79999995231628, "reset": false}, {"elapsed": 74.84999990463257, "reset": false}, {"elapsed": 74.89999985694885, "reset": false}, {"elapsed": 74.94999980926514, "reset": false}, {"elapsed": 75.0, "reset": false}, {"elapsed": 75.04999995231628, "reset": false}, {"elapsed": 75.09999990463257, "reset": false}, {"elapsed": 75.14999985694885, "reset": false}, {"elapsed": 75.19999980926514, "reset": false}, {"elapsed": 75.25, "reset": false}, {"elapsed": 75.29999995231628, "reset": false}, {"elapsed": 75.34999990463257, "reset": false}, {"elapsed": 75.39999985694885, "reset": false}, {"elapsed": 75.44999980926514, "reset": false}, {"elapsed": 75.5, "reset": false}, {"elapsed": 75.54999995231628, "reset": false}, {"elapsed": 75.59999990463257, "reset": false}, {"elapsed": 75.64999985694885, "reset": false}, {"elapsed": 75.69999980926514, "reset": false}, {"elapsed": 75.75, "reset": false}, {"elapsed": 75.79999995231628, "reset": false}, {"elapsed": 75.84999990463257, "reset": false}, {"elapsed": 75.89999985694885, "reset": false}, {"elapsed": 75.94999980926514, "reset": false}, {"elapsed": 76.0, "reset": false}, {"elapsed": 76.04999995231628, "reset": false}, {"elapsed": 76.09999990463257, "reset": false}, {"elapsed": 76.14999985694885, "reset": false}, {"elapsed": 76.19999980926514, "reset": false}, {"elapsed": 76.25, "reset": false}, {"elapsed": 76.29999995231628, "reset": false}, {"elapsed": 76.34999990463257, "reset": false}, {"elapsed": 76.39999985694885, "reset": false}, {"elapsed": 76.44999980926514, "reset": false}, {"elapsed": 76.5, "reset": false}, {"elapsed": 76.54999995231628, "reset": false}, {"elapsed": 76.59999990463257, "reset": false}, {"elapsed": 76.64999985694885, "reset": false}, {"elapsed": 76.69999980926514, "reset": false}, {"elapsed": 76.75, "reset": false}, {"elapsed": 76.79999995231628, "reset": false}, {"elapsed": 76.84999990463257, "reset": false}, {"elapsed": 76.89999985694885, "reset": false}, {"elapsed": 76.94999980926514, "reset": false}, {"elapsed": 77.0, "reset": false}, {"elapsed": 77.04999995231628, "reset": false}, {"elapsed": 77.09999990463257, "reset": false}, {"elapsed": 77.14999985694885, "reset": false}, {"elapsed": 77.19999980926514, "reset": false}, {"elapsed": 77.25, "reset": false}, {"elapsed": 77.29999995231628, "reset": false}, {"elapsed": 77.34999990463257, "reset": false}, {"elapsed": 77.39999985694885, "reset": false}, {"elapsed": 77.44999980926514, "reset": false}, {"elapsed": 77.5, "reset": false}, {"elapsed": 77.54999995231628, "reset": false}, {"elapsed": 77.59999990463257, "reset": false}, {"elapsed": 77.64999985694885, "reset": false}, {"elapsed": 77.69999980926514, "reset": false}, {"elapsed": 77.75, "reset": false}, {"elapsed": 77.79999995231628, "reset": false}, {"elapsed": 77.84999990463257, "reset": false}, {"elapsed": 77.89999985694885, "reset": false}, {"elapsed": 77.94999980926514, "reset": false}, {"elapsed": 78.0, "reset": false}, {"elapsed": 78.04999995231628, "reset": false}, {"elapsed": 78.09999990463257, "reset": false}, {"elapsed": 78.14999985694885, "reset": false}, {"elapsed": 78.19999980926514, "reset": false}, {"elapsed": 78.25, "reset": false}, {"elapsed": 78.29999995231628, "reset": false}, {"elapsed": 78.34999990463257, "reset": false}, {"elapsed": 78.39999985694885, "reset": false}, {"elapsed": 78.44999980926514, "reset": false}, {"elapsed": 78.5, "reset": false}, {"elapsed": 78.54999995231628, "reset": false}, {"elapsed": 78.59999990463257, "reset": false}, {"elapsed": 78.64999985694885, "reset": false}, {"elapsed": 78.69999980926514, "reset": false}, {"elapsed": 78.75, "reset": false}, {"elapsed": 78.79999995231628, "reset": false}, {"elapsed": 78.84999990463257, "reset": false}, {"elapsed": 78.89999985694885, "reset": false}, {"elapsed": 78.94999980926514, "reset": false}, {"elapsed": 79.0, "reset": false}, {"elapsed": 79.04999995231628, "reset": false}, {"elapsed": 79.09999990463257, "reset": false}, {"elapsed": 79.14999985694885, "reset": false}, {"elapsed": 79.19999980926514, "reset": false}, {"elapsed": 79.25, "reset": false}, {"elapsed": 79.29999995231628, "reset": false}, {"elapsed": 79.34999990463257, "reset": false}, {"elapsed": 79.39999985694885, "reset": false}, {"elapsed": 79.44999980926514, "reset": false}, {"elapsed": 79.5, "reset": false}, {"elapsed": 79.54999995231628, "reset": false}, {"elapsed": 79.59999990463257, "reset": false}, {"elapsed": 79.64999985694885, "reset": false}, {"elapsed": 79.69999980926514, "reset": false}, {"elapsed": 79.75, "reset": false}, {"elapsed": 79.79999995231628, "reset": false}, {"elapsed": 79.84999990463257, "reset": false}, {"elapsed": 79.89999985694885, "reset": false}, {"elapsed": 79.94999980926514, "reset": false}, {"elapsed": 80.0, "reset": false}, {"elapsed": 80.04999995231628, "reset": false}, {"elapsed": 80.09999990463257, "reset": false}, {"elapsed": 80.14999985694885, "reset": false}, {"elapsed": 80.19999980926514, "reset": false}, {"elapsed": 80.25, "reset": false}, {"elapsed": 80.29999995231628, "reset": false}, {"elapsed": 80.34999990463257, "reset": false}, {"elapsed": 80.39999985694885, "reset": false}, {"elapsed": 80.44999980926514, "reset": false}, {"elapsed": 80.5, "reset": false}, {"elapsed": 80.54999995231628, "reset": false}, {"elapsed": 80.59999990463257, "reset": false}, {"elapsed": 80.64999985694885, "reset": false}, {"elapsed": 80.69999980926514, "reset": false}, {"elapsed": 80.75, "reset": false}, {"elapsed": 80.79999995231628, "reset": false}, {"elapsed": 80.84999990463257, "reset": false}, {"elapsed": 80.89999985694885, "reset": false}, {"elapsed": 80.94999980926514, "reset": false}, {"elapsed": 81.0, "reset": false}, {"elapsed": 81.04999995231628, "reset": false}, {"elapsed": 81.09999990463257, "reset": false}, {"elapsed": 81.14999985694885, "reset": false}, {"elapsed": 81.19999980926514, "reset": false}, {"elapsed": 81.25, "reset": false}, {"elapsed": 81.29999995231628, "reset": false}, {"elapsed": 81.34999990463257, "reset": false}, {"elapsed": 81.39999985694885, "reset": false}, {"elapsed": 81.44999980926514, "reset": false}, {"elapsed": 81.5, "reset": false}, {"elapsed": 81.54999995231628, "reset": false}, {"elapsed": 81.59999990463257, "reset": false}, {"elapsed": 81.64999985694885, "reset": false}, {"elapsed": 81.69999980926514, "reset": false}, {"elapsed": 81.75, "reset": false}, {"elapsed": 81.79999995231628, "reset": false}, {"elapsed": 81.84999990463257, "reset": false}, {"elapsed": 81.89999985694885, "reset": false}, {"elapsed": 81.94999980926514, "reset": false}, {"elapsed": 82.0, "reset": false}, {"elapsed": 82.04999995231628, "reset": false}, {"elapsed": 82.09999990463257, "reset": false}, {"elapsed": 82.14999985694885, "reset": false}, {"elapsed": 82.19999980926514, "reset": false}, {"elapsed": 82.25, "reset": false}, {"elapsed": 82.29999995231628, "reset": false}, {"elapsed": 82.34999990463257, "reset": false}, {"elapsed": 82.39999985694885, "reset": false}, {"elapsed": 82.44999980926514, "reset": false}, {"elapsed": 82.5, "reset": false}, {"elapsed": 82.54999995231628, "reset": false}, {"elapsed": 82.59999990463257, "reset": false}, {"elapsed": 82.64999985694885, "reset": false}, {"elapsed": 82.69999980926514, "reset": false}, {"elapsed": 82.75, "reset": false}, {"elapsed": 82.79999995231628, "reset": false}, {"elapsed": 82.84999990463257, "reset": false}, {"elapsed": 82.89999985694885, "reset": false}, {"elapsed": 82.94999980926514, "reset": false}, {"elapsed": 83.0, "reset": false}, {"elapsed": 83.04999995231628, "reset": false}, {"elapsed": 83.09999990463257, "reset": false}, {"elapsed": 83.14999985694885, "reset": false}, {"elapsed": 83.19999980926514, "reset": false}, {"elapsed": 83.25, "reset": false}, {"elapsed": 83.29999995231628, "reset": false}, {"elapsed": 83.34999990463257, "reset": false}, {"elapsed": 83.39999985694885, "reset": false}, {"elapsed": 83.44999980926514, "reset": false}, {"elapsed": 83.5, "reset": false}, {"elapsed": 83.54999995231628, "reset": false}, {"elapsed": 83.59999990463257, "reset": false}, {"elapsed": 83.64999985694885, "reset": false}, {"elapsed": 83.69999980926514, "reset": false}, {"elapsed": 83.75, "reset": false}, {"elapsed": 83.79999995231628, "reset": false}, {"elapsed": 83.84999990463257, "reset": false}, {"elapsed": 83.89999985694885, "reset": false}, {"elapsed": 83.94999980926514, "reset": false}, {"elapsed": 84.0, "reset": false}, {"elapsed": 84.04999995231628, "reset": false}, {"elapsed": 84.09999990463257, "reset": false}, {"elapsed": 84.14999985694885, "reset": false}, {"elapsed": 84.19999980926514, "reset": false}, {"elapsed": 84.25, "reset": false}, {"elapsed": 84.29999995231628, "reset": false}, {"elapsed": 84.34999990463257, "reset": false}, {"elapsed": 84.39999985694885, "reset": false}, {"elapsed": 84.44999980926514, "reset": false}, {"elapsed": 84.5, "reset": false}, {"elapsed": 84.54999995231628, "reset": false}, {"elapsed": 84.59999990463257, "reset": false}, {"elapsed": 84.64999985694885, "reset": false}, {"elapsed": 84.69999980926514, "reset": false}, {"elapsed": 84.75, "reset": false}, {"elapsed": 84.79999995231628, "reset": false}, {"elapsed": 84.84999990463257, "reset": false}, {"elapsed": 84.89999985694885, "reset": false}, {"elapsed": 84.94999980926514, "reset": false}, {"elapsed": 85.0, "reset": false}, {"elapsed": 85.04999995231628, "reset": false}, {"elapsed": 85.09999990463257, "reset": false}, {"elapsed": 85.14999985694885, "reset": false}, {"elapsed": 85.19999980926514, "reset": false}, {"elapsed": 85.25, "reset": false}, {"elapsed": 85.29999995231628, "reset": false}, {"elapsed": 85.34999990463257, "reset": false}, {"elapsed": 85.39999985694885, "reset": false}, {"elapsed": 85.44999980926514, "reset": false}, {"elapsed": 85.5, "reset": false}, {"elapsed": 85.54999995231628, "reset": false}, {"elapsed": 85.59999990463257, "reset": false}, {"elapsed": 85.64999985694885, "reset": false}, {"elapsed": 85.69999980926514, "reset": false}, {"elapsed": 85.75, "reset": false}, {"elapsed": 85.79999995231628, "reset": false}, {"elapsed": 85.84999990463257, "reset": false}, {"elapsed": 85.89999985694885, "reset": false}, {"elapsed": 85.94999980926514, "reset": false}, {"elapsed": 86.0, "reset": false}, {"elapsed": 86.04999995231628, "reset": false}, {"elapsed": 86.09999990463257, "reset": false}, {"elapsed": 86.14999985694885, "reset": false}, {"elapsed": 86.19999980926514, "reset": false}, {"elapsed": 86.25, "reset": false}, {"elapsed": 86.29999995231628, "reset": false}, {"elapsed": 86.34999990463257, "reset": false}, {"elapsed": 86.39999985694885, "reset": false}, {"elapsed": 86.44999980926514, "reset": false}, {"elapsed": 86.5, "reset": false}, {"elapsed": 86.54999995231628, "reset": false}, {"elapsed": 86.59999990463257, "reset": false}, {"elapsed": 86.64999985694885, "reset": false}, {"elapsed": 86.69999980926514, "reset": false}, {"elapsed": 86.75, "reset": false}, {"elapsed": 86.79999995231628, "reset": false}, {"elapsed": 86.84999990463257, "reset": false}, {"elapsed": 86.89999985694885, "reset": false}, {"elapsed": 86.94999980926514, "reset": false}, {"elapsed": 87.0, "reset": false}, {"elapsed": 87.04999995231628, "reset": false}, {"elapsed": 87.09999990463257, "reset": false}, {"elapsed": 87.14999985694885, "reset": false}, {"elapsed": 87.19999980926514, "reset": false}, {"elapsed": 87.25, "reset": false}, {"elapsed": 87.29999995231628, "reset": false}, {"elapsed": 87.34999990463257, "reset": false}, {"elapsed": 87.39999985694885, "reset": false}, {"elapsed": 87.44999980926514, "reset": false}, {"elapsed": 87.5, "reset": false}, {"elapsed": 87.54999995231628, "reset": false}, {"elapsed": 87.59999990463257, "reset": false}, {"elapsed": 87.64999985694885, "reset": false}, {"elapsed": 87.69999980926514, "reset": false}, {"elapsed": 87.75, "reset": false}, {"elapsed": 87.79999995231628, "reset": false}, {"elapsed": 87.84999990463257, "reset": false}, {"elapsed": 87.89999985694885, "reset": false}, {"elapsed": 87.94999980926514, "reset": false}, {"elapsed": 88.0, "reset": false}, {"elapsed": 88.04999995231628, "reset": false}, {"elapsed": 88.09999990463257, "reset": false}, {"elapsed": 88.14999985694885, "reset": false}, {"elapsed": 88.19999980926514, "reset": false}, {"elapsed": 88.25, "reset": false}, {"elapsed": 88.29999995231628, "reset": false}, {"elapsed": 88.34999990463257, "reset": false}, {"elapsed": 88.39999985694885, "reset": false}, {"elapsed": 88.44999980926514, "reset": false}, {"elapsed": 88.5, "reset": false}, {"elapsed": 88.54999995231628, "reset": false}, {"elapsed": 88.59999990463257, "reset": false}, {"elapsed": 88.64999985694885, "reset": false}, {"elapsed": 88.69999980926514, "reset": false}, {"elapsed": 88.75, "reset": false}, {"elapsed": 88.79999995231628, "reset": false}, {"elapsed": 88.84999990463257, "reset": false}, {"elapsed": 88.89999985694885, "reset": false}, {"elapsed": 88.94999980926514, "reset": false}, {"elapsed": 89.0, "reset": false}, {"elapsed": 89.04999995231628, "reset": false}, {"elapsed": 89.09999990463257, "reset": false}, {"elapsed": 89.14999985694885, "reset": false}, {"elapsed": 89.19999980926514, "reset": false}, {"elapsed": 89.25, "reset": false}, {"elapsed": 89.29999995231628, "reset": false}, {"elapsed": 89.34999990463257, "reset": false}, {"elapsed": 89.39999985694885, "reset": false}, {"elapsed": 89.44999980926514, "reset": false}, {"elapsed": 89.5, "reset": false}, {"elapsed": 89.54999995231628, "reset": false}, {"elapsed": 89.59999990463257, "reset": false}, {"elapsed": 89.64999985694885, "reset": false}, {"elapsed": 89.69999980926514, "reset": false}, {"elapsed": 89.75, "reset": false}, {"elapsed": 89.79999995231628, "reset": false}, {"elapsed": 89.84999990463257, "reset": false}, {"elapsed": 89.89999985694885, "reset": false}, {"elapsed": 89.94999980926514, "reset": false}, {"elapsed": 90.0, "reset": false}, {"elapsed": 90.04999995231628, "reset": false}, {"elapsed": 90.09999990463257, "reset": false}, {"elapsed": 90.14999985694885, "reset": false}, {"elapsed": 90.19999980926514, "reset": false}, {"elapsed": 90.25, "reset": false}, {"elapsed": 90.29999995231628, "reset": false}, {"elapsed": 90.34999990463257, "reset": false}, {"elapsed": 90.39999985694885, "reset": false}, {"elapsed": 90.44999980926514, "reset": false}, {"elapsed": 90.5, "reset": false}, {"elapsed": 90.54999995231628, "reset": false}, {"elapsed": 90.59999990463257, "reset": false}, {"elapsed": 90.64999985694885, "reset": false}, {"elapsed": 90.69999980926514, "reset": false}, {"elapsed": 90.75, "reset": false}, {"elapsed": 90.79999995231628, "reset": false}, {"elapsed": 90.84999990463257, "reset": false}, {"elapsed": 90.89999985694885, "reset": false}, {"elapsed": 90.94999980926514, "reset": false}, {"elapsed": 91.0, "reset": false}, {"elapsed": 91.04999995231628, "reset": false}, {"elapsed": 91.09999990463257, "reset": false}, {"elapsed": 91.14999985694885, "reset": false}, {"elapsed": 91.19999980926514, "reset": false}, {"elapsed": 91.25, "reset": false}, {"elapsed": 91.29999995231628, "reset": false}, {"elapsed": 91.34999990463257, "reset": false}, {"elapsed": 91.39999985694885, "reset": false}, {"elapsed": 91.44999980926514, "reset": false}, {"elapsed": 91.5, "reset": false}, {"elapsed": 91.54999995231628, "reset": false}, {"elapsed": 91.59999990463257, "reset": false}, {"elapsed": 91.64999985694885, "reset": false}, {"elapsed": 91.69999980926514, "reset": false}, {"elapsed": 91.75, "reset": false}, {"elapsed": 91.79999995231628, "reset": false}, {"elapsed": 91.84999990463257, "reset": false}, {"elapsed": 91.89999985694885, "reset": false}, {"elapsed": 91.94999980926514, "reset": false}, {"elapsed": 92.0, "reset": false}, {"elapsed": 92.04999995231628, "reset": false}, {"elapsed": 92.09999990463257, "reset": false}, {"elapsed": 92.14999985694885, "reset": false}, {"elapsed": 92.19999980926514, "reset": false}, {"elapsed": 92.25, "reset": false}, {"elapsed": 92.29999995231628, "reset": false}, {"elapsed": 92.34999990463257, "reset": false}, {"elapsed": 92.39999985694885, "reset": false}, {"elapsed": 92.44999980926514, "reset": false}, {"elapsed": 92.5, "reset": false}, {"elapsed": 92.54999995231628, "reset": false}, {"elapsed": 92.59999990463257, "reset": false}, {"elapsed": 92.64999985694885, "reset": false}, {"elapsed": 92.69999980926514, "reset": false}, {"elapsed": 92.75, "reset": false}, {"elapsed": 92.79999995231628, "reset": false}, {"elapsed": 92.84999990463257, "reset": false}, {"elapsed": 92.89999985694885, "reset": false}, {"elapsed": 92.94999980926514, "reset": false}, {"elapsed": 93.0, "reset": false}, {"elapsed": 93.04999995231628, "reset": false}, {"elapsed": 93.09999990463257, "reset": false}, {"elapsed": 93.14999985694885, "reset": false}, {"elapsed": 93.19999980926514, "reset": false}, {"elapsed": 93.25, "reset": false}, {"elapsed": 93.29999995231628, "reset": false}, {"elapsed": 93.34999990463257, "reset": false}, {"elapsed": 93.39999985694885, "reset": false}, {"elapsed": 93.44999980926514, "reset": false}, {"elapsed": 93.5, "reset": false}, {"elapsed": 93.54999995231628, "reset": false}, {"elapsed": 93.59999990463257, "reset": false}, {"elapsed": 93.64999985694885, "reset": false}, {"elapsed": 93.69999980926514, "reset": false}, {"elapsed": 93.75, "reset": false}, {"elapsed": 93.79999995231628, "reset": false}, {"elapsed": 93.84999990463257, "reset": false}, {"elapsed": 93.89999985694885, "reset": false}, {"elapsed": 93.94999980926514, "reset": false}, {"elapsed": 94.0, "reset": false}, {"elapsed": 94.04999995231628, "reset": false}, {"elapsed": 94.09999990463257, "reset": false}, {"elapsed": 94.14999985694885, "reset": false}, {"elapsed": 94.19999980926514, "reset": false}, {"elapsed": 94.25, "reset": false}, {"elapsed": 94.29999995231628, "reset": false}, {"elapsed": 94.34999990463257, "reset": false}, {"elapsed": 94.39999985694885, "reset": false}, {"elapsed": 94.44999980926514, "reset": false}, {"elapsed": 94.5, "reset": false}, {"elapsed": 94.54999995231628, "reset": false}, {"elapsed": 94.59999990463257, "reset": false}, {"elapsed": 94.64999985694885, "reset": false}, {"elapsed": 94.69999980926514, "reset": false}, {"elapsed": 94.75, "reset": false}, {"elapsed": 94.79999995231628, "reset": false}, {"elapsed": 94.84999990463257, "reset": false}, {"elapsed": 94.89999985694885, "reset": false}, {"elapsed": 94.94999980926514, "reset": false}, {"elapsed": 95.0, "reset": false}, {"elapsed": 95.04999995231628, "reset": false}, {"elapsed": 95.09999990463257, "reset": false}, {"elapsed": 95.14999985694885, "reset": false}, {"elapsed": 95.19999980926514, "reset": false}, {"elapsed": 95.25, "reset": false}, {"elapsed": 95.29999995231628, "reset": false}, {"elapsed": 95.34999990463257, "reset": false}, {"elapsed": 95.39999985694885, "reset": false}, {"elapsed": 95.44999980926514, "reset": false}, {"elapsed": 95.5, "reset": false}, {"elapsed": 95.54999995231628, "reset": false}, {"elapsed": 95.59999990463257, "reset": false}, {"elapsed": 95.64999985694885, "reset": false}, {"elapsed": 95.69999980926514, "reset": false}, {"elapsed": 95.75, "reset": false}, {"elapsed": 95.79999995231628, "reset": false}, {"elapsed": 95.84999990463257, "reset": false}, {"elapsed": 95.89999985694885, "reset": false}, {"elapsed": 95.94999980926514, "reset": false}, {"elapsed": 96.0, "reset": false}, {"elapsed": 96.04999995231628, "reset": false}, {"elapsed": 96.09999990463257, "reset": false}, {"elapsed": 96.14999985694885, "reset": false}, {"elapsed": 96.19999980926514, "reset": false}, {"elapsed": 96.25, "reset": false}, {"elapsed": 96.29999995231628, "reset": false}, {"elapsed": 96.34999990463257, "reset": false}, {"elapsed": 96.39999985694885, "reset": false}, {"elapsed": 96.44999980926514, "reset": false}, {"elapsed": 96.5, "reset": false}, {"elapsed": 96.54999995231628, "reset": false}, {"elapsed": 96.59999990463257, "reset": false}, {"elapsed": 96.64999985694885, "reset": false}, {"elapsed": 96.69999980926514, "reset": false}, {"elapsed": 96.75, "reset": false}, {"elapsed": 96.79999995231628, "reset": false}, {"elapsed": 96.84999990463257, "reset": false}, {"elapsed": 96.89999985694885, "reset": false}, {"elapsed": 96.94999980926514, "reset": false}, {"elapsed": 97.0, "reset": false}, {"elapsed": 97.04999995231628, "reset": false}, {"elapsed": 97.09999990463257, "reset": false}, {"elapsed": 97.14999985694885, "reset": false}, {"elapsed": 97.19999980926514, "reset": false}, {"elapsed": 97.25, "reset": false}, {"elapsed": 97.29999995231628, "reset": false}, {"elapsed": 97.34999990463257, "reset": false}, {"elapsed": 97.39999985694885, "reset": false}, {"elapsed": 97.44999980926514, "reset": false}, {"elapsed": 97.5, "reset": false}, {"elapsed": 97.54999995231628, "reset": false}, {"elapsed": 97.59999990463257, "reset": false}, {"elapsed": 97.64999985694885, "reset": false}, {"elapsed": 97.69999980926514, "reset": false}, {"elapsed": 97.75, "reset": false}, {"elapsed": 97.79999995231628, "reset": false}, {"elapsed": 97.84999990463257, "reset": false}, {"elapsed": 97.89999985694885, "reset": false}, {"elapsed": 97.94999980926514, "reset": false}, {"elapsed": 98.0, "reset": false}, {"elapsed": 98.04999995231628, "reset": false}, {"elapsed": 98.09999990463257, "reset": false}, {"elapsed": 98.14999985694885, "reset": false}, {"elapsed": 98.19999980926514, "reset": false}, {"elapsed": 98.25, "reset": false}, {"elapsed": 98.29999995231628, "reset": false}, {"elapsed": 98.34999990463257, "reset": false}, {"elapsed": 98.39999985694885, "reset": false}, {"elapsed": 98.44999980926514, "reset": false}, {"elapsed": 98.5, "reset": false}, {"elapsed": 98.54999995231628, "reset": false}, {"elapsed": 98.59999990463257, "reset": false}, {"elapsed": 98.64999985694885, "reset": false}, {"elapsed": 98.69999980926514, "reset": false}, {"elapsed": 98.75, "reset": false}, {"elapsed": 98.79999995231628, "reset": false}, {"elapsed": 98.84999990463257, "reset": false}, {"elapsed": 98.89999985694885, "reset": false}, {"elapsed": 98.94999980926514, "reset": false}, {"elapsed": 99.0, "reset": false}, {"elapsed": 99.04999995231628, "reset": false}, {"elapsed": 99.09999990463257, "reset": false}, {"elapsed": 99.14999985694885, "reset": false}, {"elapsed": 99.19999980926514, "reset": false}, {"elapsed": 99.25, "reset": false}, {"elapsed": 99.29999995231628, "reset": false}, {"elapsed": 99.34999990463257, "reset": false}, {"elapsed": 99.39999985694885, "reset": false}, {"elapsed": 99.44999980926514, "reset": false}, {"elapsed": 99.5, "reset": false}, {"elapsed": 99.54999995231628, "reset": false}, {"elapsed": 99.59999990463257, "reset": false}, {"elapsed": 99.64999985694885, "reset": false}, {"elapsed": 99.69999980926514, "reset": false}, {"elapsed": 99.75, "reset": false}, {"elapsed": 99.79999995231628, "reset": false}, {"elapsed": 99.84999990463257, "reset": false}, {"elapsed": 99.89999985694885, "reset": false}, {"elapsed": 99.94999980926514, "reset": false}, {"elapsed": 100.0, "reset": false}, {"elapsed": 100.04999995231628, "reset": false}, {"elapsed": 100.09999990463257, "reset": false}, {"elapsed": 100.14999985694885, "reset": false}, {"elapsed": 100.19999980926514, "reset": false}, {"elapsed": 100.25, "reset": false}, {"elapsed": 100.29999995231628, "reset": false}, {"elapsed": 100.34999990463257, "reset": false}, {"elapsed": 100.39999985694885, "reset": false}, {"elapsed": 100.44999980926514, "reset": false}, {"elapsed": 100.5, "reset": false}, {"elapsed": 100.54999995231628, "reset": false}, {"elapsed": 100.59999990463257, "reset": false}, {"elapsed": 100.64999985694885, "reset": false}, {"elapsed": 100.69999980926514, "reset": false}, {"elapsed": 100.75, "reset": false}, {"elapsed": 100.79999995231628, "reset": false}, {"elapsed": 100.84999990463257, "reset": false}, {"elapsed": 100.89999985694885, "reset": false}, {"elapsed": 100.94999980926514, "reset": false}, {"elapsed": 101.0, "reset": false}, {"elapsed": 101.04999995231628, "reset": false}, {"elapsed": 101.09999990463257, "reset": false}, {"elapsed": 101.14999985694885, "reset": false}, {"elapsed": 101.19999980926514, "reset": false}, {"elapsed": 101.25, "reset": false}, {"elapsed": 101.29999995231628, "reset": false}, {"elapsed": 101.34999990463257, "reset": false}, {"elapsed": 101.39999985694885, "reset": false}, {"elapsed": 101.44999980926514, "reset": false}, {"elapsed": 101.5, "reset": false}, {"elapsed": 101.54999995231628, "reset": false}, {"elapsed": 101.59999990463257, "reset": false}, {"elapsed": 101.64999985694885, "reset": false}, {"elapsed": 101.69999980926514, "reset": false}, {"elapsed": 101.75, "reset": false}, {"elapsed": 101.79999995231628, "reset": false}, {"elapsed": 101.84999990463257, "reset": false}, {"elapsed": 101.89999985694885, "reset": false}, {"elapsed": 101.94999980926514, "reset": false}, {"elapsed": 102.0, "reset": false}, {"elapsed": 102.04999995231628, "reset": false}, {"elapsed": 102.09999990463257, "reset": false}, {"elapsed": 102.14999985694885, "reset": false}, {"elapsed": 102.19999980926514, "reset": false}, {"elapsed": 102.25, "reset": false}, {"elapsed": 102.29999995231628, "reset": false}, {"elapsed": 102.34999990463257, "reset": false}, {"elapsed": 102.39999985694885, "reset": false}, {"elapsed": 102.44999980926514, "reset": false}, {"elapsed": 102.5, "reset": false}, {"elapsed": 102.54999995231628, "reset": false}, {"elapsed": 102.59999990463257, "reset": false}, {"elapsed": 102.64999985694885, "reset": false}, {"elapsed": 102.69999980926514, "reset": false}, {"elapsed": 102.75, "reset": false}, {"elapsed": 102.79999995231628, "reset": false}, {"elapsed": 102.84999990463257, "reset": false}, {"elapsed": 102.89999985694885, "reset": false}, {"elapsed": 102.94999980926514, "reset": false}, {"elapsed": 103.0, "reset": false}, {"elapsed": 103.04999995231628, "reset": false}, {"elapsed": 103.09999990463257, "reset": false}, {"elapsed": 103.14999985694885, "reset": false}, {"elapsed": 103.19999980926514, "reset": false}, {"elapsed": 103.25, "reset": false}, {"elapsed": 103.29999995231628, "reset": false}, {"elapsed": 103.34999990463257, "reset": false}, {"elapsed": 103.39999985694885, "reset": false}, {"elapsed": 103.44999980926514, "reset": false}, {"elapsed": 103.5, "reset": false}, {"elapsed": 103.54999995231628, "reset": false}, {"elapsed": 103.59999990463257, "reset": false}, {"elapsed": 103.64999985694885, "reset": false}, {"elapsed": 103.69999980926514, "reset": false}, {"elapsed": 103.75, "reset": false}, {"elapsed": 103.79999995231628, "reset": false}, {"elapsed": 103.84999990463257, "reset": false}, {"elapsed": 103.89999985694885, "reset": false}, {"elapsed": 103.94999980926514, "reset": false}, {"elapsed": 104.0, "reset": false}, {"elapsed": 104.04999995231628, "reset": false}, {"elapsed": 104.09999990463257, "reset": false}, {"elapsed": 104.14999985694885, "reset": false}, {"elapsed": 104.19999980926514, "reset": false}, {"elapsed": 104.25, "reset": false}, {"elapsed": 104.29999995231628, "reset": false}, {"elapsed": 104.34999990463257, "reset": false}, {"elapsed": 104.39999985694885, "reset": false}, {"elapsed": 104.44999980926514, "reset": false}, {"elapsed": 104.5, "reset": false}, {"elapsed": 104.54999995231628, "reset": false}, {"elapsed": 104.59999990463257, "reset": false}, {"elapsed": 104.64999985694885, "reset": false}, {"elapsed": 104.69999980926514, "reset": false}, {"elapsed": 104.75, "reset": false}, {"elapsed": 104.79999995231628, "reset": false}, {"elapsed": 104.84999990463257, "reset": false}, {"elapsed": 104.89999985694885, "reset": false}, {"elapsed": 104.94999980926514, "reset": false}, {"elapsed": 105.0, "reset": false}, {"elapsed": 105.04999995231628, "reset": false}, {"elapsed": 105.09999990463257, "reset": false}, {"elapsed": 105.14999985694885, "reset": false}, {"elapsed": 105.19999980926514, "reset": false}, {"elapsed": 105.25, "reset": false}, {"elapsed": 105.29999995231628, "reset": false}, {"elapsed": 105.34999990463257, "reset": false}, {"elapsed": 105.39999985694885, "reset": false}, {"elapsed": 105.44999980926514, "reset": false}, {"elapsed": 105.5, "reset": false}, {"elapsed": 105.54999995231628, "reset": false}, {"elapsed": 105.59999990463257, "reset": false}, {"elapsed": 105.64999985694885, "reset": false}, {"elapsed": 105.69999980926514, "reset": false}, {"elapsed": 105.75, "reset": false}, {"elapsed": 105.79999995231628, "reset": false}, {"elapsed": 105.84999990463257, "reset": false}, {"elapsed": 105.89999985694885, "reset": false}, {"elapsed": 105.94999980926514, "reset": false}, {"elapsed": 106.0, "reset": false}, {"elapsed": 106.04999995231628, "reset": false}, {"elapsed": 106.09999990463257, "reset": false}, {"elapsed": 106.14999985694885, "reset": false}, {"elapsed": 106.19999980926514, "reset": false}, {"elapsed": 106.25, "reset": false}, {"elapsed": 106.29999995231628, "reset": false}, {"elapsed": 106.34999990463257, "reset": false}, {"elapsed": 106.75, "reset": false}, {"elapsed": 106.79999995231628, "reset": false}, {"elapsed": 106.84999990463257, "reset": false}, {"elapsed": 106.89999985694885, "reset": false}, {"elapsed": 106.94999980926514, "reset": false}, {"elapsed": 107.0, "reset": false}, {"elapsed": 107.04999995231628, "reset": false}, {"elapsed": 107.09999990463257, "reset": false}, {"elapsed": 107.14999985694885, "reset": false}, {"elapsed": 107.19999980926514, "reset": false}, {"elapsed": 107.25, "reset": false}, {"elapsed": 107.29999995231628, "reset": false}, {"elapsed": 107.34999990463257, "reset": false}, {"elapsed": 107.39999985694885, "reset": false}, {"elapsed": 107.44999980926514, "reset": false}, {"elapsed": 107.5, "reset": false}, {"elapsed": 107.54999995231628, "reset": false}, {"elapsed": 107.59999990463257, "reset": false}, {"elapsed": 107.64999985694885, "reset": false}, {"elapsed": 107.69999980926514, "reset": false}, {"elapsed": 107.75, "reset": false}, {"elapsed": 107.79999995231628, "reset": false}, {"elapsed": 107.84999990463257, "reset": false}, {"elapsed": 107.89999985694885, "reset": false}, {"elapsed": 107.94999980926514, "reset": false}, {"elapsed": 108.0, "reset": false}, {"elapsed": 108.04999995231628, "reset": false}, {"elapsed": 108.09999990463257, "reset": false}, {"elapsed": 108.14999985694885, "reset": false}, {"elapsed": 108.19999980926514, "reset": false}, {"elapsed": 108.25, "reset": false}, {"elapsed": 108.29999995231628, "reset": false}, {"elapsed": 108.34999990463257, "reset": false}, {"elapsed": 108.39999985694885, "reset": false}, {"elapsed": 108.44999980926514, "reset": false}, {"elapsed": 108.5, "reset": false}, {"elapsed": 108.54999995231628, "reset": false}, {"elapsed": 108.59999990463257, "reset": false}, {"elapsed": 108.64999985694885, "reset": false}, {"elapsed": 108.69999980926514, "reset": false}, {"elapsed": 108.75, "reset": false}, {"elapsed": 108.79999995231628, "reset": false}, {"elapsed": 108.84999990463257, "reset": false}, {"elapsed": 108.89999985694885, "reset": false}, {"elapsed": 108.94999980926514, "reset": false}, {"elapsed": 109.0, "reset": false}, {"elapsed": 109.04999995231628, "reset": false}, {"elapsed": 109.09999990463257, "reset": false}, {"elapsed": 109.14999985694885, "reset": false}, {"elapsed": 109.19999980926514, "reset": false}, {"elapsed": 109.25, "reset": false}, {"elapsed": 109.29999995231628, "reset": false}, {"elapsed": 109.34999990463257, "reset": false}, {"elapsed": 109.39999985694885, "reset": false}, {"elapsed": 109.44999980926514, "reset": false}, {"elapsed": 109.5, "reset": false}, {"elapsed": 109.54999995231628, "reset": false}, {"elapsed": 109.59999990463257, "reset": false}, {"elapsed": 109.64999985694885, "reset": false}, {"elapsed": 109.69999980926514, "reset": false}, {"elapsed": 109.75, "reset": false}, {"elapsed": 109.79999995231628, "reset": false}, {"elapsed": 109.84999990463257, "reset": false}, {"elapsed": 109.89999985694885, "reset": false}, {"elapsed": 109.94999980926514, "reset": false}, {"elapsed": 110.0, "reset": false}, {"elapsed": 110.04999995231628, "reset": false}, {"elapsed": 110.09999990463257, "reset": false}, {"elapsed": 110.14999985694885, "reset": false}, {"elapsed": 110.19999980926514, "reset": false}, {"elapsed": 110.25, "reset": false}, {"elapsed": 110.29999995231628, "reset": false}, {"elapsed": 110.34999990463257, "reset": false}, {"elapsed": 110.39999985694885, "reset": false}, {"elapsed": 110.44999980926514, "reset": false}, {"elapsed": 110.5, "reset": false}, {"elapsed": 110.54999995231628, "reset": false}, {"elapsed": 110.59999990463257, "reset": false}, {"elapsed": 110.64999985694885, "reset": false}, {"elapsed": 110.69999980926514, "reset": false}, {"elapsed": 110.75, "reset": false}, {"elapsed": 110.79999995231628, "reset": false}, {"elapsed": 110.84999990463257, "reset": false}, {"elapsed": 110.89999985694885, "reset": false}, {"elapsed": 110.94999980926514, "reset": false}, {"elapsed": 111.0, "reset": false}, {"elapsed": 111.04999995231628, "reset": false}, {"elapsed": 111.09999990463257, "reset": false}, {"elapsed": 111.14999985694885, "reset": false}, {"elapsed": 111.19999980926514, "reset": false}, {"elapsed": 111.25, "reset": false}, {"elapsed": 111.29999995231628, "reset": false}, {"elapsed": 111.34999990463257, "reset": false}, {"elapsed": 111.39999985694885, "reset": false}, {"elapsed": 111.44999980926514, "reset": false}, {"elapsed": 111.5, "reset": false}, {"elapsed": 111.54999995231628, "reset": false}, {"elapsed": 111.59999990463257, "reset": false}, {"elapsed": 111.64999985694885, "reset": false}, {"elapsed": 111.69999980926514, "reset": false}, {"elapsed": 111.75, "reset": false}, {"elapsed": 111.79999995231628, "reset": false}, {"elapsed": 111.84999990463257, "reset": false}, {"elapsed": 111.89999985694885, "reset": false}, {"elapsed": 111.94999980926514, "reset": false}, {"elapsed": 112.0, "reset": false}, {"elapsed": 112.04999995231628, "reset": false}, {"elapsed": 112.09999990463257, "reset": false}, {"elapsed": 112.14999985694885, "reset": false}, {"elapsed": 112.19999980926514, "reset": false}, {"elapsed": 112.25, "reset": false}, {"elapsed": 112.29999995231628, "reset": false}, {"elapsed": 112.34999990463257, "reset": false}, {"elapsed": 112.39999985694885, "reset": false}, {"elapsed": 112.44999980926514, "reset": false}, {"elapsed": 112.5, "reset": false}, {"elapsed": 112.54999995231628, "reset": false}, {"elapsed": 112.59999990463257, "reset": false}, {"elapsed": 112.64999985694885, "reset": false}, {"elapsed": 112.69999980926514, "reset": false}, {"elapsed": 112.75, "reset": false}, {"elapsed": 112.79999995231628, "reset": false}, {"elapsed": 112.84999990463257, "reset": false}, {"elapsed": 112.89999985694885, "reset": false}, {"elapsed": 112.94999980926514, "reset": false}, {"elapsed": 113.0, "reset": false}, {"elapsed": 113.04999995231628, "reset": false}, {"elapsed": 113.09999990463257, "reset": false}, {"elapsed": 113.14999985694885, "reset": false}, {"elapsed": 113.19999980926514, "reset": false}, {"elapsed": 113.25, "reset": false}, {"elapsed": 113.29999995231628, "reset": false}, {"elapsed": 113.34999990463257, "reset": false}, {"elapsed": 113.39999985694885, "reset": false}, {"elapsed": 113.44999980926514, "reset": false}, {"elapsed": 113.5, "reset": false}, {"elapsed": 113.54999995231628, "reset": false}, {"elapsed": 113.59999990463257, "reset": false}, {"elapsed": 113.64999985694885, "reset": false}, {"elapsed": 113.69999980926514, "reset": false}, {"elapsed": 113.75, "reset": false}, {"elapsed": 113.79999995231628, "reset": false}, {"elapsed": 113.84999990463257, "reset": false}, {"elapsed": 113.89999985694885, "reset": false}, {"elapsed": 113.94999980926514, "reset": false}, {"elapsed": 114.0, "reset": false}, {"elapsed": 114.04999995231628, "reset": false}, {"elapsed": 114.09999990463257, "reset": false}, {"elapsed": 114.14999985694885, "reset": false}, {"elapsed": 114.19999980926514, "reset": false}, {"elapsed": 114.25, "reset": false}, {"elapsed": 114.29999995231628, "reset": false}, {"elapsed": 114.34999990463257, "reset": false}, {"elapsed": 114.39999985694885, "reset": false}, {"elapsed": 114.44999980926514, "reset": false}, {"elapsed": 114.5, "reset": false}, {"elapsed": 114.54999995231628, "reset": false}, {"elapsed": 114.59999990463257, "reset": false}, {"elapsed": 114.64999985694885, "reset": false}, {"elapsed": 114.69999980926514, "reset": false}, {"elapsed": 114.75, "reset": false}, {"elapsed": 114.79999995231628, "reset": false}, {"elapsed": 114.84999990463257, "reset": false}, {"elapsed": 114.89999985694885, "reset": false}, {"elapsed": 114.94999980926514, "reset": false}, {"elapsed": 115.0, "reset": false}, {"elapsed": 115.04999995231628, "reset": false}, {"elapsed": 115.09999990463257, "reset": false}, {"elapsed": 115.14999985694885, "reset": false}, {"elapsed": 115.19999980926514, "reset": false}, {"elapsed": 115.25, "reset": false}, {"elapsed": 115.29999995231628, "reset": false}, {"elapsed": 115.34999990463257, "reset": false}, {"elapsed": 115.39999985694885, "reset": false}, {"elapsed": 115.44999980926514, "reset": false}, {"elapsed": 115.5, "reset": false}, {"elapsed": 115.54999995231628, "reset": false}, {"elapsed": 115.59999990463257, "reset": false}, {"elapsed": 115.64999985694885, "reset": false}, {"elapsed": 115.69999980926514, "reset": false}, {"elapsed": 115.75, "reset": false}, {"elapsed": 115.79999995231628, "reset": false}, {"elapsed": 115.84999990463257, "reset": false}, {"elapsed": 115.89999985694885, "reset": false}, {"elapsed": 115.94999980926514, "reset": false}, {"elapsed": 116.0, "reset": false}, {"elapsed": 116.04999995231628, "reset": false}, {"elapsed": 116.09999990463257, "reset": false}, {"elapsed": 116.14999985694885, "reset": false}, {"elapsed": 116.19999980926514, "reset": false}, {"elapsed": 116.25, "reset": false}, {"elapsed": 116.29999995231628, "reset": false}, {"elapsed": 116.34999990463257, "reset": false}, {"elapsed": 116.39999985694885, "reset": false}, {"elapsed": 116.44999980926514, "reset": false}, {"elapsed": 116.5, "reset": false}, {"elapsed": 116.54999995231628, "reset": false}, {"elapsed": 116.59999990463257, "reset": false}, {"elapsed": 116.64999985694885, "reset": false}, {"elapsed": 116.69999980926514, "reset": false}, {"elapsed": 116.75, "reset": false}, {"elapsed": 116.79999995231628, "reset": false}, {"elapsed": 116.84999990463257, "reset": false}, {"elapsed": 116.89999985694885, "reset": false}, {"elapsed": 116.94999980926514, "reset": false}, {"elapsed": 117.0, "reset": false}, {"elapsed": 117.04999995231628, "reset": false}, {"elapsed": 117.09999990463257, "reset": false}, {"elapsed": 117.14999985694885, "reset": false}, {"elapsed": 117.19999980926514, "reset": false}, {"elapsed": 117.25, "reset": false}, {"elapsed": 117.29999995231628, "reset": false}, {"elapsed": 117.34999990463257, "reset": false}, {"elapsed": 117.39999985694885, "reset": false}, {"elapsed": 117.44999980926514, "reset": false}, {"elapsed": 117.5, "reset": false}, {"elapsed": 117.54999995231628, "reset": false}, {"elapsed": 117.59999990463257, "reset": false}, {"elapsed": 117.64999985694885, "reset": false}, {"elapsed": 117.69999980926514, "reset": false}, {"elapsed": 117.75, "reset": false}, {"elapsed": 117.79999995231628, "reset": false}, {"elapsed": 117.84999990463257, "reset": false}, {"elapsed": 117.89999985694885, "reset": false}, {"elapsed": 117.94999980926514, "reset": false}, {"elapsed": 118.0, "reset": false}, {"elapsed": 118.04999995231628, "reset": false}, {"elapsed": 118.09999990463257, "reset": false}, {"elapsed": 118.14999985694885, "reset": false}, {"elapsed": 118.19999980926514, "reset": false}, {"elapsed": 118.25, "reset": false}, {"elapsed": 118.29999995231628, "reset": false}, {"elapsed": 118.34999990463257, "reset": false}, {"elapsed": 118.39999985694885, "reset": false}, {"elapsed": 118.44999980926514, "reset": false}, {"elapsed": 118.5, "reset": false}, {"elapsed": 118.54999995231628, "reset": false}, {"elapsed": 118.59999990463257, "reset": false}, {"elapsed": 118.64999985694885, "reset": false}, {"elapsed": 118.69999980926514, "reset": false}, {"elapsed": 118.75, "reset": false}, {"elapsed": 118.79999995231628, "reset": false}, {"elapsed": 118.84999990463257, "reset": false}, {"elapsed": 118.89999985694885, "reset": false}, {"elapsed": 118.94999980926514, "reset": false}, {"elapsed": 119.0, "reset": false}, {"elapsed": 119.04999995231628, "reset": false}, {"elapsed": 119.09999990463257, "reset": false}, {"elapsed": 119.14999985694885, "reset": false}, {"elapsed": 119.19999980926514, "reset": false}, {"elapsed": 119.25, "reset": false}, {"elapsed": 119.29999995231628, "reset": false}, {"elapsed": 119.34999990463257, "reset": false}, {"elapsed": 119.39999985694885, "reset": false}, {"elapsed": 119.44999980926514, "reset": false}, {"elapsed": 119.5, "reset": false}, {"elapsed": 119.54999995231628, "reset": false}, {"elapsed": 119.59999990463257, "reset": false}, {"elapsed": 119.64999985694885, "reset": false}, {"elapsed": 119.69999980926514, "reset": false}, {"elapsed": 119.75, "reset": false}, {"elapsed": 119.79999995231628, "reset": false}, {"elapsed": 119.84999990463257, "reset": false}, {"elapsed": 119.89999985694885, "reset": false}]</script><script>
+'use strict';const data=JSON.parse(document.getElementById('epoch-data').textContent);
+function draw(){const c=document.getElementById('epochs'),g=c.getContext('2d'),ratio=window.devicePixelRatio||1,w=c.clientWidth||800,h=260;c.width=w*ratio;c.height=h*ratio;g.scale(ratio,ratio);g.clearRect(0,0,w,h);g.font='11px system-ui';g.fillStyle='#526b7d';const pts=data.slice(1).map((e,i)=>[e.elapsed,1000*(e.elapsed-data[i].elapsed),e.reset]).filter(p=>p.every((v,i)=>i===2||Number.isFinite(v)));
+if(!pts.length){g.fillText('Insufficient epochs to plot intervals.',30,60);return}const xmin=Math.min(...pts.map(p=>p[0])),xmax=Math.max(...pts.map(p=>p[0])),lo=Math.min(0,...pts.map(p=>p[1])),hi=Math.max(1,...pts.map(p=>p[1]));const x=v=>60+(v-xmin)/Math.max(1e-9,xmax-xmin)*(w-80),y=v=>25+(hi-v)/(hi-lo)*190;for(let i=0;i<5;i++){const v=lo+(hi-lo)*i/4;g.fillText(v.toFixed(1),5,y(v)+4);g.strokeStyle='#e2e9ee';g.beginPath();g.moveTo(55,y(v));g.lineTo(w-15,y(v));g.stroke()}for(const p of pts){g.fillStyle=p[2]?'#b44031':'#26718f';g.beginPath();g.arc(x(p[0]),y(p[1]),2.3,0,Math.PI*2);g.fill()}g.fillStyle='#526b7d';g.fillText('Spacing (ms)',5,13);g.fillText('External receiver elapsed seconds',60,h-8);g.fillText(xmin.toFixed(2),60,h-26);g.fillText(xmax.toFixed(2),w-65,h-26)}window.addEventListener('resize',draw);draw();
+</script></body></html>

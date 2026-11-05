@@ -1,0 +1,7 @@
+
+NuttShell (NSH) NuttX-11.0.0
+nsh> [Kls -l /fs/microsd/etc
+nsh: ls: stat failed: No such file or directory
+nsh> [Kcat /fs/microsd/etc/config.txt
+nsh: cat: open failed: Not a directory
+nsh> [K

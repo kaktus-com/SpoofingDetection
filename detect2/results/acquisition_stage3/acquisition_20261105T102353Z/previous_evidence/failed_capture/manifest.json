@@ -1,0 +1,1521 @@
+{
+  "schema_version": 1,
+  "mode": "live",
+  "status": "failed",
+  "started_utc": "2026-11-05T10:32:05.425079+00:00",
+  "host": "kth-nss-6",
+  "platform": "Linux-6.12.87+rpt-rpi-v8-aarch64-with-glibc2.36",
+  "boot_id": "eca5e237-9785-4a09-8de6-8b51f5cf2570",
+  "expected_streams": [
+    "receiver",
+    "mavlink"
+  ],
+  "configuration_changed": false,
+  "clock_anchors": [
+    {
+      "host_monotonic_ns": 3801002860055733,
+      "unix_ns": 1793874725430661792
+    },
+    {
+      "host_monotonic_ns": 3801123546785322,
+      "unix_ns": 1793874846117390788
+    }
+  ],
+  "packages": {
+    "pyserial": "3.5",
+    "pymavlink": "2.4.49",
+    "pyubx2": "1.3.3"
+  },
+  "source_hashes": {
+    "__init__.py": "3c0a4de92b2ea160cc5c8884e50dd2a09f7e498cfc54fe4541bb21a8471868b7",
+    "audit_session.py": "00a12dc73c9c191f6d62b6b84a35c13bbe1bcc0ffcf5fbacf27ffa85bbc5fc35",
+    "baudrate.py": "58292dd9c67d4fec328f4786a20b7680fcd0005988a8b04106280145e8ca70c8",
+    "capture.py": "b378ba3395ab8efd2c1731a1f7b4904eb40888f88732290c7357e214d9b70099",
+    "common.py": "f58e4127ab315a3bcd38a7492e4904d3ff5e19595d8d16caa736889ffa2d9065",
+    "mavlink_capture.py": "282d47e83673fd79561900cddd0d431297627731c5a3e0be72c0c6d002bcdfdd",
+    "receiver_config.py": "ff7c0bc2bdf4bbc61d3ef69dbb6b4a644db0a78f97b91c48f8c1fcf620c24059",
+    "replay.py": "ccab711ce41547fd322970737e5eb011d7e957f432cc650712ed63bec89cd359",
+    "serial_capture.py": "39403bfe0a7294da96f81ccffdea92af7a8e37c1e57147556d3229372ea6ffaa",
+    "timesync.py": "621e8d0946436117d073dcf3a04d9d8a64a7392178621f53683b39a5bb5fb48f",
+    "ubx.py": "cf6466683219c46d1f071fcbbd99ecf75e43a365f4d07534424e32b981c5c145"
+  },
+  "metadata": {
+    "gps_device": "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0",
+    "gps_baud": 2000000,
+    "mavlink_bind": [
+      "127.0.0.1",
+      14551
+    ],
+    "receiver_profile": "not queried; UNKNOWN",
+    "timesync_active": false,
+    "expected_rawx_hz": 20.0,
+    "timestamps": "original host receive chunks/datagrams; source sensor times unchanged",
+    "gnss_to_px4_clock_verified": false
+  },
+  "stop_reason": "duration",
+  "ended_utc": "2026-11-05T10:34:05.971309+00:00",
+  "streams": {
+    "receiver": {
+      "received_bytes": 8416151,
+      "written_bytes": 8394951,
+      "input_chunks": 35260,
+      "dropped_bytes": 21200,
+      "dropped_chunks": 90,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 31155,
+      "peak_queue_chunks": 128,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    },
+    "mavlink": {
+      "received_bytes": 3155333,
+      "written_bytes": 3145062,
+      "input_chunks": 41732,
+      "dropped_bytes": 10271,
+      "dropped_chunks": 138,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 9918,
+      "peak_queue_chunks": 128,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    }
+  },
+  "issues": {
+    "counts": {
+      "archive_rejected_input": 228
+    },
+    "events": [
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109282693635,
+        "stream": "mavlink",
+        "sequence": 36999,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109296783488,
+        "stream": "mavlink",
+        "sequence": 37000,
+        "bytes": 86
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109296899006,
+        "stream": "mavlink",
+        "sequence": 37001,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109297302762,
+        "stream": "mavlink",
+        "sequence": 37002,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109303221624,
+        "stream": "mavlink",
+        "sequence": 37003,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109303329438,
+        "stream": "mavlink",
+        "sequence": 37004,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109303665713,
+        "stream": "mavlink",
+        "sequence": 37005,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109303775434,
+        "stream": "mavlink",
+        "sequence": 37006,
+        "bytes": 71
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109312608217,
+        "stream": "mavlink",
+        "sequence": 37007,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109315738934,
+        "stream": "mavlink",
+        "sequence": 37008,
+        "bytes": 86
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109315837396,
+        "stream": "mavlink",
+        "sequence": 37009,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109324902085,
+        "stream": "mavlink",
+        "sequence": 37010,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109336135831,
+        "stream": "mavlink",
+        "sequence": 37011,
+        "bytes": 87
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109336242534,
+        "stream": "mavlink",
+        "sequence": 37012,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109336338459,
+        "stream": "mavlink",
+        "sequence": 37013,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109336528680,
+        "stream": "mavlink",
+        "sequence": 37014,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109336625920,
+        "stream": "mavlink",
+        "sequence": 37015,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109342655466,
+        "stream": "mavlink",
+        "sequence": 37016,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109342761447,
+        "stream": "mavlink",
+        "sequence": 37017,
+        "bytes": 27
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109342916982,
+        "stream": "mavlink",
+        "sequence": 37018,
+        "bytes": 65
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109351497157,
+        "stream": "receiver",
+        "sequence": 31241,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109351640637,
+        "stream": "receiver",
+        "sequence": 31242,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109352586593,
+        "stream": "mavlink",
+        "sequence": 37019,
+        "bytes": 40
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109352689499,
+        "stream": "mavlink",
+        "sequence": 37020,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109352808813,
+        "stream": "mavlink",
+        "sequence": 37021,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109352907868,
+        "stream": "mavlink",
+        "sequence": 37022,
+        "bytes": 61
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109353001608,
+        "stream": "mavlink",
+        "sequence": 37023,
+        "bytes": 76
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109353094903,
+        "stream": "mavlink",
+        "sequence": 37024,
+        "bytes": 37
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109353185199,
+        "stream": "mavlink",
+        "sequence": 37025,
+        "bytes": 42
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109356503784,
+        "stream": "mavlink",
+        "sequence": 37026,
+        "bytes": 86
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109356597673,
+        "stream": "mavlink",
+        "sequence": 37027,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109363800154,
+        "stream": "mavlink",
+        "sequence": 37028,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109368716893,
+        "stream": "receiver",
+        "sequence": 31243,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109368902929,
+        "stream": "receiver",
+        "sequence": 31244,
+        "bytes": 391
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109370648656,
+        "stream": "mavlink",
+        "sequence": 37029,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109371310003,
+        "stream": "mavlink",
+        "sequence": 37030,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109373730836,
+        "stream": "mavlink",
+        "sequence": 37031,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109377214624,
+        "stream": "mavlink",
+        "sequence": 37032,
+        "bytes": 87
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109377315234,
+        "stream": "mavlink",
+        "sequence": 37033,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109382934302,
+        "stream": "mavlink",
+        "sequence": 37034,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109385267284,
+        "stream": "receiver",
+        "sequence": 31245,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109385454819,
+        "stream": "receiver",
+        "sequence": 31246,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109387670080,
+        "stream": "receiver",
+        "sequence": 31247,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109387805542,
+        "stream": "receiver",
+        "sequence": 31248,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109390152005,
+        "stream": "receiver",
+        "sequence": 31249,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109390287671,
+        "stream": "receiver",
+        "sequence": 31250,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109392627282,
+        "stream": "receiver",
+        "sequence": 31251,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109392762855,
+        "stream": "receiver",
+        "sequence": 31252,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109394696803,
+        "stream": "mavlink",
+        "sequence": 37035,
+        "bytes": 87
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109394798228,
+        "stream": "mavlink",
+        "sequence": 37036,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109394888487,
+        "stream": "mavlink",
+        "sequence": 37037,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109395111189,
+        "stream": "receiver",
+        "sequence": 31253,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109395254706,
+        "stream": "receiver",
+        "sequence": 31254,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109397588392,
+        "stream": "receiver",
+        "sequence": 31255,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109397726168,
+        "stream": "receiver",
+        "sequence": 31256,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109404675318,
+        "stream": "mavlink",
+        "sequence": 37038,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109404796373,
+        "stream": "mavlink",
+        "sequence": 37039,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109405076500,
+        "stream": "mavlink",
+        "sequence": 37040,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109413310918,
+        "stream": "mavlink",
+        "sequence": 37041,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109414663352,
+        "stream": "receiver",
+        "sequence": 31257,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109414816906,
+        "stream": "receiver",
+        "sequence": 31258,
+        "bytes": 343
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109415811139,
+        "stream": "mavlink",
+        "sequence": 37042,
+        "bytes": 86
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109415906416,
+        "stream": "mavlink",
+        "sequence": 37043,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109424669219,
+        "stream": "mavlink",
+        "sequence": 37044,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109434412995,
+        "stream": "mavlink",
+        "sequence": 37045,
+        "bytes": 87
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109434523624,
+        "stream": "mavlink",
+        "sequence": 37046,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109434629641,
+        "stream": "mavlink",
+        "sequence": 37047,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109434776066,
+        "stream": "receiver",
+        "sequence": 31259,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109434939602,
+        "stream": "receiver",
+        "sequence": 31260,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109437066123,
+        "stream": "receiver",
+        "sequence": 31261,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109437225232,
+        "stream": "receiver",
+        "sequence": 31262,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109438348853,
+        "stream": "mavlink",
+        "sequence": 37048,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109438734647,
+        "stream": "mavlink",
+        "sequence": 37049,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109439531918,
+        "stream": "receiver",
+        "sequence": 31263,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109439677899,
+        "stream": "receiver",
+        "sequence": 31264,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109442006066,
+        "stream": "receiver",
+        "sequence": 31265,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109442146250,
+        "stream": "receiver",
+        "sequence": 31266,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109444482898,
+        "stream": "receiver",
+        "sequence": 31267,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109444618305,
+        "stream": "receiver",
+        "sequence": 31268,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109444939173,
+        "stream": "mavlink",
+        "sequence": 37050,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109446967175,
+        "stream": "receiver",
+        "sequence": 31269,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109447108656,
+        "stream": "receiver",
+        "sequence": 31270,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109452101710,
+        "stream": "mavlink",
+        "sequence": 37051,
+        "bytes": 40
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109452205709,
+        "stream": "mavlink",
+        "sequence": 37052,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109452300356,
+        "stream": "mavlink",
+        "sequence": 37053,
+        "bytes": 61
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109452620539,
+        "stream": "mavlink",
+        "sequence": 37054,
+        "bytes": 76
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109452721205,
+        "stream": "mavlink",
+        "sequence": 37055,
+        "bytes": 37
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109452813778,
+        "stream": "mavlink",
+        "sequence": 37056,
+        "bytes": 42
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109455619182,
+        "stream": "mavlink",
+        "sequence": 37057,
+        "bytes": 86
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109455715219,
+        "stream": "mavlink",
+        "sequence": 37058,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109455806107,
+        "stream": "mavlink",
+        "sequence": 37059,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109458674122,
+        "stream": "mavlink",
+        "sequence": 37060,
+        "bytes": 66
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109458773565,
+        "stream": "mavlink",
+        "sequence": 37061,
+        "bytes": 33
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109458874898,
+        "stream": "mavlink",
+        "sequence": 37062,
+        "bytes": 67
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109458968508,
+        "stream": "mavlink",
+        "sequence": 37063,
+        "bytes": 83
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109459134562,
+        "stream": "mavlink",
+        "sequence": 37064,
+        "bytes": 84
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109459228784,
+        "stream": "mavlink",
+        "sequence": 37065,
+        "bytes": 39
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109459319820,
+        "stream": "mavlink",
+        "sequence": 37066,
+        "bytes": 37
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109459408931,
+        "stream": "mavlink",
+        "sequence": 37067,
+        "bytes": 45
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109463745286,
+        "stream": "receiver",
+        "sequence": 31271,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109463904655,
+        "stream": "receiver",
+        "sequence": 31272,
+        "bytes": 367
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109464648723,
+        "stream": "mavlink",
+        "sequence": 37068,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109473023881,
+        "stream": "mavlink",
+        "sequence": 37069,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109473122454,
+        "stream": "mavlink",
+        "sequence": 37070,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109473509210,
+        "stream": "mavlink",
+        "sequence": 37071,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109475604953,
+        "stream": "mavlink",
+        "sequence": 37072,
+        "bytes": 86
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109475699156,
+        "stream": "mavlink",
+        "sequence": 37073,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109482651047,
+        "stream": "mavlink",
+        "sequence": 37074,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109484786178,
+        "stream": "receiver",
+        "sequence": 31273,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109484954473,
+        "stream": "receiver",
+        "sequence": 31274,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109487259937,
+        "stream": "receiver",
+        "sequence": 31275,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109487399214,
+        "stream": "receiver",
+        "sequence": 31276,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109489698048,
+        "stream": "receiver",
+        "sequence": 31277,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109489857102,
+        "stream": "receiver",
+        "sequence": 31278,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109492186510,
+        "stream": "receiver",
+        "sequence": 31279,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109492322379,
+        "stream": "receiver",
+        "sequence": 31280,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109494659361,
+        "stream": "receiver",
+        "sequence": 31281,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109494943674,
+        "stream": "receiver",
+        "sequence": 31282,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109495186431,
+        "stream": "mavlink",
+        "sequence": 37075,
+        "bytes": 87
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109495283060,
+        "stream": "mavlink",
+        "sequence": 37076,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109495398003,
+        "stream": "mavlink",
+        "sequence": 37077,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109497172471,
+        "stream": "receiver",
+        "sequence": 31283,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109497315915,
+        "stream": "receiver",
+        "sequence": 31284,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109504866800,
+        "stream": "mavlink",
+        "sequence": 37078,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109504967707,
+        "stream": "mavlink",
+        "sequence": 37079,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109505248297,
+        "stream": "mavlink",
+        "sequence": 37080,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109505342482,
+        "stream": "mavlink",
+        "sequence": 37081,
+        "bytes": 71
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109515594754,
+        "stream": "mavlink",
+        "sequence": 37082,
+        "bytes": 87
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109515712883,
+        "stream": "mavlink",
+        "sequence": 37083,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109515810419,
+        "stream": "mavlink",
+        "sequence": 37084,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109526087951,
+        "stream": "mavlink",
+        "sequence": 37085,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109530764859,
+        "stream": "receiver",
+        "sequence": 31285,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109530949487,
+        "stream": "receiver",
+        "sequence": 31286,
+        "bytes": 471
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109534766439,
+        "stream": "receiver",
+        "sequence": 31287,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109534904290,
+        "stream": "receiver",
+        "sequence": 31288,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109535260768,
+        "stream": "mavlink",
+        "sequence": 37086,
+        "bytes": 87
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109535361082,
+        "stream": "mavlink",
+        "sequence": 37087,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109535450934,
+        "stream": "mavlink",
+        "sequence": 37088,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109537261716,
+        "stream": "receiver",
+        "sequence": 31289,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109537406530,
+        "stream": "receiver",
+        "sequence": 31290,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109537652954,
+        "stream": "mavlink",
+        "sequence": 37089,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109537981525,
+        "stream": "mavlink",
+        "sequence": 37090,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109539756659,
+        "stream": "receiver",
+        "sequence": 31291,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109539923288,
+        "stream": "receiver",
+        "sequence": 31292,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109542220548,
+        "stream": "receiver",
+        "sequence": 31293,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109542358213,
+        "stream": "receiver",
+        "sequence": 31294,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109543738258,
+        "stream": "mavlink",
+        "sequence": 37091,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109543836943,
+        "stream": "mavlink",
+        "sequence": 37092,
+        "bytes": 27
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109543984293,
+        "stream": "mavlink",
+        "sequence": 37093,
+        "bytes": 65
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109544708325,
+        "stream": "receiver",
+        "sequence": 31295,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109544890490,
+        "stream": "receiver",
+        "sequence": 31296,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109547159750,
+        "stream": "receiver",
+        "sequence": 31297,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109547291897,
+        "stream": "receiver",
+        "sequence": 31298,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109549645379,
+        "stream": "receiver",
+        "sequence": 31299,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109549780545,
+        "stream": "receiver",
+        "sequence": 31300,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109553622126,
+        "stream": "mavlink",
+        "sequence": 37094,
+        "bytes": 40
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109553724755,
+        "stream": "mavlink",
+        "sequence": 37095,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109553818273,
+        "stream": "mavlink",
+        "sequence": 37096,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109553911346,
+        "stream": "mavlink",
+        "sequence": 37097,
+        "bytes": 61
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109554006049,
+        "stream": "mavlink",
+        "sequence": 37098,
+        "bytes": 76
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109554103437,
+        "stream": "mavlink",
+        "sequence": 37099,
+        "bytes": 37
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109554193881,
+        "stream": "mavlink",
+        "sequence": 37100,
+        "bytes": 42
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109556625103,
+        "stream": "mavlink",
+        "sequence": 37101,
+        "bytes": 86
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109556796064,
+        "stream": "mavlink",
+        "sequence": 37102,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109562634167,
+        "stream": "mavlink",
+        "sequence": 37103,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109565712940,
+        "stream": "receiver",
+        "sequence": 31301,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109565862975,
+        "stream": "receiver",
+        "sequence": 31302,
+        "bytes": 87
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109572096946,
+        "stream": "mavlink",
+        "sequence": 37104,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109572441258,
+        "stream": "mavlink",
+        "sequence": 37105,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109574648574,
+        "stream": "mavlink",
+        "sequence": 37106,
+        "bytes": 86
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109574767147,
+        "stream": "mavlink",
+        "sequence": 37107,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109574862591,
+        "stream": "mavlink",
+        "sequence": 37108,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109583655060,
+        "stream": "mavlink",
+        "sequence": 37109,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109585382046,
+        "stream": "receiver",
+        "sequence": 31303,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109585542638,
+        "stream": "receiver",
+        "sequence": 31304,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109587830509,
+        "stream": "receiver",
+        "sequence": 31305,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109587965619,
+        "stream": "receiver",
+        "sequence": 31306,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109590295434,
+        "stream": "receiver",
+        "sequence": 31307,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109590428692,
+        "stream": "receiver",
+        "sequence": 31308,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109592774137,
+        "stream": "receiver",
+        "sequence": 31309,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109592965747,
+        "stream": "receiver",
+        "sequence": 31310,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109593142134,
+        "stream": "mavlink",
+        "sequence": 37110,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109595401172,
+        "stream": "receiver",
+        "sequence": 31311,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109595667337,
+        "stream": "receiver",
+        "sequence": 31312,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109596377702,
+        "stream": "mavlink",
+        "sequence": 37111,
+        "bytes": 87
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109596490497,
+        "stream": "mavlink",
+        "sequence": 37112,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109597833042,
+        "stream": "receiver",
+        "sequence": 31313,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109598006485,
+        "stream": "receiver",
+        "sequence": 31314,
+        "bytes": 495
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109604659063,
+        "stream": "mavlink",
+        "sequence": 37113,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109604763452,
+        "stream": "mavlink",
+        "sequence": 37114,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109604995894,
+        "stream": "mavlink",
+        "sequence": 37115,
+        "bytes": 257
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109605092690,
+        "stream": "mavlink",
+        "sequence": 37116,
+        "bytes": 36
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109614626190,
+        "stream": "mavlink",
+        "sequence": 37117,
+        "bytes": 86
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109614732041,
+        "stream": "mavlink",
+        "sequence": 37118,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109614843262,
+        "stream": "mavlink",
+        "sequence": 37119,
+        "bytes": 57
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109614985428,
+        "stream": "receiver",
+        "sequence": 31315,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109615145982,
+        "stream": "receiver",
+        "sequence": 31316,
+        "bytes": 343
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109623651509,
+        "stream": "mavlink",
+        "sequence": 37120,
+        "bytes": 53
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109634721997,
+        "stream": "receiver",
+        "sequence": 31317,
+        "bytes": 1
+      },
+      {
+        "kind": "archive_rejected_input",
+        "host_monotonic_ns": 3801109634886514,
+        "stream": "receiver",
+        "sequence": 31318,
+        "bytes": 495
+      }
+    ]
+  },
+  "missing_streams": [],
+  "files": {
+    "mavlink.bin": {
+      "bytes": 3145062,
+      "sha256": "59120d8d951dd769398df851030b76dfe8b0bb7ccab60f467f2e5f0ba9b6e224"
+    },
+    "clock_sync.csv": {
+      "bytes": 176,
+      "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85"
+    },
+    "receiver_receive.csv": {
+      "bytes": 1355670,
+      "sha256": "f33e988e29c082c93ea1698018f3c20c93201640e4641b591df543f00a394b6b"
+    },
+    "receiver.bin": {
+      "bytes": 8394951,
+      "sha256": "06b7cb60ace5ebe703f23b63c0d157363f38c21cb212a793ab33616e6ba9840c"
+    },
+    "health.jsonl": {
+      "bytes": 84426,
+      "sha256": "96979d7a7de03e7165d5f31758735f9e06a025b2873f714894473d03e3680011"
+    },
+    "mavlink_receive.csv": {
+      "bytes": 2182343,
+      "sha256": "61303e5cfad9bc13569ae9d0e42ff4c62c0f997ae6ddcb13cd90c7eaa519ced3"
+    }
+  }
+}

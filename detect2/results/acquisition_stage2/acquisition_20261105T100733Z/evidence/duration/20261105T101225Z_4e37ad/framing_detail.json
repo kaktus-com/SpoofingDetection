@@ -1,0 +1,21 @@
+{
+  "session": "/home/nss/SpoofingDetection/recordings_v2_stage2/acquisition_20261105T100733Z/duration/20261105T101225Z_4e37ad",
+  "invalid_candidates": [
+    {
+      "offset": 18,
+      "declared_length": 72,
+      "class": 1,
+      "id": 54
+    }
+  ],
+  "first_valid_frame": [
+    676,
+    776
+  ],
+  "last_valid_frame": [
+    1842606,
+    1842634
+  ],
+  "archive_bytes": 1842642,
+  "note": "Raw candidate checks; sync-like payload bytes at unaligned capture boundaries are not proof of serial corruption."
+}

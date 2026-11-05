@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stage 5A timing review</title><style>body{font:15px/1.65 system-ui;max-width:1150px;margin:30px auto;padding:20px;background:#edf4f7;color:#213c4c}h1{font-size:38px}section{background:#fff;border:1px solid #dce5e9;border-radius:14px;padding:24px;margin:22px 0}.note{background:#fff1d3;padding:18px;border-radius:9px}a{color:#0b7292}td,th{padding:10px;border-bottom:1px solid #dde6e9;text-align:left}.pass{color:#15815d}.review{color:#b65f08}pre{white-space:pre-wrap;overflow-wrap:anywhere}.scroll{overflow-x:auto}</style></head><body><h1>Stage 5A · Pi ↔ PX4 time bridge</h1><p>5 November 2026 · Bench tests on the same Pi, Cube and X20 as the three recorded sessions.</p><p class="note">Clock bridge estimated; GNSS epoch alignment is still UNKNOWN. These new exchanges cannot retroactively synchronize the earlier flights. RTT/2 and held-out fit scatter are not independent proof of absolute timing accuracy.</p><section><h2>Three-minute stationary test</h2><p><code>20261105T142408Z_2c5ceb</code></p>
+<p>3603 RAWX epochs · native IMU 200.78 Hz · attitude 200.78 Hz · native sample gaps 0 / 0 · logger dropouts 0.</p>
+<p>Maximum supplied-attitude change: 1.314 degrees. Native gap events are retained below; a zero logger-dropout count does not guarantee every sensor sample exists.</p><details><summary>Exact native sample intervals requiring review</summary><pre>[]</pre></details>
+<p><a href="evidence/stationary/20261105T142408Z_2c5ceb/timesync/report.html">Interactive timing plots and mapping</a> · <a href="evidence/stationary/20261105T142408Z_2c5ceb/recording_report.html">Combined recording report</a> · <a href="evidence/stationary/20261105T142408Z_2c5ceb/report.html">Raw GNSS/telemetry audit</a> · <a href="native_audits/20261105T142408Z_2c5ceb/report.html">Native IMU/attitude plots</a></p>
+<div class="scroll"><table><tr><th>Segment</th><th>Replies</th><th>Span s</th><th>Median RTT ms</th><th>p95 RTT ms</th><th>Drift ppm</th><th>Held-out p95 ms</th></tr><tr><td>0</td><td>1756</td><td>179.986257892</td><td>1.039568</td><td>2.73656275</td><td>-3.940668887087335</td><td>0.0906750605763651</td></tr></table></div><details><summary>Individual checks</summary><table><tr><td>raw archives intact</td><td class="pass">PASS</td></tr><tr><td>no recorder queue loss</td><td class="pass">PASS</td></tr><tr><td>complete session</td><td class="pass">PASS</td></tr><tr><td>gnss continuous 20hz</td><td class="pass">PASS</td></tr><tr><td>addressed unique matched replies</td><td class="pass">PASS</td></tr><tr><td>native parsed</td><td class="pass">PASS</td></tr><tr><td>native no dropouts</td><td class="pass">PASS</td></tr><tr><td>native imu continuous</td><td class="pass">PASS</td></tr><tr><td>native attitude continuous</td><td class="pass">PASS</td></tr><tr><td>three minute capture</td><td class="pass">PASS</td></tr><tr><td>single clock segment</td><td class="pass">PASS</td></tr></table></details></section><section><h2>Controlled MAVLink pause / resume</h2><p><code>20261105T142939Z_a44aa5</code></p>
+<p>703 RAWX epochs · native IMU 200.73 Hz · attitude 200.73 Hz · native sample gaps 2 / 2 · logger dropouts 0.</p>
+<p>Maximum supplied-attitude change: 0.312 degrees. Native gap events are retained below; a zero logger-dropout count does not guarantee every sensor sample exists.</p><details><summary>Exact native sample intervals requiring review</summary><pre>[
+  {
+    &quot;topic&quot;: &quot;sensor_combined&quot;,
+    &quot;source_time_field&quot;: &quot;timestamp&quot;,
+    &quot;start_px4_us&quot;: 4822024448,
+    &quot;end_px4_us&quot;: 4822034225,
+    &quot;interval_ms&quot;: 9.777
+  },
+  {
+    &quot;topic&quot;: &quot;sensor_combined&quot;,
+    &quot;source_time_field&quot;: &quot;timestamp&quot;,
+    &quot;start_px4_us&quot;: 4837115511,
+    &quot;end_px4_us&quot;: 4837125510,
+    &quot;interval_ms&quot;: 9.999
+  },
+  {
+    &quot;topic&quot;: &quot;vehicle_attitude&quot;,
+    &quot;source_time_field&quot;: &quot;timestamp_sample&quot;,
+    &quot;start_px4_us&quot;: 4822024448,
+    &quot;end_px4_us&quot;: 4822034225,
+    &quot;interval_ms&quot;: 9.777
+  },
+  {
+    &quot;topic&quot;: &quot;vehicle_attitude&quot;,
+    &quot;source_time_field&quot;: &quot;timestamp_sample&quot;,
+    &quot;start_px4_us&quot;: 4837115511,
+    &quot;end_px4_us&quot;: 4837125510,
+    &quot;interval_ms&quot;: 9.999
+  }
+]</pre></details>
+<p><a href="evidence/pause/20261105T142939Z_a44aa5/timesync/report.html">Interactive timing plots and mapping</a> · <a href="evidence/pause/20261105T142939Z_a44aa5/recording_report.html">Combined recording report</a> · <a href="evidence/pause/20261105T142939Z_a44aa5/report.html">Raw GNSS/telemetry audit</a> · <a href="native_audits/20261105T142939Z_a44aa5/report.html">Native IMU/attitude plots</a></p>
+<div class="scroll"><table><tr><th>Segment</th><th>Replies</th><th>Span s</th><th>Median RTT ms</th><th>p95 RTT ms</th><th>Drift ppm</th><th>Held-out p95 ms</th></tr><tr><td>0</td><td>99</td><td>10.048323579</td><td>1.354839</td><td>3.9126815</td><td>-12.924512927350472</td><td>0.6431516317309849</td></tr><tr><td>1</td><td>229</td><td>23.378860201</td><td>1.335451</td><td>3.4206491999999993</td><td>6.356750004498789</td><td>0.14626879733159523</td></tr></table></div><details><summary>Individual checks</summary><table><tr><td>raw archives intact</td><td class="pass">PASS</td></tr><tr><td>no recorder queue loss</td><td class="pass">PASS</td></tr><tr><td>complete session</td><td class="pass">PASS</td></tr><tr><td>gnss continuous 20hz</td><td class="pass">PASS</td></tr><tr><td>addressed unique matched replies</td><td class="pass">PASS</td></tr><tr><td>native parsed</td><td class="pass">PASS</td></tr><tr><td>native no dropouts</td><td class="pass">PASS</td></tr><tr><td>native imu continuous</td><td class="review">REVIEW</td></tr><tr><td>native attitude continuous</td><td class="review">REVIEW</td></tr><tr><td>explicit transport pause</td><td class="pass">PASS</td></tr><tr><td>new clock segment</td><td class="pass">PASS</td></tr><tr><td>receiver bytes during pause</td><td class="pass">PASS</td></tr><tr><td>segment gap event</td><td class="pass">PASS</td></tr></table></details></section>
+<section><h2>What the interruption test establishes</h2><p>A 1.5-second local UDP pause drops both directions without buffering. The receiver remains connected and continues recording. Requests abandoned at the clock boundary cannot be accepted in the next segment. The native logger continues independently. This tests transport pause/resume, not a physical USB disconnect or an autopilot reboot. The normal 2.5-second required-stream watchdog is unchanged.</p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;test&quot;: &quot;controlled UDP transport pause/resume; not a physical reconnect&quot;,
+  &quot;started_host_ns&quot;: 4804824309382,
+  &quot;events&quot;: [
+    {
+      &quot;event&quot;: &quot;pause_start&quot;,
+      &quot;host_monotonic_ns&quot;: 4836861863450
+    },
+    {
+      &quot;event&quot;: &quot;pause_end&quot;,
+      &quot;host_monotonic_ns&quot;: 4838371837071
+    }
+  ],
+  &quot;counts&quot;: {
+    &quot;to_recorder_forwarded&quot;: 61194,
+    &quot;to_router_forwarded&quot;: 818,
+    &quot;to_recorder_dropped&quot;: 628,
+    &quot;to_router_dropped&quot;: 15
+  },
+  &quot;pause_start_host_ns&quot;: 4836861863450,
+  &quot;pause_end_host_ns&quot;: 4838371837071,
+  &quot;requested_pause_s&quot;: 1.5,
+  &quot;router_peer&quot;: [
+    &quot;127.0.0.1&quot;,
+    51330
+  ],
+  &quot;watchdog_unchanged_s&quot;: 2.5,
+  &quot;buffering&quot;: false,
+  &quot;child_exit_code&quot;: 0
+}</pre></section>
+<section><h2>Scope and next manual checkpoint</h2><p>No aircraft control commands, router restart, persistent receiver write, PPS wiring or changes to the earlier flight data. Runtime receiver/native logging setup follows the existing tested launcher.</p><p>Review both timing plots, the visible interruption boundary and continuous GNSS/native samples. Stage 5B separately establishes GNSS week/TOW to the Pi/PX4 timebase and an independently checked timing error budget. Stop here for manual review before 5B.</p><p><a href="review_summary.json">Full check summary</a> · <a href="evidence/evidence_hashes.json">Original evidence fingerprints</a> · <a href="review_timesync.py">Rebuild script</a> · <a href="final_deployment_manifest.json">Final release source hashes</a></p></section></body></html>

@@ -1,0 +1,4 @@
+python3 -m pytest SpoofingDetection/detect2/tests/test_acquisition.py SpoofingDetection/detect2/tests/test_baudrate.py -q
+20 passed in 3.02s before initial deployment
+20 passed in 3.01s after MON-COMMS profile correction
+Local simulated devices/UDP only; live tests recorded separately.

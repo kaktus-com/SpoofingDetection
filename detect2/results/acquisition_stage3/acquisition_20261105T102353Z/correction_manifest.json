@@ -1,0 +1,10 @@
+{
+  "reason": "Live MON-COMMS output was every 20 seconds with divisor 20; corrected to divisor 1 for 1 Hz.",
+  "original_release": "acquisition_20261105T102353Z",
+  "original_sources_preserved": true,
+  "final_profile_file": "x20_recording_profile_final.json",
+  "correction_file_sha256": "5c641f8eb663105eba10113adc5364185239ac628f282a5b0886dc01e1e132a3",
+  "final_profile_sha256": "800400fb7ac7f252f6acde246832a9becfbcddbab0b33f0b564026eadb9b7af8",
+  "regression_tests": "20 passed in 3.01s",
+  "writes": "RAM only; only the MON-COMMS key differs from the initial reduced profile"
+}

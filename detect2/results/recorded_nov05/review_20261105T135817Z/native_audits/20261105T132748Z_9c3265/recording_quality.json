@@ -1,0 +1,597 @@
+{
+  "summary": {
+    "recording": 3,
+    "session": "20261105T132748Z_9c3265",
+    "pi_folder_time_cet": "2026-11-05T14:27:48+01:00",
+    "assessment": "Continuous stationary reference; no airborne interval",
+    "raw_lifecycle": "stopped",
+    "combined_lifecycle": "stopped",
+    "raw_issues": {},
+    "rawx_epochs": 2865,
+    "rawx_duration_s": 143.20000004768372,
+    "rawx_unexpected_intervals": 0,
+    "rawx_clock_resets": 0,
+    "ubx_diagnostics": {
+      "valid_frames": 5126,
+      "invalid_candidates": 0,
+      "trailing_partial_candidates": 1
+    },
+    "archive_integrity": "PASS",
+    "recorder_dropped_bytes": 0,
+    "carrier_valid_percent": 90.95151825449963,
+    "carrier_and_half_cycle_valid_percent": 90.77035169942106,
+    "signal_identities": 61,
+    "lock_counter_decreases": 27,
+    "native_file": "native_001.ulg",
+    "bookmarked_sd_path": "/fs/microsd/log/2026-11-05/13_38_21.ulg",
+    "native_file_fingerprint": {
+      "bytes": 17210169,
+      "sha256": "2bbfb5d63a0558c79f22eac9398fc39f13152422e4255f85be461f194019c63b"
+    },
+    "native_imu": {
+      "samples": 29266,
+      "distinct_timestamps": 29266,
+      "duration_s": 153.887281,
+      "average_hz": 190.17166207517826,
+      "median_interval_us": 5253.0,
+      "max_interval_us": 6263,
+      "duplicate_timestamps": 0,
+      "backwards_timestamps": 0,
+      "zero_timestamps": 0,
+      "large_gaps": 0,
+      "timestamp_source": "timestamp",
+      "publication_timing": {
+        "samples": 29266,
+        "distinct_timestamps": 29266,
+        "duration_s": 153.887281,
+        "average_hz": 190.17166207517826,
+        "median_interval_us": 5253.0,
+        "max_interval_us": 6263,
+        "duplicate_timestamps": 0,
+        "backwards_timestamps": 0,
+        "zero_timestamps": 0,
+        "large_gaps": 0
+      },
+      "provenance_and_reset_fields": {
+        "accelerometer_clipping": {
+          "first": 0,
+          "last": 0,
+          "changes": 0
+        },
+        "gyro_clipping": {
+          "first": 0,
+          "last": 0,
+          "changes": 0
+        },
+        "accel_calibration_count": {
+          "first": 4,
+          "last": 4,
+          "changes": 0
+        },
+        "gyro_calibration_count": {
+          "first": 1,
+          "last": 1,
+          "changes": 0
+        }
+      },
+      "field_names": [
+        "timestamp",
+        "gyro_rad[0]",
+        "gyro_rad[1]",
+        "gyro_rad[2]",
+        "gyro_integral_dt",
+        "accelerometer_timestamp_relative",
+        "accelerometer_m_s2[0]",
+        "accelerometer_m_s2[1]",
+        "accelerometer_m_s2[2]",
+        "accelerometer_integral_dt",
+        "accelerometer_clipping",
+        "gyro_clipping",
+        "accel_calibration_count",
+        "gyro_calibration_count"
+      ]
+    },
+    "native_attitude": {
+      "samples": 29266,
+      "distinct_timestamps": 29266,
+      "duration_s": 153.887281,
+      "average_hz": 190.17166207517826,
+      "median_interval_us": 5253.0,
+      "max_interval_us": 6333,
+      "duplicate_timestamps": 0,
+      "backwards_timestamps": 0,
+      "zero_timestamps": 0,
+      "large_gaps": 0,
+      "timestamp_source": "timestamp_sample",
+      "publication_timing": {
+        "samples": 29266,
+        "distinct_timestamps": 29266,
+        "duration_s": 153.886818,
+        "average_hz": 190.17223424556093,
+        "median_interval_us": 5251.0,
+        "max_interval_us": 8151,
+        "duplicate_timestamps": 0,
+        "backwards_timestamps": 0,
+        "zero_timestamps": 0,
+        "large_gaps": 1
+      },
+      "provenance_and_reset_fields": {
+        "timestamp_sample": {
+          "first": 1728094569,
+          "last": 1881981850,
+          "changes": 29265
+        },
+        "quat_reset_counter": {
+          "first": 14,
+          "last": 16,
+          "changes": 2
+        }
+      },
+      "field_names": [
+        "timestamp",
+        "timestamp_sample",
+        "q[0]",
+        "q[1]",
+        "q[2]",
+        "q[3]",
+        "delta_q_reset[0]",
+        "delta_q_reset[1]",
+        "delta_q_reset[2]",
+        "delta_q_reset[3]",
+        "quat_reset_counter"
+      ]
+    },
+    "native_dropouts": [],
+    "native_dropout_total_ms": 0,
+    "native_issues": [],
+    "clipping_sample_counts": {
+      "accelerometer_clipping": 0,
+      "gyro_clipping": 0
+    },
+    "armed": {
+      "duration_s": 0,
+      "intervals_boot_us": [],
+      "intervals_elapsed_s": []
+    },
+    "airborne": {
+      "duration_s": 0,
+      "intervals_boot_us": [],
+      "intervals_elapsed_s": []
+    },
+    "native_quality_events": [
+      {
+        "kind": "counter_change",
+        "topic": "vehicle_attitude",
+        "field": "quat_reset_counter",
+        "boot_us": 1806546160,
+        "new_value": 15,
+        "overlaps_airborne": false
+      },
+      {
+        "kind": "counter_change",
+        "topic": "vehicle_attitude",
+        "field": "quat_reset_counter",
+        "boot_us": 1816756239,
+        "new_value": 16,
+        "overlaps_airborne": false
+      }
+    ],
+    "native_quality_events_overlapping_airborne": 0,
+    "max_orientation_change_deg": 1.630073804064911,
+    "raw_px4_source_ranges_boot_us": {
+      "HIGHRES_IMU": [
+        1734041661,
+        1877301726
+      ],
+      "ATTITUDE_QUATERNION": [
+        1734042000,
+        1877303000
+      ]
+    },
+    "native_px4_ranges_boot_us": {
+      "HIGHRES_IMU": [
+        1728094569,
+        1881981850
+      ],
+      "ATTITUDE_QUATERNION": [
+        1728095582,
+        1881982400
+      ]
+    },
+    "native_covers_raw_px4_source_times": {
+      "HIGHRES_IMU": true,
+      "ATTITUDE_QUATERNION": true
+    },
+    "mavlink_source_gap_checks": {
+      "1:1:HIGHRES_IMU": {
+        "median_interval_s": 0.021084999999857246,
+        "max_interval_s": 0.02663099999995211,
+        "large_gaps": 0,
+        "backwards_timestamps": 0
+      },
+      "1:1:ATTITUDE": {
+        "median_interval_s": 0.009999999999990905,
+        "max_interval_s": 0.018000000000029104,
+        "large_gaps": 686,
+        "backwards_timestamps": 0
+      },
+      "1:1:ATTITUDE_QUATERNION": {
+        "median_interval_s": 0.020999999999958163,
+        "max_interval_s": 0.02800000000002001,
+        "large_gaps": 0,
+        "backwards_timestamps": 0
+      }
+    },
+    "clock_alignment": "UNKNOWN",
+    "native_imu_reference_accepted_by_user_hz": 189.6,
+    "spoofing_label": "not provided; no detector verdict inferred"
+  },
+  "signal_quality": {
+    "0:1:7": {
+      "observations": 2611,
+      "carrier_valid": 2014,
+      "carrier_and_half_cycle_valid": 2014,
+      "mean_cno_db_hz": 27.26886250478744
+    },
+    "0:13:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 42.75253054101221
+    },
+    "0:25:7": {
+      "observations": 1420,
+      "carrier_valid": 0,
+      "carrier_and_half_cycle_valid": 0,
+      "mean_cno_db_hz": 22.704225352112676
+    },
+    "0:10:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 36.37521815008726
+    },
+    "0:24:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 43.401047120418845
+    },
+    "0:32:7": {
+      "observations": 2865,
+      "carrier_valid": 2864,
+      "carrier_and_half_cycle_valid": 2864,
+      "mean_cno_db_hz": 32.4020942408377
+    },
+    "3:40:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 37.70959860383944
+    },
+    "3:19:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 34.76858638743455
+    },
+    "3:22:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 36.18289703315882
+    },
+    "3:12:7": {
+      "observations": 2865,
+      "carrier_valid": 2092,
+      "carrier_and_half_cycle_valid": 2092,
+      "mean_cno_db_hz": 26.49738219895288
+    },
+    "3:13:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 34.72530541012216
+    },
+    "3:28:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 32.97242582897033
+    },
+    "3:37:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 38.530191972076786
+    },
+    "3:38:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 35.59581151832461
+    },
+    "3:8:7": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 35.66108202443281
+    },
+    "3:36:7": {
+      "observations": 2839,
+      "carrier_valid": 0,
+      "carrier_and_half_cycle_valid": 0,
+      "mean_cno_db_hz": 18.506868615709756
+    },
+    "2:4:4": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 39.931588132635255
+    },
+    "2:6:4": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 38.598952879581155
+    },
+    "2:9:4": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 38.82198952879581
+    },
+    "2:15:4": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 31.88760907504363
+    },
+    "2:21:4": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 34.246073298429316
+    },
+    "2:23:4": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 39.788132635253056
+    },
+    "2:28:4": {
+      "observations": 2163,
+      "carrier_valid": 1237,
+      "carrier_and_half_cycle_valid": 1237,
+      "mean_cno_db_hz": 24.006934812760054
+    },
+    "2:31:4": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 29.947993019197206
+    },
+    "2:5:4": {
+      "observations": 2865,
+      "carrier_valid": 2860,
+      "carrier_and_half_cycle_valid": 2860,
+      "mean_cno_db_hz": 28.89040139616056
+    },
+    "0:1:0": {
+      "observations": 2865,
+      "carrier_valid": 2859,
+      "carrier_and_half_cycle_valid": 2805,
+      "mean_cno_db_hz": 35.61640488656195
+    },
+    "0:12:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 43.37975567190227
+    },
+    "0:13:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 40.69458987783595
+    },
+    "0:25:0": {
+      "observations": 720,
+      "carrier_valid": 0,
+      "carrier_and_half_cycle_valid": 0,
+      "mean_cno_db_hz": 22.415277777777778
+    },
+    "0:17:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 44.41116928446771
+    },
+    "0:19:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 43.123560209424085
+    },
+    "0:15:0": {
+      "observations": 2509,
+      "carrier_valid": 1799,
+      "carrier_and_half_cycle_valid": 1577,
+      "mean_cno_db_hz": 28.326424870466322
+    },
+    "0:22:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 38.855497382198955
+    },
+    "0:10:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 35.27434554973822
+    },
+    "0:24:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 43.56404886561955
+    },
+    "0:32:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 40.5717277486911
+    },
+    "3:19:5": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 43.30296684118674
+    },
+    "3:22:5": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 42.128446771378705
+    },
+    "3:12:5": {
+      "observations": 2865,
+      "carrier_valid": 2394,
+      "carrier_and_half_cycle_valid": 2394,
+      "mean_cno_db_hz": 27.599650959860384
+    },
+    "3:13:5": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 42.24013961605585
+    },
+    "3:28:5": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 43.29284467713787
+    },
+    "3:27:5": {
+      "observations": 2623,
+      "carrier_valid": 1605,
+      "carrier_and_half_cycle_valid": 1605,
+      "mean_cno_db_hz": 25.28440716736561
+    },
+    "3:37:5": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 41.96509598603839
+    },
+    "3:38:5": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 36.987085514834206
+    },
+    "3:8:5": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 41.84328097731239
+    },
+    "2:4:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 39.24467713787085
+    },
+    "2:6:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 42.06422338568935
+    },
+    "2:9:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 42.33019197207679
+    },
+    "2:15:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 39.17137870855149
+    },
+    "2:21:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 41.17801047120419
+    },
+    "2:23:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 42.7825479930192
+    },
+    "2:28:0": {
+      "observations": 2266,
+      "carrier_valid": 1621,
+      "carrier_and_half_cycle_valid": 1621,
+      "mean_cno_db_hz": 28.926743159752867
+    },
+    "2:31:0": {
+      "observations": 2440,
+      "carrier_valid": 1946,
+      "carrier_and_half_cycle_valid": 1946,
+      "mean_cno_db_hz": 28.13360655737705
+    },
+    "2:5:0": {
+      "observations": 2865,
+      "carrier_valid": 2865,
+      "carrier_and_half_cycle_valid": 2865,
+      "mean_cno_db_hz": 27.870157068062827
+    },
+    "3:23:7": {
+      "observations": 380,
+      "carrier_valid": 0,
+      "carrier_and_half_cycle_valid": 0,
+      "mean_cno_db_hz": 11.95
+    },
+    "0:14:0": {
+      "observations": 20,
+      "carrier_valid": 0,
+      "carrier_and_half_cycle_valid": 0,
+      "mean_cno_db_hz": 21.5
+    },
+    "2:13:4": {
+      "observations": 2580,
+      "carrier_valid": 478,
+      "carrier_and_half_cycle_valid": 478,
+      "mean_cno_db_hz": 21.713565891472868
+    },
+    "5:8:0": {
+      "observations": 1,
+      "carrier_valid": 0,
+      "carrier_and_half_cycle_valid": 0,
+      "mean_cno_db_hz": 24.0
+    },
+    "2:13:0": {
+      "observations": 582,
+      "carrier_valid": 192,
+      "carrier_and_half_cycle_valid": 192,
+      "mean_cno_db_hz": 24.745704467353953
+    },
+    "0:14:7": {
+      "observations": 23,
+      "carrier_valid": 0,
+      "carrier_and_half_cycle_valid": 0,
+      "mean_cno_db_hz": 20.91304347826087
+    },
+    "3:20:7": {
+      "observations": 244,
+      "carrier_valid": 0,
+      "carrier_and_half_cycle_valid": 0,
+      "mean_cno_db_hz": 13.073770491803279
+    }
+  }
+}

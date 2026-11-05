@@ -1,0 +1,6 @@
+{
+  "command": "python3 -m pytest SpoofingDetection/detect2/tests/test_runtime.py SpoofingDetection/detect2/tests/test_acquisition.py SpoofingDetection/detect2/tests/test_px4_logging.py SpoofingDetection/detect2/tests/test_baudrate.py SpoofingDetection/detect2/tests/test_ulog_audit.py SpoofingDetection/detect2/tests/test_timesync.py -q",
+  "result": "44 passed",
+  "duration_s": 6.63,
+  "network": "local fake peers only; sandbox escalation for UDP/PTYS"
+}

@@ -1,0 +1,75 @@
+"""Build the installed-launcher review from verified live sessions."""
+from html import escape
+import json
+from pathlib import Path
+import sys
+
+ROOT=Path(__file__).resolve().parent
+sys.path.insert(0,str(ROOT.parents[2]))
+from detect2.acquisition.common import fingerprint
+from detect2.acquisition.audit_session import archive_index
+from detect2.acquisition.ulog_audit import audit as audit_native
+
+latest=json.loads((ROOT/'latest.json').read_text());release=ROOT/latest['release_id'];evidence=release/'evidence'
+load=lambda p:json.loads(p.read_text())
+hashes=load(evidence/'evidence_hashes.json')
+for name,expected in hashes.items():assert fingerprint(evidence/name)==expected,name
+
+
+def link(path,label=None):return f'<a href="{escape(str(path.relative_to(ROOT)))}">{escape(label or path.name)}</a>'
+
+
+results=[];rows=[]
+for label in ['timed','interrupt']:
+    session=next((evidence/label).iterdir());state=load(session/'runtime_manifest.json');raw=load(session/'manifest.json')
+    result=load(evidence/(label+'_run.json'))
+    assert result['exit_code']==(0 if label=='timed' else 130)
+    assert state['status']==('complete' if label=='timed' else 'stopped')
+    assert state['native_collection']=='collected' and state['recording_ready']
+    assert not (session/'UNFINALIZED').exists() and not (session/'RUNTIME_UNFINALIZED').exists()
+    for name in ['receiver','mavlink']:
+        check,_=archive_index(session,name,raw['files'][name+'.bin']);assert check['status']=='PASS',check
+        assert fingerprint(session/(name+'_receive.csv'))==raw['files'][name+'_receive.csv']
+        stats=raw['streams'][name]
+        assert stats['writer_closed'] and stats['received_bytes']==stats['written_bytes'] and not stats['dropped_bytes']
+    assert all(fingerprint(session/name)==value for name,value in state['files'].items())
+    native=audit_native(session/state['native_file'],release/'native_audits'/label)
+    before=load(session/'receiver_before.json');after=load(session/'receiver_after.json')
+    item={'test':label,'status':state['status'],'exit_code':result['exit_code'],
+          'initial_baud':before['ram']['CFG_UART1_BAUDRATE'],'initial_measurement_ms':before['ram']['CFG_RATE_MEAS'],
+          'final_baud':after['ram']['CFG_UART1_BAUDRATE'],'final_measurement_ms':after['ram']['CFG_RATE_MEAS'],
+          'rawx_epochs':state['live_health']['rawx_epochs'],'recorder_dropped_bytes':0,
+          'native_imu_hz':native['topics']['sensor_combined:0']['average_hz'],
+          'native_attitude_hz':native['topics']['vehicle_attitude:0']['average_hz'],
+          'native_dropouts':len(native['logged_dropouts']),
+          'native_imu_measurement_gaps':native['topics']['sensor_combined:0']['large_gaps'],
+          'native_attitude_measurement_gaps':native['topics']['vehicle_attitude:0']['large_gaps'],
+          'native_file_sha256':fingerprint(session/state['native_file'])['sha256']}
+    results.append(item)
+    title='20-second timed run' if label=='timed' else 'Reset state + Ctrl+C'
+    rows.append('<tr><td>'+link(session/'recording_report.html',title)+'</td>'+
+                f'<td>{item["initial_baud"]:,} / {item["initial_measurement_ms"]} ms</td>'+
+                f'<td>{item["rawx_epochs"]}</td><td>{item["status"]} / {item["exit_code"]}</td><td>0</td>'+
+                '<td>'+link(release/'native_audits'/label/'report.html',f'{item["native_imu_hz"]:.1f} Hz; {item["native_dropouts"]} dropouts')+'</td></tr>')
+validation=load(evidence/'validation.json')
+summary={'tests_passed':41,'simulated_runtime_cases':11,'live_results':results,'deployed_validation':validation,
+         'downloaded_evidence_files_verified':len(hashes),'native_rate_user_accepted':189.6,
+         'startup_persistence':False,'receiver_flash_bbr_writes':False,'clock_validation_started':False}
+(release/'review_summary.json').write_text(json.dumps(summary,indent=2)+'\n')
+html='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>detect2 · runtime launcher</title><style>body{font:15px/1.65 system-ui,sans-serif;color:#233b4d;background:#eff5f7;max-width:1160px;margin:35px auto;padding:0 22px}h1{font-size:39px;line-height:1.2;letter-spacing:-1px}h2{font-size:23px}.card{padding:24px;margin:22px 0;background:white;border:1px solid #d9e5ed;border-radius:12px}.badge{font-size:12px;background:#daf0e5;color:#236b4b;border-radius:20px;padding:6px 13px;font-weight:700}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.metric{background:white;padding:20px;border:1px solid #d9e5ed;border-radius:12px}.metric b{font-size:32px;display:block}.metric span{font-size:12px;color:#60798c}a{color:#176f94}table{width:100%;border-collapse:collapse;font-size:13px}td,th{text-align:left;padding:10px;border-bottom:1px solid #e1e9ed;vertical-align:top}.scroll{overflow:auto}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;background:#f1f6f8;padding:18px;border-radius:8px}.note{border-left:3px solid #b9812d;background:#fff6e7;padding:13px 18px}li{margin:10px 0}@media(max-width:650px){.metrics{grid-template-columns:1fr}}</style></head><body><h1>One runtime recording command.</h1><span class="badge">INSTALLED · BOTH LIVE TESTS PASSED</span>
+<p>The launcher checks the disarmed aircraft identity, detects the X20's current baud, reapplies the approved RAM profile, and starts native logging with a memory-checked 128 KiB buffer. It announces READY only after RAWX, supplied quaternion and HIGHRES_IMU streams arrive. Startup files remain untouched; no receiver flash/BBR setting is written.</p>
+<div class="metrics"><div class="metric"><b>41</b><span>Acquisition and runtime tests passed</span></div><div class="metric"><b>2</b><span>Real Pi tests, including reset-state recovery and Ctrl+C</span></div><div class="metric"><b>0 bytes</b><span>Recorder-reported drops in either live test</span></div></div>
+<section class="card"><h2>Run on the Pi</h2><pre>ssh nss@10.15.4.141
+cd /home/nss/SpoofingDetection
+./start_recording
+# Wait for RECORDING READY; stop with Ctrl+C.
+
+# Timed bench recording (duration starts after READY):
+./start_recording --duration-s 30</pre><p>Start with PX4 disarmed and the existing router running. The command prints a session folder under <code>/home/nss/SpoofingDetection/recordings_v2</code> and creates <code>recording_report.html</code>. Preparation and native-log collection add time outside the requested recording duration.</p><p>The native logger is stopped after a normal disarmed collection. Run this launcher again before each flight/bench session. The old <code>start</code> is unchanged.</p></section>
+<section class="card"><h2>Measured live tests</h2><div class="scroll"><table><tr><th>Open combined report</th><th>Receiver starting state</th><th>RAWX epochs</th><th>Lifecycle / exit code</th><th>Dropped bytes</th><th>Open native sample audit</th></tr>__ROWS__</table></div><p>The reset state was reproduced with the saved RAM-only profile (40 ms / 921600 baud), without a power cycle or persistent writes. The launcher restored 50 ms / 2 Mbaud, verified constellation-enable flags, waited for all required streams and finalized both logs after a SIGINT sent only to its own process.</p><p>Native audits use supplied measurement time where available and retain publication jitter separately. The earlier 189.6 Hz rate was explicitly accepted; the generic native audit still displays its original strict 190 Hz check, which is not a launcher readiness gate. The raw Ctrl+C audit records stopped rather than timed completion; its generic capture-session check labels that FAIL while archive/finalization checks pass.</p></section>
+<section class="card"><h2>Interruptions are explicit</h2><ul><li>A serial disconnect stops this session; there is no silent reconfiguration or stitching across a receiver reset.</li><li>Required-stream timeouts, receiver epoch/clock discontinuities, backwards PX4 clocks, corruption and queue/disk errors mark failure.</li><li>Stopping while armed leaves native logging active and marks native collection pending. After disarm, run the printed <code>--finalize</code> command. Collection preserves a newer unrelated native log.</li><li>A second Ctrl+C during native collection preserves partial data for a later retry.</li></ul><pre>./start_recording --finalize /absolute/session/path</pre><p class="note">This is an acquisition launcher. External GNSS↔PX4 timing and field spoofing detection remain unvalidated. Active TIMESYNC is not enabled here. Native file presence and capture integrity do not establish measurement-clock alignment.</p></section>
+<section class="card"><h2>Review and provenance</h2><p>Both binaries, byte indexes, before/after settings, transaction journals and native ULogs are in the combined reports above. Every downloaded evidence-file fingerprint was checked, as were complete indexed raw-byte coverage and combined manifest hashes. The legacy Python files and old start launcher match their pre-test hashes; router PID 19394 and command remain unchanged.</p><p>PX4 logging parameters are corrected only when needed and may be autosaved by PX4; the volatile X20 profile and logger buffer are reapplied each run. These live tests did not need a PX4 parameter correction.</p><p>__LINKS__</p><p><a href="../../acquisition/RUNTIME.md">Complete runtime guide</a> · <a href="../../IMPLEMENTATION_PLAN.md">Implementation plan</a> · <a href="../acquisition_stage4/report.html">Native logging baseline</a></p></section></body></html>'''
+links=' · '.join(link(p) for p in [release/'review_summary.json',release/'release_manifest.json',release/'test_result.txt',evidence/'validation.json',evidence/'deployment_check.json',evidence/'installed_help.txt',evidence/'timed_run.json',evidence/'interrupt_run.json',evidence/'legacy_before.json',evidence/'legacy_after.json',evidence/'evidence_hashes.json'])
+html=html.replace('__ROWS__',''.join(rows)).replace('__LINKS__',links)
+(ROOT/'report.html').write_text(html)
+print(json.dumps(summary,indent=2));print('Review:',ROOT/'report.html')

@@ -1,0 +1,21 @@
+{
+  "release_id": "acquisition_20261105T103442Z",
+  "remote_release": "/home/nss/SpoofingDetection/releases/acquisition_20261105T103442Z",
+  "package_sha256": "9ae71f9c497be5506a4cde241f65704edc8cf990d62a3caa56bd873e2e1028e0",
+  "status": "approved_by_user",
+  "previous_release": "acquisition_20261105T102353Z",
+  "report": "report.html",
+  "tests_passed": 21,
+  "previous_attempt_failed": true,
+  "previous_attempt_rollback_verified": true,
+  "stage4_started": true,
+  "current_receiver_baud": 2000000,
+  "configuration_layer": "RAM only",
+  "all_automated_traffic_checks_pass": true,
+  "evidence_sha256": "d7fd8172fb694e2f81472dbdf72ac2568ddf22e57c07d63f3f11c5eb344e7be7",
+  "previous_failure_sha256": "915a907efa246d69d57c2040346f52da8012735c31e4d5fee7a41c259cf0459e",
+  "approval": {
+    "date": "2026-11-05",
+    "message": "ok continue"
+  }
+}

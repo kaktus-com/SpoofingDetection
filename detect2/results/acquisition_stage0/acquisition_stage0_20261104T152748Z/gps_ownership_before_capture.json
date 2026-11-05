@@ -1,0 +1,9 @@
+{
+  "command": [
+    "fuser",
+    "/dev/ttyUSB0"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": ""
+}

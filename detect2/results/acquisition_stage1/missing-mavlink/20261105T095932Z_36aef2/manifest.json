@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "mode": "replay",
+  "status": "incomplete",
+  "started_utc": "2026-11-05T09:59:32.316792+00:00",
+  "host": "borna-lab",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "boot_id": "2a05bf42-b6fd-4ea3-b528-09b13e3902b9",
+  "expected_streams": [
+    "receiver",
+    "mavlink"
+  ],
+  "configuration_changed": false,
+  "clock_anchors": [
+    {
+      "host_monotonic_ns": 27465922024999,
+      "unix_ns": 1793872772317025571
+    },
+    {
+      "host_monotonic_ns": 27465986045476,
+      "unix_ns": 1793872772381045845
+    }
+  ],
+  "packages": {
+    "pyserial": "3.5",
+    "pymavlink": "2.4.49",
+    "pyubx2": null
+  },
+  "source_hashes": {
+    "__init__.py": "3c0a4de92b2ea160cc5c8884e50dd2a09f7e498cfc54fe4541bb21a8471868b7",
+    "audit_session.py": "00a12dc73c9c191f6d62b6b84a35c13bbe1bcc0ffcf5fbacf27ffa85bbc5fc35",
+    "capture.py": "b378ba3395ab8efd2c1731a1f7b4904eb40888f88732290c7357e214d9b70099",
+    "common.py": "f58e4127ab315a3bcd38a7492e4904d3ff5e19595d8d16caa736889ffa2d9065",
+    "mavlink_capture.py": "282d47e83673fd79561900cddd0d431297627731c5a3e0be72c0c6d002bcdfdd",
+    "receiver_config.py": "ff7c0bc2bdf4bbc61d3ef69dbb6b4a644db0a78f97b91c48f8c1fcf620c24059",
+    "replay.py": "ccab711ce41547fd322970737e5eb011d7e957f432cc650712ed63bec89cd359",
+    "serial_capture.py": "39403bfe0a7294da96f81ccffdea92af7a8e37c1e57147556d3229372ea6ffaa",
+    "timesync.py": "621e8d0946436117d073dcf3a04d9d8a64a7392178621f53683b39a5bb5fb48f",
+    "ubx.py": "cf6466683219c46d1f071fcbbd99ecf75e43a365f4d07534424e32b981c5c145"
+  },
+  "metadata": {
+    "expected_rawx_hz": 20,
+    "replay_injections": {
+      "scenario": "missing-mavlink",
+      "purpose": "manual checkpoint demonstration; no hardware touched"
+    },
+    "timesync_active": false,
+    "gnss_to_px4_clock_verified": false,
+    "external_source_paths": {}
+  },
+  "replay_sources": {
+    "receiver": {
+      "path": "replay_inputs/receiver.bin",
+      "fingerprint": {
+        "bytes": 6113,
+        "sha256": "7e7cd672756bafff50ff942cbb84f6ffff76b11a1848fe77cb21d71b0c0f33ce"
+      }
+    },
+    "mavlink": {
+      "path": "replay_inputs/mavlink.bin",
+      "fingerprint": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "stop_reason": "replay_complete",
+  "ended_utc": "2026-11-05T09:59:32.379832+00:00",
+  "streams": {
+    "receiver": {
+      "received_bytes": 6113,
+      "written_bytes": 6113,
+      "input_chunks": 5,
+      "dropped_bytes": 0,
+      "dropped_chunks": 0,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 6113,
+      "peak_queue_chunks": 5,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    },
+    "mavlink": {
+      "received_bytes": 0,
+      "written_bytes": 0,
+      "input_chunks": 0,
+      "dropped_bytes": 0,
+      "dropped_chunks": 0,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 0,
+      "peak_queue_chunks": 0,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    }
+  },
+  "issues": {
+    "counts": {},
+    "events": []
+  },
+  "missing_streams": [
+    "mavlink"
+  ],
+  "files": {
+    "mavlink_receive.csv": {
+      "bytes": 78,
+      "sha256": "3624dc94687bb5d62b72af0f1a47e2c428e9b38d5861b58a9c6a12d425e82ec2"
+    },
+    "mavlink.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "receiver.bin": {
+      "bytes": 6113,
+      "sha256": "7e7cd672756bafff50ff942cbb84f6ffff76b11a1848fe77cb21d71b0c0f33ce"
+    },
+    "receiver_receive.csv": {
+      "bytes": 201,
+      "sha256": "24b8ae47f26f5cbf7031c4d5ecaba12ba7a1183b9c6f0ac49141ba57090dc1c3"
+    },
+    "clock_sync.csv": {
+      "bytes": 176,
+      "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85"
+    },
+    "health.jsonl": {
+      "bytes": 1312,
+      "sha256": "78591c8ba93d3d6aa668020dc499d85fc35a16b15f2b45831cd6fb5a7afab908"
+    }
+  }
+}

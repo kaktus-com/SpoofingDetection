@@ -1,0 +1,23 @@
+{
+  "identity": {
+    "uid": 3544703520294189106,
+    "flight_sw_version": 255,
+    "flight_custom_version": [
+      0,
+      0,
+      0,
+      181,
+      181,
+      29,
+      65,
+      203
+    ],
+    "vendor_id": 11694,
+    "product_id": 4118
+  },
+  "parameters": {
+    "SDLOG_PROFILE": 17,
+    "SDLOG_MODE": 2,
+    "SDLOG_BACKEND": 3
+  }
+}

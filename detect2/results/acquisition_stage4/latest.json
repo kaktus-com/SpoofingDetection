@@ -1,0 +1,23 @@
+{
+  "release_id": "acquisition_20261105T110249Z",
+  "previous_release": "acquisition_20261105T105214Z",
+  "remote_release": "/home/nss/SpoofingDetection/releases/acquisition_20261105T110249Z",
+  "package_sha256": "d0284f1eedaec187794f5f5767bc71f747046c5b89f6b07e979ccfd7a42eddf7",
+  "status": "user_accepted_rate_runtime_strategy_selected",
+  "stage3_approved": true,
+  "tests_passed": 30,
+  "report": "report.html",
+  "native_dropouts": 0,
+  "native_imu_hz": 189.55079542425955,
+  "strict_rate_check": "REVIEW",
+  "logger_runtime_buffer_kib": 128,
+  "logger_running": true,
+  "startup_buffer_override_applied": false,
+  "receiver_profile_persisted": false,
+  "stage5_started": false,
+  "final_evidence_sha256": "96359131e3fcf3cfadc1d3d681a0d9a817c90eba5c71f526293f0e680463c911",
+  "previous_evidence_sha256": "b6cb1935708f8e1fa4ee77f454b8183bfc736ec9c312fca39d238feaa27b31dc",
+  "native_imu_rate_accepted_by_user": 189.6,
+  "persistence_required_for_selected_workflow": false,
+  "runtime_launcher": "../runtime_launcher/report.html"
+}

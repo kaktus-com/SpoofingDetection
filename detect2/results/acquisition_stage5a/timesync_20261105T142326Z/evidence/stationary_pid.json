@@ -1,0 +1,5 @@
+{
+  "pid": 1098,
+  "command": "isolated start_recording --timesync --duration-s 180",
+  "log": "/home/nss/SpoofingDetection/timing_reviews/timesync_20261105T142326Z/stationary_console.log"
+}

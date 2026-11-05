@@ -1,0 +1,106 @@
+{
+  "logger_after_recording.txt": {
+    "sha256": "ebce912b79f93bfdb3d2da4d0fc427fbcfabfd7a164561830cb309d3a9ab0db2",
+    "bytes": 408
+  },
+  "receiver_reapply_transaction.json": {
+    "sha256": "a954ae4c7ea433ad8d063106cd2b3a0801d17afe107337070d6227241d2851a5",
+    "bytes": 2857
+  },
+  "logger_final_status.txt": {
+    "sha256": "d0bed6fc842379e8505cc9a26f13618a7870f47346897cb436b6abbfd083d896",
+    "bytes": 407
+  },
+  "firmware.txt": {
+    "sha256": "36555d46f7d31285fa5dc335d44659326de07a57989b792c58d97e697394ba2f",
+    "bytes": 497
+  },
+  "receiver_after_disconnect_921600.json": {
+    "sha256": "84baf4c71a7b33c01c2bd5a9fd161683d0edbb7812da50adaab8cd1545438d7e",
+    "bytes": 1755
+  },
+  "kernel_usb_log.txt": {
+    "sha256": "7aab62732bddb406af921c9e9580d178f0e94b24e95b06f0500045c42a624786",
+    "bytes": 1358
+  },
+  "logger_stop_final.txt": {
+    "sha256": "916b7d8d5d8e320ed2ed8a7c7d7bea166e48af500cfd364930c5a3ccad4a14ac",
+    "bytes": 58
+  },
+  "native_logger.json": {
+    "sha256": "95dc4f4914e1a735ba31714f55087ea48efcd654ca8fc6beec0135fcab2616df",
+    "bytes": 308
+  },
+  "receiver_reapply_baud.json": {
+    "sha256": "7600251bd0ab7c60b9ad1f79694da38dd20f6e69e3be41d637702584f771a168",
+    "bytes": 821
+  },
+  "logger_stopped_status.txt": {
+    "sha256": "2659c4829cfa8917805676b86764c1da788731600e5520d013d6ecc15e1fe9cf",
+    "bytes": 87
+  },
+  "px4_before.json": {
+    "sha256": "8e8a69c0c97a21ae3dbd6e014ef6a19e1fd2a2dacb2a708864348a43335c9497",
+    "bytes": 581
+  },
+  "receiver_after_reapply.json": {
+    "sha256": "cd6a9f3f5f43949673ee5ebc8ba9abba1f273c7c3d9cc0514c3710820b64ae53",
+    "bytes": 1758
+  },
+  "native_closed.ulg": {
+    "sha256": "4ae5ae1db747fa93e9bd59b2023fd2d179176edc380e296468ccf0b2396bdf04",
+    "bytes": 36113722
+  },
+  "px4_transaction.json": {
+    "sha256": "2bc3657f298d4a06d3115a9c500d2b282367ca4809f0d89f9ee8872913b0d4d5",
+    "bytes": 648
+  },
+  "memory_before_buffer_test.txt": {
+    "sha256": "6df1f6a05c68bd1aab1ff67253ebfe79eac6c6e2a02c2250667f9034a1331c16",
+    "bytes": 267
+  },
+  "download_closed.json": {
+    "sha256": "332088af3eea078fec50ac7657fbebeddffff61e389191ca5c68d765adb2e52c",
+    "bytes": 402
+  },
+  "failed_raw_capture/report.html": {
+    "sha256": "6feaf0d3f5add9e7713d2db8f120132b9b44abb3c3245e857152f4c632e6d1ac",
+    "bytes": 86566
+  },
+  "failed_raw_capture/mavlink.bin": {
+    "sha256": "839b8b04391dd4aeaf320a5a6b35986a8c52170f0d87adb62c013bf325e1a26b",
+    "bytes": 2487407
+  },
+  "failed_raw_capture/receiver_observations.csv": {
+    "sha256": "f8bed377de6aefc3ef261afa9544a59bef103f9e38ae5b30ce0d039d72c8bd7d",
+    "bytes": 26215125
+  },
+  "failed_raw_capture/audit.json": {
+    "sha256": "867d008a11fc5532b541f3583939732a76878a2de1f0be2f6abd6dbcfb9e1b85",
+    "bytes": 7701
+  },
+  "failed_raw_capture/clock_sync.csv": {
+    "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85",
+    "bytes": 176
+  },
+  "failed_raw_capture/receiver_receive.csv": {
+    "sha256": "58dbf5a7e753166dd32ebc8683c55e44bf08704e5af280be8780a9232d3f0894",
+    "bytes": 1077927
+  },
+  "failed_raw_capture/receiver.bin": {
+    "sha256": "504744ec87b56ea695653f8584b477a2bb7a1e694f1b34f0677c3f74d99c5646",
+    "bytes": 6748559
+  },
+  "failed_raw_capture/health.jsonl": {
+    "sha256": "b529fbac48365aa7c3925e06a6a852b9d5d35d64faf676f256026e245509aea3",
+    "bytes": 63275
+  },
+  "failed_raw_capture/mavlink_receive.csv": {
+    "sha256": "54458bf1956ded0169c14a95b0501653c53a41a13e2b2d2383d6efd072da70d7",
+    "bytes": 1731385
+  },
+  "failed_raw_capture/manifest.json": {
+    "sha256": "867bba3c92239f4c19eaf4350437b8f7c8c6d9f77d6f8b8d6a99b9e26c8c3415",
+    "bytes": 4503
+  }
+}

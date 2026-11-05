@@ -1,0 +1,8 @@
+{
+  "host_monotonic_ns": 3803025738415894,
+  "unix_ns": 1793876748309021768,
+  "duration_s": 90,
+  "instruction": "stationary, gentle manual orientation changes, stationary",
+  "manual_motion_confirmed": false,
+  "gnss_to_px4_clock_verified": false
+}

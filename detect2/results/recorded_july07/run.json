@@ -1,0 +1,240 @@
+{
+  "recording": "20260707_152258",
+  "input_csv": "/home/borna/Documents/stored_flights/extra_gps/recordings/20260707_152258/synced_measurements.csv",
+  "ulog": "/home/borna/Documents/stored_flights/flights/log_170_2026-7-7-15-25-22.ulg",
+  "source_sha256": {
+    "/home/borna/Documents/stored_flights/extra_gps/recordings/20260707_152258/synced_measurements.csv": "b9435bee05797e596f35caf7752a72a17964da7e2b4c669688566164ecc70ded",
+    "/home/borna/Documents/stored_flights/flights/log_170_2026-7-7-15-25-22.ulg": "4aab2a99457664da0dab5de55f39d5b10131691c83360c13eb9977beb082421f"
+  },
+  "clock": {
+    "status": "unverified",
+    "rate_model": "GPS and PX4 clocks assumed to advance at 1 second/second",
+    "anchor_boot_s": 1519.086740259,
+    "anchor_method": "minimum(receive-time PX4 proxy - GPS elapsed time)",
+    "equation": "candidate_boot_s = anchor_boot_s + (gps_tow_s - first_gps_tow_s) + offset_s",
+    "gps_elapsed_s": 71.72000000000116,
+    "recorder_elapsed_s": 102.09363525399999,
+    "receive_delay_growth_s": 30.373635253998827,
+    "paired_boot_elapsed_s": 102.45299999999997,
+    "saved_pair_offset_s": {
+      "min": 9.505599996373348e-05,
+      "median": 0.01082557400013684,
+      "p95": 0.0361979181999686,
+      "max": 0.061509925999871484
+    },
+    "paired_boot_nonincreasing_steps": 7,
+    "gps_derived_ulog_utc_used": false,
+    "interpretation": "Removing variable receive delay does not recover absolute sensor latency. No offset is certified or chosen from detector outcomes."
+  },
+  "selected_offset_s": 0.10000000000000053,
+  "offset_status": "estimated_from_discovery_only_not_externally_verified",
+  "px4": {
+    "topics_read": [
+      "sensor_combined",
+      "vehicle_attitude",
+      "vehicle_land_detected"
+    ],
+    "gps_position_or_utc_header_used": false,
+    "supplied_attitude": "PX4 vehicle_attitude.q FRD\u2192NED, converted to FRD\u2192ENU",
+    "specific_force": "sensor_combined FRD m/s\u00b2, already sensor-calibrated; no second board rotation",
+    "gyro_attitude_estimation": false,
+    "extra_ekf_bias_correction": false,
+    "nominal_imu_rate_hz": 190.4761904786323,
+    "input_accel_samples": 9854,
+    "usable_attitude_accel_samples": 9822,
+    "masked_samples": 32,
+    "max_attitude_interpolation_gap_s": 0.075,
+    "accel_gap_summary_s": {
+      "min": 0.005142999999861786,
+      "median": 0.005249999999932697,
+      "p95": 0.005334000000175365,
+      "max": 0.015858999999863954
+    },
+    "attitude_gap_summary_s": {
+      "min": 0.0053310000000692526,
+      "median": 0.04753800000003139,
+      "p95": 0.05279809999994996,
+      "max": 0.10024099999986902
+    },
+    "attitude_reset_boot_s": [
+      1584.496462
+    ],
+    "ground_noise_proxy_axis_m_s2": [
+      0.2718381817189747,
+      0.2176027600798034,
+      0.3242645965757552
+    ],
+    "ground_noise_proxy_pairs": 825,
+    "noise_proxy_interpretation": "MAD of differences / 0.95387 on adjacent landed samples; vibration, colour and sensor filtering are not calibrated",
+    "lever_arm_body_m": [
+      0.02,
+      0.0,
+      0.0
+    ],
+    "displacement_reference": "antenna: user-supplied lever arm",
+    "start_boot_s": 1533.242904,
+    "end_boot_s": 1585.192554
+  },
+  "signals": [
+    "0:11:7",
+    "0:26:7",
+    "0:28:7",
+    "0:3:7",
+    "0:4:7",
+    "0:6:7",
+    "0:9:7"
+  ],
+  "wavelength_m": 0.25482804879085386,
+  "epochs": 1573,
+  "phase_duration_s": 71.72000000000116,
+  "malformed_rows": 0,
+  "duplicate_epoch_rows": 0,
+  "windows": 72,
+  "integration_status_counts": {
+    "imu_coverage_missing": 21,
+    "integrated": 50,
+    "px4_attitude_reset": 1
+  },
+  "availability_pass_windows": 9,
+  "detector_evaluated_windows": 0,
+  "conclusive_decisions": 0,
+  "conditional_quality_screen": {
+    "imu_coverage_missing": 21,
+    "phase_availability_or_gap": 46,
+    "motion_below_noise_floor": 4,
+    "px4_attitude_reset": 1
+  },
+  "geometry": {
+    "origin": {
+      "latitude_deg": 59.352622000000004,
+      "longitude_deg": 18.0727499,
+      "ellipsoid_height_m": 32.744
+    },
+    "origin_source": "user-authorized median ULog GNSS location ONLY; not displacement or velocity",
+    "navigation_file": "/home/borna/thesis/SpoofingDetection/detect2/results/recorded_july07/adapted_inputs/broadcast_navigation.rnx.gz",
+    "archived_navigation_file": "adapted_inputs/broadcast_navigation.rnx.gz",
+    "navigation_sha256": "114d2ff04d33944054bf13d91250ef6b88f9914c319a877765b111034c62f494",
+    "orbit_reference": "https://www.gps.gov/sites/default/files/2025-07/IS-GPS-200N.pdf",
+    "navigation_source": "https://noaa-cors-pds.s3.amazonaws.com/rinex/2026/188/brdc1880.26n.gz",
+    "navigation_documentation": "https://www.ngs.noaa.gov/CORS/data.shtml",
+    "reference": [
+      {
+        "signal_id": "0:11:7",
+        "reference_gps_tow_s": 221110.048,
+        "gps_week": 2426,
+        "nominal_los_enu_east": -0.663966015548742,
+        "nominal_los_enu_north": 0.6074635588254396,
+        "nominal_los_enu_up": 0.4360471934268808,
+        "azimuth_deg": 312.4554440795451,
+        "elevation_deg": 25.851947157079294,
+        "range_m": 23227017.662419938,
+        "ephemeris_age_s": -2089.95199999999,
+        "ephemeris_healthy": true,
+        "toe_s": 223200.0
+      },
+      {
+        "signal_id": "0:26:7",
+        "reference_gps_tow_s": 221110.048,
+        "gps_week": 2426,
+        "nominal_los_enu_east": 0.9421298062610686,
+        "nominal_los_enu_north": 0.21336931619769026,
+        "nominal_los_enu_up": 0.2585826039388793,
+        "azimuth_deg": 77.23917582265304,
+        "elevation_deg": 14.985975489727036,
+        "range_m": 23894843.597987868,
+        "ephemeris_age_s": -2089.95199999999,
+        "ephemeris_healthy": true,
+        "toe_s": 223200.0
+      },
+      {
+        "signal_id": "0:28:7",
+        "reference_gps_tow_s": 221110.048,
+        "gps_week": 2426,
+        "nominal_los_enu_east": 0.5211464204895746,
+        "nominal_los_enu_north": 0.8387127077089195,
+        "nominal_los_enu_up": 0.15801076652708243,
+        "azimuth_deg": 31.85535632789253,
+        "elevation_deg": 9.09145281426693,
+        "range_m": 24825911.539213456,
+        "ephemeris_age_s": -2089.95199999999,
+        "ephemeris_healthy": true,
+        "toe_s": 223200.0
+      },
+      {
+        "signal_id": "0:3:7",
+        "reference_gps_tow_s": 221110.048,
+        "gps_week": 2426,
+        "nominal_los_enu_east": 0.6974518143145176,
+        "nominal_los_enu_north": -0.339359980095969,
+        "nominal_los_enu_up": 0.6311860031865814,
+        "azimuth_deg": 115.94622111863276,
+        "elevation_deg": 39.1376780029534,
+        "range_m": 22010517.93970181,
+        "ephemeris_age_s": -2089.95199999999,
+        "ephemeris_healthy": true,
+        "toe_s": 223200.0
+      },
+      {
+        "signal_id": "0:4:7",
+        "reference_gps_tow_s": 221110.048,
+        "gps_week": 2426,
+        "nominal_los_enu_east": 0.1071340499811399,
+        "nominal_los_enu_north": -0.1585386987590856,
+        "nominal_los_enu_up": 0.9815231919472991,
+        "azimuth_deg": 145.9507608667406,
+        "elevation_deg": 78.9688172730172,
+        "range_m": 20337509.931131724,
+        "ephemeris_age_s": 630.0480000000098,
+        "ephemeris_healthy": true,
+        "toe_s": 220480.0
+      },
+      {
+        "signal_id": "0:6:7",
+        "reference_gps_tow_s": 221110.048,
+        "gps_week": 2426,
+        "nominal_los_enu_east": -0.5908536730664093,
+        "nominal_los_enu_north": 0.038142849784075214,
+        "nominal_los_enu_up": 0.8058765786609524,
+        "azimuth_deg": 273.69363198533887,
+        "elevation_deg": 53.694996359235766,
+        "range_m": 21244487.439522397,
+        "ephemeris_age_s": -2089.95199999999,
+        "ephemeris_healthy": true,
+        "toe_s": 223200.0
+      },
+      {
+        "signal_id": "0:9:7",
+        "reference_gps_tow_s": 221110.048,
+        "gps_week": 2426,
+        "nominal_los_enu_east": -0.46055666569724496,
+        "nominal_los_enu_north": -0.399968631439411,
+        "nominal_los_enu_up": 0.7924093964273271,
+        "azimuth_deg": 229.0274461751499,
+        "elevation_deg": 52.411246864904726,
+        "range_m": 21196083.827628255,
+        "ephemeris_age_s": -2089.95199999999,
+        "ephemeris_healthy": true,
+        "toe_s": 223200.0
+      }
+    ]
+  },
+  "blockers": [
+    "verified measurement clock",
+    "receiver lock/validity/slip metadata or documented quality policy",
+    "measured noise model"
+  ],
+  "noise_sensitivity_sigmas_m_s2": [
+    0.3,
+    1.0,
+    3.0
+  ],
+  "labels": {
+    "expected_case": "benign",
+    "source": "user-declared flight condition",
+    "used_for_alignment_or_model_fit": false,
+    "old_detection_events_used": false
+  },
+  "exports": "inspection inputs; missing flags and calibration remain null/blank, not synthesized",
+  "model": "IMU integration with supplied PX4 attitude; zero initial p/v each window; no gyro AHRS or fused position",
+  "phase_quality": "raw cycles; polynomial residuals use actual irregular times; missing phase not interpolated"
+}

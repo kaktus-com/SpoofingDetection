@@ -1,0 +1,5 @@
+{
+  "initial_failure": "MON-VER read-only identity poll timed out after successful captures; no writes occurred",
+  "read_only_retry_errors": [],
+  "captures_repeated": false
+}

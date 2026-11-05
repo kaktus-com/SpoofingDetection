@@ -1,0 +1,26 @@
+{
+  "20261105T131201Z_3f60be": {
+    "source": "/home/nss/SpoofingDetection/recordings_v2/20261105T131201Z_3f60be",
+    "status": "failed",
+    "native_file": null,
+    "native_collection": "not_started"
+  },
+  "20261105T131308Z_d3f681": {
+    "source": "/home/nss/SpoofingDetection/recordings_v2/20261105T131308Z_d3f681",
+    "status": "stopped",
+    "native_file": "native.ulg",
+    "native_collection": "collected"
+  },
+  "20261105T132010Z_c4cbfd": {
+    "source": "/home/nss/SpoofingDetection/recordings_v2/20261105T132010Z_c4cbfd",
+    "status": "stopped",
+    "native_file": "native.ulg",
+    "native_collection": "collected"
+  },
+  "20261105T132748Z_9c3265": {
+    "source": "/home/nss/SpoofingDetection/recordings_v2/20261105T132748Z_9c3265",
+    "status": "stopped",
+    "native_file": "native_001.ulg",
+    "native_collection": "collected"
+  }
+}

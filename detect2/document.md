@@ -1,5 +1,8 @@
 # Recording requirements for detect2
 
+Implementation sequence and manual approval checkpoints:
+[drone recording implementation plan](IMPLEMENTATION_PLAN.md).
+
 ## Current July recording
 
 The recording is useful for phase, timing and motion analysis, but has not

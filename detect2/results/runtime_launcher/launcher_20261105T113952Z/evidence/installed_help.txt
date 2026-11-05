@@ -1,0 +1,18 @@
+usage: runtime.py [-h] [--output-root OUTPUT_ROOT] [--duration-s DURATION_S]
+                  [--gps-device GPS_DEVICE] [--mavlink-bind MAVLINK_BIND]
+                  [--finalize FINALIZE]
+
+Configure at runtime, record original streams and collect the native ULog. No
+startup files, receiver flash/BBR writes, router starts, reboot or arming. PX4
+logging parameters may be autosaved by PX4 if correction is necessary.
+
+options:
+  -h, --help            show this help message and exit
+  --output-root OUTPUT_ROOT
+  --duration-s DURATION_S
+                        Recording seconds after required streams are ready;
+                        default: until Ctrl+C
+  --gps-device GPS_DEVICE
+  --mavlink-bind MAVLINK_BIND
+  --finalize FINALIZE   Collect the bookmarked native log after disarm; no
+                        receiver reconfiguration

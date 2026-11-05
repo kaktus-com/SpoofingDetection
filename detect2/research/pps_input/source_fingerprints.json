@@ -1,0 +1,50 @@
+{
+  "git_commit": "cb411db5b54a98442ab974292c81b74c057bdf25",
+  "source_files": {
+    "boards/cubepilot/cubeorange/default.px4board": {
+      "sha256": "fa5dba97b2f4c6da02918822cd81a97d9e898879bc58f5224b21700cd958f75a",
+      "unmodified_relative_to_commit": true
+    },
+    "boards/cubepilot/cubeorange/src/timer_config.cpp": {
+      "sha256": "ebdcb981caa40c3f6178eacbce81207cc35c91013b194128243a51c67d7688c5",
+      "unmodified_relative_to_commit": true
+    },
+    "boards/cubepilot/cubeorange/src/board_config.h": {
+      "sha256": "d1d85a15ecefbd84fad25e23828714e6ee0c4f78e323eec03bedb7b211f5944c",
+      "unmodified_relative_to_commit": true
+    },
+    "src/drivers/pps_capture/PPSCapture.cpp": {
+      "sha256": "a5864ee60e322916013315075e6558264d4f540fb9006554b2afe9b207ad2761",
+      "unmodified_relative_to_commit": true
+    },
+    "src/drivers/pps_capture/PPSCapture.hpp": {
+      "sha256": "a2b5162318c45ebadeb36be79beb9f924c7ae31deb3e1357ad2167acdfef9c28",
+      "unmodified_relative_to_commit": true
+    },
+    "src/drivers/pps_capture/CMakeLists.txt": {
+      "sha256": "ad1fa90207e13765fab925402e6aeb05f419958c59cd00201a16a0c2c69b52e6",
+      "unmodified_relative_to_commit": true
+    },
+    "src/drivers/pps_capture/pps_capture_params.yaml": {
+      "sha256": "dcc9ea3edd10f503ff6ffa09cba69e6d7342395f9b04961e794b9bf07f11c5c3",
+      "unmodified_relative_to_commit": true
+    },
+    "src/drivers/pwm_out/PWMOut.cpp": {
+      "sha256": "b5974ae4b8386ded5f50179401eeb748f781a5724e19cda40074505efcb64a34",
+      "unmodified_relative_to_commit": true
+    },
+    "ROMFS/px4fmu_common/init.d/rcS": {
+      "sha256": "171d461320e21baab5529f1854ddfd94e728908c0bf448406048b2fcac5940e2",
+      "unmodified_relative_to_commit": true
+    },
+    "src/modules/logger/logged_topics.cpp": {
+      "sha256": "d92655b95c0ef5f72a107db5268544ed3fb1255e595c1980b8a786bcc564d15a",
+      "unmodified_relative_to_commit": true
+    },
+    "msg/PpsCapture.msg": {
+      "sha256": "d859756b3ec1765e1704cc64e59043497a53afc8c0936fb91e69567ac4cc3948",
+      "unmodified_relative_to_commit": true
+    }
+  },
+  "note": "Matched local PX4 source. The deployed firmware identifies with this commit; live read-only parameter/module status is saved separately."
+}

@@ -1,0 +1,40 @@
+{
+  "utc": "2026-11-04T15:27:48.167130+00:00",
+  "hostname": "kth-nss-6",
+  "boot_id": "eca5e237-9785-4a09-8de6-8b51f5cf2570",
+  "monotonic_ns": 3732345596848167,
+  "unix_ns": 1793806068167453912,
+  "settings_changed": false,
+  "devices": {
+    "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0": "/dev/ttyUSB0",
+    "/dev/serial/by-id/usb-CubePilot_CubeOrange_0-if00": "/dev/ttyACM0"
+  },
+  "checks": {
+    "px4_parameter_export_complete": true,
+    "all_touched_receiver_ram_keys_saved": true,
+    "receiver_ram_unchanged": true,
+    "original_script_hashes_still_match": true,
+    "raw_receiver_capture_saved": true,
+    "router_single_process": true
+  },
+  "read_queries": [
+    "MAVLink PARAM_REQUEST_LIST and missing-index PARAM_REQUEST_READ",
+    "UBX MON-VER",
+    "UBX MON-COMMS",
+    "UBX CFG-VALGET layers RAM/BBR/Flash/Defaults"
+  ],
+  "px4_logging_parameters": {
+    "SDLOG_BACKEND": 3,
+    "SDLOG_MODE": 0,
+    "SDLOG_PROFILE": 1
+  },
+  "status": "ready_for_manual_checkpoint_0",
+  "receiver_layers_available": [
+    "0",
+    "2",
+    "7"
+  ],
+  "disk_free_bytes": 17756307456,
+  "completed_utc": "2026-11-04T15:28:11.853432+00:00",
+  "export_completion_note": "Special _HASH_CHECK index 65535 is protocol metadata, excluded from table count; final missing index retrieved with PARAM_REQUEST_READ."
+}

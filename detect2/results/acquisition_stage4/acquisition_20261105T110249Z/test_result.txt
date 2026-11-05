@@ -1,0 +1,2 @@
+Final local suite: python3 -m pytest SpoofingDetection/detect2/tests/test_acquisition.py SpoofingDetection/detect2/tests/test_baudrate.py SpoofingDetection/detect2/tests/test_px4_logging.py SpoofingDetection/detect2/tests/test_ulog_audit.py -q
+30 passed in 3.29s. The deployment used 29 passing tests; the additional local audit test verifies timestamp_sample versus publication jitter after native inspection.

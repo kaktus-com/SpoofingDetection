@@ -1,0 +1,7 @@
+
+NuttShell (NSH) NuttX-11.0.0
+nsh> [Klogger start -b 128 -t -m all -f
+INFO  [logger] logger started (mode=all)
+nsh> [KINFO  [logger] Start file log (type: full)
+INFO  [logger] [logger] /fs/microsd/log/2026-11-05/13_23_49.ulg	
+INFO  [logger] Opened full log file: /fs/microsd/log/2026-11-05/13_23_49.ulg

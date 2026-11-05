@@ -1,0 +1,131 @@
+{
+  "stage": 3,
+  "results": [
+    {
+      "label": "Final messages \u00b7 921600 baud",
+      "baud": 921600,
+      "duration_s": 30.324006,
+      "rawx_epochs": 599,
+      "unexpected_rawx_intervals": 0,
+      "max_rawx_gap_ms": 50.00019073486328,
+      "steady_receiver_bytes_per_s": 71749.20398105493,
+      "uart_capacity_bytes_per_s": 92160.0,
+      "uart_utilization": 0.778528689030544,
+      "signal_observation_identities": 107,
+      "observation_count": 64026,
+      "rawx_diagnostics": {
+        "valid_frames": 1709,
+        "invalid_candidates": 0,
+        "trailing_partial_candidates": 1
+      },
+      "invalid_carrier_flag_observations": 930,
+      "packet_counts": {
+        "01-07": 30,
+        "02-15": 599,
+        "01-35": 30,
+        "0d-01": 30,
+        "02-13": 990,
+        "0a-36": 30
+      },
+      "packet_bytes": {
+        "01-07": 3000,
+        "02-15": 2063208,
+        "01-35": 16152,
+        "0d-01": 720,
+        "02-13": 62280,
+        "0a-36": 4080
+      },
+      "observation_counts_by_gnss_id": {
+        "0": 18569,
+        "5": 2396,
+        "3": 19700,
+        "2": 23361
+      },
+      "recorder_dropped_bytes": 0,
+      "receiver_peak_writer_buffer_bytes": 497,
+      "uart1_health_samples": 30,
+      "uart1_max_tx_usage_percent": 15,
+      "uart1_max_tx_pending_bytes": 0,
+      "uart1_skipped_counter_change": 0,
+      "uart1_overrun_counter_change": 0,
+      "session": "/home/borna/thesis/SpoofingDetection/detect2/results/acquisition_stage3/acquisition_20261105T103442Z/evidence/reduced_921600/20261105T103617Z_2108d9",
+      "status": "complete",
+      "stream_integrity": true,
+      "low_rate_packets_present": true
+    },
+    {
+      "label": "Final profile \u00b7 2 Mbaud \u00b7 1 Hz health",
+      "baud": 2000000,
+      "duration_s": 120.251003,
+      "rawx_epochs": 2399,
+      "unexpected_rawx_intervals": 0,
+      "max_rawx_gap_ms": 50.00019073486328,
+      "steady_receiver_bytes_per_s": 70597.30552294188,
+      "uart_capacity_bytes_per_s": 200000.0,
+      "uart_utilization": 0.3529865276147094,
+      "signal_observation_identities": 106,
+      "observation_count": 251944,
+      "rawx_diagnostics": {
+        "valid_frames": 6891,
+        "invalid_candidates": 0,
+        "trailing_partial_candidates": 1
+      },
+      "invalid_carrier_flag_observations": 49,
+      "packet_counts": {
+        "02-13": 4012,
+        "02-15": 2399,
+        "0a-36": 120,
+        "01-07": 120,
+        "01-35": 120,
+        "0d-01": 120
+      },
+      "packet_bytes": {
+        "02-13": 252632,
+        "02-15": 8119784,
+        "0a-36": 16320,
+        "01-07": 12000,
+        "01-35": 63396,
+        "0d-01": 2880
+      },
+      "observation_counts_by_gnss_id": {
+        "0": 74369,
+        "5": 9596,
+        "3": 74418,
+        "2": 93561
+      },
+      "recorder_dropped_bytes": 0,
+      "receiver_peak_writer_buffer_bytes": 496,
+      "uart1_health_samples": 120,
+      "uart1_max_tx_usage_percent": 15,
+      "uart1_max_tx_pending_bytes": 0,
+      "uart1_skipped_counter_change": 0,
+      "uart1_overrun_counter_change": 0,
+      "session": "/home/borna/thesis/SpoofingDetection/detect2/results/acquisition_stage3/acquisition_20261105T103442Z/evidence/reduced_2000000/20261105T103656Z_83478c",
+      "status": "complete",
+      "stream_integrity": true,
+      "low_rate_packets_present": true
+    }
+  ],
+  "automated_acceptance": {
+    "all_configuration_checks_pass": true,
+    "flash_touched_key_values_unchanged": true,
+    "two_minute_capture_completed": true,
+    "archive_integrity": true,
+    "rawx_continuity": true,
+    "receiver_frame_validation": true,
+    "uart_headroom_at_least_20_percent": true,
+    "uart_health_present": true,
+    "uart_tx_usage_below_80_percent": true,
+    "uart_no_new_skipped_bytes": true,
+    "uart_no_new_overruns": true,
+    "navigation_health_subframe_timepulse_packets_present": true
+  },
+  "all_traffic_checks_pass": true,
+  "manual_checkpoint_3": "awaiting user review",
+  "current_receiver_baud": 2000000,
+  "persistent_writes": false,
+  "constellation_changes_needed": false,
+  "gnss_to_px4_clock": "UNKNOWN",
+  "native_ulog": "UNKNOWN",
+  "ready_for_validated_detector": false
+}

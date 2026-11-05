@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "mode": "live",
+  "status": "complete",
+  "started_utc": "2026-11-05T11:05:46.579841+00:00",
+  "host": "kth-nss-6",
+  "platform": "Linux-6.12.87+rpt-rpi-v8-aarch64-with-glibc2.36",
+  "boot_id": "eca5e237-9785-4a09-8de6-8b51f5cf2570",
+  "expected_streams": [
+    "receiver",
+    "mavlink"
+  ],
+  "configuration_changed": false,
+  "buffer_limits_per_stream": {
+    "max_chunks": 4096,
+    "max_bytes": 8388608
+  },
+  "clock_anchors": [
+    {
+      "host_monotonic_ns": 3803024014314359,
+      "unix_ns": 1793876746584920288
+    },
+    {
+      "host_monotonic_ns": 3803114316095276,
+      "unix_ns": 1793876836886700428
+    }
+  ],
+  "packages": {
+    "pyserial": "3.5",
+    "pymavlink": "2.4.49",
+    "pyubx2": "1.3.3"
+  },
+  "source_hashes": {
+    "__init__.py": "3c0a4de92b2ea160cc5c8884e50dd2a09f7e498cfc54fe4541bb21a8471868b7",
+    "audit_session.py": "00a12dc73c9c191f6d62b6b84a35c13bbe1bcc0ffcf5fbacf27ffa85bbc5fc35",
+    "baudrate.py": "58292dd9c67d4fec328f4786a20b7680fcd0005988a8b04106280145e8ca70c8",
+    "capture.py": "2cc93e4f73b7981c54dd7ee65526b6343aeb0fad58307ecb605ab0a5874902ec",
+    "common.py": "8f3d0cc68b1d0380a89f6409682258ff14d83462dde46d72fe18895e332ef11a",
+    "mavlink_capture.py": "282d47e83673fd79561900cddd0d431297627731c5a3e0be72c0c6d002bcdfdd",
+    "px4_logging.py": "d7bc1569f35c4218b6b9382d576851678e92e66436ee3c59c275f213d6ac2938",
+    "receiver_config.py": "ff7c0bc2bdf4bbc61d3ef69dbb6b4a644db0a78f97b91c48f8c1fcf620c24059",
+    "replay.py": "ccab711ce41547fd322970737e5eb011d7e957f432cc650712ed63bec89cd359",
+    "serial_capture.py": "39403bfe0a7294da96f81ccffdea92af7a8e37c1e57147556d3229372ea6ffaa",
+    "timesync.py": "621e8d0946436117d073dcf3a04d9d8a64a7392178621f53683b39a5bb5fb48f",
+    "ubx.py": "cf6466683219c46d1f071fcbbd99ecf75e43a365f4d07534424e32b981c5c145",
+    "ulog_audit.py": "266c7399fd49cb3237d7eee38cdcf018391c5aecedcc21f9edebff6573435906"
+  },
+  "metadata": {
+    "gps_device": "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0",
+    "gps_baud": 2000000,
+    "mavlink_bind": [
+      "127.0.0.1",
+      14551
+    ],
+    "receiver_profile": "not queried; UNKNOWN",
+    "timesync_active": false,
+    "expected_rawx_hz": 20.0,
+    "timestamps": "original host receive chunks/datagrams; source sensor times unchanged",
+    "gnss_to_px4_clock_verified": false
+  },
+  "stop_reason": "duration",
+  "ended_utc": "2026-11-05T11:07:16.740108+00:00",
+  "streams": {
+    "receiver": {
+      "received_bytes": 6468379,
+      "written_bytes": 6468379,
+      "input_chunks": 27040,
+      "dropped_bytes": 0,
+      "dropped_chunks": 0,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 496,
+      "peak_queue_chunks": 2,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    },
+    "mavlink": {
+      "received_bytes": 2488762,
+      "written_bytes": 2488762,
+      "input_chunks": 33135,
+      "dropped_bytes": 0,
+      "dropped_chunks": 0,
+      "buffered_bytes": 0,
+      "queue_chunks": 0,
+      "peak_buffered_bytes": 573,
+      "peak_queue_chunks": 9,
+      "write_in_progress_age_s": 0.0,
+      "error": null,
+      "writer_closed": true
+    }
+  },
+  "issues": {
+    "counts": {},
+    "events": []
+  },
+  "missing_streams": [],
+  "files": {
+    "mavlink.bin": {
+      "bytes": 2488762,
+      "sha256": "d330106cb62f590dab88f678c3275775682c8270e1ccbd7ba03e1561374c5755"
+    },
+    "clock_sync.csv": {
+      "bytes": 176,
+      "sha256": "e5c08742d2d71eeccf9d091a3120175bea61bf1ed682962ffb4d9160840f7b85"
+    },
+    "receiver_receive.csv": {
+      "bytes": 1038556,
+      "sha256": "e891df2865ea26260d6c494c1ce307c5b65d9582c34878a4866f78565f77acd2"
+    },
+    "receiver.bin": {
+      "bytes": 6468379,
+      "sha256": "6f721f99292d63bcee07de79ac6a8b6a2f73a5c804741daa9fa836a851a19373"
+    },
+    "health.jsonl": {
+      "bytes": 62906,
+      "sha256": "1d50a9a8dbc23d7bd27b3b184f20154d69058f37637df7de847e32cfdbc30bbe"
+    },
+    "mavlink_receive.csv": {
+      "bytes": 1733035,
+      "sha256": "ae8e6124550661bd0678aeebba7cbb05b183f85c3d8e41d1771032363db9efa8"
+    }
+  }
+}

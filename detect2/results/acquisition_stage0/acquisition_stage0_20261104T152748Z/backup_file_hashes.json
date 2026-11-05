@@ -1,0 +1,137 @@
+[
+  {
+    "path": "gps_ownership_before_capture.json",
+    "bytes": 106,
+    "sha256": "adb3918d36a9529b7390144c3f3360d3813b6cd61e1545a0f7d75942c706d0d4"
+  },
+  {
+    "path": "mavlink.bin",
+    "bytes": 341688,
+    "sha256": "d681a5f7806aea67c68e8653598346c39062a38f7c8c91e89599ad5f03a7cf73"
+  },
+  {
+    "path": "mavlink_baseline.json",
+    "bytes": 2189,
+    "sha256": "0f6171ee1098a24383def91fc8f34121ff5d314c0a69925ce5d5884431df1d69"
+  },
+  {
+    "path": "mavlink_receive.csv",
+    "bytes": 218973,
+    "sha256": "82a1701b3155f45aa95bd06c0510d6bb160eb8c9721753a7340f91333af8e55c"
+  },
+  {
+    "path": "packages.json",
+    "bytes": 1237,
+    "sha256": "113758d22e6d367cff645d4bac8b7d2af0a0845f7f308460a297f397902d5917"
+  },
+  {
+    "path": "px4_parameters.json",
+    "bytes": 166580,
+    "sha256": "6c73263d8386e4fb70ec3c1598ebf5297723ab751b13d8dd37604032df3435a0"
+  },
+  {
+    "path": "px4_parameters.params",
+    "bytes": 27486,
+    "sha256": "b2d7885ab105fd3a0a04e4b076681a54b5c91c412636a5dec1a709a306cb9eeb"
+  },
+  {
+    "path": "px4_parameters_firstpass.json",
+    "bytes": 166252,
+    "sha256": "559d28f144484a61d5290803da5e2b20b088fe609241c9c926a558c9303b3edc"
+  },
+  {
+    "path": "px4_parameters_firstpass.params",
+    "bytes": 27486,
+    "sha256": "388861a175f73f526129ebb0ccedf787685018f6ac303b2c854a6ab2968ce15c"
+  },
+  {
+    "path": "receiver.bin",
+    "bytes": 1106578,
+    "sha256": "8d6b59268408247a36376ba06fcceb1cd5d9d337e5a63443d0257ab8ca92813a"
+  },
+  {
+    "path": "receiver_baseline.json",
+    "bytes": 4014,
+    "sha256": "6a82287014ce5ce55aaab37c88df5b39a63f5c9a3168bcb4bf2b609085ed8a35"
+  },
+  {
+    "path": "receiver_configuration.json",
+    "bytes": 5948,
+    "sha256": "7ddc842adda46e901ba69c5459deb783ea72ac12c7928bdbddc1b9a96e55419d"
+  },
+  {
+    "path": "receiver_epochs.csv",
+    "bytes": 9148,
+    "sha256": "db208aad8af8408850a8c827b40a5efd3df420cd05b01b953c3f71e35f87c919"
+  },
+  {
+    "path": "receiver_read_requests.json",
+    "bytes": 1744,
+    "sha256": "127a1e65edb015a6096aece6cdd0beb5064f6e47b33263a8f1a3ec5e96ae6cc3"
+  },
+  {
+    "path": "receiver_receive.csv",
+    "bytes": 124952,
+    "sha256": "97323e1757f36f95a1249073c8564ef499670355356e55dc3263a472ef00e531"
+  },
+  {
+    "path": "router_configuration/lib/systemd/system/mavlink-router.service",
+    "bytes": 158,
+    "sha256": "faaeab3e75758fac62d88540cab2ba3f5962af081e8f569ec9c4d3695d143f1a"
+  },
+  {
+    "path": "script_hashes.json",
+    "bytes": 1717,
+    "sha256": "4814e4f35653ff7f769505582edc7417984cd2e0bad9f59e45be7ae0c85b0e25"
+  },
+  {
+    "path": "scripts/README.md",
+    "bytes": 19,
+    "sha256": "4bee76c6e416948dafd9513daa66831cc6174c59d2e1d69e7faabf73ff2692ce"
+  },
+  {
+    "path": "scripts/detrend_carrier.py",
+    "bytes": 4867,
+    "sha256": "f803a1209797081ce6c3f69ddd3b72e95e6f8ce40e64fca02db59fc3230cede8"
+  },
+  {
+    "path": "scripts/mavlink_read.py",
+    "bytes": 5831,
+    "sha256": "3716eb6efb6055451aff38b0c22620cf025423c4897ba0fe17f754f7157424f7"
+  },
+  {
+    "path": "scripts/npy_database.py",
+    "bytes": 10101,
+    "sha256": "7d339a00c81434a7ed3dbda3b0e40081cebdbe1e1c843e4952dcea34257b5492"
+  },
+  {
+    "path": "scripts/redetrend_synced_csv.py",
+    "bytes": 9229,
+    "sha256": "a83fe28456f0d00c6e23ba5369b6bf73eb939d576e7b27cf6d4d7e05411ea379"
+  },
+  {
+    "path": "scripts/spoofing_detector.py",
+    "bytes": 7779,
+    "sha256": "a9117f82954763742de37faf06d920c0d36f9d2b8311180c659266c2a563a9d8"
+  },
+  {
+    "path": "scripts/start",
+    "bytes": 226,
+    "sha256": "5ed4db8eded44750ff063d992bdd52ba0c9823eec21f6c68913384044d2d03df"
+  },
+  {
+    "path": "scripts/sync_measurements_recorder.py",
+    "bytes": 7510,
+    "sha256": "ed4179f0563c4f270f07b196c20695a6bccd8da6366bf06ace8ffbf3db72a641"
+  },
+  {
+    "path": "stage0_manifest.json",
+    "bytes": 1331,
+    "sha256": "65c55c7c8086412efd3c6c0641322b8465305590a69a6f3239adff72b9929e07"
+  },
+  {
+    "path": "system.json",
+    "bytes": 2710,
+    "sha256": "16944a017f0ea8cc20d872d116859f546e80a8a6722504542d394971f347d720"
+  }
+]

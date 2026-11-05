@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "utc": "2026-11-05T11:44:16.694257+00:00",
+  "identity": {
+    "transport_device": "/dev/serial/by-id/usb-FTDI_FT230X_Basic_UART_DQ00KK6P-if00-port0",
+    "reported_receiver": {
+      "swVersion": "EXT HPG 2.00 (1e963fM)",
+      "hwVersion": "000B0000",
+      "extension_01": "ROM BASE 0x22018AE9",
+      "extension_02": "FWVER=HPG 2.00",
+      "extension_03": "PROTVER=50.02",
+      "extension_04": "MOD=ZED-X20P",
+      "extension_05": "GPS;GLO;GAL;BDS",
+      "extension_06": "SBAS;QZSS",
+      "extension_07": "NAVIC",
+      "extension_08": "14.04.2025 14:04:27"
+    },
+    "unique_receiver_hardware_id": "not queried; physical identity must be checked at the manual gate"
+  },
+  "ram": {
+    "CFG_RATE_MEAS": 40,
+    "CFG_RATE_NAV": 1,
+    "CFG_MSGOUT_UBX_RXM_RAWX_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_PVT_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_SAT_UART1": 10,
+    "CFG_MSGOUT_UBX_MON_COMMS_UART1": 0,
+    "CFG_MSGOUT_UBX_RXM_SFRBX_UART1": 0,
+    "CFG_MSGOUT_UBX_TIM_TP_UART1": 0,
+    "CFG_MSGOUT_UBX_NAV_SIG_UART1": 1,
+    "CFG_MSGOUT_UBX_RXM_MEASX_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_HPPOSECEF_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_POSECEF_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_HPPOSLLH_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_VELNED_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_STATUS_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_DOP_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_COV_UART1": 1,
+    "CFG_MSGOUT_UBX_NAV_EOE_UART1": 1,
+    "CFG_UART1_BAUDRATE": 921600,
+    "CFG_SIGNAL_GPS_ENA": 1,
+    "CFG_SIGNAL_GAL_ENA": 1,
+    "CFG_SIGNAL_BDS_ENA": 1,
+    "CFG_SIGNAL_GLO_ENA": 0,
+    "CFG_SIGNAL_QZSS_ENA": 1,
+    "CFG_SIGNAL_SBAS_ENA": 0,
+    "CFG_SIGNAL_NAVIC_ENA": 0
+  },
+  "configuration_changed": false
+}

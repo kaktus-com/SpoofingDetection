@@ -1,0 +1,4 @@
+python3 -m pytest SpoofingDetection/detect2/tests/test_acquisition.py SpoofingDetection/detect2/tests/test_baudrate.py -q
+21 passed in 3.13s
+Simulated UDP/serial devices only. Includes paused-writer burst preservation, explicit overflow failure, byte fidelity, clean shutdown, receiver rollback and baud recovery.
+Run before final release deployment.

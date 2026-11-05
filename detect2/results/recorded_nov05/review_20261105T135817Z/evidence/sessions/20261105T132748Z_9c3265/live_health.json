@@ -1,0 +1,14 @@
+{
+  "ready": true,
+  "rawx_epochs": 2861,
+  "mavlink_messages": {
+    "HIGHRES_IMU": 7153,
+    "ATTITUDE_QUATERNION": 7153
+  },
+  "last_receive_monotonic_ns": {
+    "HIGHRES_IMU": 1876729783398,
+    "ATTITUDE_QUATERNION": 1876730280213,
+    "RAWX": 1876728198139
+  },
+  "last_gps_epoch": 1477921268.905
+}

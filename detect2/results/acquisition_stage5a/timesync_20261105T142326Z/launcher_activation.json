@@ -1,0 +1,10 @@
+{
+  "previous_launcher": "/home/nss/SpoofingDetection/releases/launcher_20261105T113952Z/start_recording",
+  "activated_launcher": "/home/nss/SpoofingDetection/releases/timesync_20261105T142326Z_final/start_recording",
+  "source_hashes_verified": 26,
+  "default_passive": true,
+  "enable_command": "./start_recording --timesync",
+  "old_flight_raw_files_unchanged": 15,
+  "receiver_epoch_bridge": "UNKNOWN",
+  "manual_checkpoint": "5A; no Stage 5B wiring work"
+}

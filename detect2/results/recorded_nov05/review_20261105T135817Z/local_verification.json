@@ -1,0 +1,11 @@
+{
+  "archive_sha256": "ebac39ba295f714f6a6ff08c6ad16ee04de5d334387390d28643a7fcc592772b",
+  "source_files_verified": 113,
+  "html_pages_checked": 7,
+  "report_links_checked": 54,
+  "raw_archives_unchanged": true,
+  "all_three_native_logs_collected": true,
+  "all_three_gnss_continuous": true,
+  "native_events_overlapping_airborne": 0,
+  "gnss_to_px4_clock": "UNKNOWN"
+}

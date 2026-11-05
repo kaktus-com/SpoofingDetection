@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/home/nss/SpoofingDetection/releases/acquisition_20261105T110249Z/start_capture",
+    "--gps-baud",
+    "2000000",
+    "--expected-rawx-hz",
+    "20",
+    "--duration-s",
+    "90",
+    "--output-root",
+    "/home/nss/SpoofingDetection/recordings_v2_stage4/acquisition_20261105T110249Z/capture"
+  ],
+  "exit_code": 0,
+  "session": "/home/nss/SpoofingDetection/recordings_v2_stage4/acquisition_20261105T110249Z/capture/20261105T110546Z_ec1f6a",
+  "native_path": "/fs/microsd/log/2026-11-05/11_05_27.ulg"
+}

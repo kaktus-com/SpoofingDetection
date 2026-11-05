@@ -1,0 +1,34 @@
+{
+  "release_id": "acquisition_20261105T100733Z",
+  "stage": 2,
+  "stage1_approval": "user: do it",
+  "stage1_tests_passed": 149,
+  "remote_release": "/home/nss/SpoofingDetection/releases/acquisition_20261105T100733Z",
+  "files": {
+    "start_capture": "9786009a243c63e3247055da96e8d90997c88a603c2dddf98b77640585403971",
+    "detect2/acquisition/README.md": "05f102b5cf87478a7252573d51938c5a7e02a1016f8a5f7e6f280d819e80317a",
+    "detect2/acquisition/__init__.py": "3c0a4de92b2ea160cc5c8884e50dd2a09f7e498cfc54fe4541bb21a8471868b7",
+    "detect2/acquisition/audit_session.py": "00a12dc73c9c191f6d62b6b84a35c13bbe1bcc0ffcf5fbacf27ffa85bbc5fc35",
+    "detect2/acquisition/audit_template.html": "89a0bdb1321e1c6839b119a4cce541d71d46ae0fadb7d0a8888f4424bd4e0abc",
+    "detect2/acquisition/capture.py": "b378ba3395ab8efd2c1731a1f7b4904eb40888f88732290c7357e214d9b70099",
+    "detect2/acquisition/common.py": "f58e4127ab315a3bcd38a7492e4904d3ff5e19595d8d16caa736889ffa2d9065",
+    "detect2/acquisition/mavlink_capture.py": "282d47e83673fd79561900cddd0d431297627731c5a3e0be72c0c6d002bcdfdd",
+    "detect2/acquisition/px4_logging_profile.params": "cf661b8d033fb2d7fc5e923d063e785fcaf0ae2e2cf5b1af4318dfa4f73f8c31",
+    "detect2/acquisition/receiver_config.py": "ff7c0bc2bdf4bbc61d3ef69dbb6b4a644db0a78f97b91c48f8c1fcf620c24059",
+    "detect2/acquisition/replay.py": "ccab711ce41547fd322970737e5eb011d7e957f432cc650712ed63bec89cd359",
+    "detect2/acquisition/requirements.txt": "81ced511ffda4fcc5a23fb19f1dc58278506777c883230acc33fcf061526bb1e",
+    "detect2/acquisition/serial_capture.py": "39403bfe0a7294da96f81ccffdea92af7a8e37c1e57147556d3229372ea6ffaa",
+    "detect2/acquisition/timesync.py": "621e8d0946436117d073dcf3a04d9d8a64a7392178621f53683b39a5bb5fb48f",
+    "detect2/acquisition/ubx.py": "cf6466683219c46d1f071fcbbd99ecf75e43a365f4d07534424e32b981c5c145",
+    "detect2/acquisition/x20_recording_profile.json": "c9848b1acac7385f1657ca5276447ac6a31bbc178c8649a4a2de4297fc35bd85"
+  },
+  "requirements": "detect2/acquisition/requirements.txt",
+  "expected_packages": {
+    "pyserial": "3.5",
+    "pymavlink": "2.4.49",
+    "pyubx2": "1.3.3"
+  },
+  "settings_changes_authorized": false,
+  "timesync_active": false,
+  "legacy_start_replaced": false
+}
