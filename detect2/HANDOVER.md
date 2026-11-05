@@ -41,12 +41,14 @@ they do not change where the saved relative report links point.
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r detect2/requirements.txt
-python -m pip install pyserial pymavlink==2.4.49 pyubx2==1.3.3
-python -m pytest detect2/tests -q
+python -m pip install -r detect2/acquisition/requirements.txt
+PYTHONPATH=.. python -m pytest detect2/tests -q
 ```
 
 The full suite passed **178 tests** before this handover. Drone acquisition
 requires its hardware/router; offline tests use fixtures and local fake peers.
+The test imports use the `SpoofingDetection` package name, so the parent of the
+default clone directory is added to the Python path for that command.
 Rebuild the recent reviews from the repository root with:
 
 ```bash
